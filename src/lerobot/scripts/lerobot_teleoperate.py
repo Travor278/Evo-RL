@@ -57,7 +57,10 @@ import time
 from dataclasses import asdict, dataclass
 from pprint import pformat
 
-import rerun as rr
+try:
+    import rerun as rr
+except ImportError:
+    rr = None
 
 from lerobot.cameras.opencv.configuration_opencv import OpenCVCameraConfig  # noqa: F401
 from lerobot.cameras.realsense.configuration_realsense import RealSenseCameraConfig  # noqa: F401
@@ -69,47 +72,78 @@ from lerobot.processor import (
     RobotProcessorPipeline,
     make_default_processors,
 )
-from lerobot.robots import (  # noqa: F401
-    Robot,
-    RobotConfig,
-    bi_openarm_follower,
-    bi_piper_follower,
-    bi_so_follower,
-    earthrover_mini_plus,
-    hope_jr,
-    koch_follower,
-    make_robot_from_config,
-    omx_follower,
-    openarm_follower,
-    piper_follower,
-    reachy2,
-    so_follower,
-    unitree_g1 as unitree_g1_robot,
+from lerobot.robots import Robot, RobotConfig, make_robot_from_config
+from lerobot.robots.bi_openarm_follower.config_bi_openarm_follower import (
+    BiOpenArmFollowerConfig,  # noqa: F401
 )
-from lerobot.teleoperators import (  # noqa: F401
-    Teleoperator,
-    TeleoperatorConfig,
-    bi_openarm_leader,
-    bi_piper_leader,
-    bi_so_leader,
-    gamepad,
-    homunculus,
-    keyboard,
-    koch_leader,
-    make_teleoperator_from_config,
-    omx_leader,
-    openarm_leader,
-    piper_leader,
-    reachy2_teleoperator,
-    so_leader,
-    unitree_g1,
+from lerobot.robots.bi_piper_follower.config_bi_piper_follower import (  # noqa: F401
+    BiPiperFollowerConfig,
+    BiPiperXFollowerConfig,
 )
+from lerobot.robots.bi_so_follower.config_bi_so_follower import (  # noqa: F401
+    BiSO100FollowerConfig,
+    BiSO101FollowerConfig,
+)
+from lerobot.robots.earthrover_mini_plus.config_earthrover_mini_plus import (
+    EarthRoverMiniPlusConfig,  # noqa: F401
+)
+from lerobot.robots.hope_jr.config_hope_jr import HopeJrArmConfig, HopeJrHandConfig  # noqa: F401
+from lerobot.robots.koch_follower.config_koch_follower import KochFollowerConfig  # noqa: F401
+from lerobot.robots.lekiwi.config_lekiwi import LeKiwiClientConfig, LeKiwiConfig  # noqa: F401
+from lerobot.robots.omx_follower.config_omx_follower import OmxFollowerConfig  # noqa: F401
+from lerobot.robots.openarm_follower.config_openarm_follower import OpenArmFollowerConfig  # noqa: F401
+from lerobot.robots.piper_follower.config_piper_follower import (  # noqa: F401
+    PiperFollowerConfig,
+    PiperFollowerConfigBase,
+    PiperXFollowerConfig,
+)
+from lerobot.robots.reachy2.configuration_reachy2 import Reachy2RobotConfig  # noqa: F401
+from lerobot.robots.so_follower.config_so_follower import (  # noqa: F401
+    SO100FollowerConfig,
+    SO101FollowerConfig,
+)
+from lerobot.robots.unitree_g1.config_unitree_g1 import UnitreeG1Config  # noqa: F401
+from lerobot.teleoperators import Teleoperator, TeleoperatorConfig, make_teleoperator_from_config
+from lerobot.teleoperators.bi_openarm_leader.config_bi_openarm_leader import (
+    BiOpenArmLeaderConfig,  # noqa: F401
+)
+from lerobot.teleoperators.bi_piper_leader.config_bi_piper_leader import (  # noqa: F401
+    BiPiperLeaderConfig,
+    BiPiperXLeaderConfig,
+)
+from lerobot.teleoperators.bi_so_leader.config_bi_so_leader import (  # noqa: F401
+    BiSO100LeaderConfig,
+    BiSO101LeaderConfig,
+)
+from lerobot.teleoperators.gamepad.configuration_gamepad import GamepadTeleopConfig  # noqa: F401
+from lerobot.teleoperators.homunculus.config_homunculus import (  # noqa: F401
+    HomunculusArmConfig,
+    HomunculusGloveConfig,
+)
+from lerobot.teleoperators.keyboard.configuration_keyboard import (  # noqa: F401
+    KeyboardEndEffectorTeleopConfig,
+    KeyboardTeleopConfig,
+)
+from lerobot.teleoperators.koch_leader.config_koch_leader import KochLeaderConfig  # noqa: F401
+from lerobot.teleoperators.omx_leader.config_omx_leader import OmxLeaderConfig  # noqa: F401
+from lerobot.teleoperators.openarm_leader.config_openarm_leader import OpenArmLeaderConfig  # noqa: F401
+from lerobot.teleoperators.piper_leader.config_piper_leader import (  # noqa: F401
+    PiperLeaderConfig,
+    PiperXLeaderConfig,
+)
+from lerobot.teleoperators.reachy2_teleoperator.config_reachy2_teleoperator import (
+    Reachy2TeleoperatorConfig,  # noqa: F401
+)
+from lerobot.teleoperators.so_leader.config_so_leader import (  # noqa: F401
+    SO100LeaderConfig,
+    SO101LeaderConfig,
+)
+from lerobot.teleoperators.unitree_g1.config_unitree_g1 import UnitreeG1TeleoperatorConfig  # noqa: F401
 from lerobot.utils.control_utils import sanity_check_bimanual_piper_pair
 from lerobot.utils.import_utils import register_third_party_plugins
 from lerobot.utils.robot_utils import precise_sleep
 from lerobot.utils.utils import init_logging, move_cursor_up
 from lerobot.utils.visualization_utils import init_rerun, log_rerun_data
-
 
 LOOP_STATUS_INTERVAL_S = 0.5
 
@@ -285,7 +319,7 @@ def teleoperate(cfg: TeleoperateConfig):
     except KeyboardInterrupt:
         pass
     finally:
-        if cfg.display_data:
+        if cfg.display_data and rr is not None:
             rr.rerun_shutdown()
         teleop.disconnect()
         robot.disconnect()

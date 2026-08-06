@@ -16,7 +16,11 @@ import numbers
 import os
 
 import numpy as np
-import rerun as rr
+
+try:
+    import rerun as rr
+except ImportError:
+    rr = None
 
 from lerobot.processor import RobotAction, RobotObservation
 
@@ -36,6 +40,8 @@ def init_rerun(
     """
     batch_size = os.getenv("RERUN_FLUSH_NUM_BYTES", "8000")
     os.environ["RERUN_FLUSH_NUM_BYTES"] = batch_size
+    if rr is None:
+        raise ImportError("`rerun-sdk` is required when display_data is enabled.")
     rr.init(session_name)
     memory_limit = os.getenv("LEROBOT_RERUN_MEMORY_LIMIT", "10%")
     if ip and port:
@@ -73,6 +79,8 @@ def log_rerun_data(
         action: An optional dictionary containing action data to log.
         compress_images: Whether to compress images before logging to save bandwidth & memory in exchange for cpu and quality.
     """
+    if rr is None:
+        raise ImportError("`rerun-sdk` is required when display_data is enabled.")
     if observation:
         for k, v in observation.items():
             if v is None:
