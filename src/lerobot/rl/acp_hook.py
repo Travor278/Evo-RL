@@ -47,6 +47,7 @@ def _extract_indicators(values: Any, batch_size: int) -> list[bool]:
 class ACPPromptHook:
     def __init__(self, cfg: ACPConfig, seed: int | None):
         self.indicator_field = cfg.indicator_field
+        self.apply_mask_field = cfg.apply_mask_field
         self.dropout = cfg.indicator_dropout_prob
         self.rng = random.Random(seed if seed is not None else 0)
 
@@ -54,6 +55,13 @@ class ACPPromptHook:
         if self.indicator_field not in batch:
             raise KeyError(f"ACP indicator field '{self.indicator_field}' is missing from batch.")
         return _extract_indicators(batch[self.indicator_field], batch_size)
+
+    def _resolve_apply_mask(self, batch: dict[str, Any], batch_size: int) -> list[bool]:
+        if self.apply_mask_field is None:
+            return [True] * batch_size
+        if self.apply_mask_field not in batch:
+            raise KeyError(f"ACP apply-mask field '{self.apply_mask_field}' is missing from batch.")
+        return _extract_indicators(batch[self.apply_mask_field], batch_size)
 
     def __call__(self, batch: Any, _: int) -> Any:
         if not isinstance(batch, dict):
@@ -68,9 +76,13 @@ class ACPPromptHook:
             raise TypeError("ACP batch['task'] must be list[str].")
 
         indicators = self._resolve_indicators(batch, len(tasks))
+        apply_mask = self._resolve_apply_mask(batch, len(tasks))
 
         conditioned_tasks: list[str] = []
-        for task, is_positive in zip(tasks, indicators, strict=True):
+        for task, is_positive, should_apply in zip(tasks, indicators, apply_mask, strict=True):
+            if not should_apply:
+                conditioned_tasks.append(task)
+                continue
             if self.dropout > 0.0 and self.rng.random() < self.dropout:
                 conditioned_tasks.append(task)
                 continue

@@ -1,0 +1,237 @@
+diff --git a/src/lerobot/configs/train.py b/src/lerobot/configs/train.py
+index ba09a31..9d0f6b7 100644
+--- a/src/lerobot/configs/train.py
++++ b/src/lerobot/configs/train.py
+@@ -37,9 +37,19 @@ TRAIN_CONFIG_NAME = "train_config.json"
+ class ACPConfig:
+     enable: bool = False
+     indicator_field: str = "complementary_info.acp_indicator"
++    apply_mask_field: str | None = None
+     indicator_dropout_prob: float = 0.0
+ 
+ 
++@dataclass
++class ReplaySamplingConfig:
++    enable: bool = False
++    source_field: str = "complementary_info.replay_source"
++    hil_value: int = 1
++    target_hil_fraction: float = 0.25
++    num_samples: int | None = None
++
++
+ @dataclass
+ class TrainPipelineConfig(HubMixin):
+     dataset: DatasetConfig
+@@ -74,6 +84,7 @@ class TrainPipelineConfig(HubMixin):
+     wandb: WandBConfig = field(default_factory=WandBConfig)
+     peft: PeftConfig | None = None
+     acp: ACPConfig = field(default_factory=ACPConfig)
++    replay_sampling: ReplaySamplingConfig = field(default_factory=ReplaySamplingConfig)
+ 
+     # RA-BC (Reward-Aligned Behavior Cloning) parameters
+     use_rabc: bool = False  # Enable reward-weighted training
+@@ -153,6 +164,14 @@ class TrainPipelineConfig(HubMixin):
+         if self.acp.enable and not self.acp.indicator_field:
+             raise ValueError("'acp.indicator_field' must be set when 'acp.enable=true'.")
+ 
++        if self.replay_sampling.enable:
++            if not self.replay_sampling.source_field:
++                raise ValueError("'replay_sampling.source_field' must be non-empty when enabled.")
++            if not 0.0 < self.replay_sampling.target_hil_fraction < 1.0:
++                raise ValueError("'replay_sampling.target_hil_fraction' must be within (0, 1).")
++            if self.replay_sampling.num_samples is not None and self.replay_sampling.num_samples <= 0:
++                raise ValueError("'replay_sampling.num_samples' must be positive when set.")
++
+         if self.use_rabc and not self.rabc_progress_path:
+             # Auto-detect from dataset path
+             repo_id = self.dataset.repo_id
+diff --git a/src/lerobot/rl/acp_hook.py b/src/lerobot/rl/acp_hook.py
+index c63dba7..775b755 100644
+--- a/src/lerobot/rl/acp_hook.py
++++ b/src/lerobot/rl/acp_hook.py
+@@ -47,6 +47,7 @@ def _extract_indicators(values: Any, batch_size: int) -> list[bool]:
+ class ACPPromptHook:
+     def __init__(self, cfg: ACPConfig, seed: int | None):
+         self.indicator_field = cfg.indicator_field
++        self.apply_mask_field = cfg.apply_mask_field
+         self.dropout = cfg.indicator_dropout_prob
+         self.rng = random.Random(seed if seed is not None else 0)
+ 
+@@ -55,6 +56,13 @@ class ACPPromptHook:
+             raise KeyError(f"ACP indicator field '{self.indicator_field}' is missing from batch.")
+         return _extract_indicators(batch[self.indicator_field], batch_size)
+ 
++    def _resolve_apply_mask(self, batch: dict[str, Any], batch_size: int) -> list[bool]:
++        if self.apply_mask_field is None:
++            return [True] * batch_size
++        if self.apply_mask_field not in batch:
++            raise KeyError(f"ACP apply-mask field '{self.apply_mask_field}' is missing from batch.")
++        return _extract_indicators(batch[self.apply_mask_field], batch_size)
++
+     def __call__(self, batch: Any, _: int) -> Any:
+         if not isinstance(batch, dict):
+             raise TypeError(f"ACP batch must be dict, got {type(batch).__name__}.")
+@@ -67,9 +75,13 @@ class ACPPromptHook:
+             raise TypeError("ACP batch['task'] must be list[str].")
+ 
+         indicators = self._resolve_indicators(batch, len(tasks))
++        apply_mask = self._resolve_apply_mask(batch, len(tasks))
+ 
+         conditioned_tasks: list[str] = []
+-        for task, is_positive in zip(tasks, indicators, strict=True):
++        for task, is_positive, should_apply in zip(tasks, indicators, apply_mask, strict=True):
++            if not should_apply:
++                conditioned_tasks.append(task)
++                continue
+             if self.dropout > 0.0 and self.rng.random() < self.dropout:
+                 conditioned_tasks.append(task)
+                 continue
+diff --git a/src/lerobot/rl/replay_sampler.py b/src/lerobot/rl/replay_sampler.py
+new file mode 100644
+index 0000000..237490e
+--- /dev/null
++++ b/src/lerobot/rl/replay_sampler.py
+@@ -0,0 +1,95 @@
++#!/usr/bin/env python
++
++# Copyright 2026 The HuggingFace Inc. team. All rights reserved.
++#
++# Licensed under the Apache License, Version 2.0 (the "License");
++# you may not use this file except in compliance with the License.
++# You may obtain a copy of the License at
++#
++#     http://www.apache.org/licenses/LICENSE-2.0
++#
++# Unless required by applicable law or agreed to in writing, software
++# distributed under the License is distributed on an "AS IS" BASIS,
++# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++# See the License for the specific language governing permissions and
++# limitations under the License.
++
++from dataclasses import dataclass
++from typing import Any
++
++import torch
++from torch.utils.data import WeightedRandomSampler
++
++from lerobot.configs.train import ReplaySamplingConfig
++
++
++@dataclass(frozen=True)
++class ReplaySamplingStats:
++    source_field: str
++    base_count: int
++    hil_count: int
++    natural_hil_fraction: float
++    target_hil_fraction: float
++    num_samples: int
++
++
++def _source_tensor(dataset: Any, source_field: str) -> torch.Tensor:
++    hf_dataset = getattr(dataset, "hf_dataset", None)
++    if hf_dataset is None:
++        raise TypeError("Replay sampling requires a LeRobotDataset with an hf_dataset.")
++    if source_field not in hf_dataset.column_names:
++        raise KeyError(f"Replay source field '{source_field}' is missing from dataset.")
++
++    raw_values = hf_dataset.with_format(None)[source_field]
++    values = torch.as_tensor(raw_values, dtype=torch.int64).reshape(-1)
++    if values.numel() != len(dataset):
++        raise ValueError(
++            f"Replay source length mismatch: field has {values.numel()} values, dataset has {len(dataset)}."
++        )
++    return values
++
++
++def build_replay_sampler(
++    dataset: Any,
++    cfg: ReplaySamplingConfig,
++    seed: int | None,
++) -> tuple[WeightedRandomSampler | None, ReplaySamplingStats | None]:
++    if not cfg.enable:
++        return None, None
++
++    source = _source_tensor(dataset, cfg.source_field)
++    is_hil = source == cfg.hil_value
++    unexpected = ~(is_hil | (source == 0))
++    if unexpected.any():
++        bad = int(source[unexpected][0].item())
++        raise ValueError(
++            f"Replay source field must contain only base=0 or hil={cfg.hil_value}, got {bad}."
++        )
++
++    hil_count = int(is_hil.sum().item())
++    base_count = int((~is_hil).sum().item())
++    if hil_count == 0 or base_count == 0:
++        raise ValueError(f"Replay sampling needs both sources, got base={base_count}, hil={hil_count}.")
++
++    target = float(cfg.target_hil_fraction)
++    weights = torch.empty(len(dataset), dtype=torch.double)
++    weights[is_hil] = target / hil_count
++    weights[~is_hil] = (1.0 - target) / base_count
++    num_samples = int(cfg.num_samples) if cfg.num_samples is not None else len(dataset)
++    generator = torch.Generator()
++    generator.manual_seed(int(seed) if seed is not None else 0)
++    sampler = WeightedRandomSampler(
++        weights=weights,
++        num_samples=num_samples,
++        replacement=True,
++        generator=generator,
++    )
++    stats = ReplaySamplingStats(
++        source_field=cfg.source_field,
++        base_count=base_count,
++        hil_count=hil_count,
++        natural_hil_fraction=hil_count / (base_count + hil_count),
++        target_hil_fraction=target,
++        num_samples=num_samples,
++    )
++    return sampler, stats
+diff --git a/src/lerobot/scripts/lerobot_train.py b/src/lerobot/scripts/lerobot_train.py
+index e66b78c..b19bb49 100644
+--- a/src/lerobot/scripts/lerobot_train.py
++++ b/src/lerobot/scripts/lerobot_train.py
+@@ -38,6 +38,7 @@ from lerobot.policies.factory import make_policy, make_pre_post_processors
+ from lerobot.policies.pretrained import PreTrainedPolicy
+ from lerobot.rl.acp_dataset_stats import compute_acp_indicator_stats
+ from lerobot.rl.acp_hook import build_acp_raw_batch_hook
++from lerobot.rl.replay_sampler import build_replay_sampler
+ from lerobot.rl.wandb_utils import make_logger
+ from lerobot.scripts.lerobot_eval import eval_policy_all
+ from lerobot.utils.import_utils import register_third_party_plugins
+@@ -372,13 +373,25 @@ def train(
+     # create dataloader for offline training
+-    if hasattr(cfg.policy, "drop_n_last_frames"):
++    replay_sampler, replay_stats = build_replay_sampler(dataset, cfg.replay_sampling, cfg.seed)
++    if replay_sampler is not None:
++        shuffle = False
++        sampler = replay_sampler
++        if is_main_process:
++            logging.info(
++                "Replay sampling: field='%s' base=%d hil=%d natural_hil_fraction=%.6f "
++                "target_hil_fraction=%.6f num_samples=%d",
++                replay_stats.source_field, replay_stats.base_count, replay_stats.hil_count,
++                replay_stats.natural_hil_fraction, replay_stats.target_hil_fraction,
++                replay_stats.num_samples,
++            )
++    elif hasattr(cfg.policy, "drop_n_last_frames"):
+         shuffle = False
+         sampler = EpisodeAwareSampler(
+             dataset.meta.episodes["dataset_from_index"],
+             dataset.meta.episodes["dataset_to_index"],
+             episode_indices_to_use=dataset.episodes,
+             drop_n_last_frames=cfg.policy.drop_n_last_frames,
+             shuffle=True,
+         )
+     else:
+         shuffle = True
+         sampler = None
+@@ -386,7 +399,7 @@ def train(
+         shuffle=shuffle and not cfg.dataset.streaming,
+         sampler=sampler,
+         pin_memory=device.type == "cuda",
+-        drop_last=False,
++        drop_last=replay_sampler is not None,
+         prefetch_factor=2 if cfg.num_workers > 0 else None,
+     )
+ 

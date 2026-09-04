@@ -37,7 +37,17 @@ TRAIN_CONFIG_NAME = "train_config.json"
 class ACPConfig:
     enable: bool = False
     indicator_field: str = "complementary_info.acp_indicator"
+    apply_mask_field: str | None = None
     indicator_dropout_prob: float = 0.0
+
+
+@dataclass
+class ReplaySamplingConfig:
+    enable: bool = False
+    source_field: str = "complementary_info.replay_source"
+    hil_value: int = 1
+    target_hil_fraction: float = 0.25
+    num_samples: int | None = None
 
 
 @dataclass
@@ -67,6 +77,7 @@ class TrainPipelineConfig(HubMixin):
     save_checkpoint: bool = True
     # Checkpoint is saved every `save_freq` training iterations and after the last training step.
     save_freq: int = 20_000
+    save_steps: list[int] = field(default_factory=list)
     use_policy_training_preset: bool = True
     optimizer: OptimizerConfig | None = None
     scheduler: LRSchedulerConfig | None = None
@@ -74,6 +85,7 @@ class TrainPipelineConfig(HubMixin):
     wandb: WandBConfig = field(default_factory=WandBConfig)
     peft: PeftConfig | None = None
     acp: ACPConfig = field(default_factory=ACPConfig)
+    replay_sampling: ReplaySamplingConfig = field(default_factory=ReplaySamplingConfig)
 
     # RA-BC (Reward-Aligned Behavior Cloning) parameters
     use_rabc: bool = False  # Enable reward-weighted training
@@ -152,6 +164,14 @@ class TrainPipelineConfig(HubMixin):
             raise ValueError("'acp.indicator_dropout_prob' must be within [0, 1].")
         if self.acp.enable and not self.acp.indicator_field:
             raise ValueError("'acp.indicator_field' must be set when 'acp.enable=true'.")
+
+        if self.replay_sampling.enable:
+            if not self.replay_sampling.source_field:
+                raise ValueError("'replay_sampling.source_field' must be non-empty when enabled.")
+            if not 0.0 < self.replay_sampling.target_hil_fraction < 1.0:
+                raise ValueError("'replay_sampling.target_hil_fraction' must be within (0, 1).")
+            if self.replay_sampling.num_samples is not None and self.replay_sampling.num_samples <= 0:
+                raise ValueError("'replay_sampling.num_samples' must be positive when set.")
 
         if self.use_rabc and not self.rabc_progress_path:
             # Auto-detect from dataset path

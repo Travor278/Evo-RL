@@ -1,0 +1,42 @@
+diff --git a/src/lerobot/datasets/video_utils.py b/src/lerobot/datasets/video_utils.py
+index 6051cd3..e5c1a42 100644
+--- a/src/lerobot/datasets/video_utils.py
++++ b/src/lerobot/datasets/video_utils.py
+@@ -90,7 +90,12 @@ def decode_video_frames_pyav(
+     video_path = str(video_path)
+     first_ts = min(timestamps)
+     last_ts = max(timestamps)
+-    loaded_frames: list[torch.Tensor] = []
++    # Keep decoded PyAV frames in their native representation until the nearest
++    # timestamp is known.  With an 8.33 s GOP, eagerly converting every frame
++    # between the keyframe and one query materializes roughly 125 RGB tensors
++    # just to retain one of them.  Deferring conversion preserves the exact
++    # timestamp selection contract while removing that wasted work.
++    loaded_frames: list[av.VideoFrame] = []
+     loaded_ts: list[float] = []
+ 
+     with av.open(video_path) as container:
+@@ -107,8 +113,7 @@ def decode_video_frames_pyav(
+             current_ts = float(frame.pts * stream.time_base)
+             if log_loaded_timestamps:
+                 logging.info("frame loaded at timestamp=%.4f", current_ts)
+-            array = frame.to_ndarray(format="rgb24")
+-            loaded_frames.append(torch.from_numpy(array).permute(2, 0, 1).contiguous())
++            loaded_frames.append(frame)
+             loaded_ts.append(current_ts)
+             if current_ts >= last_ts:
+                 break
+@@ -135,7 +140,12 @@ def decode_video_frames_pyav(
+             "\nbackend: pyav"
+         )
+ 
+-    closest_frames = torch.stack([loaded_frames[index] for index in closest_indices])
++    converted_frames: dict[int, torch.Tensor] = {}
++    for index in closest_indices.tolist():
++        if index not in converted_frames:
++            array = loaded_frames[index].to_ndarray(format="rgb24")
++            converted_frames[index] = torch.from_numpy(array).permute(2, 0, 1).contiguous()
++    closest_frames = torch.stack([converted_frames[index] for index in closest_indices.tolist()])
+     closest_ts = loaded_ts_tensor[closest_indices]
+     if log_loaded_timestamps:
+         logging.info("closest timestamps=%s", closest_ts)

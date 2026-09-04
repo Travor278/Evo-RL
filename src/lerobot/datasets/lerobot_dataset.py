@@ -568,6 +568,7 @@ class LeRobotDataset(torch.utils.data.Dataset):
         force_cache_sync: bool = False,
         download_videos: bool = True,
         video_backend: str | None = None,
+        return_uint8: bool = False,
         batch_encoding_size: int = 1,
         vcodec: str = "libsvtav1",
     ):
@@ -697,6 +698,7 @@ class LeRobotDataset(torch.utils.data.Dataset):
         self.tolerance_s = tolerance_s
         self.revision = revision if revision else CODEBASE_VERSION
         self.video_backend = video_backend if video_backend else get_safe_default_codec()
+        self.return_uint8 = return_uint8
         self.delta_indices = None
         self.batch_encoding_size = batch_encoding_size
         self.episodes_since_last_encoding = 0
@@ -1041,7 +1043,13 @@ class LeRobotDataset(torch.utils.data.Dataset):
             shifted_query_ts = [from_timestamp + ts for ts in query_ts]
 
             video_path = self.root / self.meta.get_video_file_path(ep_idx, vid_key)
-            frames = decode_video_frames(video_path, shifted_query_ts, self.tolerance_s, self.video_backend)
+            frames = decode_video_frames(
+                video_path,
+                shifted_query_ts,
+                self.tolerance_s,
+                self.video_backend,
+                return_uint8=self.return_uint8,
+            )
             item[vid_key] = frames.squeeze(0)
 
         return item
@@ -1629,6 +1637,7 @@ class LeRobotDataset(torch.utils.data.Dataset):
         obj.delta_indices = None
         obj._absolute_to_relative_idx = None
         obj.video_backend = video_backend if video_backend is not None else get_safe_default_codec()
+        obj.return_uint8 = False
         obj.writer = None
         obj.latest_episode = None
         obj._current_file_start_frame = None

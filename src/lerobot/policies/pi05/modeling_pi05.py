@@ -1164,8 +1164,12 @@ class PI05Policy(PreTrainedPolicy):
             if img.device != device:
                 img = img.to(device)
 
-            # Ensure float32 dtype for consistency
-            if img.dtype != torch.float32:
+            # Keep DataLoader IPC compact as uint8 and normalize only after the
+            # non-blocking device transfer. This is numerically equivalent to
+            # the former CPU-side uint8 -> float32 / 255 conversion.
+            if img.dtype == torch.uint8:
+                img = img.to(torch.float32) / 255.0
+            elif img.dtype != torch.float32:
                 img = img.to(torch.float32)
 
             # from openpi preprocess_observation_pytorch: Handle both [B, C, H, W] and [B, H, W, C] formats

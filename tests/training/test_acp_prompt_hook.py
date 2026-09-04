@@ -67,6 +67,49 @@ def test_acp_hook_dropout_keeps_original_task():
     assert out["task"] == ["pick bottle", "place bottle"]
 
 
+def test_acp_hook_apply_mask_leaves_base_replay_untagged():
+    hook = build_acp_raw_batch_hook(
+        ACPConfig(
+            enable=True,
+            indicator_field="acp_indicator",
+            apply_mask_field="acp_apply_mask",
+            indicator_dropout_prob=0.0,
+        ),
+        seed=42,
+    )
+    batch = {
+        "task": ["base replay", "positive HIL", "negative HIL"],
+        "acp_indicator": torch.tensor([1, 1, 0], dtype=torch.int64),
+        "acp_apply_mask": torch.tensor([0, 1, 1], dtype=torch.int64),
+    }
+
+    out = hook(batch, 0)
+
+    assert out["task"] == [
+        "base replay",
+        f"positive HIL\n{ACP_POSITIVE_TAG}",
+        f"negative HIL\n{ACP_NEGATIVE_TAG}",
+    ]
+
+
+def test_acp_hook_missing_apply_mask_raises():
+    hook = build_acp_raw_batch_hook(
+        ACPConfig(
+            enable=True,
+            indicator_field="acp_indicator",
+            apply_mask_field="missing_apply_mask",
+        ),
+        seed=42,
+    )
+    batch = {
+        "task": ["pick bottle"],
+        "acp_indicator": torch.tensor([1], dtype=torch.int64),
+    }
+
+    with pytest.raises(KeyError, match="missing_apply_mask"):
+        hook(batch, 0)
+
+
 def test_acp_hook_missing_indicator_skips():
     hook = build_acp_raw_batch_hook(
         ACPConfig(enable=True, indicator_field="missing_field"),

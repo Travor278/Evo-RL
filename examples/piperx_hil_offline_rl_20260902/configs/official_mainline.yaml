@@ -1,0 +1,54 @@
+run:
+  name: v2sam-ego2exo-official-v2
+  evorl_commit: 6f2db449a21e1bac750b996f2e27cac6739aa63f
+  transformers_fork_commit: dcddb970176382c0fcf4521b0c0e6fc15894dfe0
+  seed: 20260902
+  platform_tasks:
+    value_acp: v2sam-ego2exo-official-v1
+    official_acp_policy: v2sam-ego2exo-official-v2
+    data_only_policy: v2sam-ego2exo-official-v3
+    iql_double_q_value_extension: v2sam-ego2exo-official-v4
+    iql_awr_policy_extension: v2sam-ego2exo-official-v5
+value:
+  type: pistar06
+  dtype: bfloat16
+  vision_repo_id: google/siglip-so400m-patch14-384
+  language_repo_id: google/gemma-3-270m
+  c_fail_coef: 1.0
+  official_default_steps: 8000
+  smoke_steps: 100
+  batch_size: 4
+  freeze_vision_encoder: false
+  freeze_language_model: false
+  use_gradient_checkpointing: true
+acp:
+  n_step: 50
+  positive_ratio: 0.30
+  force_intervention_positive: true
+  value_field: complementary_info.value_evorl_official_v1
+  advantage_field: complementary_info.advantage_evorl_official_v1
+  indicator_field: complementary_info.acp_indicator_evorl_official_v1
+policy:
+  type: pi05
+  initial_checkpoint: /inspire/ssd/project/luojianlan/public/zhubingwen-253108120125/pi05_full558_044/train_state/pi05_piperx_full558_h100_8gpu_50k_20260828_r13/checkpoints/050000
+  chunk_size: 50
+  action_steps: 50
+  state_dim: 14
+  action_dim: 14
+  indicator_dropout_prob: 0.30
+resources:
+  platform: 上海创智启智
+  compute_group: 开发区-H100-cuda13.2版本-183核
+  compute_group_id: lcg-71b971a7-5bdd-4798-b5ba-08f1eabde49e
+  gpu_model: NVIDIA H100 80GB
+  gpu_vendor: NVIDIA
+  gpu_count: 8
+  benchmark_gpu_count: 8
+  skip_4gpu_benchmark: true
+  selection_reason: 用户指定该类型组，卡数多、预期排队更快；正式两组锁定同一资源语义
+gates:
+  require_dataset_audit_pass: true
+  require_autonomous_value_separation: true
+  reject_nan_inf: true
+  reject_collapsed_value: true
+  require_checkpoint_resume: true

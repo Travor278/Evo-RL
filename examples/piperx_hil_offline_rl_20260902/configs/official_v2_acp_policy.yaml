@@ -1,0 +1,37 @@
+run:
+  name: v2sam-ego2exo-official-v2
+  seed: 20260902
+  initial_checkpoint: /inspire/hdd/project/luojianlan/zhubingwen-253108120125/codex_remote_ops/evorl_hil_rl_piperx_20260902/checkpoints/pi05_base_step50000_policy_compat_6f2db_v2
+  output: /inspire/hdd/project/luojianlan/zhubingwen-253108120125/codex_remote_ops/evorl_hil_rl_piperx_20260902/checkpoints/v2sam-ego2exo-official-v2-acp-policy
+data:
+  replay_view: /inspire/hdd/project/luojianlan/zhubingwen-253108120125/codex_remote_ops/evorl_hil_rl_piperx_20260902/derived/mixed_replay_full558_hil_train60_v1
+  base_episodes: 558
+  base_frames: 1255729
+  hil_train_episodes: 60
+  hil_train_frames: 344910
+  total_episodes: 618
+  total_frames: 1600639
+  normalization_stats: full558_base_frozen
+sampling:
+  method: deterministic_weighted_replacement
+  source_field: complementary_info.replay_source_evorl_official_v1
+  target_hil_fraction: 0.25
+  samples_per_sampler_cycle: 1600576
+policy:
+  type: pi05
+  chunk_size: 50
+  action_steps: 50
+  per_device_batch: 8
+  world_size: 8
+  global_batch: 64
+  steps: 10000
+  mixed_precision: bfloat16
+acp:
+  enable: true
+  indicator_field: complementary_info.acp_indicator_evorl_official_v1
+  apply_mask_field: complementary_info.acp_apply_mask_evorl_official_v1
+  indicator_dropout_prob: 0.30
+  base_samples_are_untagged: true
+checkpoints:
+  full_state_steps: [1000, 5000, 10000]
+  include_optimizer_scheduler_rng: true

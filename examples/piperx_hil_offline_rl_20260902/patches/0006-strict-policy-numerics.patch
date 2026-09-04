@@ -1,0 +1,27 @@
+diff --git a/src/lerobot/scripts/lerobot_train.py b/src/lerobot/scripts/lerobot_train.py
+index bf2fa83..43a3f80 100644
+--- a/src/lerobot/scripts/lerobot_train.py
++++ b/src/lerobot/scripts/lerobot_train.py
+@@ -113,6 +113,9 @@ def update_policy(
+ 
+         # TODO(rcadene): policy.unnormalize_outputs(out_dict)
+ 
++    if not torch.isfinite(loss).all():
++        raise FloatingPointError(f"Non-finite policy loss before backward: {loss.detach().cpu()}")
++
+     # Use accelerator's backward method
+     accelerator.backward(loss)
+ 
+@@ -126,6 +129,12 @@ def update_policy(
+             policy.parameters(), float("inf"), error_if_nonfinite=False
+         )
+ 
++    grad_norm_tensor = torch.as_tensor(grad_norm)
++    if not torch.isfinite(grad_norm_tensor).all():
++        raise FloatingPointError(
++            f"Non-finite policy gradient norm before optimizer step: {grad_norm_tensor.detach().cpu()}"
++        )
++
+     # Optimizer step
+     with lock if lock is not None else nullcontext():
+         optimizer.step()

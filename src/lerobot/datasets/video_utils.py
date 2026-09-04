@@ -48,6 +48,7 @@ def decode_video_frames(
     timestamps: list[float],
     tolerance_s: float,
     backend: str | None = None,
+    return_uint8: bool = False,
 ) -> torch.Tensor:
     """
     Decodes video frames using the specified backend.
@@ -67,10 +68,98 @@ def decode_video_frames(
         backend = get_safe_default_codec()
     if backend == "torchcodec":
         return decode_video_frames_torchcodec(video_path, timestamps, tolerance_s)
-    elif backend in ["pyav", "video_reader"]:
+    elif backend == "pyav":
+        return decode_video_frames_pyav(
+            video_path, timestamps, tolerance_s, return_uint8=return_uint8
+        )
+    elif backend == "video_reader":
         return decode_video_frames_torchvision(video_path, timestamps, tolerance_s, backend)
     else:
         raise ValueError(f"Unsupported video backend: {backend}")
+
+
+def decode_video_frames_pyav(
+    video_path: Path | str,
+    timestamps: list[float],
+    tolerance_s: float,
+    log_loaded_timestamps: bool = False,
+    return_uint8: bool = False,
+) -> torch.Tensor:
+    """Load requested frames with a stream-relative PyAV keyframe seek.
+
+    ``torchvision.io.VideoReader.seek`` can fall back to decoding from the start
+    of these long videos with the PyAV/torchvision versions used by the official
+    Evo-RL environment. Seeking the underlying PyAV container relative to its
+    video stream preserves the same nearest-timestamp contract while avoiding
+    that pathological full-prefix decode.
+    """
+    video_path = str(video_path)
+    first_ts = min(timestamps)
+    last_ts = max(timestamps)
+    # Keep decoded PyAV frames in their native representation until the nearest
+    # timestamp is known.  With an 8.33 s GOP, eagerly converting every frame
+    # between the keyframe and one query materializes roughly 125 RGB tensors
+    # just to retain one of them.  Deferring conversion preserves the exact
+    # timestamp selection contract while removing that wasted work.
+    loaded_frames: list[av.VideoFrame] = []
+    loaded_ts: list[float] = []
+
+    with av.open(video_path) as container:
+        stream = container.streams.video[0]
+        container.seek(
+            round(first_ts / stream.time_base) - 1,
+            backward=True,
+            any_frame=False,
+            stream=stream,
+        )
+        for frame in container.decode(stream):
+            if frame.pts is None:
+                continue
+            current_ts = float(frame.pts * stream.time_base)
+            if log_loaded_timestamps:
+                logging.info("frame loaded at timestamp=%.4f", current_ts)
+            loaded_frames.append(frame)
+            loaded_ts.append(current_ts)
+            if current_ts >= last_ts:
+                break
+
+    if not loaded_frames:
+        raise FrameTimestampError(
+            f"No frames could be decoded from {video_path} in timestamp range "
+            f"[{first_ts}, {last_ts}]."
+        )
+
+    query_ts = torch.tensor(timestamps)
+    loaded_ts_tensor = torch.tensor(loaded_ts)
+    distances = torch.cdist(query_ts[:, None], loaded_ts_tensor[:, None], p=1)
+    min_distance, closest_indices = distances.min(1)
+    is_within_tolerance = min_distance < tolerance_s
+    if not is_within_tolerance.all():
+        raise FrameTimestampError(
+            "One or several query timestamps unexpectedly violate the tolerance "
+            f"({min_distance[~is_within_tolerance]} > tolerance_s={tolerance_s})."
+            f"\nqueried timestamps: {query_ts}"
+            f"\nloaded timestamps: {loaded_ts_tensor}"
+            f"\nvideo: {video_path}"
+            "\nbackend: pyav"
+        )
+
+    converted_frames: dict[int, torch.Tensor] = {}
+    for index in closest_indices.tolist():
+        if index not in converted_frames:
+            array = loaded_frames[index].to_ndarray(format="rgb24")
+            converted_frames[index] = torch.from_numpy(array).permute(2, 0, 1).contiguous()
+    closest_frames = torch.stack([converted_frames[index] for index in closest_indices.tolist()])
+    closest_ts = loaded_ts_tensor[closest_indices]
+    if log_loaded_timestamps:
+        logging.info("closest timestamps=%s", closest_ts)
+    if len(timestamps) != len(closest_frames):
+        raise FrameTimestampError(
+            f"Retrieved {len(closest_frames)} frames for {len(timestamps)} timestamps."
+        )
+    if return_uint8:
+        return closest_frames
+    return closest_frames.to(torch.float32) / 255
 
 
 def decode_video_frames_torchvision(

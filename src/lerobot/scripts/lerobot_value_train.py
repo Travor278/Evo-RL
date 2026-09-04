@@ -84,7 +84,10 @@ def value_train(
     if accelerator is None:
         from accelerate.utils import DistributedDataParallelKwargs
 
-        ddp_kwargs = DistributedDataParallelKwargs(find_unused_parameters=False)
+        # Pi*0.6 contains conditionally unused parameters in its value forward
+        # path. DDP must traverse the autograd graph so reduction can complete
+        # before the next iteration, matching the policy trainer behavior.
+        ddp_kwargs = DistributedDataParallelKwargs(find_unused_parameters=True)
         force_cpu = cfg.value.device == "cpu"
         accelerator = Accelerator(
             step_scheduler_with_optimizer=False,
@@ -156,13 +159,19 @@ def value_train(
         processor_kwargs["preprocessor_overrides"]["rename_observations_processor"] = {
             "rename_map": cfg.rename_map
         }
-        postprocessor_kwargs["postprocessor_overrides"] = {
-            "unnormalizer_processor": {
-                "stats": dataset.meta.stats,
-                "features": cfg.value.output_features or {},
-                "norm_map": cfg.value.normalization_mapping,
-            },
-        }
+        # Pistar06 predicts a scalar value and its saved postprocessor contains only
+        # a device step. Injecting an action unnormalizer override during resume
+        # fails strict pipeline validation because that step does not exist.
+        # Preserve the existing behavior for any future action-producing value
+        # implementation while allowing the currently supported Pistar06 to resume.
+        if cfg.value.type != "pistar06":
+            postprocessor_kwargs["postprocessor_overrides"] = {
+                "unnormalizer_processor": {
+                    "stats": dataset.meta.stats,
+                    "features": cfg.value.output_features or {},
+                    "norm_map": cfg.value.normalization_mapping,
+                },
+            }
 
     preprocessor, postprocessor = make_pre_post_processors(
         policy_cfg=cfg.value,

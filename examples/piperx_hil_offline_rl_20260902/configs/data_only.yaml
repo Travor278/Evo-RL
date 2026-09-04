@@ -1,0 +1,49 @@
+run:
+  name: v2sam-ego2exo-official-v3
+  role: fair_data_only_ablation
+  seed: 20260902
+initialization:
+  training_checkpoint: /inspire/ssd/project/luojianlan/public/zhubingwen-253108120125/pi05_full558_044/train_state/pi05_piperx_full558_h100_8gpu_50k_20260828_r13/checkpoints/050000
+  compatibility_view: /inspire/hdd/project/luojianlan/zhubingwen-253108120125/codex_remote_ops/evorl_hil_rl_piperx_20260902/checkpoints/pi05_base_step50000_compat_6f2db
+  optimizer: reinitialize
+dataset:
+  hil_root: /inspire/hdd/project/luojianlan/zhubingwen-253108120125/codex_remote_ops/evorl_hil_rl_piperx_20260902/derived/hil_official_value_v1
+  base_root: /inspire/ssd/project/luojianlan/public/zhubingwen-253108120125/pi05_full558_044/dataset_v3_training_view
+  train_manifest: /inspire/hdd/project/luojianlan/zhubingwen-253108120125/codex_remote_ops/evorl_hil_rl_piperx_20260902/manifests/train_episodes.json
+  action_target: action
+  hil_sampling_ratios_to_smoke_test: [0.25, 0.50]
+policy:
+  type: pi05
+  chunk_size: 50
+  n_action_steps: 50
+  state_dim: 14
+  action_dim: 14
+  acp_enable: false
+resources:
+  compute_group_id: lcg-71b971a7-5bdd-4798-b5ba-08f1eabde49e
+  gpu_count: 8
+ignored_training_signals:
+  - episode_success
+  - complementary_info.is_intervention
+  - complementary_info.transition_valid
+  - complementary_info.segment_id
+  - complementary_info.value_evorl_official_v1
+  - complementary_info.advantage_evorl_official_v1
+  - complementary_info.acp_indicator_evorl_official_v1
+fairness_contract:
+  match_rl_aware:
+    - initial_model_weights
+    - train_episode_ids
+    - image_preprocessing
+    - action_chunk
+    - global_batch
+    - optimizer_steps
+    - base_hil_ratio
+    - seed
+    - checkpoint_intervals
+    - gpu_type_and_count
+  still_filter:
+    - undecodable_media
+    - nonfinite_state_or_action
+    - missing_required_camera
+    - invalid_state_or_action_dimension

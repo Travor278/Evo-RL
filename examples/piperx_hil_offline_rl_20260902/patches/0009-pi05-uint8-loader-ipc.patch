@@ -1,0 +1,121 @@
+diff --git a/src/lerobot/datasets/video_utils.py b/src/lerobot/datasets/video_utils.py
+index e5c1a42..0000000 100644
+--- a/src/lerobot/datasets/video_utils.py
++++ b/src/lerobot/datasets/video_utils.py
+@@ -47,7 +47,8 @@ def decode_video_frames(
+     video_path: Path | str,
+     timestamps: list[float],
+     tolerance_s: float,
+     backend: str | None = None,
++    return_uint8: bool = False,
+ ) -> torch.Tensor:
+     """
+     Decodes video frames using the specified backend.
+@@ -68,7 +69,9 @@ def decode_video_frames(
+     if backend == "torchcodec":
+         return decode_video_frames_torchcodec(video_path, timestamps, tolerance_s)
+     elif backend == "pyav":
+-        return decode_video_frames_pyav(video_path, timestamps, tolerance_s)
++        return decode_video_frames_pyav(
++            video_path, timestamps, tolerance_s, return_uint8=return_uint8
++        )
+     elif backend == "video_reader":
+         return decode_video_frames_torchvision(video_path, timestamps, tolerance_s, backend)
+     else:
+@@ -79,7 +82,8 @@ def decode_video_frames_pyav(
+     video_path: Path | str,
+     timestamps: list[float],
+     tolerance_s: float,
+     log_loaded_timestamps: bool = False,
++    return_uint8: bool = False,
+ ) -> torch.Tensor:
+     """Load requested frames with a stream-relative PyAV keyframe seek.
+ 
+@@ -152,7 +156,9 @@ def decode_video_frames_pyav(
+     if len(timestamps) != len(closest_frames):
+         raise FrameTimestampError(
+             f"Retrieved {len(closest_frames)} frames for {len(timestamps)} timestamps."
+         )
++    if return_uint8:
++        return closest_frames
+     return closest_frames.to(torch.float32) / 255
+ 
+ 
+diff --git a/src/lerobot/datasets/lerobot_dataset.py b/src/lerobot/datasets/lerobot_dataset.py
+index 0000000..0000000 100644
+--- a/src/lerobot/datasets/lerobot_dataset.py
++++ b/src/lerobot/datasets/lerobot_dataset.py
+@@ -567,6 +567,7 @@ class LeRobotDataset(torch.utils.data.Dataset):
+         force_cache_sync: bool = False,
+         download_videos: bool = True,
+         video_backend: str | None = None,
++        return_uint8: bool = False,
+         batch_encoding_size: int = 1,
+         vcodec: str = "libsvtav1",
+     ):
+@@ -696,7 +697,8 @@ class LeRobotDataset(torch.utils.data.Dataset):
+         self.tolerance_s = tolerance_s
+         self.revision = revision if revision else CODEBASE_VERSION
+         self.video_backend = video_backend if video_backend else get_safe_default_codec()
++        self.return_uint8 = return_uint8
+         self.delta_indices = None
+         self.batch_encoding_size = batch_encoding_size
+         self.episodes_since_last_encoding = 0
+         self.vcodec = vcodec
+@@ -1041,7 +1043,13 @@ class LeRobotDataset(torch.utils.data.Dataset):
+             shifted_query_ts = [from_timestamp + ts for ts in query_ts]
+ 
+             video_path = self.root / self.meta.get_video_file_path(ep_idx, vid_key)
+-            frames = decode_video_frames(video_path, shifted_query_ts, self.tolerance_s, self.video_backend)
++            frames = decode_video_frames(
++                video_path,
++                shifted_query_ts,
++                self.tolerance_s,
++                self.video_backend,
++                return_uint8=self.return_uint8,
++            )
+             item[vid_key] = frames.squeeze(0)
+ 
+         return item
+@@ -1628,7 +1635,8 @@ class LeRobotDataset(torch.utils.data.Dataset):
+         obj.delta_timestamps = None
+         obj.delta_indices = None
+         obj._absolute_to_relative_idx = None
+         obj.video_backend = video_backend if video_backend is not None else get_safe_default_codec()
++        obj.return_uint8 = False
+         obj.writer = None
+         obj.latest_episode = None
+         obj._current_file_start_frame = None
+diff --git a/src/lerobot/datasets/factory.py b/src/lerobot/datasets/factory.py
+index 0000000..0000000 100644
+--- a/src/lerobot/datasets/factory.py
++++ b/src/lerobot/datasets/factory.py
+@@ -96,7 +96,8 @@ def make_dataset(cfg: TrainPipelineConfig) -> LeRobotDataset | MultiLeRobotDatase
+                 delta_timestamps=delta_timestamps,
+                 image_transforms=image_transforms,
+                 revision=cfg.dataset.revision,
+                 video_backend=cfg.dataset.video_backend,
++                return_uint8=getattr(cfg.policy, "type", None) == "pi05",
+                 tolerance_s=cfg.tolerance_s,
+             )
+         else:
+diff --git a/src/lerobot/policies/pi05/modeling_pi05.py b/src/lerobot/policies/pi05/modeling_pi05.py
+index 0000000..0000000 100644
+--- a/src/lerobot/policies/pi05/modeling_pi05.py
++++ b/src/lerobot/policies/pi05/modeling_pi05.py
+@@ -1163,9 +1163,13 @@ class PI05Policy(PreTrainedPolicy):
+             # Ensure tensor is on the same device as the model
+             if img.device != device:
+                 img = img.to(device)
+ 
+-            # Ensure float32 dtype for consistency
+-            if img.dtype != torch.float32:
++            # Keep DataLoader IPC compact as uint8 and normalize only after the
++            # non-blocking device transfer. This is numerically equivalent to
++            # the former CPU-side uint8 -> float32 / 255 conversion.
++            if img.dtype == torch.uint8:
++                img = img.to(torch.float32) / 255.0
++            elif img.dtype != torch.float32:
+                 img = img.to(torch.float32)
+ 
+             # from openpi preprocess_observation_pytorch: Handle both [B, C, H, W] and [B, H, W, C] formats

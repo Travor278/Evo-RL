@@ -1,0 +1,51 @@
+run:
+  critic_name: v2sam-ego2exo-official-v4
+  policy_name: v2sam-ego2exo-official-v5
+  role: deferred_iql_awr_extension_not_official_evorl_mainline
+  seed: 20260902
+initialization:
+  training_checkpoint: /inspire/ssd/project/luojianlan/public/zhubingwen-253108120125/pi05_full558_044/train_state/pi05_piperx_full558_h100_8gpu_50k_20260828_r13/checkpoints/050000
+  compatibility_view: /inspire/hdd/project/luojianlan/zhubingwen-253108120125/codex_remote_ops/evorl_hil_rl_piperx_20260902/checkpoints/pi05_base_step50000_compat_6f2db
+  optimizer: reinitialize
+dataset:
+  hil_root: /inspire/hdd/project/luojianlan/zhubingwen-253108120125/codex_remote_ops/evorl_hil_rl_piperx_20260902/derived/hil_official_acp_v1
+  base_root: /inspire/ssd/project/luojianlan/public/zhubingwen-253108120125/pi05_full558_044/dataset_v3_training_view
+  train_manifest: /inspire/hdd/project/luojianlan/zhubingwen-253108120125/codex_remote_ops/evorl_hil_rl_piperx_20260902/manifests/train_episodes.json
+  executed_action_field: action
+  policy_action_field: complementary_info.policy_action
+  operator_action_field: complementary_info.operator_action
+  requested_action_field: complementary_info.requested_action
+  transition_valid_field: complementary_info.transition_valid
+  segment_id_field: complementary_info.segment_id
+critic:
+  algorithm: double_q_iql
+  gamma: 0.99
+  expectile_tau: 0.70
+  stop_gradient_backbone_embedding: true
+  forbid_cross_segment_transition: true
+  require_transition_valid: true
+  exclude_safety_clipped_by_default: true
+advantage_weighting:
+  beta: 1.0
+  minimum: 0.1
+  maximum: 20.0
+  human_recovery_prior_maximum: 3.0
+  apply_to: original_pi05_chunk_flow_matching_loss
+reward_profiles:
+  sparse:
+    success_terminal: 1.0
+    failure_terminal: 0.0
+    other: 0.0
+  shaped_initial:
+    success_terminal: 1.0
+    failure_terminal: -1.0
+    intervention_onset: -0.2
+    stable_policy_return_after_recovery: 0.2
+    safety_clip_or_safety_terminal: -0.5
+    other: 0.0
+gates:
+  compare_sparse_and_shaped_critic_stability_first: true
+  reject_nan_inf: true
+  reject_saturated_advantage_weights: true
+  require_success_failure_value_ordering: true
+  require_checkpoint_resume: true

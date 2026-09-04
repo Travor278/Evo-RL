@@ -37,6 +37,7 @@ from lerobot.policies.factory import make_policy, make_pre_post_processors
 from lerobot.policies.pretrained import PreTrainedPolicy
 from lerobot.rl.acp_dataset_stats import compute_acp_indicator_stats
 from lerobot.rl.acp_hook import build_acp_raw_batch_hook
+from lerobot.rl.replay_sampler import build_replay_sampler
 from lerobot.rl.wandb_utils import make_logger
 from lerobot.scripts.lerobot_eval import eval_policy_all
 from lerobot.utils.import_utils import register_third_party_plugins
@@ -118,6 +119,9 @@ def update_policy(
 
         # TODO(rcadene): policy.unnormalize_outputs(out_dict)
 
+    if not torch.isfinite(loss).all():
+        raise FloatingPointError(f"Non-finite policy loss before backward: {loss.detach().cpu()}")
+
     # Use accelerator's backward method
     accelerator.backward(loss)
 
@@ -127,6 +131,12 @@ def update_policy(
     else:
         grad_norm = torch.nn.utils.clip_grad_norm_(
             policy.parameters(), float("inf"), error_if_nonfinite=False
+        )
+
+    grad_norm_tensor = torch.as_tensor(grad_norm)
+    if not torch.isfinite(grad_norm_tensor).all():
+        raise FloatingPointError(
+            f"Non-finite policy gradient norm before optimizer step: {grad_norm_tensor.detach().cpu()}"
         )
 
     # Optimizer step
@@ -370,7 +380,19 @@ def train(
         logging.info(f"{num_total_params=} ({format_big_number(num_total_params)})")
 
     # create dataloader for offline training
-    if hasattr(cfg.policy, "drop_n_last_frames"):
+    replay_sampler, replay_stats = build_replay_sampler(dataset, cfg.replay_sampling, cfg.seed)
+    if replay_sampler is not None:
+        shuffle = False
+        sampler = replay_sampler
+        if is_main_process:
+            logging.info(
+                "Replay sampling: field='%s' base=%d hil=%d natural_hil_fraction=%.6f "
+                "target_hil_fraction=%.6f num_samples=%d",
+                replay_stats.source_field, replay_stats.base_count, replay_stats.hil_count,
+                replay_stats.natural_hil_fraction, replay_stats.target_hil_fraction,
+                replay_stats.num_samples,
+            )
+    elif hasattr(cfg.policy, "drop_n_last_frames"):
         shuffle = False
         sampler = EpisodeAwareSampler(
             dataset.meta.episodes["dataset_from_index"],
@@ -390,7 +412,7 @@ def train(
         shuffle=shuffle and not cfg.dataset.streaming,
         sampler=sampler,
         pin_memory=device.type == "cuda",
-        drop_last=False,
+        drop_last=replay_sampler is not None,
         prefetch_factor=2 if cfg.num_workers > 0 else None,
     )
 
@@ -477,7 +499,11 @@ def train(
         step += 1
         train_tracker.step()
         is_log_step = cfg.log_freq > 0 and step % cfg.log_freq == 0 and is_main_process
-        is_saving_step = step % cfg.save_freq == 0 or step == cfg.steps
+        is_saving_step = (
+            (cfg.save_freq > 0 and step % cfg.save_freq == 0)
+            or step in cfg.save_steps
+            or step == cfg.steps
+        )
         is_eval_step = cfg.eval_freq > 0 and step % cfg.eval_freq == 0
 
         if is_log_step:

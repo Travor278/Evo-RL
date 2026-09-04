@@ -1,0 +1,23 @@
+dataset:
+  repo_id: local/evorl-piperx-copper-screw-hil-clean-official-derived-v1
+  source_root: /inspire/ssd/project/luojianlan/public/zhubingwen-253108120125/evorl_datasets/evorl-piperx-copper-screw-hil-clean/18016184b09929643b6bd055b3f5833bfb2e7b85
+  derived_root: /inspire/hdd/project/luojianlan/zhubingwen-253108120125/codex_remote_ops/evorl_hil_rl_piperx_20260902/derived/hil_official_acp_v1
+  revision: 18016184b09929643b6bd055b3f5833bfb2e7b85
+  fps: 30
+  cameras:
+    - observation.images.top
+    - observation.images.left_wrist
+    - observation.images.right_wrist
+  state_dim: 14
+  action_dim: 14
+split:
+  seed: 20260902
+  unit: policy_hil.session_id
+  manifests:
+    train: manifests/train_episodes.json
+    validation: manifests/val_episodes.json
+    test: manifests/test_episodes.json
+base_replay:
+  root: /inspire/ssd/project/luojianlan/public/zhubingwen-253108120125/pi05_full558_044/dataset_v3_training_view
+  episodes: 558
+  role: policy-regularization-only

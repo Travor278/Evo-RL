@@ -1,0 +1,24 @@
+diff --git a/src/lerobot/configs/value.py b/src/lerobot/configs/value.py
+--- a/src/lerobot/configs/value.py
++++ b/src/lerobot/configs/value.py
+@@ -17,6 +17,7 @@ class ValueInferenceDatasetConfig:
+     episodes: list[int] | None = None
+     revision: str | None = None
+     download_videos: bool = True
++    video_backend: str | None = "pyav"
+     success_field: str = "episode_success"
+     default_success: str = "failure"
+ 
+     def validate(self) -> None:
+diff --git a/src/lerobot/scripts/lerobot_value_infer.py b/src/lerobot/scripts/lerobot_value_infer.py
+--- a/src/lerobot/scripts/lerobot_value_infer.py
++++ b/src/lerobot/scripts/lerobot_value_infer.py
+@@ -124,6 +124,7 @@ def _load_dataset_distributed(cfg: ValueInferencePipelineConfig, accelerator: Ac
+         "episodes": cfg.dataset.episodes,
+         "revision": cfg.dataset.revision,
+         "download_videos": cfg.dataset.download_videos,
++        "video_backend": cfg.dataset.video_backend,
+     }
+ 
+     if accelerator.is_main_process:
+         dataset = LeRobotDataset(**dataset_kwargs)

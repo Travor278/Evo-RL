@@ -1,0 +1,31 @@
+diff --git a/src/lerobot/scripts/lerobot_value_train.py b/src/lerobot/scripts/lerobot_value_train.py
+index 887662c..e0f13ac 100644
+--- a/src/lerobot/scripts/lerobot_value_train.py
++++ b/src/lerobot/scripts/lerobot_value_train.py
+@@ -156,13 +156,19 @@ def value_train(
+         processor_kwargs["preprocessor_overrides"]["rename_observations_processor"] = {
+             "rename_map": cfg.rename_map
+         }
+-        postprocessor_kwargs["postprocessor_overrides"] = {
+-            "unnormalizer_processor": {
+-                "stats": dataset.meta.stats,
+-                "features": cfg.value.output_features or {},
+-                "norm_map": cfg.value.normalization_mapping,
+-            },
+-        }
++        # Pistar06 predicts a scalar value and its saved postprocessor contains only
++        # a device step. Injecting an action unnormalizer override during resume
++        # fails strict pipeline validation because that step does not exist.
++        # Preserve the existing behavior for any future action-producing value
++        # implementation while allowing the currently supported Pistar06 to resume.
++        if cfg.value.type != "pistar06":
++            postprocessor_kwargs["postprocessor_overrides"] = {
++                "unnormalizer_processor": {
++                    "stats": dataset.meta.stats,
++                    "features": cfg.value.output_features or {},
++                    "norm_map": cfg.value.normalization_mapping,
++                },
++            }
+ 
+     preprocessor, postprocessor = make_pre_post_processors(
+         policy_cfg=cfg.value,
