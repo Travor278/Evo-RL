@@ -1,0 +1,15 @@
+experiment: attempt-aware ACP v2
+seed: 20260906
+source:
+  repo_id: Travor278/evorl-piperx-copper-screw-attempt-aware-clean-v2
+  revision: d8c2c0f0115ce3456dbfa38f5529276c0e4bbe16
+  verified_snapshot: /inspire/ssd/project/luojianlan/public/zhubingwen-253108120125/codex_remote_ops/evorl_attempt_aware_rl_piperx_20260906/attempt_aware_snapshot_d8c2c0f0115ce3456dbfa38f5529276c0e4bbe16
+attempt_value_view: /inspire/ssd/project/luojianlan/public/zhubingwen-253108120125/codex_remote_ops/evorl_attempt_aware_rl_piperx_20260906/attempt_value_view
+split_manifest: /inspire/hdd/project/luojianlan/zhubingwen-253108120125/codex_remote_ops/evorl_attempt_aware_rl_piperx_20260906/manifests/attempt_split_manifest_v2.json
+base_replay:
+  root: /inspire/ssd/project/luojianlan/public/zhubingwen-253108120125/pi05_full558_044/dataset_v3_training_view
+  role: policy_replay_only
+  include_in_value: false
+  generate_advantage: false
+  acp_apply_mask: 0
+

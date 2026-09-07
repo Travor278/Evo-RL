@@ -26,10 +26,12 @@ EPISODE_FAILURE = "failure"
 VALID_EPISODE_SUCCESS_LABELS = {EPISODE_SUCCESS, EPISODE_FAILURE}
 
 
-def normalize_episode_success_label(label: str | None) -> str | None:
+def normalize_episode_success_label(label: str | bool | None) -> str | None:
     """Normalize a user-provided episode label to canonical lowercase values."""
     if label is None:
         return None
+    if isinstance(label, bool):
+        return EPISODE_SUCCESS if label else EPISODE_FAILURE
     normalized = label.strip().lower()
     if normalized not in VALID_EPISODE_SUCCESS_LABELS:
         raise ValueError(
@@ -39,8 +41,8 @@ def normalize_episode_success_label(label: str | None) -> str | None:
 
 
 def resolve_episode_success_label(
-    explicit_label: str | None,
-    default_label: str | None = None,
+    explicit_label: str | bool | None,
+    default_label: str | bool | None = None,
     require_label: bool = False,
 ) -> str | None:
     """Resolve the final episode-success label from explicit and default values."""

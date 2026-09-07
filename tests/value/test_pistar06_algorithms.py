@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import numpy as np
+import pandas as pd
 import torch
 
 from lerobot.values.pistar06.modeling_pistar06 import (
@@ -9,6 +10,7 @@ from lerobot.values.pistar06.modeling_pistar06 import (
     compute_normalized_value_targets,
     expected_value_from_logits,
     project_values_to_bins,
+    resolve_task_index,
 )
 
 
@@ -30,6 +32,31 @@ def test_compute_normalized_value_targets():
     )
     expected_targets = np.array([-2 / 6, -1 / 6, 0.0, -4 / 6, -3 / 6], dtype=np.float32)
     assert np.allclose(targets, expected_targets)
+
+
+def test_attempt_episodes_reset_remaining_time_instead_of_using_physical_time():
+    episode_indices = np.array([10, 10, 11, 11], dtype=np.int64)
+    frame_indices = np.array([0, 1, 0, 1], dtype=np.int64)
+    episode_info = {
+        10: EpisodeTargetInfo(episode_index=10, task_index=0, length=2, success=True),
+        11: EpisodeTargetInfo(episode_index=11, task_index=0, length=2, success=True),
+    }
+    targets = compute_normalized_value_targets(
+        episode_indices=episode_indices,
+        frame_indices=frame_indices,
+        episode_info=episode_info,
+        task_max_lengths={0: 2},
+        c_fail_coef=1.0,
+    )
+    assert np.allclose(targets, np.array([-0.25, 0.0, -0.25, 0.0], dtype=np.float32))
+
+
+def test_resolve_task_index_supports_standard_v3_and_legacy_metadata():
+    task = "Insert the copper screw into the black sleeve."
+    standard = pd.DataFrame({"task_index": [7], "task": [task]})
+    legacy = pd.DataFrame({"task_index": [7]}, index=[task])
+    assert resolve_task_index(standard, task) == 7
+    assert resolve_task_index(legacy, task) == 7
 
 
 def test_project_values_to_bins_interpolates_between_neighbors():

@@ -386,9 +386,13 @@ def train(
         sampler = replay_sampler
         if is_main_process:
             logging.info(
-                "Replay sampling: field='%s' base=%d hil=%d natural_hil_fraction=%.6f "
+                "Replay sampling: strategy='%s' field='%s' base=%d hil=%d "
+                "base_valid=%d hil_valid=%d distinct_hil_attempts=%d natural_hil_fraction=%.6f "
                 "target_hil_fraction=%.6f num_samples=%d",
-                replay_stats.source_field, replay_stats.base_count, replay_stats.hil_count,
+                replay_stats.strategy, replay_stats.source_field,
+                replay_stats.base_count, replay_stats.hil_count,
+                replay_stats.base_valid_count, replay_stats.hil_valid_count,
+                replay_stats.distinct_hil_attempts,
                 replay_stats.natural_hil_fraction, replay_stats.target_hil_fraction,
                 replay_stats.num_samples,
             )
@@ -473,7 +477,7 @@ def train(
                 first_prompt = None
                 if isinstance(prompt_batch, str):
                     first_prompt = prompt_batch
-                elif isinstance(prompt_batch, (list, tuple)) and len(prompt_batch) > 0:
+                elif isinstance(prompt_batch, list | tuple) and len(prompt_batch) > 0:
                     first_item = prompt_batch[0]
                     if isinstance(first_item, str):
                         first_prompt = first_item

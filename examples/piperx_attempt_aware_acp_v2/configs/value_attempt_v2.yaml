@@ -1,0 +1,29 @@
+experiment: attempt-aware ACP v2
+run_name: v2sam-ego2exo-attempt-v2-value-r1
+seed: 20260906
+dataset:
+  root: /inspire/ssd/project/luojianlan/public/zhubingwen-253108120125/codex_remote_ops/evorl_attempt_aware_rl_piperx_20260906/attempt_value_view
+  split: train
+  outcome_known_only: true
+  base_558: false
+sampler:
+  type: attempt_uniform
+  attempt_field: logical_attempt_id
+  valid_field: logical_transition_valid
+  outcome_known_field: logical_attempt_outcome_known
+value:
+  type: pistar06
+  vision: google/siglip-so400m-patch14-384@9fdffc58afc957d1a03a25b10dba0329ab15c2a3
+  language: google/gemma-3-270m@9b0cfec892e2bc2afd938c98eabe4e4a7b1e0ca1
+  distribution_bins: 201
+  range: [-1.0, 0.0]
+  c_fail_coef: 1.0
+  steps: 8000
+  dtype: bfloat16
+target:
+  trajectory_unit: logical_attempt
+  remaining_steps: attempt_length - attempt_frame_index - 1
+  success_terminal_reward: 0
+  failure_terminal_reward: -C_fail
+checkpoints: [1000, 5000, 8000]
+

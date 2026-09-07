@@ -68,9 +68,15 @@ class ValueInferenceACPConfig:
     force_intervention_positive: bool = True
 
     intervention_field: str = "complementary_info.is_intervention"
+    split_field: str = "dataset_split"
+    threshold_split: str = "train"
+    outcome_known_field: str = "logical_attempt_outcome_known"
+    transition_valid_field: str = "logical_transition_valid"
+    action_chunk_valid_field: str = "logical_action_chunk_valid_50"
     value_field: str = "complementary_info.value"
     advantage_field: str = "complementary_info.advantage"
     indicator_field: str = "complementary_info.acp_indicator"
+    apply_mask_field: str = "complementary_info.acp_apply_mask"
 
     c_fail_coef: float = 1.0
 
@@ -87,6 +93,17 @@ class ValueInferenceACPConfig:
             raise ValueError(
                 "'acp.advantage_field' and 'acp.indicator_field' must be non-empty when 'acp.enable=true'."
             )
+        if self.enable and not self.apply_mask_field:
+            raise ValueError("'acp.apply_mask_field' must be non-empty when 'acp.enable=true'.")
+        for name in (
+            "split_field",
+            "threshold_split",
+            "outcome_known_field",
+            "transition_valid_field",
+            "action_chunk_valid_field",
+        ):
+            if self.enable and not getattr(self, name):
+                raise ValueError(f"'acp.{name}' must be non-empty when 'acp.enable=true'.")
 
 
 @dataclass

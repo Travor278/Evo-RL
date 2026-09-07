@@ -1,0 +1,72 @@
+schema_version: attempt-aware-outcome-contract/v2
+experiment: attempt-aware ACP v2
+seed: 20260906
+
+source:
+  repo_id: Travor278/evorl-piperx-copper-screw-attempt-aware-clean-v2
+  revision: d8c2c0f0115ce3456dbfa38f5529276c0e4bbe16
+  immutable: true
+  physical_episode_success_field: episode_success
+  preserve_as: source_episode_success
+
+attempt_identity:
+  episode_unit: logical_attempt
+  id_field: logical_attempt_id
+  index_field: logical_attempt_index
+  terminal_field: logical_attempt_terminal
+  transition_valid_field: logical_transition_valid
+  action_chunk_valid_field: logical_action_chunk_valid_50
+
+required_fields:
+  - source_episode_success
+  - logical_attempt_success
+  - logical_attempt_outcome_known
+  - logical_attempt_terminal_reason
+  - logical_attempt_intervened
+  - logical_attempt_autonomous_success
+  - logical_attempt_failure_type
+  - logical_attempt_outcome
+
+outcome_enum:
+  - autonomous_success
+  - intervention_recovered_success
+  - autonomous_failure
+  - timeout_failure
+  - safety_abort
+  - operator_abort
+  - unknown
+
+evidence_policy:
+  new_collections:
+    source_claim: five_final_completions_per_physical_episode
+    required_spotcheck: one_physical_episode_per_collection_all_five_attempts_three_cameras
+  old_source_success:
+    review: all_50_attempts_three_cameras
+  old_source_failure:
+    review: all_17_observed_attempts_three_cameras
+    forbid_physical_failure_broadcast: true
+  unknown_when_evidence_insufficient: true
+
+unknown_handling:
+  value_train: exclude
+  advantage_threshold: exclude
+  acp_apply_mask: false
+  data_only_policy: retain_if_integrity_valid
+
+value_contract:
+  train_sources: [attempt_aware_train_known_outcome]
+  include_base_558: false
+  trajectory_unit: logical_attempt
+  remaining_steps: attempt_length_minus_attempt_frame_index_minus_one
+  success_step_reward: -1
+  success_terminal_reward: 0
+  failure_step_reward: -1
+  failure_terminal_reward: -C_fail
+
+base_558_contract:
+  role: policy_replay_only
+  generate_value: false
+  generate_advantage: false
+  replay_source: 0
+  acp_indicator: 0
+  acp_apply_mask: 0

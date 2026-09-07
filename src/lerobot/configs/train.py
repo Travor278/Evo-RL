@@ -44,10 +44,13 @@ class ACPConfig:
 @dataclass
 class ReplaySamplingConfig:
     enable: bool = False
+    strategy: str = "source_weighted"
     source_field: str = "complementary_info.replay_source"
     hil_value: int = 1
     target_hil_fraction: float = 0.25
     num_samples: int | None = None
+    attempt_id_field: str = "logical_attempt_id"
+    valid_chunk_field: str = "logical_action_chunk_valid_50"
 
 
 @dataclass
@@ -166,12 +169,25 @@ class TrainPipelineConfig(HubMixin):
             raise ValueError("'acp.indicator_field' must be set when 'acp.enable=true'.")
 
         if self.replay_sampling.enable:
+            if self.replay_sampling.strategy not in {"source_weighted", "attempt_balanced"}:
+                raise ValueError(
+                    "'replay_sampling.strategy' must be one of {'source_weighted', 'attempt_balanced'}."
+                )
             if not self.replay_sampling.source_field:
                 raise ValueError("'replay_sampling.source_field' must be non-empty when enabled.")
             if not 0.0 < self.replay_sampling.target_hil_fraction < 1.0:
                 raise ValueError("'replay_sampling.target_hil_fraction' must be within (0, 1).")
             if self.replay_sampling.num_samples is not None and self.replay_sampling.num_samples <= 0:
                 raise ValueError("'replay_sampling.num_samples' must be positive when set.")
+            if self.replay_sampling.strategy == "attempt_balanced":
+                if not self.replay_sampling.attempt_id_field:
+                    raise ValueError(
+                        "'replay_sampling.attempt_id_field' must be non-empty for attempt-balanced replay."
+                    )
+                if not self.replay_sampling.valid_chunk_field:
+                    raise ValueError(
+                        "'replay_sampling.valid_chunk_field' must be non-empty for attempt-balanced replay."
+                    )
 
         if self.use_rabc and not self.rabc_progress_path:
             # Auto-detect from dataset path

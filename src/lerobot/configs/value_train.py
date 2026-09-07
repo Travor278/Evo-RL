@@ -47,6 +47,25 @@ class ValueTargetsConfig:
 
 
 @dataclass
+class AttemptSamplingConfig:
+    enable: bool = False
+    attempt_field: str = "logical_attempt_id"
+    valid_field: str = "logical_transition_valid"
+    outcome_known_field: str | None = "logical_attempt_outcome_known"
+    num_samples: int | None = None
+
+    def validate(self) -> None:
+        if not self.enable:
+            return
+        if not self.attempt_field:
+            raise ValueError("'attempt_sampling.attempt_field' must be non-empty when enabled.")
+        if not self.valid_field:
+            raise ValueError("'attempt_sampling.valid_field' must be non-empty when enabled.")
+        if self.num_samples is not None and self.num_samples <= 0:
+            raise ValueError("'attempt_sampling.num_samples' must be positive when set.")
+
+
+@dataclass
 class ValueTrainPipelineConfig(HubMixin):
     dataset: DatasetConfig
     value: PreTrainedConfig | None = field(default_factory=Pistar06Config)
@@ -73,6 +92,7 @@ class ValueTrainPipelineConfig(HubMixin):
     scheduler: LRSchedulerConfig | None = None
 
     targets: ValueTargetsConfig = field(default_factory=ValueTargetsConfig)
+    attempt_sampling: AttemptSamplingConfig = field(default_factory=AttemptSamplingConfig)
     wandb: WandBConfig = field(default_factory=WandBConfig)
     peft: PeftConfig | None = None
 
@@ -113,6 +133,7 @@ class ValueTrainPipelineConfig(HubMixin):
             )
 
         self.targets.validate()
+        self.attempt_sampling.validate()
 
         if hasattr(self.value, "target_key"):
             self.value.target_key = self.targets.target_field

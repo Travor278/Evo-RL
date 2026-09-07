@@ -18,6 +18,7 @@ from lerobot.datasets.utils import cycle
 from lerobot.optim.factory import make_optimizer_and_scheduler
 from lerobot.policies.factory import make_policy, make_pre_post_processors
 from lerobot.policies.pretrained import PreTrainedPolicy
+from lerobot.rl.attempt_sampler import build_attempt_uniform_sampler
 from lerobot.rl.wandb_utils import make_logger
 from lerobot.utils.import_utils import register_third_party_plugins
 from lerobot.utils.logging_utils import AverageMeter, MetricsTracker
@@ -204,12 +205,35 @@ def value_train(
         logging.info(f"{num_learnable_params=} ({format_big_number(num_learnable_params)})")
         logging.info(f"{num_total_params=} ({format_big_number(num_total_params)})")
 
+    attempt_sampler = None
+    if cfg.attempt_sampling.enable:
+        attempt_sampler, attempt_stats = build_attempt_uniform_sampler(
+            dataset,
+            attempt_field=cfg.attempt_sampling.attempt_field,
+            valid_field=cfg.attempt_sampling.valid_field,
+            outcome_known_field=cfg.attempt_sampling.outcome_known_field,
+            num_samples=cfg.attempt_sampling.num_samples,
+            seed=cfg.seed,
+        )
+        if is_main_process:
+            logging.info(
+                "Attempt-uniform sampling: attempts=%d valid_frames=%d excluded_frames=%d "
+                "num_samples=%d attempt_field='%s' valid_field='%s' known_field='%s'",
+                attempt_stats.distinct_attempts,
+                attempt_stats.valid_frames,
+                attempt_stats.excluded_frames,
+                attempt_stats.num_samples,
+                attempt_stats.attempt_field,
+                attempt_stats.valid_field,
+                attempt_stats.outcome_known_field,
+            )
+
     dataloader = torch.utils.data.DataLoader(
         dataset,
         num_workers=cfg.num_workers,
         batch_size=cfg.batch_size,
-        shuffle=not cfg.dataset.streaming,
-        sampler=None,
+        shuffle=attempt_sampler is None and not cfg.dataset.streaming,
+        sampler=attempt_sampler,
         pin_memory=device.type == "cuda",
         drop_last=False,
         prefetch_factor=2 if cfg.num_workers > 0 else None,

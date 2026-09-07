@@ -32,6 +32,8 @@ from lerobot.utils.recording_annotations import (
 def test_normalize_episode_success_label():
     assert normalize_episode_success_label("SUCCESS") == EPISODE_SUCCESS
     assert normalize_episode_success_label("failure") == EPISODE_FAILURE
+    assert normalize_episode_success_label(True) == EPISODE_SUCCESS
+    assert normalize_episode_success_label(False) == EPISODE_FAILURE
     assert normalize_episode_success_label(None) is None
 
     with pytest.raises(ValueError):

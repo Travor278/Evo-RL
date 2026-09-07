@@ -51,6 +51,7 @@ from lerobot.values.pistar06.configuration_pistar06 import Pistar06Config
 from lerobot.values.pistar06.modeling_pistar06 import (
     EpisodeTargetInfo,
     compute_normalized_value_targets,
+    resolve_task_index,
 )
 
 
@@ -185,17 +186,22 @@ def _build_episode_info(
     episodes = episodes_ds[:]
     n_episodes = len(episodes_ds)
     has_success = success_field in episodes_ds.column_names
+    selected_episodes = getattr(dataset, "episodes", None)
+    selected_episode_set = set(selected_episodes) if selected_episodes is not None else None
 
     episode_info: dict[int, EpisodeTargetInfo] = {}
     task_max_length: dict[int, int] = {}
     for i in range(n_episodes):
         ep_idx = int(episodes["episode_index"][i])
+        if selected_episode_set is not None and ep_idx not in selected_episode_set:
+            continue
         ep_length = int(episodes["length"][i])
         tasks = episodes["tasks"][i]
         task_name = tasks[0] if isinstance(tasks, list) else tasks
-        if task_name not in dataset.meta.tasks.index:
-            raise KeyError(f"Episode {ep_idx} references unknown task '{task_name}'.")
-        task_index = int(dataset.meta.tasks.loc[task_name].task_index)
+        try:
+            task_index = resolve_task_index(dataset.meta.tasks, task_name)
+        except KeyError as error:
+            raise KeyError(f"Episode {ep_idx} references unknown task '{task_name}'.") from error
 
         explicit_success = episodes[success_field][i] if has_success else None
         resolved_success = resolve_episode_success_label(
@@ -243,11 +249,16 @@ def _compute_n_step_advantages(
     episode_indices: np.ndarray,
     frame_indices: np.ndarray,
     n_step: int,
+    transition_valid: np.ndarray | None = None,
 ) -> np.ndarray:
     if n_step <= 0:
         raise ValueError("'n_step' must be > 0.")
 
     n = rewards.shape[0]
+    if transition_valid is None:
+        transition_valid = np.ones(n, dtype=np.bool_)
+    elif transition_valid.shape != (n,):
+        raise ValueError(f"'transition_valid' must have shape {(n,)}, got {transition_valid.shape}.")
     advantages = np.zeros(n, dtype=np.float32)
 
     for i in range(n):
@@ -260,7 +271,7 @@ def _compute_n_step_advantages(
         while steps < n_step and j < n:
             same_episode = episode_indices[j] == ep_i
             contiguous = frame_indices[j] == fi + steps
-            if not same_episode or not contiguous:
+            if not same_episode or not contiguous or not bool(transition_valid[j]):
                 break
 
             discounted_sum += float(rewards[j])
@@ -281,19 +292,25 @@ def _compute_task_thresholds(
     task_indices: np.ndarray,
     advantages: np.ndarray,
     positive_ratio: float,
+    threshold_mask: np.ndarray | None = None,
 ) -> dict[int, float]:
     if not 0.0 <= positive_ratio <= 1.0:
         raise ValueError("'positive_ratio' must be within [0, 1].")
 
     thresholds: dict[int, float] = {}
     quantile = 1.0 - positive_ratio
+    if threshold_mask is None:
+        threshold_mask = np.ones(advantages.shape[0], dtype=np.bool_)
+    elif threshold_mask.shape != advantages.shape:
+        raise ValueError(
+            f"'threshold_mask' must have shape {advantages.shape}, got {threshold_mask.shape}."
+        )
 
     for task_idx in np.unique(task_indices):
-        task_adv = advantages[task_indices == task_idx]
+        task_adv = advantages[(task_indices == task_idx) & threshold_mask]
         if task_adv.size == 0:
-            thresholds[int(task_idx)] = float("inf")
-        else:
-            thresholds[int(task_idx)] = float(np.quantile(task_adv, quantile))
+            raise ValueError(f"Task {int(task_idx)} has no eligible train-split frames for ACP thresholding.")
+        thresholds[int(task_idx)] = float(np.quantile(task_adv, quantile))
 
     return thresholds
 
@@ -304,16 +321,23 @@ def _binarize_advantages(
     thresholds: dict[int, float],
     interventions: np.ndarray,
     force_intervention_positive: bool,
+    apply_mask: np.ndarray | None = None,
 ) -> np.ndarray:
     indicators = np.zeros_like(advantages, dtype=np.int64)
+    if apply_mask is None:
+        apply_mask = np.ones(advantages.shape[0], dtype=np.bool_)
+    elif apply_mask.shape != advantages.shape:
+        raise ValueError(f"'apply_mask' must have shape {advantages.shape}, got {apply_mask.shape}.")
 
     for i in range(advantages.shape[0]):
+        if not bool(apply_mask[i]):
+            continue
         task_idx = int(task_indices[i])
         threshold = thresholds[task_idx]
         indicators[i] = 1 if float(advantages[i]) >= threshold else 0
 
     if force_intervention_positive:
-        intervention_mask = interventions.astype(np.float32) > 0.5
+        intervention_mask = (interventions.astype(np.float32) > 0.5) & apply_mask
         indicators[intervention_mask] = 1
 
     return indicators
@@ -528,6 +552,22 @@ def run_value_inference_pipeline(
     else:
         interventions = np.zeros(frame_count, dtype=np.float32)
 
+    def required_column(field: str, dtype) -> np.ndarray:
+        if field not in raw_frames.column_names:
+            raise KeyError(f"Missing required attempt-aware ACP field '{field}'.")
+        return np.asarray(raw_frames[field], dtype=dtype)
+
+    if cfg.acp.enable:
+        split_values = required_column(cfg.acp.split_field, str)
+        outcome_known = required_column(cfg.acp.outcome_known_field, np.bool_)
+        transition_valid = required_column(cfg.acp.transition_valid_field, np.bool_)
+        action_chunk_valid = required_column(cfg.acp.action_chunk_valid_field, np.bool_)
+    else:
+        split_values = np.full(frame_count, "", dtype=str)
+        outcome_known = np.ones(frame_count, dtype=np.bool_)
+        transition_valid = np.ones(frame_count, dtype=np.bool_)
+        action_chunk_valid = np.ones(frame_count, dtype=np.bool_)
+
     eval_loader = DataLoader(
         dataset,
         batch_size=cfg.runtime.batch_size,
@@ -637,32 +677,49 @@ def run_value_inference_pipeline(
                 episode_indices=episode_indices,
                 frame_indices=frame_indices,
                 n_step=cfg.acp.n_step,
+                transition_valid=transition_valid,
+            )
+            threshold_mask = (
+                (split_values == cfg.acp.threshold_split)
+                & outcome_known
+                & transition_valid
             )
             thresholds = _compute_task_thresholds(
                 task_indices=task_indices,
                 advantages=advantages,
                 positive_ratio=cfg.acp.positive_ratio,
+                threshold_mask=threshold_mask,
             )
+            apply_mask = outcome_known & transition_valid & action_chunk_valid
+            if not bool(np.any(apply_mask)):
+                raise ValueError("Attempt-aware ACP apply mask excludes every frame.")
             indicators = _binarize_advantages(
                 task_indices=task_indices,
                 advantages=advantages,
                 thresholds=thresholds,
                 interventions=interventions,
                 force_intervention_positive=cfg.acp.force_intervention_positive,
+                apply_mask=apply_mask,
             )
 
-            indicator_positive_ratio = float(np.mean(indicators.astype(np.float32)))
+            indicator_positive_ratio = float(np.mean(indicators[apply_mask].astype(np.float32)))
             logging.info(
-                "ACP stats | n_step=%d positive_ratio_target=%.4f positive_ratio_observed=%.4f",
+                "ACP stats | n_step=%d threshold_split=%s threshold_frames=%d "
+                "apply_frames=%d positive_ratio_target=%.4f positive_ratio_observed=%.4f",
                 cfg.acp.n_step,
+                cfg.acp.threshold_split,
+                int(np.sum(threshold_mask)),
+                int(np.sum(apply_mask)),
                 cfg.acp.positive_ratio,
                 indicator_positive_ratio,
             )
 
             columns[cfg.acp.advantage_field] = advantages.astype(np.float32)
             columns[cfg.acp.indicator_field] = indicators.astype(np.int64)
+            columns[cfg.acp.apply_mask_field] = apply_mask.astype(np.int64)
             feature_infos[cfg.acp.advantage_field] = {"dtype": "float32", "shape": (1,), "names": None}
             feature_infos[cfg.acp.indicator_field] = {"dtype": "int64", "shape": (1,), "names": None}
+            feature_infos[cfg.acp.apply_mask_field] = {"dtype": "int64", "shape": (1,), "names": None}
 
         _write_columns_in_place(
             dataset_root=Path(dataset.root),
@@ -693,6 +750,9 @@ def run_value_inference_pipeline(
             "value_inference_skipped": False,
             "indicator_positive_ratio": indicator_positive_ratio,
             "thresholds": thresholds,
+            "threshold_split": cfg.acp.threshold_split if cfg.acp.enable else None,
+            "threshold_frame_count": int(np.sum(threshold_mask)) if cfg.acp.enable else None,
+            "acp_apply_frame_count": int(np.sum(apply_mask)) if cfg.acp.enable else None,
             "viz_outputs": viz_outputs,
         }
     else:

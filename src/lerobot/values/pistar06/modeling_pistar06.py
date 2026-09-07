@@ -46,6 +46,19 @@ class EpisodeTargetInfo:
     success: bool
 
 
+def resolve_task_index(tasks, task_name: str) -> int:
+    """Resolve both legacy text-indexed and standard v3 explicit-task metadata."""
+    if task_name in tasks.index:
+        return int(tasks.loc[task_name].task_index)
+    if "task" in tasks.columns:
+        matches = tasks[tasks["task"] == task_name]
+        if len(matches) == 1:
+            return int(matches.iloc[0].task_index)
+        if len(matches) > 1:
+            raise ValueError(f"Task metadata contains duplicate rows for '{task_name}'.")
+    raise KeyError(f"Task metadata does not contain '{task_name}'.")
+
+
 def build_bin_centers(
     num_bins: int,
     bin_min: float,
@@ -654,17 +667,21 @@ class Pistar06Policy(PreTrainedPolicy):
         episodes = episodes_ds[:]
         n_episodes = len(episodes_ds)
         has_success = targets_cfg.success_field in episodes_ds.column_names
+        selected_episode_set = set(np.unique(episode_indices).tolist())
 
         episode_info: dict[int, EpisodeTargetInfo] = {}
         task_max_length: dict[int, int] = {}
         for i in range(n_episodes):
             ep_idx = int(episodes["episode_index"][i])
+            if ep_idx not in selected_episode_set:
+                continue
             ep_length = int(episodes["length"][i])
             tasks = episodes["tasks"][i]
             task_name = tasks[0] if isinstance(tasks, list) else tasks
-            if task_name not in dataset.meta.tasks.index:
-                raise KeyError(f"Episode {ep_idx} references unknown task '{task_name}'.")
-            task_index = int(dataset.meta.tasks.loc[task_name].task_index)
+            try:
+                task_index = resolve_task_index(dataset.meta.tasks, task_name)
+            except KeyError as error:
+                raise KeyError(f"Episode {ep_idx} references unknown task '{task_name}'.") from error
 
             explicit_success = episodes[targets_cfg.success_field][i] if has_success else None
             resolved_success = resolve_episode_success_label(

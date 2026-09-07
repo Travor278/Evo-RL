@@ -351,6 +351,16 @@ def write_tasks(tasks: pandas.DataFrame, local_dir: Path) -> None:
 
 def load_tasks(local_dir: Path) -> pandas.DataFrame:
     tasks = pd.read_parquet(local_dir / DEFAULT_TASKS_PATH)
+    # LeRobot Dataset v3 stores natural-language task text in an explicit
+    # ``task`` column, while older local datasets used it as the DataFrame
+    # index. Normalize both layouts in memory so downstream code can reliably
+    # use ``tasks.iloc[task_index].name`` and ``tasks.loc[task_text]``.
+    if "task" in tasks.columns:
+        if tasks["task"].duplicated().any():
+            duplicate = str(tasks.loc[tasks["task"].duplicated(), "task"].iloc[0])
+            raise ValueError(f"Task metadata contains duplicate task text: '{duplicate}'.")
+        tasks = tasks.set_index("task")
+        tasks.index.name = None
     return tasks
 
 

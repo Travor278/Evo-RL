@@ -1,0 +1,12 @@
+experiment: attempt-aware ACP v2
+run_name: v2sam-ego2exo-attempt-v2-bc-50pct-smoke-r1
+seed: 20260906
+steps: 2000
+global_batch: 64
+replay:
+  base_fraction: 0.50
+  attempt_fraction: 0.50
+  sampler: attempt_balanced
+acp:
+  enable: false
+selection_split: validation
