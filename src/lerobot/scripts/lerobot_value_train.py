@@ -215,6 +215,7 @@ def value_train(
             dataset,
             attempt_field=cfg.attempt_sampling.attempt_field,
             valid_field=cfg.attempt_sampling.valid_field,
+            terminal_field=cfg.attempt_sampling.terminal_field,
             outcome_known_field=cfg.attempt_sampling.outcome_known_field,
             outcome_success_field=cfg.attempt_sampling.outcome_success_field,
             failure_fraction=cfg.attempt_sampling.failure_fraction,
@@ -225,7 +226,7 @@ def value_train(
             logging.info(
                 "Attempt sampling: attempts=%d success_attempts=%d failure_attempts=%d "
                 "target_failure_fraction=%s valid_frames=%d excluded_frames=%d num_samples=%d "
-                "attempt_field='%s' valid_field='%s' known_field='%s'",
+                "terminal_frames_included=%d attempt_field='%s' valid_field='%s' known_field='%s'",
                 attempt_stats.distinct_attempts,
                 attempt_stats.success_attempts,
                 attempt_stats.failure_attempts,
@@ -233,6 +234,7 @@ def value_train(
                 attempt_stats.valid_frames,
                 attempt_stats.excluded_frames,
                 attempt_stats.num_samples,
+                attempt_stats.terminal_frames_included,
                 attempt_stats.attempt_field,
                 attempt_stats.valid_field,
                 attempt_stats.outcome_known_field,

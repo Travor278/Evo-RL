@@ -51,6 +51,7 @@ class AttemptSamplingConfig:
     enable: bool = False
     attempt_field: str = "logical_attempt_id"
     valid_field: str = "logical_transition_valid"
+    terminal_field: str | None = "logical_attempt_terminal"
     outcome_known_field: str | None = "logical_attempt_outcome_known"
     outcome_success_field: str = "logical_attempt_success"
     failure_fraction: float | None = None

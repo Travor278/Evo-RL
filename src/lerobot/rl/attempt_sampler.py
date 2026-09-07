@@ -20,6 +20,7 @@ class AttemptSamplingStats:
     failure_attempts: int
     target_failure_fraction: float | None
     valid_frames: int
+    terminal_frames_included: int
     excluded_frames: int
     num_samples: int
 
@@ -102,6 +103,7 @@ def build_attempt_uniform_sampler(
     *,
     attempt_field: str,
     valid_field: str,
+    terminal_field: str | None = None,
     outcome_known_field: str | None,
     outcome_success_field: str = "logical_attempt_success",
     failure_fraction: float | None = None,
@@ -110,6 +112,11 @@ def build_attempt_uniform_sampler(
 ) -> tuple[Sampler[int], AttemptSamplingStats]:
     attempt_ids = _column(dataset, attempt_field)
     valid = torch.as_tensor(_column(dataset, valid_field), dtype=torch.bool).reshape(-1)
+    terminal_frames_included = 0
+    if terminal_field is not None:
+        terminal = torch.as_tensor(_column(dataset, terminal_field), dtype=torch.bool).reshape(-1)
+        terminal_frames_included = int((terminal & ~valid).sum().item())
+        valid |= terminal
     if outcome_known_field is not None:
         known = torch.as_tensor(_column(dataset, outcome_known_field), dtype=torch.bool).reshape(-1)
         valid &= known
@@ -163,6 +170,7 @@ def build_attempt_uniform_sampler(
         failure_attempts=len(failure_attempts) if failure_fraction is not None else 0,
         target_failure_fraction=failure_fraction,
         valid_frames=valid_frames,
+        terminal_frames_included=terminal_frames_included,
         excluded_frames=len(dataset) - valid_frames,
         num_samples=sample_count,
     )

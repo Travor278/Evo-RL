@@ -50,6 +50,7 @@ def main() -> int:
     frame_values = np.asarray(frames["frame_index"], dtype=np.int64)
     success_values = np.asarray(frames["logical_attempt_success"], dtype=np.bool_)
     attempt_index_values = np.asarray(frames["logical_attempt_index"], dtype=np.int64)
+    transition_valid_values = np.asarray(frames["logical_transition_valid"], dtype=np.bool_)
 
     train_failure_ids = sorted(
         int(ep) for ep in np.unique(episode_values) if ep in train_ids and not bool(success_values[np.where(episode_values == ep)[0][0]])
@@ -68,7 +69,14 @@ def main() -> int:
         positions = np.where(episode_values == ep)[0]
         if positions.size == 0:
             raise ValueError(f"Missing episode {ep} in loaded dataset")
-        points = sorted({int(positions[0]), int(positions[len(positions) // 2]), int(positions[-2])})
+        valid_positions = positions[transition_valid_values[positions]]
+        if valid_positions.size < 3:
+            raise ValueError(f"Episode {ep} has fewer than three valid transition frames")
+        points = [
+            int(valid_positions[0]),
+            int(valid_positions[len(valid_positions) // 2]),
+            int(valid_positions[-1]),
+        ]
         for phase_index, position in enumerate(points):
             selected_positions.append(position)
             position_metadata.append(

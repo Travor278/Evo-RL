@@ -6,6 +6,7 @@ SSD=/inspire/ssd/project/luojianlan/public/zhubingwen-253108120125/codex_remote_
 STEPS=${VALUE_SMOKE_STEPS:-300}
 RUN_ID=${VALUE_SMOKE_RUN_ID:-smoke300_r1}
 PLATFORM_TASK=${VALUE_SMOKE_PLATFORM_TASK:-v2sam-exo2ego-fusion-official24-resume-e8-20260827-v2-cuda132-r15}
+FAILURE_FRACTION=${VALUE_SMOKE_FAILURE_FRACTION:-}
 REPO="$EXP/src/Evo-RL"
 OLD_TARGET=/inspire/hdd/project/luojianlan/zhubingwen-253108120125/codex_remote_ops/evorl_hil_rl_piperx_20260902
 TRANSFORMERS_FORK="$OLD_TARGET/src/transformers_fix_lerobot_openpi"
@@ -27,7 +28,7 @@ exec > >(tee -a "$EXP/logs/${JOB}.log") 2>&1
 
 echo "JOB_START name=$JOB utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 test "$(nvidia-smi -L | wc -l)" = 8
-test "$(git -C "$REPO" rev-parse HEAD)" = 28fa2d895930826f1e8d4b9d66112c6cf01930fc
+test "$(git -C "$REPO" rev-parse HEAD)" = 2387400a66c3b6e8d21968ec432fc53e0bc4163d
 test -z "$(git -C "$REPO" status --porcelain)"
 test "$(git -C "$TRANSFORMERS_FORK" rev-parse HEAD)" = dcddb970176382c0fcf4521b0c0e6fc15894dfe0
 test -d "$VIEW"
@@ -105,7 +106,16 @@ split_manifest_sha256=$(sha256sum "$SPLITS" | awk '{print $1}')
 outcome_contract_sha256=$(sha256sum "$EXP/configs/outcome_contract.yaml" | awk '{print $1}')
 value_dataset=$VIEW
 base_558_in_value=false
+failure_fraction=${FAILURE_FRACTION:-none}
 EOF
+
+BALANCE_ARGS=()
+if [ -n "$FAILURE_FRACTION" ]; then
+  BALANCE_ARGS+=(
+    --attempt_sampling.outcome_success_field=logical_attempt_success
+    --attempt_sampling.failure_fraction="$FAILURE_FRACTION"
+  )
+fi
 
 "$VENV/bin/python" -m accelerate.commands.launch \
   --multi_gpu --num_processes=8 --num_machines=1 --mixed_precision=bf16 --main_process_port="$PORT" \
@@ -132,7 +142,9 @@ EOF
   --attempt_sampling.enable=true \
   --attempt_sampling.attempt_field=logical_attempt_id \
   --attempt_sampling.valid_field=logical_transition_valid \
+  --attempt_sampling.terminal_field=logical_attempt_terminal \
   --attempt_sampling.outcome_known_field=logical_attempt_outcome_known \
+  "${BALANCE_ARGS[@]}" \
   --batch_size=8 \
   --steps="$STEPS" \
   --num_workers=4 \

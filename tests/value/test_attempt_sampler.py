@@ -54,6 +54,7 @@ def test_attempt_uniform_sampler_equalizes_short_and_long_attempts():
     assert stats == duplicate_stats
     assert stats.distinct_attempts == 2
     assert stats.valid_frames == 5
+    assert stats.terminal_frames_included == 0
     assert stats.excluded_frames == 1
     assert 5 not in samples
     short_fraction = sum(index == 0 for index in samples) / len(samples)
@@ -98,3 +99,26 @@ def test_outcome_balanced_sampler_caps_failure_fraction_and_reports_unique_failu
     assert stats.success_attempts == 2
     assert stats.failure_attempts == 1
     assert stats.target_failure_fraction == 0.1
+
+
+def test_attempt_sampler_includes_terminal_state_when_transition_is_invalid():
+    dataset = _FakeDataset(
+        {
+            "attempt": ["a", "a", "b", "b"],
+            "valid": [1, 0, 1, 0],
+            "terminal": [0, 1, 0, 1],
+            "known": [1, 1, 1, 1],
+        }
+    )
+    sampler, stats = build_attempt_uniform_sampler(
+        dataset,
+        attempt_field="attempt",
+        valid_field="valid",
+        terminal_field="terminal",
+        outcome_known_field="known",
+        num_samples=2000,
+        seed=7,
+    )
+    samples = set(sampler)
+    assert samples == {0, 1, 2, 3}
+    assert stats.terminal_frames_included == 2
