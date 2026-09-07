@@ -52,6 +52,8 @@ class AttemptSamplingConfig:
     attempt_field: str = "logical_attempt_id"
     valid_field: str = "logical_transition_valid"
     outcome_known_field: str | None = "logical_attempt_outcome_known"
+    outcome_success_field: str = "logical_attempt_success"
+    failure_fraction: float | None = None
     num_samples: int | None = None
 
     def validate(self) -> None:
@@ -63,6 +65,13 @@ class AttemptSamplingConfig:
             raise ValueError("'attempt_sampling.valid_field' must be non-empty when enabled.")
         if self.num_samples is not None and self.num_samples <= 0:
             raise ValueError("'attempt_sampling.num_samples' must be positive when set.")
+        if self.failure_fraction is not None:
+            if not 0.0 < self.failure_fraction < 1.0:
+                raise ValueError("'attempt_sampling.failure_fraction' must be within (0, 1).")
+            if not self.outcome_success_field:
+                raise ValueError(
+                    "'attempt_sampling.outcome_success_field' must be non-empty when outcome balancing is enabled."
+                )
 
 
 @dataclass
@@ -84,6 +93,7 @@ class ValueTrainPipelineConfig(HubMixin):
 
     save_checkpoint: bool = True
     save_freq: int = 4_000
+    save_steps: list[int] = field(default_factory=list)
 
     use_value_training_preset: bool = True
     use_policy_training_preset: bool = field(init=False, default=True)
@@ -134,6 +144,12 @@ class ValueTrainPipelineConfig(HubMixin):
 
         self.targets.validate()
         self.attempt_sampling.validate()
+        if self.save_freq <= 0:
+            raise ValueError("'save_freq' must be > 0.")
+        if len(set(self.save_steps)) != len(self.save_steps):
+            raise ValueError("'save_steps' must not contain duplicates.")
+        if any(step <= 0 or step > self.steps for step in self.save_steps):
+            raise ValueError("Each explicit 'save_steps' entry must be within [1, steps].")
 
         if hasattr(self.value, "target_key"):
             self.value.target_key = self.targets.target_field

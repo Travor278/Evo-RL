@@ -71,3 +71,30 @@ def test_attempt_uniform_sampler_rejects_missing_field():
             num_samples=1,
             seed=0,
         )
+
+
+def test_outcome_balanced_sampler_caps_failure_fraction_and_reports_unique_failures():
+    dataset = _FakeDataset(
+        {
+            "attempt": ["success-short", "success-long", "success-long", "failure", "failure"],
+            "valid": [1, 1, 1, 1, 1],
+            "known": [1, 1, 1, 1, 1],
+            "success": [1, 1, 1, 0, 0],
+        }
+    )
+    sampler, stats = build_attempt_uniform_sampler(
+        dataset,
+        attempt_field="attempt",
+        valid_field="valid",
+        outcome_known_field="known",
+        outcome_success_field="success",
+        failure_fraction=0.1,
+        num_samples=20000,
+        seed=20260906,
+    )
+    samples = list(sampler)
+    observed_failure_fraction = sum(index in {3, 4} for index in samples) / len(samples)
+    assert 0.085 <= observed_failure_fraction <= 0.115
+    assert stats.success_attempts == 2
+    assert stats.failure_attempts == 1
+    assert stats.target_failure_fraction == 0.1

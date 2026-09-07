@@ -32,6 +32,10 @@ from lerobot.utils.train_utils import (
 from lerobot.utils.utils import format_big_number, has_method, init_logging
 
 
+def should_save_value_checkpoint(step: int, total_steps: int, save_freq: int, save_steps: list[int]) -> bool:
+    return step == total_steps or step in save_steps or step % save_freq == 0
+
+
 def update_policy(
     train_metrics: MetricsTracker,
     policy: PreTrainedPolicy,
@@ -212,14 +216,20 @@ def value_train(
             attempt_field=cfg.attempt_sampling.attempt_field,
             valid_field=cfg.attempt_sampling.valid_field,
             outcome_known_field=cfg.attempt_sampling.outcome_known_field,
+            outcome_success_field=cfg.attempt_sampling.outcome_success_field,
+            failure_fraction=cfg.attempt_sampling.failure_fraction,
             num_samples=cfg.attempt_sampling.num_samples,
             seed=cfg.seed,
         )
         if is_main_process:
             logging.info(
-                "Attempt-uniform sampling: attempts=%d valid_frames=%d excluded_frames=%d "
-                "num_samples=%d attempt_field='%s' valid_field='%s' known_field='%s'",
+                "Attempt sampling: attempts=%d success_attempts=%d failure_attempts=%d "
+                "target_failure_fraction=%s valid_frames=%d excluded_frames=%d num_samples=%d "
+                "attempt_field='%s' valid_field='%s' known_field='%s'",
                 attempt_stats.distinct_attempts,
+                attempt_stats.success_attempts,
+                attempt_stats.failure_attempts,
+                attempt_stats.target_failure_fraction,
                 attempt_stats.valid_frames,
                 attempt_stats.excluded_frames,
                 attempt_stats.num_samples,
@@ -306,7 +316,7 @@ def value_train(
         step += 1
         train_tracker.step()
         is_log_step = cfg.log_freq > 0 and step % cfg.log_freq == 0 and is_main_process
-        is_saving_step = step % cfg.save_freq == 0 or step == cfg.steps
+        is_saving_step = should_save_value_checkpoint(step, cfg.steps, cfg.save_freq, cfg.save_steps)
 
         if is_log_step:
             logging.info(train_tracker)
