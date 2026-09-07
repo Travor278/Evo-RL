@@ -13,6 +13,7 @@ if [[ "$HIL_FRACTION" != 0.25 && "$HIL_FRACTION" != 0.50 ]]; then
 fi
 RUN_ID=${POLICY_RUN_ID:?POLICY_RUN_ID is required}
 PLATFORM_TASK=${POLICY_PLATFORM_TASK:?POLICY_PLATFORM_TASK is required}
+EXPECTED_COMMIT=${POLICY_EXPECTED_COMMIT:?POLICY_EXPECTED_COMMIT is required}
 
 EXP=/inspire/hdd/project/luojianlan/zhubingwen-253108120125/codex_remote_ops/evorl_attempt_aware_rl_piperx_20260906
 REPO="$EXP/src/Evo-RL"
@@ -38,10 +39,21 @@ mkdir -p "$EXP/logs" "$EXP/manifests" "$EXP/reports" "$EXP/checkpoints"
 exec > >(tee -a "$LOG") 2>&1
 echo "POLICY_SMOKE_START job=$JOB mode=$MODE ratio=$HIL_FRACTION utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 
-test "$(nvidia-smi -L | wc -l)" = 8
-test "$(git -C "$REPO" rev-parse HEAD)" = cb60dcc67cd840feb77b2e9c967fbdb903565eb6
-test -z "$(git -C "$REPO" status --porcelain)"
-test "$(git -C "$TRANSFORMERS_FORK" rev-parse HEAD)" = dcddb970176382c0fcf4521b0c0e6fc15894dfe0
+gpu_count=$(nvidia-smi -L | wc -l)
+repo_head=$(git -C "$REPO" rev-parse HEAD)
+repo_dirty=$(git -C "$REPO" status --porcelain | wc -l)
+transformers_head=$(git -C "$TRANSFORMERS_FORK" rev-parse HEAD)
+printf 'POLICY_PREFLIGHT gpu_count=%s repo_head=%s repo_dirty=%s transformers_head=%s source_marker=%s base_model=%s output_exists=%s manifest_exists=%s ram_exists=%s\n' \
+  "$gpu_count" "$repo_head" "$repo_dirty" "$transformers_head" \
+  "$([ -f "$SOURCE_DATASET/meta/MIXED_REPLAY_COMPLETE.json" ] && printf yes || printf no)" \
+  "$([ -f "$BASE_POLICY/model.safetensors" ] && printf yes || printf no)" \
+  "$([ -e "$OUTPUT" ] && printf yes || printf no)" \
+  "$([ -e "$MANIFEST" ] && printf yes || printf no)" \
+  "$([ -e "$RAM_ROOT" ] && printf yes || printf no)"
+test "$gpu_count" = 8
+test "$repo_head" = "$EXPECTED_COMMIT"
+test "$repo_dirty" = 0
+test "$transformers_head" = dcddb970176382c0fcf4521b0c0e6fc15894dfe0
 test -f "$SOURCE_DATASET/meta/MIXED_REPLAY_COMPLETE.json"
 test -f "$BASE_POLICY/model.safetensors"
 test ! -e "$OUTPUT"
