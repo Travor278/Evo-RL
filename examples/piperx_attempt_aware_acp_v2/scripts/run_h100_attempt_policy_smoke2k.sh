@@ -29,15 +29,38 @@ JOB="v2sam-ego2exo-attempt-v2-${RUN_ID}"
 OUTPUT="$EXP/checkpoints/$JOB"
 LOG="$EXP/logs/$JOB.log"
 MANIFEST="$EXP/manifests/$JOB-run.json"
+SELECTION_REPORT="$EXP/reports/policy_ratio_smoke_selection_v2.json"
 RAM_ROOT="/dev/shm/$JOB"
 DATASET="$RAM_ROOT/mixed_replay"
 VENV="/tmp/$JOB-py312"
 PORT=29650
-STEPS=2000
+STEPS=${POLICY_STEPS:-2000}
+case "$STEPS" in
+  2000)
+    RUN_KIND=smoke2k
+    SAVE_STEPS='[1000,2000]'
+    LAST_STEP=002000
+    CHECKPOINT_STEPS=(001000 002000)
+    START_MARKER=POLICY_SMOKE_START
+    PASS_MARKER=POLICY_SMOKE_PASS
+    ;;
+  20000)
+    RUN_KIND=formal20k
+    SAVE_STEPS='[1000,5000,10000,15000,20000]'
+    LAST_STEP=020000
+    CHECKPOINT_STEPS=(001000 005000 010000 015000 020000)
+    START_MARKER=POLICY_FORMAL20K_START
+    PASS_MARKER=POLICY_FORMAL20K_PASS
+    ;;
+  *)
+    echo "POLICY_STEPS must be 2000 or 20000" >&2
+    exit 64
+    ;;
+esac
 
 mkdir -p "$EXP/logs" "$EXP/manifests" "$EXP/reports" "$EXP/checkpoints"
 exec > >(tee -a "$LOG") 2>&1
-echo "POLICY_SMOKE_START job=$JOB mode=$MODE ratio=$HIL_FRACTION utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+echo "$START_MARKER job=$JOB mode=$MODE ratio=$HIL_FRACTION steps=$STEPS utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 
 gpu_count=$(nvidia-smi -L | wc -l)
 repo_head=$(git -C "$REPO" rev-parse HEAD)
@@ -56,6 +79,16 @@ test "$repo_dirty" = 0
 test "$transformers_head" = dcddb970176382c0fcf4521b0c0e6fc15894dfe0
 test -f "$SOURCE_DATASET/meta/MIXED_REPLAY_COMPLETE.json"
 test -f "$BASE_POLICY/model.safetensors"
+if [[ "$RUN_KIND" == formal20k ]]; then
+  test -f "$SELECTION_REPORT"
+  python - "$SELECTION_REPORT" "$HIL_FRACTION" <<'PY'
+import json,sys
+p=json.load(open(sys.argv[1]))
+assert p["held_out_test_used_for_selection"] is False
+assert float(p["selected_attempt_fraction"])==float(sys.argv[2])==0.50
+print("POLICY_SELECTION_GATE_OK",p["validation_anchor_sha256"])
+PY
+fi
 test ! -e "$OUTPUT"
 test ! -e "$MANIFEST"
 test ! -e "$RAM_ROOT"
@@ -123,18 +156,18 @@ print("POLICY_IMPORT_GATE_OK",torch.__version__,torch.version.cuda)
 PY
 "$VENV/bin/python" -m torch.distributed.run --standalone --nproc_per_node=8 --master_port="$PORT" "$OLD_ROOT/preflight/nccl_smoke.py"
 
-python - "$MANIFEST" "$SOURCE_DATASET" "$BASE_POLICY" "$MODE" "$HIL_FRACTION" "$stage_seconds" <<'PY'
+python - "$MANIFEST" "$SOURCE_DATASET" "$BASE_POLICY" "$MODE" "$HIL_FRACTION" "$stage_seconds" "$STEPS" "$RUN_KIND" "$SELECTION_REPORT" <<'PY'
 import hashlib,json,subprocess,sys
 from datetime import datetime,timezone
 from pathlib import Path
-out,dataset,policy=map(Path,sys.argv[1:4]);mode=sys.argv[4];ratio=float(sys.argv[5]);stage=int(sys.argv[6])
+out,dataset,policy=map(Path,sys.argv[1:4]);mode=sys.argv[4];ratio=float(sys.argv[5]);stage=int(sys.argv[6]);steps=int(sys.argv[7]);run_kind=sys.argv[8];selection=Path(sys.argv[9])
 def sha(path):
  h=hashlib.sha256()
  with path.open("rb") as f:
   for block in iter(lambda:f.read(8*1024*1024),b""):h.update(block)
  return h.hexdigest()
 repo=Path("/inspire/hdd/project/luojianlan/zhubingwen-253108120125/codex_remote_ops/evorl_attempt_aware_rl_piperx_20260906/src/Evo-RL")
-payload={"schema":"attempt-aware-policy-smoke/v2","created_utc":datetime.now(timezone.utc).isoformat(),"mode":mode,"target_attempt_fraction":ratio,"steps":2000,"world_size":8,"batch_size_per_rank":8,"global_batch_size":64,"seed":20260906,"mixed_ram_stage_seconds":stage,"evorl_commit":subprocess.check_output(["git","-C",str(repo),"rev-parse","HEAD"],text=True).strip(),"dataset_manifest_sha256":sha(dataset/"meta/replay_manifest.json"),"initial_model_sha256":sha(policy/"model.safetensors"),"sampler":"attempt_balanced","acp_dropout":0.30 if mode=="acp" else None}
+payload={"schema":"attempt-aware-policy-run/v3","created_utc":datetime.now(timezone.utc).isoformat(),"run_kind":run_kind,"mode":mode,"target_attempt_fraction":ratio,"steps":steps,"world_size":8,"batch_size_per_rank":8,"global_batch_size":64,"seed":20260906,"mixed_ram_stage_seconds":stage,"evorl_commit":subprocess.check_output(["git","-C",str(repo),"rev-parse","HEAD"],text=True).strip(),"dataset_manifest_sha256":sha(dataset/"meta/replay_manifest.json"),"initial_model_sha256":sha(policy/"model.safetensors"),"validation_selection_sha256":sha(selection) if run_kind=="formal20k" else None,"sampler":"attempt_balanced","acp_dropout":0.30 if mode=="acp" else None}
 out.write_text(json.dumps(payload,indent=2,sort_keys=True)+"\n")
 PY
 
@@ -144,7 +177,7 @@ ARGS=(
   --policy.path="$BASE_POLICY"
   '--rename_map={"observation.images.camera_top":"observation.images.base_0_rgb","observation.images.camera_wrist_left":"observation.images.left_wrist_0_rgb","observation.images.camera_wrist_right":"observation.images.right_wrist_0_rgb"}'
   --batch_size=8 --num_workers=4 --eval_freq=0 --save_checkpoint=true --save_freq=0
-  '--save_steps=[1000,2000]' --steps="$STEPS" --log_freq=5 --seed=20260906 --wandb.enable=false
+  --save_steps="$SAVE_STEPS" --steps="$STEPS" --log_freq=5 --seed=20260906 --wandb.enable=false
   --replay_sampling.enable=true --replay_sampling.strategy=attempt_balanced
   --replay_sampling.source_field=replay_source --replay_sampling.hil_value=1
   --replay_sampling.target_hil_fraction="$HIL_FRACTION"
@@ -164,14 +197,16 @@ start=$(date +%s)
   --multi_gpu --num_processes=8 --num_machines=1 --mixed_precision=bf16 --main_process_port=$((PORT+1)) \
   --module lerobot.scripts.lerobot_train "${ARGS[@]}"
 seconds=$(($(date +%s)-start))
-test "$(readlink "$OUTPUT/checkpoints/last")" = 002000
-for step in 001000 002000; do
+test "$(readlink "$OUTPUT/checkpoints/last")" = "$LAST_STEP"
+for step in "${CHECKPOINT_STEPS[@]}"; do
   test -f "$OUTPUT/checkpoints/$step/pretrained_model/model.safetensors"
   test -f "$OUTPUT/checkpoints/$step/training_state/optimizer_state.safetensors"
 done
-sha256sum "$OUTPUT/checkpoints/001000/pretrained_model/model.safetensors" "$OUTPUT/checkpoints/002000/pretrained_model/model.safetensors" > "$EXP/manifests/$JOB-checkpoint-sha256.txt"
+for step in "${CHECKPOINT_STEPS[@]}"; do
+  sha256sum "$OUTPUT/checkpoints/$step/pretrained_model/model.safetensors"
+done > "$EXP/manifests/$JOB-checkpoint-sha256.txt"
 if grep -Eqi '(^|[^[:alpha:]])(nan|inf)([^[:alpha:]]|$)|CUDA error|NCCL error|Traceback' "$LOG"; then
   echo "POLICY_FAILURE_PATTERN_FOUND" >&2
   exit 2
 fi
-echo "POLICY_SMOKE_PASS job=$JOB mode=$MODE ratio=$HIL_FRACTION seconds=$seconds utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+echo "$PASS_MARKER job=$JOB mode=$MODE ratio=$HIL_FRACTION steps=$STEPS seconds=$seconds utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
