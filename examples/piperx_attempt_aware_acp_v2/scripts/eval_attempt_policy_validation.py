@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Pre-registered validation-only diagnostics for attempt-aware ACP v2 policy smokes.
+"""Pre-registered split diagnostics for attempt-aware ACP v2 policies.
 
-This script intentionally never enumerates or opens test attempts.  It evaluates the
-same deterministic validation anchors and diffusion noise for every checkpoint, plus
-a fixed Base-558 retention probe.  Results are resumable per model.
+Validation mode is used for replay-ratio selection. Test mode is allowed only after
+the final training choices are frozen. It evaluates identical deterministic anchors
+and diffusion noise for every checkpoint, plus a fixed Base-558 retention probe.
 """
 
 from __future__ import annotations
@@ -56,6 +56,13 @@ CHECKPOINTS = {
     "bc25": ROOT / "checkpoints/v2sam-ego2exo-attempt-v2-bc_25pct_smoke2k_r1/checkpoints/002000/pretrained_model",
     "acp50": ROOT / "checkpoints/v2sam-ego2exo-attempt-v2-acp_50pct_smoke2k_r1/checkpoints/002000/pretrained_model",
     "bc50": ROOT / "checkpoints/v2sam-ego2exo-attempt-v2-bc_50pct_smoke2k_r1/checkpoints/002000/pretrained_model",
+    "episode_acp_v1": Path(
+        "/inspire/hdd/project/luojianlan/zhubingwen-253108120125/"
+        "codex_remote_ops/evorl_hil_rl_piperx_20260902/checkpoints/"
+        "v2sam-ego2exo-official-v2-20k-r1-8gpu-acp-policy/checkpoints/020000/pretrained_model"
+    ),
+    "acp20k": ROOT / "checkpoints/v2sam-ego2exo-attempt-v2-acp-20k-r2/checkpoints/020000/pretrained_model",
+    "bc20k": ROOT / "checkpoints/v2sam-ego2exo-attempt-v2-bc-20k-r2/checkpoints/020000/pretrained_model",
 }
 EXPECTED_SHA256 = {
     "acp25": "8a871364791d930ca31246b0f6ae26393283c5d9df87aa4cf6345621e24563ad",
@@ -63,7 +70,7 @@ EXPECTED_SHA256 = {
     "acp50": "656cfe44fc232eb93371bf30e3cb499bb310bdc48251e8fb75e0fe09cf0c82c8",
     "bc50": "c25de3d7350fe6a7358e22fa9c24d71316f279224ef4a8ee1479370235e9edc6",
 }
-ACP_MODELS = {"acp25", "acp50"}
+ACP_MODELS = {"acp25", "acp50", "episode_acp_v1", "acp20k"}
 RENAME_MAP = {
     "observation.images.camera_top": "observation.images.base_0_rgb",
     "observation.images.camera_wrist_left": "observation.images.left_wrist_0_rgb",
@@ -105,7 +112,7 @@ def evenly_pick(indices: list[int], count: int) -> list[int]:
     return out
 
 
-def validation_episode_indices() -> list[int]:
+def split_episode_indices(split_name: str) -> list[int]:
     files = sorted((ANNOTATED_ROOT / "data").rglob("*.parquet"))
     table = pads.dataset([str(path) for path in files], format="parquet").to_table(
         columns=["episode_index", "dataset_split"]
@@ -114,11 +121,12 @@ def validation_episode_indices() -> list[int]:
         {
             int(ep)
             for ep, split in zip(table["episode_index"].to_pylist(), table["dataset_split"].to_pylist())
-            if str(split) == "validation"
+            if str(split) == split_name
         }
     )
-    if len(episodes) != 50:
-        raise RuntimeError(f"validation episode drift: expected 50, got {len(episodes)}")
+    expected = {"validation": 50, "test": 46}[split_name]
+    if len(episodes) != expected:
+        raise RuntimeError(f"{split_name} episode drift: expected {expected}, got {len(episodes)}")
     return episodes
 
 
@@ -135,7 +143,9 @@ def make_dataset(root: Path, repo_id: str, episodes: list[int], policy_cfg: PI05
     )
 
 
-def build_attempt_anchors(dataset: LeRobotDataset, samples_per_attempt: int) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+def build_attempt_anchors(
+    dataset: LeRobotDataset, samples_per_attempt: int, split_name: str
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     raw = dataset.hf_dataset.with_format(None)
     episodes = np.asarray(raw["episode_index"], dtype=np.int64)
     frames = np.asarray(raw["frame_index"], dtype=np.int64)
@@ -151,8 +161,8 @@ def build_attempt_anchors(dataset: LeRobotDataset, samples_per_attempt: int) -> 
     splits = np.asarray(raw["dataset_split"], dtype=str)
     global_indices = np.asarray(raw["index"], dtype=np.int64)
     finite = np.isfinite(actions).all(axis=1)
-    if not np.all(splits == "validation"):
-        raise RuntimeError("non-validation row entered validation dataset")
+    if not np.all(splits == split_name):
+        raise RuntimeError(f"row outside {split_name} entered evaluation dataset")
     if not np.all(known):
         raise RuntimeError("unknown outcome entered fixed validation split")
 
@@ -237,10 +247,12 @@ def build_base_anchors(
     return anchors, summary
 
 
-def prompt_for_anchor(model_name: str, anchor: dict[str, Any], swapped: bool = False) -> str:
+def prompt_for_anchor(
+    model_name: str, anchor: dict[str, Any], prompt_mode: str, swapped: bool = False
+) -> str:
     if model_name not in ACP_MODELS:
         return TASK
-    positive = bool(anchor["acp_indicator"])
+    positive = True if prompt_mode == "deployment_positive" else bool(anchor["acp_indicator"])
     if swapped:
         positive = not positive
     return TASK + ("\nAdvantage: positive" if positive else "\nAdvantage: negative")
@@ -379,6 +391,7 @@ def evaluate_model(
     anchor_sha256: str,
     part_path: Path,
     seed: int,
+    acp_prompt_mode: str,
 ) -> dict[str, Any]:
     if part_path.is_file():
         existing = json.loads(part_path.read_text(encoding="utf-8"))
@@ -426,7 +439,7 @@ def evaluate_model(
                 for key in IMAGE_KEYS:
                     item[key] = source_item[key]
             if domain == "validation":
-                item["task"] = prompt_for_anchor(name, anchor)
+                item["task"] = prompt_for_anchor(name, anchor, acp_prompt_mode)
             else:
                 item["task"] = TASK
             batch = default_collate([item])
@@ -435,7 +448,9 @@ def evaluate_model(
             record = {**anchor, **metrics, "deterministic_seed": deterministic_seed}
             if domain == "validation" and name in ACP_MODELS:
                 swapped_item = dict(item)
-                swapped_item["task"] = prompt_for_anchor(name, anchor, swapped=True)
+                swapped_item["task"] = prompt_for_anchor(
+                    name, anchor, acp_prompt_mode, swapped=True
+                )
                 swapped_batch = default_collate([swapped_item])
                 swapped = one_pass(
                     policy, preprocessor, postprocessor, config, swapped_batch, deterministic_seed
@@ -485,10 +500,16 @@ def main() -> int:
     parser.add_argument("--base-episodes", type=int, default=32)
     parser.add_argument("--base-samples-per-episode", type=int, default=2)
     parser.add_argument("--seed", type=int, default=20260906)
+    parser.add_argument("--split", choices=("validation", "test"), default="validation")
+    parser.add_argument(
+        "--acp-prompt-mode",
+        choices=("label_matched", "deployment_positive"),
+        default=None,
+    )
     parser.add_argument("--models", nargs="+", choices=tuple(CHECKPOINTS), default=list(CHECKPOINTS))
-    parser.add_argument("--output", type=Path, default=ROOT / "reports/policy_ratio_smoke_validation_v2.json")
-    parser.add_argument("--anchor-output", type=Path, default=ROOT / "manifests/policy_ratio_smoke_validation_anchors_v2.json")
-    parser.add_argument("--part-dir", type=Path, default=ROOT / "reports/policy_ratio_smoke_validation_parts_v2")
+    parser.add_argument("--output", type=Path, default=None)
+    parser.add_argument("--anchor-output", type=Path, default=None)
+    parser.add_argument("--part-dir", type=Path, default=None)
     args = parser.parse_args()
     register_third_party_plugins()
     torch.set_float32_matmul_precision("high")
@@ -496,9 +517,23 @@ def main() -> int:
     reference_cfg = PreTrainedConfig.from_pretrained(str(CHECKPOINTS["acp25"]))
     if not isinstance(reference_cfg, PI05Config) or reference_cfg.chunk_size != 50:
         raise RuntimeError("reference checkpoint is not a 50-step PI05 policy")
-    val_episodes = validation_episode_indices()
-    val_dataset = make_dataset(ANNOTATED_ROOT, "local/attempt-acp-annotated-v2", val_episodes, reference_cfg)
-    val_anchors, val_summary = build_attempt_anchors(val_dataset, args.samples_per_attempt)
+    if args.output is None:
+        args.output = ROOT / f"reports/policy_{args.split}_evaluation_v2.json"
+    if args.anchor_output is None:
+        args.anchor_output = ROOT / f"manifests/policy_{args.split}_evaluation_anchors_v2.json"
+    if args.part_dir is None:
+        args.part_dir = ROOT / f"reports/policy_{args.split}_evaluation_parts_v2"
+    if args.acp_prompt_mode is None:
+        args.acp_prompt_mode = (
+            "label_matched" if args.split == "validation" else "deployment_positive"
+        )
+    split_episodes = split_episode_indices(args.split)
+    val_dataset = make_dataset(
+        ANNOTATED_ROOT, "local/attempt-acp-annotated-v2", split_episodes, reference_cfg
+    )
+    val_anchors, val_summary = build_attempt_anchors(
+        val_dataset, args.samples_per_attempt, args.split
+    )
 
     rng = np.random.default_rng(args.seed)
     base_episodes = sorted(rng.choice(np.arange(558), size=args.base_episodes, replace=False).tolist())
@@ -510,12 +545,12 @@ def main() -> int:
         "schema": "attempt_policy_ratio_validation_anchors/v2",
         "created_utc": datetime.now(timezone.utc).isoformat(),
         "seed": args.seed,
-        "selection_data": "validation_only",
-        "test_data_accessed": False,
-        "validation_episode_indices": val_episodes,
-        "validation_attempts": len(val_episodes),
-        "validation_anchors": val_anchors,
-        "validation_candidate_summary": val_summary,
+        "evaluation_split": args.split,
+        "test_data_accessed": args.split == "test",
+        "episode_indices": split_episodes,
+        "attempts": len(split_episodes),
+        "anchors": val_anchors,
+        "candidate_summary": val_summary,
         "base_retention_probe_note": "fixed deterministic sample from replay data; measures relative forgetting, not held-out generalization",
         "base_episode_indices": base_episodes,
         "base_anchors": base_anchors,
@@ -523,6 +558,7 @@ def main() -> int:
         "chunk_size": 50,
         "same_anchors_all_models": True,
         "same_diffusion_noise_all_models": True,
+        "acp_prompt_mode": args.acp_prompt_mode,
     }
     canonical = json.dumps(anchor_contract, sort_keys=True, separators=(",", ":")).encode()
     anchor_sha256 = hashlib.sha256(canonical).hexdigest()
@@ -530,7 +566,7 @@ def main() -> int:
     args.anchor_output.parent.mkdir(parents=True, exist_ok=True)
     args.anchor_output.write_text(json.dumps(anchor_contract, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(
-        f"VALIDATION_ANCHOR_GATE_OK attempts={len(val_episodes)} val_samples={len(val_anchors)} "
+        f"EVALUATION_ANCHOR_GATE_OK split={args.split} attempts={len(split_episodes)} samples={len(val_anchors)} "
         f"base_episodes={len(base_episodes)} base_samples={len(base_anchors)} sha256={anchor_sha256}",
         flush=True,
     )
@@ -547,12 +583,15 @@ def main() -> int:
             anchor_sha256,
             args.part_dir / f"{name}.json",
             args.seed,
+            args.acp_prompt_mode,
         )
     result = {
         "schema": "attempt_policy_ratio_smoke_validation/v2",
         "created_utc": datetime.now(timezone.utc).isoformat(),
-        "selection_data": "validation_only",
+        "evaluation_split": args.split,
         "held_out_test_used_for_selection": False,
+        "choices_frozen_before_test": args.split == "test",
+        "acp_prompt_mode": args.acp_prompt_mode,
         "anchor_manifest": str(args.anchor_output),
         "anchor_sha256": anchor_sha256,
         "model_order": args.models,
