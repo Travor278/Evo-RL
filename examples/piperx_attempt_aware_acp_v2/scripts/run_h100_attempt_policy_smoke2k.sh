@@ -16,6 +16,7 @@ PLATFORM_TASK=${POLICY_PLATFORM_TASK:?POLICY_PLATFORM_TASK is required}
 EXPECTED_COMMIT=${POLICY_EXPECTED_COMMIT:?POLICY_EXPECTED_COMMIT is required}
 
 EXP=/inspire/hdd/project/luojianlan/zhubingwen-253108120125/codex_remote_ops/evorl_attempt_aware_rl_piperx_20260906
+SSD_EXP=/inspire/ssd/project/luojianlan/public/zhubingwen-253108120125/codex_remote_ops/evorl_attempt_aware_rl_piperx_20260906
 REPO="$EXP/src/Evo-RL"
 OLD_TARGET=/inspire/hdd/project/luojianlan/zhubingwen-253108120125/codex_remote_ops/evorl_hil_rl_piperx_20260902
 TRANSFORMERS_FORK="$OLD_TARGET/src/transformers_fix_lerobot_openpi"
@@ -27,6 +28,7 @@ SOURCE_DATASET=/inspire/ssd/project/luojianlan/public/zhubingwen-253108120125/co
 BASE_POLICY="$OLD_TARGET/checkpoints/pi05_base_step50000_policy_compat_6f2db_v2"
 JOB="v2sam-ego2exo-attempt-v2-${RUN_ID}"
 OUTPUT="$EXP/checkpoints/$JOB"
+HDD_CHECKPOINT_LINK="$EXP/checkpoints/$JOB"
 LOG="$EXP/logs/$JOB.log"
 MANIFEST="$EXP/manifests/$JOB-run.json"
 SELECTION_REPORT="$EXP/reports/policy_ratio_smoke_selection_v2.json"
@@ -51,6 +53,7 @@ case "$STEPS" in
     CHECKPOINT_STEPS=(001000 005000 010000 015000 020000)
     START_MARKER=POLICY_FORMAL20K_START
     PASS_MARKER=POLICY_FORMAL20K_PASS
+    OUTPUT="$SSD_EXP/formal_checkpoints/$JOB"
     ;;
   *)
     echo "POLICY_STEPS must be 2000 or 20000" >&2
@@ -59,6 +62,9 @@ case "$STEPS" in
 esac
 
 mkdir -p "$EXP/logs" "$EXP/manifests" "$EXP/reports" "$EXP/checkpoints"
+if [[ "$RUN_KIND" == formal20k ]]; then
+  mkdir -p "$SSD_EXP/formal_checkpoints"
+fi
 exec > >(tee -a "$LOG") 2>&1
 echo "$START_MARKER job=$JOB mode=$MODE ratio=$HIL_FRACTION steps=$STEPS utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 
@@ -90,6 +96,12 @@ print("POLICY_SELECTION_GATE_OK",p["validation_anchor_sha256"])
 PY
 fi
 test ! -e "$OUTPUT"
+if [[ "$RUN_KIND" == formal20k ]]; then
+  test ! -e "$HDD_CHECKPOINT_LINK"
+  formal_free=$(df -B1 --output=avail "$SSD_EXP/formal_checkpoints" | tail -n 1)
+  test "$formal_free" -gt 250000000000
+  echo "POLICY_CHECKPOINT_STORAGE_GATE_OK medium=ssd_staging free_bytes=$formal_free output=$OUTPUT"
+fi
 test ! -e "$MANIFEST"
 test ! -e "$RAM_ROOT"
 
@@ -167,7 +179,7 @@ def sha(path):
   for block in iter(lambda:f.read(8*1024*1024),b""):h.update(block)
  return h.hexdigest()
 repo=Path("/inspire/hdd/project/luojianlan/zhubingwen-253108120125/codex_remote_ops/evorl_attempt_aware_rl_piperx_20260906/src/Evo-RL")
-payload={"schema":"attempt-aware-policy-run/v3","created_utc":datetime.now(timezone.utc).isoformat(),"run_kind":run_kind,"mode":mode,"target_attempt_fraction":ratio,"steps":steps,"world_size":8,"batch_size_per_rank":8,"global_batch_size":64,"seed":20260906,"mixed_ram_stage_seconds":stage,"evorl_commit":subprocess.check_output(["git","-C",str(repo),"rev-parse","HEAD"],text=True).strip(),"dataset_manifest_sha256":sha(dataset/"meta/replay_manifest.json"),"initial_model_sha256":sha(policy/"model.safetensors"),"validation_selection_sha256":sha(selection) if run_kind=="formal20k" else None,"sampler":"attempt_balanced","acp_dropout":0.30 if mode=="acp" else None}
+payload={"schema":"attempt-aware-policy-run/v3","created_utc":datetime.now(timezone.utc).isoformat(),"run_kind":run_kind,"mode":mode,"target_attempt_fraction":ratio,"steps":steps,"world_size":8,"batch_size_per_rank":8,"global_batch_size":64,"seed":20260906,"mixed_ram_stage_seconds":stage,"evorl_commit":subprocess.check_output(["git","-C",str(repo),"rev-parse","HEAD"],text=True).strip(),"dataset_manifest_sha256":sha(dataset/"meta/replay_manifest.json"),"initial_model_sha256":sha(policy/"model.safetensors"),"validation_selection_sha256":sha(selection) if run_kind=="formal20k" else None,"checkpoint_storage":"ssd_staging" if run_kind=="formal20k" else "hdd","sampler":"attempt_balanced","acp_dropout":0.30 if mode=="acp" else None}
 out.write_text(json.dumps(payload,indent=2,sort_keys=True)+"\n")
 PY
 
@@ -205,6 +217,9 @@ done
 for step in "${CHECKPOINT_STEPS[@]}"; do
   sha256sum "$OUTPUT/checkpoints/$step/pretrained_model/model.safetensors"
 done > "$EXP/manifests/$JOB-checkpoint-sha256.txt"
+if [[ "$RUN_KIND" == formal20k ]]; then
+  ln -s "$OUTPUT" "$HDD_CHECKPOINT_LINK"
+fi
 if grep -Eqi '(^|[^[:alpha:]])(nan|inf)([^[:alpha:]]|$)|CUDA error|NCCL error|Traceback' "$LOG"; then
   echo "POLICY_FAILURE_PATTERN_FOUND" >&2
   exit 2
