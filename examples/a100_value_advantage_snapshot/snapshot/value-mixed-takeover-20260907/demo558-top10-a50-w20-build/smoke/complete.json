@@ -1,0 +1,17 @@
+{
+  "status": "ok",
+  "dataset": "/data/datasets/piperx-demo558-value1500-a50-top10-union20-v1-smoke",
+  "repo_id": "local/piperx-demo558-value1500-a50-top10-union20-v1-smoke",
+  "episodes": 41,
+  "frames": 1885,
+  "hours": 0.017453703703703704,
+  "source_episodes": 3,
+  "source_evaluated": 3,
+  "anchors": 765,
+  "threshold": 0.010656029954644958,
+  "actual_lerobot_read_checks": 123,
+  "all_video_full_decode": true,
+  "action_state_exact": true,
+  "quantiles_verified": true,
+  "total_bytes": 29028286
+}
