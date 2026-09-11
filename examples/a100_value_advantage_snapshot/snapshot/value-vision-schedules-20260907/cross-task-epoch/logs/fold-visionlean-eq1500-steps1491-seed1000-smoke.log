@@ -1,0 +1,11 @@
+/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+[rank0]:[W907 05:21:45.398676901 ProcessGroupNCCL.cpp:5138] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+NCCL version 2.27.5+cuda12.9
+{"event": "ARCHITECTURE", "variant": "vision_only", "total_parameters": 429182729, "trainable_parameters": 429182729, "state_input": false}
+{"event": "READY", "task": "so101_fold_clothes_left_stack_right", "step": 0, "train_frames": 1125359, "test_frames": 22, "global_batch": 32, "parameters": 429182729}
+{"event": "TRAIN", "step": 1, "effective_epoch": 2.843537040180067e-05, "loss": 5.35577917098999, "grdn": 5.199378490447998, "lr": 5e-05, "seconds": 10.885141780017875, "memory_gb": 10.341686784}
+{"event": "TRAIN", "step": 2, "effective_epoch": 5.687074080360134e-05, "loss": 5.2990922927856445, "grdn": 4.444222450256348, "lr": 1e-06, "seconds": 1.25622400699649, "memory_gb": 10.425317376}
+{"event": "EVAL", "step": 2, "effective_epoch": 5.687074080360134e-05, "train": {"frames": 22, "episodes": 11, "ce": 5.2032388340343125, "mae": 0.3200397085059773, "rmse": 0.36679079352306654, "episode_mae": 0.3200397085059773, "baseline_mae": 0.17050536112351852, "baseline_rmse": 0.18391944228811602, "mae_remaining_seconds": 382.83149931485, "bias": -0.31788378953933716, "crps": 0.21657269109379162, "entropy": 5.278821706771851, "interval90_coverage": 0.5, "interval90_width": 0.9061363339424133}, "test": {"frames": 22, "episodes": 11, "ce": 5.2813006747852675, "mae": 0.3171602609482678, "rmse": 0.3625489706041557, "episode_mae": 0.3171602609482678, "baseline_mae": 0.1686388227072629, "baseline_rmse": 0.17622316444587588, "mae_remaining_seconds": 379.387104146318, "bias": -0.3171602609482678, "crps": 0.21346851912411777, "entropy": 5.27855110168457, "interval90_coverage": 0.5, "interval90_width": 0.9059090614318848}, "best_step": 2, "best_episode_mae": 0.3171602609482678, "bad_evaluations": 0}
+SMOKE_SAVE_RELOAD_OK
+TRAINING_STAGE_COMPLETE

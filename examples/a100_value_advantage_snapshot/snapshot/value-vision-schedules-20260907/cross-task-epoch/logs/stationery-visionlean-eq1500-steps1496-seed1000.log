@@ -1,0 +1,82 @@
+/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+[rank0]:[W907 11:10:56.047607053 ProcessGroupNCCL.cpp:5138] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+NCCL version 2.27.5+cuda12.9
+{"event": "ARCHITECTURE", "variant": "vision_only", "total_parameters": 429182729, "trainable_parameters": 429182729, "state_input": false}
+{"event": "READY", "task": "so101_put_stationery_table_into_bag", "step": 0, "train_frames": 1129226, "test_frames": 1280, "global_batch": 32, "parameters": 429182729}
+{"event": "TRAIN", "step": 10, "effective_epoch": 0.0002833799434302788, "loss": 5.309067726135254, "grdn": 5.422987937927246, "lr": 2.5e-06, "seconds": 47.657488689990714, "memory_gb": 10.425316864}
+{"event": "TRAIN", "step": 20, "effective_epoch": 0.0005667598868605576, "loss": 5.182445526123047, "grdn": 5.302957057952881, "lr": 5e-06, "seconds": 33.283358989981934, "memory_gb": 10.425317376}
+{"event": "TRAIN", "step": 30, "effective_epoch": 0.0008501398302908364, "loss": 5.069643974304199, "grdn": 5.284308433532715, "lr": 7.5e-06, "seconds": 47.57170353096444, "memory_gb": 10.425317376}
+{"event": "TRAIN", "step": 40, "effective_epoch": 0.001133519773721115, "loss": 4.917365074157715, "grdn": 5.430681228637695, "lr": 1e-05, "seconds": 40.20416431000922, "memory_gb": 10.425317376}
+{"event": "TRAIN", "step": 50, "effective_epoch": 0.001416899717151394, "loss": 4.820155143737793, "grdn": 5.3881611824035645, "lr": 1.25e-05, "seconds": 39.66979272000026, "memory_gb": 10.425317376}
+{"event": "TRAIN", "step": 60, "effective_epoch": 0.0017002796605816728, "loss": 4.743068695068359, "grdn": 5.14207124710083, "lr": 1.5e-05, "seconds": 40.44091565790586, "memory_gb": 10.425317376}
+{"event": "TRAIN", "step": 70, "effective_epoch": 0.0019836596040119516, "loss": 4.675971508026123, "grdn": 5.078036308288574, "lr": 1.7500000000000002e-05, "seconds": 38.768359898007475, "memory_gb": 10.425317376}
+{"event": "TRAIN", "step": 80, "effective_epoch": 0.00226703954744223, "loss": 4.557308673858643, "grdn": 5.10839319229126, "lr": 2e-05, "seconds": 42.29186300106812, "memory_gb": 10.425317376}
+{"event": "TRAIN", "step": 90, "effective_epoch": 0.0025504194908725093, "loss": 4.41719913482666, "grdn": 5.581186294555664, "lr": 2.25e-05, "seconds": 42.47074844897725, "memory_gb": 10.425317376}
+{"event": "TRAIN", "step": 100, "effective_epoch": 0.002833799434302788, "loss": 4.286839485168457, "grdn": 5.388757705688477, "lr": 2.5e-05, "seconds": 37.28549928800203, "memory_gb": 10.425317376}
+{"event": "TRAIN", "step": 110, "effective_epoch": 0.003117179377733067, "loss": 4.224616050720215, "grdn": 5.9541192054748535, "lr": 2.7500000000000004e-05, "seconds": 36.10465304902755, "memory_gb": 10.425317376}
+{"event": "TRAIN", "step": 120, "effective_epoch": 0.0034005593211633455, "loss": 4.218419075012207, "grdn": 5.3736653327941895, "lr": 3e-05, "seconds": 42.94207163096871, "memory_gb": 10.425317376}
+{"event": "TRAIN", "step": 130, "effective_epoch": 0.003683939264593624, "loss": 4.060154914855957, "grdn": 5.268613815307617, "lr": 3.2500000000000004e-05, "seconds": 37.819867321057245, "memory_gb": 10.425317376}
+{"event": "TRAIN", "step": 140, "effective_epoch": 0.003967319208023903, "loss": 3.9514338970184326, "grdn": 5.750365257263184, "lr": 3.5000000000000004e-05, "seconds": 38.512970604002476, "memory_gb": 10.425317376}
+{"event": "TRAIN", "step": 150, "effective_epoch": 0.004250699151454182, "loss": 3.741812229156494, "grdn": 5.735572338104248, "lr": 3.7500000000000003e-05, "seconds": 41.99354367691558, "memory_gb": 10.425317376}
+{"event": "TRAIN", "step": 160, "effective_epoch": 0.00453407909488446, "loss": 3.6800265312194824, "grdn": 6.187771797180176, "lr": 4e-05, "seconds": 37.72562201798428, "memory_gb": 10.425317376}
+{"event": "TRAIN", "step": 170, "effective_epoch": 0.00481745903831474, "loss": 3.728971481323242, "grdn": 5.915506362915039, "lr": 4.25e-05, "seconds": 40.99405747302808, "memory_gb": 10.425317376}
+{"event": "TRAIN", "step": 180, "effective_epoch": 0.0051008389817450185, "loss": 3.6227855682373047, "grdn": 5.651698112487793, "lr": 4.5e-05, "seconds": 39.32376660709269, "memory_gb": 10.425317376}
+{"event": "TRAIN", "step": 190, "effective_epoch": 0.005384218925175297, "loss": 3.5940513610839844, "grdn": 5.839150428771973, "lr": 4.7499999999999996e-05, "seconds": 39.96511915291194, "memory_gb": 10.425317376}
+{"event": "TRAIN", "step": 200, "effective_epoch": 0.005667598868605576, "loss": 3.5645346641540527, "grdn": 6.027055740356445, "lr": 5e-05, "seconds": 40.370646691997536, "memory_gb": 10.425317376}
+{"event": "TRAIN", "step": 210, "effective_epoch": 0.005950978812035854, "loss": 3.3977723121643066, "grdn": 6.5529961585998535, "lr": 4.999280212062038e-05, "seconds": 42.56060847803019, "memory_gb": 10.425317376}
+{"event": "TRAIN", "step": 220, "effective_epoch": 0.006234358755466134, "loss": 3.608806610107422, "grdn": 6.799417972564697, "lr": 4.997121271182578e-05, "seconds": 40.03628434392158, "memory_gb": 10.425317376}
+{"event": "TRAIN", "step": 230, "effective_epoch": 0.0065177386988964124, "loss": 3.5132317543029785, "grdn": 6.9456377029418945, "lr": 4.993524445916402e-05, "seconds": 43.83936795499176, "memory_gb": 10.425317376}
+W0907 11:27:07.497000 937084 torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 937586 closing signal SIGTERM
+W0907 11:27:07.503000 937084 torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 937587 closing signal SIGTERM
+W0907 11:27:07.505000 937084 torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 937588 closing signal SIGTERM
+W0907 11:27:07.507000 937084 torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 937589 closing signal SIGTERM
+Traceback (most recent call last):
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/elastic/agent/server/api.py", line 731, in run
+    result = self._invoke_run(role)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/elastic/agent/server/api.py", line 908, in _invoke_run
+    time.sleep(monitor_interval)
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 86, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 937084 got signal: 15
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/run.py", line 995, in <module>
+    main()
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/run.py", line 991, in main
+    run(args)
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/run.py", line 982, in run
+    elastic_launch(
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 308, in launch_agent
+    result = agent.run()
+             ^^^^^^^^^^^
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/elastic/metrics/api.py", line 134, in wrapper
+    result = f(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/elastic/agent/server/api.py", line 739, in run
+    logger.warning("Received %s death signal, shutting down workers", e.sigval)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1551, in warning
+    self._log(WARNING, msg, args, **kwargs)
+  File "/usr/lib/python3.12/logging/__init__.py", line 1682, in _log
+    record = self.makeRecord(self.name, level, fn, lno, msg, args,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/logging/__init__.py", line 1651, in makeRecord
+    rv = _logRecordFactory(name, level, fn, lno, msg, args, exc_info, func,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/logging/__init__.py", line 355, in __init__
+    mp = sys.modules.get('multiprocessing')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 86, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 937084 got signal: 1

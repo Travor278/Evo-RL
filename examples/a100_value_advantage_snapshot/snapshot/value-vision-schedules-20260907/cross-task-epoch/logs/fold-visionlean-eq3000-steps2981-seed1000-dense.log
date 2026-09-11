@@ -1,0 +1,6 @@
+/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+[rank0]:[W907 11:05:56.750754926 ProcessGroupNCCL.cpp:5138] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+NCCL version 2.27.5+cuda12.9
+{"event": "ARCHITECTURE", "variant": "vision_only", "total_parameters": 429182729, "trainable_parameters": 429182729, "state_input": false}
+{"event": "DENSE_REVIEW", "step": 2981, "checkpoint": "checkpoint-002981.pt", "frames_per_episode": 128, "test": {"frames": 1408, "episodes": 11, "ce": 4.350321666125885, "mae": 0.034623536909004375, "rmse": 0.04693723067119344, "episode_mae": 0.034623536909004375, "baseline_mae": 0.0889929107136347, "baseline_rmse": 0.10673044372954382, "mae_remaining_seconds": 41.41667485055104, "bias": 0.006950533490453381, "crps": 0.02811648952067778, "entropy": 2.4323427931998265, "interval90_coverage": 0.48863636363636365, "interval90_width": 0.055273436268511104}, "checkpoint_reload": "strict_ok", "state_intervention": "none"}
