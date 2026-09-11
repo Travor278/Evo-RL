@@ -1,0 +1,109 @@
+{
+  "validation": {
+    "status": "ok",
+    "dataset": "/data/datasets/piperx-demo558-value1500-a50-top10-union20-v1",
+    "repo_id": "local/piperx-demo558-value1500-a50-top10-union20-v1",
+    "episodes": 7146,
+    "frames": 322261,
+    "hours": 2.9838981481481484,
+    "source_episodes": 544,
+    "source_evaluated": 558,
+    "anchors": 125518,
+    "threshold": 0.01298177246013573,
+    "actual_lerobot_read_checks": 21435,
+    "all_video_full_decode": true,
+    "action_state_exact": true,
+    "quantiles_verified": true,
+    "total_bytes": 5037242537
+  },
+  "quantiles_frames": {
+    "0": 2.0,
+    "25": 23.0,
+    "50": 36.0,
+    "75": 62.0,
+    "90": 80.0,
+    "95": 97.0,
+    "99": 132.0,
+    "100": 254.0
+  },
+  "mean_frames": 45.096697453120626,
+  "duration_bins": [
+    {
+      "label": "<20",
+      "count": 25
+    },
+    {
+      "label": "20-29",
+      "count": 2835
+    },
+    {
+      "label": "30-59",
+      "count": 2301
+    },
+    {
+      "label": "60-89",
+      "count": 1503
+    },
+    {
+      "label": "90-149",
+      "count": 454
+    },
+    {
+      "label": "150-299",
+      "count": 28
+    },
+    {
+      "label": ">=300",
+      "count": 0
+    }
+  ],
+  "coverage": 0.25663260146098404,
+  "shorter_than20": 25,
+  "exact20": 997,
+  "sources_without_clips": [
+    215,
+    221,
+    396,
+    401,
+    403,
+    413,
+    423,
+    426,
+    428,
+    438,
+    444,
+    446,
+    471,
+    545
+  ],
+  "split": {
+    "train": {
+      "segments": 6441,
+      "frames": 291534,
+      "sources": 489
+    },
+    "test": {
+      "segments": 705,
+      "frames": 30727,
+      "sources": 55
+    }
+  },
+  "files": {
+    "videos": {
+      "count": 1632,
+      "bytes": 4975801983
+    },
+    "meta": {
+      "count": 4,
+      "bytes": 13249918
+    },
+    "selection": {
+      "count": 547,
+      "bytes": 16647601
+    },
+    "data": {
+      "count": 544,
+      "bytes": 31542170
+    }
+  }
+}

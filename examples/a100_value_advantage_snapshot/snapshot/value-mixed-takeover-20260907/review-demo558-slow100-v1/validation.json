@@ -1,0 +1,13 @@
+{
+  "status": "ok",
+  "episodes": 100,
+  "frames": 4566,
+  "duration_seconds": 304.4,
+  "original_duration_seconds": 152.2,
+  "playback_speed": 0.5,
+  "transition_frames": 0,
+  "source": "actual exported dataset",
+  "seed": 1000,
+  "sampling": "uniform without replacement among all 7146 segments",
+  "bytes": 31316576
+}

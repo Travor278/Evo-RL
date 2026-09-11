@@ -1,0 +1,108 @@
+{
+  "status": "ok",
+  "videos": [
+    {
+      "file": "example01_ep01071.mp4",
+      "frames": 21,
+      "duration": 0.7
+    },
+    {
+      "file": "example02_ep00983.mp4",
+      "frames": 21,
+      "duration": 0.7
+    },
+    {
+      "file": "example03_ep04308.mp4",
+      "frames": 20,
+      "duration": 0.6666666666666666
+    },
+    {
+      "file": "example04_ep00732.mp4",
+      "frames": 20,
+      "duration": 0.6666666666666666
+    },
+    {
+      "file": "example05_ep06550.mp4",
+      "frames": 20,
+      "duration": 0.6666666666666666
+    },
+    {
+      "file": "example06_ep06151.mp4",
+      "frames": 25,
+      "duration": 0.8333333333333334
+    },
+    {
+      "file": "example07_ep04116.mp4",
+      "frames": 27,
+      "duration": 0.9
+    },
+    {
+      "file": "example08_ep04337.mp4",
+      "frames": 35,
+      "duration": 1.1666666666666667
+    },
+    {
+      "file": "example09_ep00673.mp4",
+      "frames": 24,
+      "duration": 0.8
+    },
+    {
+      "file": "example10_ep04865.mp4",
+      "frames": 34,
+      "duration": 1.1333333333333333
+    },
+    {
+      "file": "example11_ep04726.mp4",
+      "frames": 53,
+      "duration": 1.7666666666666666
+    },
+    {
+      "file": "example12_ep03120.mp4",
+      "frames": 57,
+      "duration": 1.9
+    },
+    {
+      "file": "example13_ep04711.mp4",
+      "frames": 56,
+      "duration": 1.8666666666666667
+    },
+    {
+      "file": "example14_ep06001.mp4",
+      "frames": 45,
+      "duration": 1.5
+    },
+    {
+      "file": "example15_ep05816.mp4",
+      "frames": 61,
+      "duration": 2.033333333333333
+    },
+    {
+      "file": "example16_ep04481.mp4",
+      "frames": 70,
+      "duration": 2.3333333333333335
+    },
+    {
+      "file": "example17_ep00312.mp4",
+      "frames": 102,
+      "duration": 3.4
+    },
+    {
+      "file": "example18_ep00339.mp4",
+      "frames": 87,
+      "duration": 2.9
+    },
+    {
+      "file": "example19_ep03402.mp4",
+      "frames": 86,
+      "duration": 2.8666666666666667
+    },
+    {
+      "file": "example20_ep05975.mp4",
+      "frames": 85,
+      "duration": 2.8333333333333335
+    }
+  ],
+  "compilation_frames": 1549,
+  "selection_seed": 1000,
+  "selection": "Five per length rank quartile; distinct source episodes. Not population-frequency weighted."
+}

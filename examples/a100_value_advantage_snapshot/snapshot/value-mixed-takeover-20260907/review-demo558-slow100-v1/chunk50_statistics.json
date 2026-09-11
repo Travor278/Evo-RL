@@ -1,0 +1,17 @@
+{
+  "total_episodes": 7146,
+  "total_frames": 322261,
+  "short_episodes": 4517,
+  "short_episode_pct": 63.2101875174923,
+  "short_frames": 127945,
+  "short_frame_pct": 39.70229100015205,
+  "atleast50": 2629,
+  "exact50": 58,
+  "valid_full50_starts": 65495,
+  "requires_padding_starts": 256766,
+  "requires_padding_pct": 79.67641135601268,
+  "selected_anchors": 125518,
+  "full50_selected_anchors": 44603,
+  "selected_anchors_needing_padding": 80915,
+  "definition": "50 action timesteps include current timestep, never cross new episode boundary. This is length feasibility, not a corrupt-data diagnosis."
+}

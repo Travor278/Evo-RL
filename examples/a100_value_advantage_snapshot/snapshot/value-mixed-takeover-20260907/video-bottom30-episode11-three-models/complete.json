@@ -1,0 +1,10 @@
+{
+  "status": "ok",
+  "videos": [
+    "/data/experiments/value-mixed-takeover-20260907/video-bottom30-episode11-three-models/mixed1000_episode11_bottom30.mp4",
+    "/data/experiments/value-mixed-takeover-20260907/video-bottom30-episode11-three-models/mixed1500_episode11_bottom30.mp4",
+    "/data/experiments/value-mixed-takeover-20260907/video-bottom30-episode11-three-models/demo1500_episode11_bottom30.mp4"
+  ],
+  "frames_each": 4558,
+  "fps": 30
+}
