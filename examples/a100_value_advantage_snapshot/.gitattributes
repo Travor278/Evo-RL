@@ -1,0 +1,2 @@
+# Preserve original source hashes; store this small archival RNG tensor in Git.
+** -text -filter -diff -merge
