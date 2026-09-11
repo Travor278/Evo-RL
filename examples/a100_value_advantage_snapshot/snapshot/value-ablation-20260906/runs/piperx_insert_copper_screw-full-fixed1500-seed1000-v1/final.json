@@ -1,0 +1,6 @@
+{
+  "file": "checkpoint-001500.pt",
+  "step": 1500,
+  "variant": "full",
+  "endpoint_primary": true
+}

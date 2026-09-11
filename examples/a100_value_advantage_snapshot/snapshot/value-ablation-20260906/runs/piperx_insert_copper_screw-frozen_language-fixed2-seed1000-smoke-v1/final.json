@@ -1,0 +1,6 @@
+{
+  "file": "checkpoint-000002.pt",
+  "step": 2,
+  "variant": "frozen_language",
+  "endpoint_primary": true
+}
