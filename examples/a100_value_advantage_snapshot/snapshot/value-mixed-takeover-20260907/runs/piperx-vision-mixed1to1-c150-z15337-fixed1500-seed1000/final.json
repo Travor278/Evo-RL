@@ -1,0 +1,5 @@
+{
+  "step": 1500,
+  "file": "checkpoint-001500.pt",
+  "status": "training_complete"
+}
