@@ -1,0 +1,205 @@
+{
+  "status": "ok",
+  "results": [
+    {
+      "key": "mixed1000_top10",
+      "selected_anchors": 270,
+      "union": {
+        "path": "/data/experiments/value-mixed-takeover-20260907/video-demo-heldout-extremes5_10-chunk50/mixed1000_top10_chunk50_union.mp4",
+        "status": "ok",
+        "frames": 1165,
+        "seconds": 38.833333333333336,
+        "bytes": 7751895,
+        "full_decode_and_pts_ok": true
+      },
+      "examples": {
+        "path": "/data/experiments/value-mixed-takeover-20260907/video-demo-heldout-extremes5_10-chunk50/mixed1000_top10_positive_chunk50_examples.mp4",
+        "status": "ok",
+        "frames": 600,
+        "seconds": 20.0,
+        "bytes": 4427676,
+        "full_decode_and_pts_ok": true
+      },
+      "example_count": 12,
+      "minimum_anchor_advantage": 0.013752568520624025,
+      "maximum_anchor_advantage": 0.05935636259624652,
+      "short_tail_windows": 8,
+      "controller_crossing_windows": 0
+    },
+    {
+      "key": "mixed1500_top10",
+      "selected_anchors": 270,
+      "union": {
+        "path": "/data/experiments/value-mixed-takeover-20260907/video-demo-heldout-extremes5_10-chunk50/mixed1500_top10_chunk50_union.mp4",
+        "status": "ok",
+        "frames": 1515,
+        "seconds": 50.5,
+        "bytes": 10096211,
+        "full_decode_and_pts_ok": true
+      },
+      "examples": {
+        "path": "/data/experiments/value-mixed-takeover-20260907/video-demo-heldout-extremes5_10-chunk50/mixed1500_top10_positive_chunk50_examples.mp4",
+        "status": "ok",
+        "frames": 600,
+        "seconds": 20.0,
+        "bytes": 4195471,
+        "full_decode_and_pts_ok": true
+      },
+      "example_count": 12,
+      "minimum_anchor_advantage": 0.01125884152958087,
+      "maximum_anchor_advantage": 0.08062043882915668,
+      "short_tail_windows": 0,
+      "controller_crossing_windows": 0
+    },
+    {
+      "key": "mixed1000_bottom10",
+      "selected_anchors": 270,
+      "union": {
+        "path": "/data/experiments/value-mixed-takeover-20260907/video-demo-heldout-extremes5_10-chunk50/mixed1000_bottom10_chunk50_union.mp4",
+        "status": "ok",
+        "frames": 1314,
+        "seconds": 43.8,
+        "bytes": 8739031,
+        "full_decode_and_pts_ok": true
+      },
+      "examples": {
+        "path": "/data/experiments/value-mixed-takeover-20260907/video-demo-heldout-extremes5_10-chunk50/mixed1000_bottom10_positive_chunk50_examples.mp4",
+        "status": "ok",
+        "frames": 600,
+        "seconds": 20.0,
+        "bytes": 4019496,
+        "full_decode_and_pts_ok": true
+      },
+      "example_count": 12,
+      "minimum_anchor_advantage": -0.04593574903896161,
+      "maximum_anchor_advantage": -0.012165977582243165,
+      "short_tail_windows": 0,
+      "controller_crossing_windows": 0
+    },
+    {
+      "key": "mixed1500_bottom10",
+      "selected_anchors": 270,
+      "union": {
+        "path": "/data/experiments/value-mixed-takeover-20260907/video-demo-heldout-extremes5_10-chunk50/mixed1500_bottom10_chunk50_union.mp4",
+        "status": "ok",
+        "frames": 1415,
+        "seconds": 47.166666666666664,
+        "bytes": 9414347,
+        "full_decode_and_pts_ok": true
+      },
+      "examples": {
+        "path": "/data/experiments/value-mixed-takeover-20260907/video-demo-heldout-extremes5_10-chunk50/mixed1500_bottom10_positive_chunk50_examples.mp4",
+        "status": "ok",
+        "frames": 600,
+        "seconds": 20.0,
+        "bytes": 3973254,
+        "full_decode_and_pts_ok": true
+      },
+      "example_count": 12,
+      "minimum_anchor_advantage": -0.07149299882343121,
+      "maximum_anchor_advantage": -0.011313571557310304,
+      "short_tail_windows": 0,
+      "controller_crossing_windows": 0
+    },
+    {
+      "key": "mixed1000_top5",
+      "selected_anchors": 135,
+      "union": {
+        "path": "/data/experiments/value-mixed-takeover-20260907/video-demo-heldout-extremes5_10-chunk50/mixed1000_top5_chunk50_union.mp4",
+        "status": "ok",
+        "frames": 927,
+        "seconds": 30.9,
+        "bytes": 6329300,
+        "full_decode_and_pts_ok": true
+      },
+      "examples": {
+        "path": "/data/experiments/value-mixed-takeover-20260907/video-demo-heldout-extremes5_10-chunk50/mixed1000_top5_positive_chunk50_examples.mp4",
+        "status": "ok",
+        "frames": 600,
+        "seconds": 20.0,
+        "bytes": 4495711,
+        "full_decode_and_pts_ok": true
+      },
+      "example_count": 12,
+      "minimum_anchor_advantage": 0.01859949253508738,
+      "maximum_anchor_advantage": 0.05935636259624652,
+      "short_tail_windows": 0,
+      "controller_crossing_windows": 0
+    },
+    {
+      "key": "mixed1500_top5",
+      "selected_anchors": 135,
+      "union": {
+        "path": "/data/experiments/value-mixed-takeover-20260907/video-demo-heldout-extremes5_10-chunk50/mixed1500_top5_chunk50_union.mp4",
+        "status": "ok",
+        "frames": 1046,
+        "seconds": 34.86666666666667,
+        "bytes": 7108352,
+        "full_decode_and_pts_ok": true
+      },
+      "examples": {
+        "path": "/data/experiments/value-mixed-takeover-20260907/video-demo-heldout-extremes5_10-chunk50/mixed1500_top5_positive_chunk50_examples.mp4",
+        "status": "ok",
+        "frames": 600,
+        "seconds": 20.0,
+        "bytes": 4393685,
+        "full_decode_and_pts_ok": true
+      },
+      "example_count": 12,
+      "minimum_anchor_advantage": 0.015463427677842895,
+      "maximum_anchor_advantage": 0.08062043882915668,
+      "short_tail_windows": 0,
+      "controller_crossing_windows": 0
+    },
+    {
+      "key": "mixed1000_bottom5",
+      "selected_anchors": 135,
+      "union": {
+        "path": "/data/experiments/value-mixed-takeover-20260907/video-demo-heldout-extremes5_10-chunk50/mixed1000_bottom5_chunk50_union.mp4",
+        "status": "ok",
+        "frames": 821,
+        "seconds": 27.366666666666667,
+        "bytes": 5457284,
+        "full_decode_and_pts_ok": true
+      },
+      "examples": {
+        "path": "/data/experiments/value-mixed-takeover-20260907/video-demo-heldout-extremes5_10-chunk50/mixed1000_bottom5_positive_chunk50_examples.mp4",
+        "status": "ok",
+        "frames": 600,
+        "seconds": 20.0,
+        "bytes": 4108071,
+        "full_decode_and_pts_ok": true
+      },
+      "example_count": 12,
+      "minimum_anchor_advantage": -0.04593574903896161,
+      "maximum_anchor_advantage": -0.018032199665811738,
+      "short_tail_windows": 0,
+      "controller_crossing_windows": 0
+    },
+    {
+      "key": "mixed1500_bottom5",
+      "selected_anchors": 135,
+      "union": {
+        "path": "/data/experiments/value-mixed-takeover-20260907/video-demo-heldout-extremes5_10-chunk50/mixed1500_bottom5_chunk50_union.mp4",
+        "status": "ok",
+        "frames": 974,
+        "seconds": 32.46666666666667,
+        "bytes": 6494410,
+        "full_decode_and_pts_ok": true
+      },
+      "examples": {
+        "path": "/data/experiments/value-mixed-takeover-20260907/video-demo-heldout-extremes5_10-chunk50/mixed1500_bottom5_positive_chunk50_examples.mp4",
+        "status": "ok",
+        "frames": 600,
+        "seconds": 20.0,
+        "bytes": 4163156,
+        "full_decode_and_pts_ok": true
+      },
+      "example_count": 12,
+      "minimum_anchor_advantage": -0.07149299882343121,
+      "maximum_anchor_advantage": -0.014440557882097443,
+      "short_tail_windows": 0,
+      "controller_crossing_windows": 0
+    }
+  ]
+}
