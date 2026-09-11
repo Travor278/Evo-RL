@@ -1,0 +1,6 @@
+{
+  "file": "checkpoint-001491.pt",
+  "step": 1491,
+  "variant": "vision_only",
+  "endpoint_primary": true
+}
