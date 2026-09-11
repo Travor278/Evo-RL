@@ -1,0 +1,18 @@
+experiment: attempt-aware ACP v2
+run_name: v2sam-ego2exo-attempt-v2-bc-20k-r1
+seed: 20260906
+initial_checkpoint: /inspire/hdd/project/luojianlan/zhubingwen-253108120125/codex_remote_ops/evorl_hil_rl_piperx_20260902/checkpoints/pi05_base_step50000_policy_compat_6f2db_v2
+steps: 20000
+chunk_size: 50
+n_action_steps: 50
+global_batch: 64
+world_size: 8
+per_device_batch: 8
+precision: bfloat16
+replay:
+  base_fraction: 0.50
+  attempt_fraction: 0.50
+  sampler: attempt_balanced
+acp:
+  enable: false
+checkpoints: [1000, 5000, 10000, 15000, 20000]

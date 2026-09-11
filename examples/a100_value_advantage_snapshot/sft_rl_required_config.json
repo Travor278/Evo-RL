@@ -1,0 +1,79 @@
+{
+  "status": "audit_only_not_launchable",
+  "blocking_reason": "Pure-demo Value provenance/normalization, policy sampler integration and time-padding loss are not compliant; paired controls not frozen",
+  "sft_checkpoint": null,
+  "sft_checkpoint_sha256": null,
+  "allowed_demo_repository": null,
+  "allowed_demo_revision": null,
+  "allowed_episode_manifest": null,
+  "final_policy_test_manifest": null,
+  "value": {
+    "checkpoint": null,
+    "checkpoint_sha256": null,
+    "data_source": "allowed pure human teleoperation demonstrations only",
+    "architecture": "pure vision SigLIP, 201 bins uniformly in [-1,0]",
+    "loss": "two-hot cross entropy",
+    "nonterminal_reward": -1,
+    "true_success_terminal_reward": 0,
+    "takeover_penalty": 0,
+    "gamma": 1,
+    "Z": null,
+    "Z_rule": "maximum cumulative cost across this task Value training episodes; no factor 2",
+    "heldout_out_of_support_rule": "fail and report offending episodes; no silent clipping or heldout-based rescaling",
+    "train_holdout_split_manifest": null,
+    "seed": null,
+    "updates": null,
+    "checkpoint_selection_rule": null
+  },
+  "selection": {
+    "horizon": 50,
+    "ranking": "global across all allowed nonterminal starts",
+    "fraction": 0.1,
+    "order": "take global top ceil(0.1*N), then require A>0",
+    "kept_contiguous_actions": 20,
+    "include_anchor": true,
+    "truncate_at_original_episode_end": true,
+    "merge_overlapping_or_adjacent": true,
+    "false_success_labels": false
+  },
+  "policy": {
+    "original_demo_fraction": null,
+    "high_segment_fraction": null,
+    "sampler": "explicit source-weighted sampler; ratio pending paired-control verification",
+    "updates": null,
+    "global_batch": null,
+    "learning_rate": null,
+    "scheduler": null,
+    "trainable_parameters": null,
+    "precision": null,
+    "camera_mapping": null,
+    "normalization": null,
+    "output_horizon": null,
+    "flow_matching_loss": true,
+    "action_padding_mask_must_affect_loss": true,
+    "advantage_text_tags": false,
+    "output_dir": null,
+    "logging": null,
+    "checkpoint_save_strategy": null
+  },
+  "real_robot_evaluation": {
+    "protocol": null,
+    "task_initialization": null,
+    "time_limit": null,
+    "camera_RTC_scoring": null,
+    "stage_successes_attempts": null,
+    "SR": null,
+    "TP": null
+  },
+  "historical_candidates_only": {
+    "sft_step": 50000,
+    "sft_recorded_model_sha256": "d85c7cd84060a924b6ef10d055491c500c5714a21ddbb49e1dbdc828b7a74147",
+    "old_attempt_group_updates": 20000,
+    "old_attempt_group_global_batch": 64,
+    "old_base_attempt_ratio": [
+      0.5,
+      0.5
+    ],
+    "adopted_for_this_experiment": false
+  }
+}

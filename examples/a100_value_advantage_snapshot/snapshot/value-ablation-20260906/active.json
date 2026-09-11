@@ -1,0 +1,29 @@
+{
+  "started": 1788710643.2040622,
+  "command": [
+    "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/bin/python",
+    "-m",
+    "torch.distributed.run",
+    "--standalone",
+    "--nproc_per_node=8",
+    "--",
+    "/data/experiments/value-ablation-20260906/ablation_train.py",
+    "--task",
+    "piperx_insert_copper_screw",
+    "--run",
+    "piperx_insert_copper_screw-full-fixed1500-seed1000-v1",
+    "--variant",
+    "full",
+    "--steps",
+    "1500",
+    "--batch-size",
+    "4",
+    "--workers",
+    "2",
+    "--eval-frames",
+    "128",
+    "--evaluate-checkpoint",
+    "checkpoint-001500.pt"
+  ],
+  "log": "/data/experiments/value-ablation-20260906/piperx_insert_copper_screw-full-fixed1500-seed1000-v1-dense.log"
+}

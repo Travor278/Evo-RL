@@ -1,0 +1,26 @@
+{
+  "completed_at": 1788711075.7876797,
+  "result": {
+    "variant": "full",
+    "steps": 1500,
+    "run": "piperx_insert_copper_screw-full-fixed1500-seed1000-v1",
+    "final_metrics": {
+      "frames": 7168,
+      "episodes": 56,
+      "ce": 2.5005520682233118,
+      "mae": 0.013699875582623073,
+      "rmse": 0.021107194987769112,
+      "episode_mae": 0.013699875582623073,
+      "baseline_mae": 0.05476174029484225,
+      "baseline_rmse": 0.06602341216183462,
+      "mae_remaining_seconds": 6.796051614019886,
+      "bias": 0.0018325687941082183,
+      "crps": 0.010064381867238126,
+      "entropy": 2.173034444750686,
+      "interval90_coverage": 0.8091517857142857,
+      "interval90_width": 0.042632532388519655
+    }
+  },
+  "only_authorized_run": "full/fixed1500",
+  "next_action": "Render five identical fixed1500 schedules with explicit Chinese legends. No other training."
+}

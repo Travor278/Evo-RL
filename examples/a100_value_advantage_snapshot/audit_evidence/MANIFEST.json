@@ -1,0 +1,38 @@
+[
+  {
+    "local_source": "PI05_FULL558_H100_RL_RESUME_README.md",
+    "repository_path": "audit_evidence/PI05_FULL558_H100_RL_RESUME_README.md",
+    "sha256": "4509b20f7d84d554d96130edd741462bfa0c75b1bc9c00db5d5051722aca72a8",
+    "role": "historical control candidate evidence, not adopted SFT+RL configuration"
+  },
+  {
+    "local_source": "codex_remote_ops/evorl_attempt_aware_rl_piperx_20260906/platform_export/data_only_50pct_20k.yaml",
+    "repository_path": "audit_evidence/data_only_50pct_20k.yaml",
+    "sha256": "516dfe23f634df72979f54cd14ab63ee205a9ac5341ea2d49aeda5cef440c100",
+    "role": "historical control candidate evidence, not adopted SFT+RL configuration"
+  },
+  {
+    "local_source": "codex_remote_ops/evorl_attempt_aware_rl_piperx_20260906/platform_export/acp_50pct_20k.yaml",
+    "repository_path": "audit_evidence/acp_50pct_20k.yaml",
+    "sha256": "ad018dc709110d7ed988fe4dec77f35ab157167cd7e022956520ac42f06888d1",
+    "role": "historical control candidate evidence, not adopted SFT+RL configuration"
+  },
+  {
+    "local_source": "codex_remote_ops/evorl_attempt_aware_rl_piperx_20260906/platform_export/policy_ratio_smoke_selection_v2.md",
+    "repository_path": "audit_evidence/policy_ratio_smoke_selection_v2.md",
+    "sha256": "1a80d1cc38a394688227eb18712fa055e9dab12af07cabd97cbcf0ef2926f29a",
+    "role": "historical control candidate evidence, not adopted SFT+RL configuration"
+  },
+  {
+    "local_source": "codex_remote_ops/evorl_attempt_aware_rl_piperx_20260906/platform_export/policy_frozen_test_report_v2.md",
+    "repository_path": "audit_evidence/policy_frozen_test_report_v2.md",
+    "sha256": "77bdca7f27beca45fdcfece42ace3218cc3316e15a6b399764dffa56f4ccfbf1",
+    "role": "historical control candidate evidence, not adopted SFT+RL configuration"
+  },
+  {
+    "local_source": "codex_remote_ops/evorl_attempt_aware_rl_piperx_20260906/src/Evo-RL/examples/piperx_attempt_aware_acp_v2/scripts/run_h100_attempt_policy_smoke2k.sh",
+    "repository_path": "audit_evidence/run_h100_attempt_policy_smoke2k.sh",
+    "sha256": "97e56d96c5effb41f7903785f0f965cc4bd76bf3db9b259231e883ef66d2b847",
+    "role": "historical control candidate evidence, not adopted SFT+RL configuration"
+  }
+]
