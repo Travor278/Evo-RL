@@ -1,0 +1,23 @@
+{
+  "status": "ok",
+  "frames": 4558,
+  "fps": 30,
+  "seconds": 151.93333333333334,
+  "bytes": 37275234,
+  "full_decode_passed": true,
+  "selected_only_path": "/data/experiments/value-mixed-takeover-20260907/video-bottom30-episode11-three-models/mixed1500_episode11_bottom30_selected_only.mp4",
+  "selected_only_frames": 1368,
+  "selected_only_full_decode_passed": true,
+  "selected_count": 1368,
+  "eligible_frames": 4557,
+  "selection_min_advantage": -0.19502421371629547,
+  "color_rule": "lowest30% by ascending raw full advantage, stable ties by frame; nonterminal frames including human-control segments",
+  "value_limits": [
+    -0.6,
+    0.0
+  ],
+  "advantage_limits": [
+    -0.225,
+    0.225
+  ]
+}
