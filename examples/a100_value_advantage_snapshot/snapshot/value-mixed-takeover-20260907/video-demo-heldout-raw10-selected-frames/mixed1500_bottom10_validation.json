@@ -1,0 +1,548 @@
+{
+  "key": "mixed1500_bottom10",
+  "episode": 11,
+  "checkpoint": "/data/experiments/value-mixed-takeover-20260907/runs/piperx-vision-mixed1to1-c150-z15337-fixed1500-seed1000/checkpoint-001500.pt",
+  "eligible_nonterminal_frames": 2692,
+  "requested_count": 270,
+  "selected_count": 270,
+  "output_source_frame_indices": [
+    143,
+    145,
+    178,
+    180,
+    181,
+    182,
+    186,
+    194,
+    198,
+    199,
+    200,
+    204,
+    207,
+    317,
+    318,
+    319,
+    320,
+    321,
+    322,
+    323,
+    327,
+    328,
+    329,
+    330,
+    331,
+    332,
+    333,
+    334,
+    335,
+    336,
+    340,
+    341,
+    343,
+    344,
+    345,
+    346,
+    347,
+    348,
+    349,
+    350,
+    351,
+    352,
+    353,
+    354,
+    355,
+    356,
+    357,
+    358,
+    359,
+    360,
+    483,
+    484,
+    485,
+    486,
+    487,
+    488,
+    489,
+    490,
+    541,
+    544,
+    545,
+    546,
+    568,
+    573,
+    576,
+    577,
+    580,
+    671,
+    672,
+    673,
+    674,
+    675,
+    716,
+    717,
+    726,
+    727,
+    728,
+    729,
+    730,
+    731,
+    732,
+    733,
+    734,
+    735,
+    736,
+    737,
+    738,
+    739,
+    740,
+    741,
+    742,
+    743,
+    744,
+    745,
+    746,
+    747,
+    748,
+    749,
+    750,
+    751,
+    752,
+    753,
+    754,
+    755,
+    756,
+    757,
+    758,
+    761,
+    815,
+    816,
+    817,
+    818,
+    819,
+    820,
+    821,
+    822,
+    823,
+    824,
+    825,
+    826,
+    827,
+    828,
+    829,
+    830,
+    831,
+    832,
+    834,
+    940,
+    947,
+    948,
+    959,
+    960,
+    961,
+    962,
+    963,
+    1124,
+    1133,
+    1134,
+    1136,
+    1137,
+    1138,
+    1152,
+    1153,
+    1156,
+    1157,
+    1158,
+    1159,
+    1160,
+    1161,
+    1162,
+    1163,
+    1164,
+    1165,
+    1166,
+    1168,
+    1169,
+    1170,
+    1171,
+    1172,
+    1173,
+    1174,
+    1175,
+    1176,
+    1177,
+    1178,
+    1179,
+    1190,
+    1192,
+    1247,
+    1248,
+    1249,
+    1250,
+    1251,
+    1252,
+    1253,
+    1254,
+    1255,
+    1278,
+    1281,
+    1282,
+    1286,
+    1292,
+    1293,
+    1294,
+    1295,
+    1296,
+    1297,
+    1398,
+    1401,
+    1402,
+    1418,
+    1419,
+    1420,
+    1421,
+    1422,
+    1423,
+    1424,
+    1425,
+    1426,
+    1427,
+    1432,
+    1433,
+    1434,
+    1435,
+    1436,
+    1438,
+    1439,
+    1559,
+    1560,
+    1561,
+    1564,
+    1565,
+    1574,
+    1578,
+    1579,
+    1580,
+    1581,
+    1582,
+    1583,
+    1584,
+    1585,
+    1587,
+    1588,
+    1589,
+    1590,
+    1591,
+    1592,
+    1593,
+    1594,
+    1595,
+    1596,
+    1597,
+    1598,
+    1599,
+    1600,
+    1601,
+    1602,
+    1603,
+    1604,
+    1605,
+    1606,
+    1636,
+    1637,
+    1665,
+    1667,
+    1668,
+    1669,
+    1670,
+    1671,
+    1672,
+    1673,
+    1674,
+    1675,
+    1676,
+    1677,
+    1690,
+    1691,
+    1794,
+    1820,
+    1821,
+    1873,
+    1902,
+    2333,
+    2334,
+    2335,
+    2420,
+    2421,
+    2422,
+    2450,
+    2451
+  ],
+  "selection": "Per-model, within this episode; stable raw advantage rank; top also A>0",
+  "intervals": [
+    {
+      "start": 143,
+      "end_exclusive": 144
+    },
+    {
+      "start": 145,
+      "end_exclusive": 146
+    },
+    {
+      "start": 178,
+      "end_exclusive": 179
+    },
+    {
+      "start": 180,
+      "end_exclusive": 183
+    },
+    {
+      "start": 186,
+      "end_exclusive": 187
+    },
+    {
+      "start": 194,
+      "end_exclusive": 195
+    },
+    {
+      "start": 198,
+      "end_exclusive": 201
+    },
+    {
+      "start": 204,
+      "end_exclusive": 205
+    },
+    {
+      "start": 207,
+      "end_exclusive": 208
+    },
+    {
+      "start": 317,
+      "end_exclusive": 324
+    },
+    {
+      "start": 327,
+      "end_exclusive": 337
+    },
+    {
+      "start": 340,
+      "end_exclusive": 342
+    },
+    {
+      "start": 343,
+      "end_exclusive": 361
+    },
+    {
+      "start": 483,
+      "end_exclusive": 491
+    },
+    {
+      "start": 541,
+      "end_exclusive": 542
+    },
+    {
+      "start": 544,
+      "end_exclusive": 547
+    },
+    {
+      "start": 568,
+      "end_exclusive": 569
+    },
+    {
+      "start": 573,
+      "end_exclusive": 574
+    },
+    {
+      "start": 576,
+      "end_exclusive": 578
+    },
+    {
+      "start": 580,
+      "end_exclusive": 581
+    },
+    {
+      "start": 671,
+      "end_exclusive": 676
+    },
+    {
+      "start": 716,
+      "end_exclusive": 718
+    },
+    {
+      "start": 726,
+      "end_exclusive": 759
+    },
+    {
+      "start": 761,
+      "end_exclusive": 762
+    },
+    {
+      "start": 815,
+      "end_exclusive": 833
+    },
+    {
+      "start": 834,
+      "end_exclusive": 835
+    },
+    {
+      "start": 940,
+      "end_exclusive": 941
+    },
+    {
+      "start": 947,
+      "end_exclusive": 949
+    },
+    {
+      "start": 959,
+      "end_exclusive": 964
+    },
+    {
+      "start": 1124,
+      "end_exclusive": 1125
+    },
+    {
+      "start": 1133,
+      "end_exclusive": 1135
+    },
+    {
+      "start": 1136,
+      "end_exclusive": 1139
+    },
+    {
+      "start": 1152,
+      "end_exclusive": 1154
+    },
+    {
+      "start": 1156,
+      "end_exclusive": 1167
+    },
+    {
+      "start": 1168,
+      "end_exclusive": 1180
+    },
+    {
+      "start": 1190,
+      "end_exclusive": 1191
+    },
+    {
+      "start": 1192,
+      "end_exclusive": 1193
+    },
+    {
+      "start": 1247,
+      "end_exclusive": 1256
+    },
+    {
+      "start": 1278,
+      "end_exclusive": 1279
+    },
+    {
+      "start": 1281,
+      "end_exclusive": 1283
+    },
+    {
+      "start": 1286,
+      "end_exclusive": 1287
+    },
+    {
+      "start": 1292,
+      "end_exclusive": 1298
+    },
+    {
+      "start": 1398,
+      "end_exclusive": 1399
+    },
+    {
+      "start": 1401,
+      "end_exclusive": 1403
+    },
+    {
+      "start": 1418,
+      "end_exclusive": 1428
+    },
+    {
+      "start": 1432,
+      "end_exclusive": 1437
+    },
+    {
+      "start": 1438,
+      "end_exclusive": 1440
+    },
+    {
+      "start": 1559,
+      "end_exclusive": 1562
+    },
+    {
+      "start": 1564,
+      "end_exclusive": 1566
+    },
+    {
+      "start": 1574,
+      "end_exclusive": 1575
+    },
+    {
+      "start": 1578,
+      "end_exclusive": 1586
+    },
+    {
+      "start": 1587,
+      "end_exclusive": 1607
+    },
+    {
+      "start": 1636,
+      "end_exclusive": 1638
+    },
+    {
+      "start": 1665,
+      "end_exclusive": 1666
+    },
+    {
+      "start": 1667,
+      "end_exclusive": 1678
+    },
+    {
+      "start": 1690,
+      "end_exclusive": 1692
+    },
+    {
+      "start": 1794,
+      "end_exclusive": 1795
+    },
+    {
+      "start": 1820,
+      "end_exclusive": 1822
+    },
+    {
+      "start": 1873,
+      "end_exclusive": 1874
+    },
+    {
+      "start": 1902,
+      "end_exclusive": 1903
+    },
+    {
+      "start": 2333,
+      "end_exclusive": 2336
+    },
+    {
+      "start": 2420,
+      "end_exclusive": 2423
+    },
+    {
+      "start": 2450,
+      "end_exclusive": 2452
+    }
+  ],
+  "min_selected_A": -0.07149299882343121,
+  "max_selected_A": -0.011313571557310304,
+  "playback": "Selected frames only, chronological, 30fps/1x; gaps jump immediately; no 50-frame expansion",
+  "metric": "Existing raw advantage unchanged (50-transition estimator); this is NOT a new one-step advantage",
+  "source_root": "/data/datasets/RW-RL-Dataset-piperx",
+  "video": {
+    "path": "/data/experiments/value-mixed-takeover-20260907/video-demo-heldout-raw10-selected-frames/mixed1500_bottom10_raw_selected.mp4",
+    "status": "ok",
+    "frames": 270,
+    "seconds": 9.0,
+    "bytes": 2271488,
+    "full_decode_and_pts_ok": true
+  }
+}

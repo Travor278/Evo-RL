@@ -1,0 +1,44 @@
+{
+  "1000": {
+    "metrics": {
+      "frames": 1792,
+      "episodes": 56,
+      "ce": 2.4151119295441146,
+      "mae": 0.015263852594736298,
+      "rmse": 0.02100338335039993,
+      "episode_mae": 0.015263852594736298,
+      "baseline_mae": 0.053695651401150304,
+      "baseline_rmse": 0.06489608023068898,
+      "bias": -0.003570307477535347,
+      "crps": 0.009672653262262949,
+      "entropy": 2.584293136040547,
+      "interval90_coverage": 0.9575892857142857,
+      "interval90_width": 0.06819754265130282,
+      "mae_cost_equivalent_seconds": 7.803390241515687
+    },
+    "frames_per_episode": 32,
+    "provenance": "existing frozen checkpoint evaluation, reused and checked; not a new full-frame pass over all56 episodes",
+    "metrics_path": "/data/experiments/value-mixed-takeover-20260907/runs/piperx-vision-mixed1to1-c150-z15337-fixed1500-seed1000/regular-001000-metrics.json"
+  },
+  "1500": {
+    "metrics": {
+      "frames": 1792,
+      "episodes": 56,
+      "ce": 2.359095588426239,
+      "mae": 0.013934808548843389,
+      "rmse": 0.01992191850168263,
+      "episode_mae": 0.013934808548843389,
+      "baseline_mae": 0.053695651401150304,
+      "baseline_rmse": 0.06489608023068898,
+      "bias": -0.0034176964737915633,
+      "crps": 0.00909894343482977,
+      "entropy": 2.486522851910974,
+      "interval90_coverage": 0.9324776785714286,
+      "interval90_width": 0.061244417851412436,
+      "mae_cost_equivalent_seconds": 7.123938623787035
+    },
+    "frames_per_episode": 32,
+    "provenance": "existing frozen checkpoint evaluation, reused and checked; not a new full-frame pass over all56 episodes",
+    "metrics_path": "/data/experiments/value-mixed-takeover-20260907/runs/piperx-vision-mixed1to1-c150-z15337-fixed1500-seed1000/regular-001500-metrics.json"
+  }
+}
