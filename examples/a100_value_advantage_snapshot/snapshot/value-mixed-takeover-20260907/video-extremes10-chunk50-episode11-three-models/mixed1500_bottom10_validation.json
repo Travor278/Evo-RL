@@ -1,0 +1,25 @@
+{
+  "key": "mixed1500_bottom10",
+  "selected_anchors": 456,
+  "union": {
+    "path": "/data/experiments/value-mixed-takeover-20260907/video-extremes10-chunk50-episode11-three-models/mixed1500_bottom10_chunk50_union.mp4",
+    "status": "ok",
+    "frames": 2129,
+    "seconds": 70.96666666666667,
+    "bytes": 18134867,
+    "full_decode_and_pts_ok": true
+  },
+  "examples": {
+    "path": "/data/experiments/value-mixed-takeover-20260907/video-extremes10-chunk50-episode11-three-models/mixed1500_bottom10_positive_chunk50_examples.mp4",
+    "status": "ok",
+    "frames": 600,
+    "seconds": 20.0,
+    "bytes": 5330957,
+    "full_decode_and_pts_ok": true
+  },
+  "example_count": 12,
+  "minimum_anchor_advantage": -0.19502421371629547,
+  "maximum_anchor_advantage": -0.04649245642116376,
+  "short_tail_windows": 0,
+  "controller_crossing_windows": 90
+}

@@ -1,0 +1,11 @@
+{
+  "status": "ok",
+  "frames": 4558,
+  "fps": 30,
+  "seconds": 151.93333333333334,
+  "bytes": 36786381,
+  "video": "/data/experiments/value-mixed-takeover-20260907/video-review-episode11-step1000/episode11_step1000_value_advantage.mp4",
+  "max_value_difference_vs_prior_batched_inference": 1.2079253792762756e-06,
+  "strict_source_pts_tolerance": 0.0001,
+  "full_output_decode_passed": true
+}
