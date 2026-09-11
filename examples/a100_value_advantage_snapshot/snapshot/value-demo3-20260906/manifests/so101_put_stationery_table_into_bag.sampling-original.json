@@ -1,0 +1,2432 @@
+{
+  "sampling": {
+    "algorithm": "sha256_identity_ranked_nearest_prefix_v1",
+    "boundary_rule": "Take the SHA-256-ranked prefix that first reaches target_frames, then compare it with the prefix excluding the final episode; keep the closer total. Ties keep the prefix that reaches or exceeds the target.",
+    "namespace": "rwrl-piperx-duration-match-v1",
+    "rank_key": "sha256(UTF-8 compact JSON array [namespace, repo_id, revision, seed, subset, episode_index])",
+    "replacement": false,
+    "sampling_unit": "whole episode",
+    "seed": 1000
+  },
+  "schema_version": 1,
+  "selection": {
+    "delta_frames_from_target": 847,
+    "delta_seconds_from_target": 28.233333333333334,
+    "episode_count": 397,
+    "episode_indices": [
+      1074,
+      505,
+      349,
+      1018,
+      83,
+      1083,
+      169,
+      494,
+      651,
+      188,
+      1071,
+      407,
+      79,
+      952,
+      919,
+      1106,
+      443,
+      888,
+      791,
+      312,
+      558,
+      246,
+      1026,
+      1136,
+      73,
+      20,
+      594,
+      924,
+      810,
+      630,
+      446,
+      122,
+      830,
+      153,
+      945,
+      958,
+      895,
+      524,
+      1110,
+      1109,
+      88,
+      372,
+      1132,
+      824,
+      1146,
+      548,
+      1062,
+      462,
+      48,
+      1111,
+      198,
+      546,
+      1086,
+      268,
+      498,
+      567,
+      40,
+      434,
+      416,
+      397,
+      861,
+      964,
+      194,
+      1054,
+      571,
+      570,
+      44,
+      333,
+      1025,
+      750,
+      100,
+      92,
+      977,
+      840,
+      709,
+      611,
+      162,
+      373,
+      1108,
+      832,
+      1055,
+      801,
+      523,
+      441,
+      781,
+      640,
+      817,
+      42,
+      380,
+      490,
+      137,
+      30,
+      336,
+      1047,
+      276,
+      981,
+      460,
+      1089,
+      847,
+      278,
+      881,
+      1005,
+      49,
+      683,
+      992,
+      501,
+      713,
+      7,
+      1001,
+      82,
+      1022,
+      147,
+      307,
+      758,
+      52,
+      1012,
+      1039,
+      379,
+      144,
+      29,
+      623,
+      880,
+      1043,
+      688,
+      1038,
+      581,
+      309,
+      267,
+      487,
+      979,
+      672,
+      181,
+      478,
+      971,
+      909,
+      477,
+      643,
+      632,
+      948,
+      723,
+      102,
+      949,
+      740,
+      1006,
+      274,
+      279,
+      81,
+      1104,
+      393,
+      1123,
+      98,
+      116,
+      438,
+      375,
+      422,
+      585,
+      467,
+      955,
+      991,
+      323,
+      1112,
+      576,
+      173,
+      782,
+      11,
+      387,
+      536,
+      942,
+      474,
+      303,
+      204,
+      339,
+      834,
+      610,
+      756,
+      1153,
+      624,
+      998,
+      395,
+      697,
+      238,
+      1090,
+      376,
+      74,
+      866,
+      214,
+      249,
+      727,
+      298,
+      984,
+      575,
+      365,
+      609,
+      359,
+      526,
+      57,
+      33,
+      355,
+      364,
+      1077,
+      720,
+      224,
+      787,
+      963,
+      1120,
+      827,
+      666,
+      439,
+      458,
+      255,
+      263,
+      415,
+      579,
+      1076,
+      327,
+      104,
+      362,
+      901,
+      1036,
+      1030,
+      1116,
+      820,
+      763,
+      1102,
+      164,
+      291,
+      811,
+      157,
+      650,
+      706,
+      195,
+      560,
+      757,
+      435,
+      1127,
+      1052,
+      447,
+      956,
+      127,
+      870,
+      479,
+      1007,
+      1040,
+      53,
+      779,
+      301,
+      641,
+      140,
+      449,
+      896,
+      354,
+      516,
+      341,
+      408,
+      887,
+      311,
+      39,
+      457,
+      421,
+      1002,
+      138,
+      792,
+      960,
+      730,
+      337,
+      844,
+      497,
+      67,
+      448,
+      154,
+      653,
+      846,
+      626,
+      76,
+      921,
+      679,
+      586,
+      849,
+      107,
+      543,
+      799,
+      545,
+      669,
+      235,
+      513,
+      566,
+      988,
+      652,
+      223,
+      928,
+      940,
+      777,
+      166,
+      346,
+      540,
+      464,
+      773,
+      314,
+      1091,
+      514,
+      793,
+      1124,
+      904,
+      725,
+      947,
+      1035,
+      715,
+      936,
+      386,
+      302,
+      469,
+      293,
+      212,
+      1033,
+      667,
+      808,
+      507,
+      1097,
+      675,
+      903,
+      541,
+      629,
+      620,
+      211,
+      1037,
+      842,
+      661,
+      980,
+      534,
+      804,
+      334,
+      1073,
+      254,
+      244,
+      106,
+      304,
+      124,
+      884,
+      251,
+      982,
+      823,
+      851,
+      694,
+      855,
+      780,
+      402,
+      767,
+      252,
+      703,
+      689,
+      258,
+      648,
+      14,
+      91,
+      149,
+      627,
+      31,
+      1142,
+      272,
+      187,
+      206,
+      25,
+      978,
+      923,
+      1017,
+      344,
+      604,
+      555,
+      77,
+      390,
+      593,
+      668,
+      1059,
+      160,
+      105,
+      589,
+      205,
+      436,
+      615,
+      733,
+      13,
+      475,
+      275,
+      316,
+      681,
+      900,
+      529,
+      473,
+      1095,
+      608,
+      324,
+      858,
+      837,
+      103,
+      70,
+      27,
+      1128
+    ],
+    "episode_indices_sorted": [
+      7,
+      11,
+      13,
+      14,
+      20,
+      25,
+      27,
+      29,
+      30,
+      31,
+      33,
+      39,
+      40,
+      42,
+      44,
+      48,
+      49,
+      52,
+      53,
+      57,
+      67,
+      70,
+      73,
+      74,
+      76,
+      77,
+      79,
+      81,
+      82,
+      83,
+      88,
+      91,
+      92,
+      98,
+      100,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      116,
+      122,
+      124,
+      127,
+      137,
+      138,
+      140,
+      144,
+      147,
+      149,
+      153,
+      154,
+      157,
+      160,
+      162,
+      164,
+      166,
+      169,
+      173,
+      181,
+      187,
+      188,
+      194,
+      195,
+      198,
+      204,
+      205,
+      206,
+      211,
+      212,
+      214,
+      223,
+      224,
+      235,
+      238,
+      244,
+      246,
+      249,
+      251,
+      252,
+      254,
+      255,
+      258,
+      263,
+      267,
+      268,
+      272,
+      274,
+      275,
+      276,
+      278,
+      279,
+      291,
+      293,
+      298,
+      301,
+      302,
+      303,
+      304,
+      307,
+      309,
+      311,
+      312,
+      314,
+      316,
+      323,
+      324,
+      327,
+      333,
+      334,
+      336,
+      337,
+      339,
+      341,
+      344,
+      346,
+      349,
+      354,
+      355,
+      359,
+      362,
+      364,
+      365,
+      372,
+      373,
+      375,
+      376,
+      379,
+      380,
+      386,
+      387,
+      390,
+      393,
+      395,
+      397,
+      402,
+      407,
+      408,
+      415,
+      416,
+      421,
+      422,
+      434,
+      435,
+      436,
+      438,
+      439,
+      441,
+      443,
+      446,
+      447,
+      448,
+      449,
+      457,
+      458,
+      460,
+      462,
+      464,
+      467,
+      469,
+      473,
+      474,
+      475,
+      477,
+      478,
+      479,
+      487,
+      490,
+      494,
+      497,
+      498,
+      501,
+      505,
+      507,
+      513,
+      514,
+      516,
+      523,
+      524,
+      526,
+      529,
+      534,
+      536,
+      540,
+      541,
+      543,
+      545,
+      546,
+      548,
+      555,
+      558,
+      560,
+      566,
+      567,
+      570,
+      571,
+      575,
+      576,
+      579,
+      581,
+      585,
+      586,
+      589,
+      593,
+      594,
+      604,
+      608,
+      609,
+      610,
+      611,
+      615,
+      620,
+      623,
+      624,
+      626,
+      627,
+      629,
+      630,
+      632,
+      640,
+      641,
+      643,
+      648,
+      650,
+      651,
+      652,
+      653,
+      661,
+      666,
+      667,
+      668,
+      669,
+      672,
+      675,
+      679,
+      681,
+      683,
+      688,
+      689,
+      694,
+      697,
+      703,
+      706,
+      709,
+      713,
+      715,
+      720,
+      723,
+      725,
+      727,
+      730,
+      733,
+      740,
+      750,
+      756,
+      757,
+      758,
+      763,
+      767,
+      773,
+      777,
+      779,
+      780,
+      781,
+      782,
+      787,
+      791,
+      792,
+      793,
+      799,
+      801,
+      804,
+      808,
+      810,
+      811,
+      817,
+      820,
+      823,
+      824,
+      827,
+      830,
+      832,
+      834,
+      837,
+      840,
+      842,
+      844,
+      846,
+      847,
+      849,
+      851,
+      855,
+      858,
+      861,
+      866,
+      870,
+      880,
+      881,
+      884,
+      887,
+      888,
+      895,
+      896,
+      900,
+      901,
+      903,
+      904,
+      909,
+      919,
+      921,
+      923,
+      924,
+      928,
+      936,
+      940,
+      942,
+      945,
+      947,
+      948,
+      949,
+      952,
+      955,
+      956,
+      958,
+      960,
+      963,
+      964,
+      971,
+      977,
+      978,
+      979,
+      980,
+      981,
+      982,
+      984,
+      988,
+      991,
+      992,
+      998,
+      1001,
+      1002,
+      1005,
+      1006,
+      1007,
+      1012,
+      1017,
+      1018,
+      1022,
+      1025,
+      1026,
+      1030,
+      1033,
+      1035,
+      1036,
+      1037,
+      1038,
+      1039,
+      1040,
+      1043,
+      1047,
+      1052,
+      1054,
+      1055,
+      1059,
+      1062,
+      1071,
+      1073,
+      1074,
+      1076,
+      1077,
+      1083,
+      1086,
+      1089,
+      1090,
+      1091,
+      1095,
+      1097,
+      1102,
+      1104,
+      1106,
+      1108,
+      1109,
+      1110,
+      1111,
+      1112,
+      1116,
+      1120,
+      1123,
+      1124,
+      1127,
+      1128,
+      1132,
+      1136,
+      1142,
+      1146,
+      1153
+    ],
+    "episode_lengths_in_rank_order": [
+      {
+        "episode_index": 1074,
+        "length": 2039
+      },
+      {
+        "episode_index": 505,
+        "length": 3082
+      },
+      {
+        "episode_index": 349,
+        "length": 5698
+      },
+      {
+        "episode_index": 1018,
+        "length": 3178
+      },
+      {
+        "episode_index": 83,
+        "length": 2844
+      },
+      {
+        "episode_index": 1083,
+        "length": 2977
+      },
+      {
+        "episode_index": 169,
+        "length": 3901
+      },
+      {
+        "episode_index": 494,
+        "length": 2846
+      },
+      {
+        "episode_index": 651,
+        "length": 3377
+      },
+      {
+        "episode_index": 188,
+        "length": 2503
+      },
+      {
+        "episode_index": 1071,
+        "length": 2636
+      },
+      {
+        "episode_index": 407,
+        "length": 3672
+      },
+      {
+        "episode_index": 79,
+        "length": 4137
+      },
+      {
+        "episode_index": 952,
+        "length": 3093
+      },
+      {
+        "episode_index": 919,
+        "length": 2347
+      },
+      {
+        "episode_index": 1106,
+        "length": 2519
+      },
+      {
+        "episode_index": 443,
+        "length": 3396
+      },
+      {
+        "episode_index": 888,
+        "length": 2483
+      },
+      {
+        "episode_index": 791,
+        "length": 1991
+      },
+      {
+        "episode_index": 312,
+        "length": 3302
+      },
+      {
+        "episode_index": 558,
+        "length": 3885
+      },
+      {
+        "episode_index": 246,
+        "length": 3416
+      },
+      {
+        "episode_index": 1026,
+        "length": 3832
+      },
+      {
+        "episode_index": 1136,
+        "length": 2853
+      },
+      {
+        "episode_index": 73,
+        "length": 5321
+      },
+      {
+        "episode_index": 20,
+        "length": 3994
+      },
+      {
+        "episode_index": 594,
+        "length": 3286
+      },
+      {
+        "episode_index": 924,
+        "length": 2873
+      },
+      {
+        "episode_index": 810,
+        "length": 1708
+      },
+      {
+        "episode_index": 630,
+        "length": 5095
+      },
+      {
+        "episode_index": 446,
+        "length": 4577
+      },
+      {
+        "episode_index": 122,
+        "length": 3586
+      },
+      {
+        "episode_index": 830,
+        "length": 2478
+      },
+      {
+        "episode_index": 153,
+        "length": 4935
+      },
+      {
+        "episode_index": 945,
+        "length": 3777
+      },
+      {
+        "episode_index": 958,
+        "length": 3048
+      },
+      {
+        "episode_index": 895,
+        "length": 2114
+      },
+      {
+        "episode_index": 524,
+        "length": 3661
+      },
+      {
+        "episode_index": 1110,
+        "length": 3207
+      },
+      {
+        "episode_index": 1109,
+        "length": 3098
+      },
+      {
+        "episode_index": 88,
+        "length": 3822
+      },
+      {
+        "episode_index": 372,
+        "length": 8968
+      },
+      {
+        "episode_index": 1132,
+        "length": 2516
+      },
+      {
+        "episode_index": 824,
+        "length": 2315
+      },
+      {
+        "episode_index": 1146,
+        "length": 5280
+      },
+      {
+        "episode_index": 548,
+        "length": 4596
+      },
+      {
+        "episode_index": 1062,
+        "length": 2677
+      },
+      {
+        "episode_index": 462,
+        "length": 5697
+      },
+      {
+        "episode_index": 48,
+        "length": 3740
+      },
+      {
+        "episode_index": 1111,
+        "length": 2868
+      },
+      {
+        "episode_index": 198,
+        "length": 2396
+      },
+      {
+        "episode_index": 546,
+        "length": 3397
+      },
+      {
+        "episode_index": 1086,
+        "length": 3008
+      },
+      {
+        "episode_index": 268,
+        "length": 3153
+      },
+      {
+        "episode_index": 498,
+        "length": 2802
+      },
+      {
+        "episode_index": 567,
+        "length": 2792
+      },
+      {
+        "episode_index": 40,
+        "length": 3767
+      },
+      {
+        "episode_index": 434,
+        "length": 2936
+      },
+      {
+        "episode_index": 416,
+        "length": 3969
+      },
+      {
+        "episode_index": 397,
+        "length": 4369
+      },
+      {
+        "episode_index": 861,
+        "length": 2290
+      },
+      {
+        "episode_index": 964,
+        "length": 3085
+      },
+      {
+        "episode_index": 194,
+        "length": 3258
+      },
+      {
+        "episode_index": 1054,
+        "length": 2410
+      },
+      {
+        "episode_index": 571,
+        "length": 3292
+      },
+      {
+        "episode_index": 570,
+        "length": 2805
+      },
+      {
+        "episode_index": 44,
+        "length": 3256
+      },
+      {
+        "episode_index": 333,
+        "length": 2232
+      },
+      {
+        "episode_index": 1025,
+        "length": 2486
+      },
+      {
+        "episode_index": 750,
+        "length": 3032
+      },
+      {
+        "episode_index": 100,
+        "length": 4219
+      },
+      {
+        "episode_index": 92,
+        "length": 5200
+      },
+      {
+        "episode_index": 977,
+        "length": 2083
+      },
+      {
+        "episode_index": 840,
+        "length": 2714
+      },
+      {
+        "episode_index": 709,
+        "length": 2759
+      },
+      {
+        "episode_index": 611,
+        "length": 3609
+      },
+      {
+        "episode_index": 162,
+        "length": 3203
+      },
+      {
+        "episode_index": 373,
+        "length": 5755
+      },
+      {
+        "episode_index": 1108,
+        "length": 3024
+      },
+      {
+        "episode_index": 832,
+        "length": 1810
+      },
+      {
+        "episode_index": 1055,
+        "length": 2982
+      },
+      {
+        "episode_index": 801,
+        "length": 1882
+      },
+      {
+        "episode_index": 523,
+        "length": 3269
+      },
+      {
+        "episode_index": 441,
+        "length": 4699
+      },
+      {
+        "episode_index": 781,
+        "length": 3074
+      },
+      {
+        "episode_index": 640,
+        "length": 3397
+      },
+      {
+        "episode_index": 817,
+        "length": 2342
+      },
+      {
+        "episode_index": 42,
+        "length": 2941
+      },
+      {
+        "episode_index": 380,
+        "length": 4500
+      },
+      {
+        "episode_index": 490,
+        "length": 3140
+      },
+      {
+        "episode_index": 137,
+        "length": 3106
+      },
+      {
+        "episode_index": 30,
+        "length": 4442
+      },
+      {
+        "episode_index": 336,
+        "length": 3159
+      },
+      {
+        "episode_index": 1047,
+        "length": 3732
+      },
+      {
+        "episode_index": 276,
+        "length": 2683
+      },
+      {
+        "episode_index": 981,
+        "length": 2418
+      },
+      {
+        "episode_index": 460,
+        "length": 3786
+      },
+      {
+        "episode_index": 1089,
+        "length": 2082
+      },
+      {
+        "episode_index": 847,
+        "length": 2436
+      },
+      {
+        "episode_index": 278,
+        "length": 1833
+      },
+      {
+        "episode_index": 881,
+        "length": 1873
+      },
+      {
+        "episode_index": 1005,
+        "length": 3066
+      },
+      {
+        "episode_index": 49,
+        "length": 4566
+      },
+      {
+        "episode_index": 683,
+        "length": 2865
+      },
+      {
+        "episode_index": 992,
+        "length": 3452
+      },
+      {
+        "episode_index": 501,
+        "length": 3526
+      },
+      {
+        "episode_index": 713,
+        "length": 3434
+      },
+      {
+        "episode_index": 7,
+        "length": 4569
+      },
+      {
+        "episode_index": 1001,
+        "length": 2834
+      },
+      {
+        "episode_index": 82,
+        "length": 5096
+      },
+      {
+        "episode_index": 1022,
+        "length": 3174
+      },
+      {
+        "episode_index": 147,
+        "length": 4746
+      },
+      {
+        "episode_index": 307,
+        "length": 2293
+      },
+      {
+        "episode_index": 758,
+        "length": 2412
+      },
+      {
+        "episode_index": 52,
+        "length": 4344
+      },
+      {
+        "episode_index": 1012,
+        "length": 3186
+      },
+      {
+        "episode_index": 1039,
+        "length": 1783
+      },
+      {
+        "episode_index": 379,
+        "length": 4020
+      },
+      {
+        "episode_index": 144,
+        "length": 4303
+      },
+      {
+        "episode_index": 29,
+        "length": 3518
+      },
+      {
+        "episode_index": 623,
+        "length": 3890
+      },
+      {
+        "episode_index": 880,
+        "length": 2024
+      },
+      {
+        "episode_index": 1043,
+        "length": 2834
+      },
+      {
+        "episode_index": 688,
+        "length": 2660
+      },
+      {
+        "episode_index": 1038,
+        "length": 4259
+      },
+      {
+        "episode_index": 581,
+        "length": 2879
+      },
+      {
+        "episode_index": 309,
+        "length": 1973
+      },
+      {
+        "episode_index": 267,
+        "length": 3780
+      },
+      {
+        "episode_index": 487,
+        "length": 3952
+      },
+      {
+        "episode_index": 979,
+        "length": 2662
+      },
+      {
+        "episode_index": 672,
+        "length": 3155
+      },
+      {
+        "episode_index": 181,
+        "length": 2112
+      },
+      {
+        "episode_index": 478,
+        "length": 2012
+      },
+      {
+        "episode_index": 971,
+        "length": 3509
+      },
+      {
+        "episode_index": 909,
+        "length": 2645
+      },
+      {
+        "episode_index": 477,
+        "length": 2546
+      },
+      {
+        "episode_index": 643,
+        "length": 4573
+      },
+      {
+        "episode_index": 632,
+        "length": 2577
+      },
+      {
+        "episode_index": 948,
+        "length": 3231
+      },
+      {
+        "episode_index": 723,
+        "length": 5052
+      },
+      {
+        "episode_index": 102,
+        "length": 3368
+      },
+      {
+        "episode_index": 949,
+        "length": 3288
+      },
+      {
+        "episode_index": 740,
+        "length": 4532
+      },
+      {
+        "episode_index": 1006,
+        "length": 2854
+      },
+      {
+        "episode_index": 274,
+        "length": 1813
+      },
+      {
+        "episode_index": 279,
+        "length": 1828
+      },
+      {
+        "episode_index": 81,
+        "length": 2731
+      },
+      {
+        "episode_index": 1104,
+        "length": 2870
+      },
+      {
+        "episode_index": 393,
+        "length": 2638
+      },
+      {
+        "episode_index": 1123,
+        "length": 3307
+      },
+      {
+        "episode_index": 98,
+        "length": 6549
+      },
+      {
+        "episode_index": 116,
+        "length": 2799
+      },
+      {
+        "episode_index": 438,
+        "length": 2062
+      },
+      {
+        "episode_index": 375,
+        "length": 3575
+      },
+      {
+        "episode_index": 422,
+        "length": 3034
+      },
+      {
+        "episode_index": 585,
+        "length": 3244
+      },
+      {
+        "episode_index": 467,
+        "length": 3927
+      },
+      {
+        "episode_index": 955,
+        "length": 2107
+      },
+      {
+        "episode_index": 991,
+        "length": 3330
+      },
+      {
+        "episode_index": 323,
+        "length": 2370
+      },
+      {
+        "episode_index": 1112,
+        "length": 3217
+      },
+      {
+        "episode_index": 576,
+        "length": 2657
+      },
+      {
+        "episode_index": 173,
+        "length": 3698
+      },
+      {
+        "episode_index": 782,
+        "length": 2001
+      },
+      {
+        "episode_index": 11,
+        "length": 4343
+      },
+      {
+        "episode_index": 387,
+        "length": 2561
+      },
+      {
+        "episode_index": 536,
+        "length": 2684
+      },
+      {
+        "episode_index": 942,
+        "length": 2990
+      },
+      {
+        "episode_index": 474,
+        "length": 3238
+      },
+      {
+        "episode_index": 303,
+        "length": 1920
+      },
+      {
+        "episode_index": 204,
+        "length": 3448
+      },
+      {
+        "episode_index": 339,
+        "length": 2737
+      },
+      {
+        "episode_index": 834,
+        "length": 2597
+      },
+      {
+        "episode_index": 610,
+        "length": 3136
+      },
+      {
+        "episode_index": 756,
+        "length": 2542
+      },
+      {
+        "episode_index": 1153,
+        "length": 2749
+      },
+      {
+        "episode_index": 624,
+        "length": 2794
+      },
+      {
+        "episode_index": 998,
+        "length": 4232
+      },
+      {
+        "episode_index": 395,
+        "length": 3026
+      },
+      {
+        "episode_index": 697,
+        "length": 3363
+      },
+      {
+        "episode_index": 238,
+        "length": 3896
+      },
+      {
+        "episode_index": 1090,
+        "length": 8960
+      },
+      {
+        "episode_index": 376,
+        "length": 3936
+      },
+      {
+        "episode_index": 74,
+        "length": 4285
+      },
+      {
+        "episode_index": 866,
+        "length": 2123
+      },
+      {
+        "episode_index": 214,
+        "length": 4482
+      },
+      {
+        "episode_index": 249,
+        "length": 2961
+      },
+      {
+        "episode_index": 727,
+        "length": 3206
+      },
+      {
+        "episode_index": 298,
+        "length": 2938
+      },
+      {
+        "episode_index": 984,
+        "length": 3325
+      },
+      {
+        "episode_index": 575,
+        "length": 2172
+      },
+      {
+        "episode_index": 365,
+        "length": 2006
+      },
+      {
+        "episode_index": 609,
+        "length": 3040
+      },
+      {
+        "episode_index": 359,
+        "length": 2329
+      },
+      {
+        "episode_index": 526,
+        "length": 2885
+      },
+      {
+        "episode_index": 57,
+        "length": 3156
+      },
+      {
+        "episode_index": 33,
+        "length": 3752
+      },
+      {
+        "episode_index": 355,
+        "length": 2934
+      },
+      {
+        "episode_index": 364,
+        "length": 2553
+      },
+      {
+        "episode_index": 1077,
+        "length": 2430
+      },
+      {
+        "episode_index": 720,
+        "length": 3685
+      },
+      {
+        "episode_index": 224,
+        "length": 3032
+      },
+      {
+        "episode_index": 787,
+        "length": 2843
+      },
+      {
+        "episode_index": 963,
+        "length": 2933
+      },
+      {
+        "episode_index": 1120,
+        "length": 2855
+      },
+      {
+        "episode_index": 827,
+        "length": 2237
+      },
+      {
+        "episode_index": 666,
+        "length": 2967
+      },
+      {
+        "episode_index": 439,
+        "length": 2166
+      },
+      {
+        "episode_index": 458,
+        "length": 2700
+      },
+      {
+        "episode_index": 255,
+        "length": 3161
+      },
+      {
+        "episode_index": 263,
+        "length": 2759
+      },
+      {
+        "episode_index": 415,
+        "length": 3697
+      },
+      {
+        "episode_index": 579,
+        "length": 3063
+      },
+      {
+        "episode_index": 1076,
+        "length": 2835
+      },
+      {
+        "episode_index": 327,
+        "length": 2329
+      },
+      {
+        "episode_index": 104,
+        "length": 3720
+      },
+      {
+        "episode_index": 362,
+        "length": 2189
+      },
+      {
+        "episode_index": 901,
+        "length": 2056
+      },
+      {
+        "episode_index": 1036,
+        "length": 2594
+      },
+      {
+        "episode_index": 1030,
+        "length": 2905
+      },
+      {
+        "episode_index": 1116,
+        "length": 3195
+      },
+      {
+        "episode_index": 820,
+        "length": 2447
+      },
+      {
+        "episode_index": 763,
+        "length": 2338
+      },
+      {
+        "episode_index": 1102,
+        "length": 2118
+      },
+      {
+        "episode_index": 164,
+        "length": 3429
+      },
+      {
+        "episode_index": 291,
+        "length": 2393
+      },
+      {
+        "episode_index": 811,
+        "length": 2198
+      },
+      {
+        "episode_index": 157,
+        "length": 2896
+      },
+      {
+        "episode_index": 650,
+        "length": 3195
+      },
+      {
+        "episode_index": 706,
+        "length": 2479
+      },
+      {
+        "episode_index": 195,
+        "length": 3680
+      },
+      {
+        "episode_index": 560,
+        "length": 2857
+      },
+      {
+        "episode_index": 757,
+        "length": 2786
+      },
+      {
+        "episode_index": 435,
+        "length": 2827
+      },
+      {
+        "episode_index": 1127,
+        "length": 3783
+      },
+      {
+        "episode_index": 1052,
+        "length": 2954
+      },
+      {
+        "episode_index": 447,
+        "length": 4916
+      },
+      {
+        "episode_index": 956,
+        "length": 3111
+      },
+      {
+        "episode_index": 127,
+        "length": 3068
+      },
+      {
+        "episode_index": 870,
+        "length": 1853
+      },
+      {
+        "episode_index": 479,
+        "length": 4151
+      },
+      {
+        "episode_index": 1007,
+        "length": 3696
+      },
+      {
+        "episode_index": 1040,
+        "length": 2348
+      },
+      {
+        "episode_index": 53,
+        "length": 2871
+      },
+      {
+        "episode_index": 779,
+        "length": 2703
+      },
+      {
+        "episode_index": 301,
+        "length": 2261
+      },
+      {
+        "episode_index": 641,
+        "length": 4401
+      },
+      {
+        "episode_index": 140,
+        "length": 2831
+      },
+      {
+        "episode_index": 449,
+        "length": 3809
+      },
+      {
+        "episode_index": 896,
+        "length": 2314
+      },
+      {
+        "episode_index": 354,
+        "length": 3186
+      },
+      {
+        "episode_index": 516,
+        "length": 3972
+      },
+      {
+        "episode_index": 341,
+        "length": 2698
+      },
+      {
+        "episode_index": 408,
+        "length": 3094
+      },
+      {
+        "episode_index": 887,
+        "length": 2148
+      },
+      {
+        "episode_index": 311,
+        "length": 2633
+      },
+      {
+        "episode_index": 39,
+        "length": 3274
+      },
+      {
+        "episode_index": 457,
+        "length": 3556
+      },
+      {
+        "episode_index": 421,
+        "length": 5183
+      },
+      {
+        "episode_index": 1002,
+        "length": 4618
+      },
+      {
+        "episode_index": 138,
+        "length": 2778
+      },
+      {
+        "episode_index": 792,
+        "length": 1930
+      },
+      {
+        "episode_index": 960,
+        "length": 2868
+      },
+      {
+        "episode_index": 730,
+        "length": 2639
+      },
+      {
+        "episode_index": 337,
+        "length": 2766
+      },
+      {
+        "episode_index": 844,
+        "length": 1571
+      },
+      {
+        "episode_index": 497,
+        "length": 2707
+      },
+      {
+        "episode_index": 67,
+        "length": 7441
+      },
+      {
+        "episode_index": 448,
+        "length": 3549
+      },
+      {
+        "episode_index": 154,
+        "length": 4176
+      },
+      {
+        "episode_index": 653,
+        "length": 2646
+      },
+      {
+        "episode_index": 846,
+        "length": 2424
+      },
+      {
+        "episode_index": 626,
+        "length": 3309
+      },
+      {
+        "episode_index": 76,
+        "length": 4200
+      },
+      {
+        "episode_index": 921,
+        "length": 2141
+      },
+      {
+        "episode_index": 679,
+        "length": 2258
+      },
+      {
+        "episode_index": 586,
+        "length": 2643
+      },
+      {
+        "episode_index": 849,
+        "length": 2084
+      },
+      {
+        "episode_index": 107,
+        "length": 3164
+      },
+      {
+        "episode_index": 543,
+        "length": 2873
+      },
+      {
+        "episode_index": 799,
+        "length": 2355
+      },
+      {
+        "episode_index": 545,
+        "length": 3413
+      },
+      {
+        "episode_index": 669,
+        "length": 3114
+      },
+      {
+        "episode_index": 235,
+        "length": 2761
+      },
+      {
+        "episode_index": 513,
+        "length": 2276
+      },
+      {
+        "episode_index": 566,
+        "length": 2362
+      },
+      {
+        "episode_index": 988,
+        "length": 7256
+      },
+      {
+        "episode_index": 652,
+        "length": 2573
+      },
+      {
+        "episode_index": 223,
+        "length": 3291
+      },
+      {
+        "episode_index": 928,
+        "length": 2652
+      },
+      {
+        "episode_index": 940,
+        "length": 4188
+      },
+      {
+        "episode_index": 777,
+        "length": 2211
+      },
+      {
+        "episode_index": 166,
+        "length": 4703
+      },
+      {
+        "episode_index": 346,
+        "length": 2486
+      },
+      {
+        "episode_index": 540,
+        "length": 3712
+      },
+      {
+        "episode_index": 464,
+        "length": 3057
+      },
+      {
+        "episode_index": 773,
+        "length": 2440
+      },
+      {
+        "episode_index": 314,
+        "length": 2220
+      },
+      {
+        "episode_index": 1091,
+        "length": 2825
+      },
+      {
+        "episode_index": 514,
+        "length": 2745
+      },
+      {
+        "episode_index": 793,
+        "length": 2413
+      },
+      {
+        "episode_index": 1124,
+        "length": 3473
+      },
+      {
+        "episode_index": 904,
+        "length": 2317
+      },
+      {
+        "episode_index": 725,
+        "length": 4558
+      },
+      {
+        "episode_index": 947,
+        "length": 3052
+      },
+      {
+        "episode_index": 1035,
+        "length": 2354
+      },
+      {
+        "episode_index": 715,
+        "length": 2957
+      },
+      {
+        "episode_index": 936,
+        "length": 4238
+      },
+      {
+        "episode_index": 386,
+        "length": 3850
+      },
+      {
+        "episode_index": 302,
+        "length": 2419
+      },
+      {
+        "episode_index": 469,
+        "length": 2787
+      },
+      {
+        "episode_index": 293,
+        "length": 1821
+      },
+      {
+        "episode_index": 212,
+        "length": 3165
+      },
+      {
+        "episode_index": 1033,
+        "length": 3318
+      },
+      {
+        "episode_index": 667,
+        "length": 2626
+      },
+      {
+        "episode_index": 808,
+        "length": 2111
+      },
+      {
+        "episode_index": 507,
+        "length": 2484
+      },
+      {
+        "episode_index": 1097,
+        "length": 2517
+      },
+      {
+        "episode_index": 675,
+        "length": 2220
+      },
+      {
+        "episode_index": 903,
+        "length": 1977
+      },
+      {
+        "episode_index": 541,
+        "length": 4386
+      },
+      {
+        "episode_index": 629,
+        "length": 2299
+      },
+      {
+        "episode_index": 620,
+        "length": 3867
+      },
+      {
+        "episode_index": 211,
+        "length": 3145
+      },
+      {
+        "episode_index": 1037,
+        "length": 2127
+      },
+      {
+        "episode_index": 842,
+        "length": 1782
+      },
+      {
+        "episode_index": 661,
+        "length": 2375
+      },
+      {
+        "episode_index": 980,
+        "length": 3445
+      },
+      {
+        "episode_index": 534,
+        "length": 3886
+      },
+      {
+        "episode_index": 804,
+        "length": 1631
+      },
+      {
+        "episode_index": 334,
+        "length": 2172
+      },
+      {
+        "episode_index": 1073,
+        "length": 1858
+      },
+      {
+        "episode_index": 254,
+        "length": 3284
+      },
+      {
+        "episode_index": 244,
+        "length": 2532
+      },
+      {
+        "episode_index": 106,
+        "length": 4418
+      },
+      {
+        "episode_index": 304,
+        "length": 3768
+      },
+      {
+        "episode_index": 124,
+        "length": 3620
+      },
+      {
+        "episode_index": 884,
+        "length": 3280
+      },
+      {
+        "episode_index": 251,
+        "length": 2927
+      },
+      {
+        "episode_index": 982,
+        "length": 2794
+      },
+      {
+        "episode_index": 823,
+        "length": 2881
+      },
+      {
+        "episode_index": 851,
+        "length": 2364
+      },
+      {
+        "episode_index": 694,
+        "length": 4694
+      },
+      {
+        "episode_index": 855,
+        "length": 1953
+      },
+      {
+        "episode_index": 780,
+        "length": 2285
+      },
+      {
+        "episode_index": 402,
+        "length": 3595
+      },
+      {
+        "episode_index": 767,
+        "length": 2722
+      },
+      {
+        "episode_index": 252,
+        "length": 3553
+      },
+      {
+        "episode_index": 703,
+        "length": 3116
+      },
+      {
+        "episode_index": 689,
+        "length": 3561
+      },
+      {
+        "episode_index": 258,
+        "length": 2395
+      },
+      {
+        "episode_index": 648,
+        "length": 2764
+      },
+      {
+        "episode_index": 14,
+        "length": 2697
+      },
+      {
+        "episode_index": 91,
+        "length": 4370
+      },
+      {
+        "episode_index": 149,
+        "length": 6537
+      },
+      {
+        "episode_index": 627,
+        "length": 3047
+      },
+      {
+        "episode_index": 31,
+        "length": 2977
+      },
+      {
+        "episode_index": 1142,
+        "length": 2661
+      },
+      {
+        "episode_index": 272,
+        "length": 2500
+      },
+      {
+        "episode_index": 187,
+        "length": 2925
+      },
+      {
+        "episode_index": 206,
+        "length": 4151
+      },
+      {
+        "episode_index": 25,
+        "length": 3099
+      },
+      {
+        "episode_index": 978,
+        "length": 2224
+      },
+      {
+        "episode_index": 923,
+        "length": 1499
+      },
+      {
+        "episode_index": 1017,
+        "length": 4242
+      },
+      {
+        "episode_index": 344,
+        "length": 4103
+      },
+      {
+        "episode_index": 604,
+        "length": 3028
+      },
+      {
+        "episode_index": 555,
+        "length": 2400
+      },
+      {
+        "episode_index": 77,
+        "length": 4176
+      },
+      {
+        "episode_index": 390,
+        "length": 1780
+      },
+      {
+        "episode_index": 593,
+        "length": 2731
+      },
+      {
+        "episode_index": 668,
+        "length": 3395
+      },
+      {
+        "episode_index": 1059,
+        "length": 2857
+      },
+      {
+        "episode_index": 160,
+        "length": 2796
+      },
+      {
+        "episode_index": 105,
+        "length": 4147
+      },
+      {
+        "episode_index": 589,
+        "length": 2925
+      },
+      {
+        "episode_index": 205,
+        "length": 3336
+      },
+      {
+        "episode_index": 436,
+        "length": 3517
+      },
+      {
+        "episode_index": 615,
+        "length": 3510
+      },
+      {
+        "episode_index": 733,
+        "length": 3092
+      },
+      {
+        "episode_index": 13,
+        "length": 3843
+      },
+      {
+        "episode_index": 475,
+        "length": 2557
+      },
+      {
+        "episode_index": 275,
+        "length": 2191
+      },
+      {
+        "episode_index": 316,
+        "length": 3157
+      },
+      {
+        "episode_index": 681,
+        "length": 2556
+      },
+      {
+        "episode_index": 900,
+        "length": 1878
+      },
+      {
+        "episode_index": 529,
+        "length": 4674
+      },
+      {
+        "episode_index": 473,
+        "length": 2541
+      },
+      {
+        "episode_index": 1095,
+        "length": 2909
+      },
+      {
+        "episode_index": 608,
+        "length": 3882
+      },
+      {
+        "episode_index": 324,
+        "length": 4073
+      },
+      {
+        "episode_index": 858,
+        "length": 3235
+      },
+      {
+        "episode_index": 837,
+        "length": 2436
+      },
+      {
+        "episode_index": 103,
+        "length": 4595
+      },
+      {
+        "episode_index": 70,
+        "length": 5351
+      },
+      {
+        "episode_index": 27,
+        "length": 2647
+      },
+      {
+        "episode_index": 1128,
+        "length": 4219
+      }
+    ],
+    "frames": 1256576,
+    "hours_at_fps": 11.634962962962964,
+    "ranked_episode_indices_sha256": "b097d0fdf4cae8d77c17f212450b45a7a47ecf8262905aa3f2f0f7a5b5ec7625"
+  },
+  "source": {
+    "episode_metadata": [
+      {
+        "path": "meta/episodes/chunk-000/file-000.parquet",
+        "sha256": "e76eed5f73e11a87f7a59f52dfd825e936c879864834c5561c8865f31f36da40"
+      }
+    ],
+    "fps": 30,
+    "info": {
+      "codebase_version": "v3.0",
+      "path": "meta/info.json",
+      "sha256": "b9a162c2a31f69979c8b7c45db461ea50ebb1cf31e3e1b050ccab55a06fa8c2f"
+    },
+    "repo_id": "MINT-SJTU/RW-RL-Dataset",
+    "revision": "ddfd1144bf073b68b180bc5263ddac49c46f68d7",
+    "subset": "so101_put_stationery_table_into_bag",
+    "total_episodes": 1161,
+    "total_frames": 3713561
+  },
+  "target": {
+    "frames": 1255729,
+    "hours_at_fps": 11.62712037037037,
+    "reference_subset": "piperx_insert_copper_screw"
+  }
+}

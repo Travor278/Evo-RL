@@ -1,0 +1,6 @@
+variant,planned_fixed_steps,complete,last_checkpoint,lowest_observed_ce_step,lowest_observed_mae_step,recommendation,note
+full,1500,False,250,250,250,not eligible: stopped before endpoint,Intermediate minima are not separate fixed-horizon experiments.
+vision_only,1500,True,1500,1500,1500,final1500,Intermediate minima are not separate fixed-horizon experiments.
+frozen_language,1500,True,1500,1500,1500,final1500,Intermediate minima are not separate fixed-horizon experiments.
+frozen_both,1500,True,1500,1500,1500,1500 is not competitive under this budget,Intermediate minima are not separate fixed-horizon experiments.
+task_only,1500,True,1500,1000,1500,final1500,Intermediate minima are not separate fixed-horizon experiments.

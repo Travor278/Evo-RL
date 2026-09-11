@@ -1,0 +1,41 @@
+/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+[rank0]:[W907 01:02:28.386562360 ProcessGroupNCCL.cpp:5138] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+NCCL version 2.27.5+cuda12.9
+{"event": "ARCHITECTURE", "variant": "vision_only", "total_parameters": 429182729, "trainable_parameters": 429182729, "state_input": false}
+{"event": "READY", "task": "piperx_insert_copper_screw", "step": 0, "train_frames": 1132703, "test_frames": 1792, "global_batch": 32, "parameters": 429182729}
+{"event": "TRAIN", "step": 10, "effective_epoch": 0.0002825100666282335, "loss": 5.315034866333008, "grdn": 5.226447105407715, "lr": 2.5e-06, "seconds": 47.45343619096093, "memory_gb": 10.425316864}
+W0907 01:03:54.401000 2902333 torch/distributed/elastic/agent/server/api.py:739] Received 15 death signal, shutting down workers
+W0907 01:03:54.403000 2902333 torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 2904525 closing signal SIGTERM
+W0907 01:03:54.404000 2902333 torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 2904526 closing signal SIGTERM
+W0907 01:03:54.406000 2902333 torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 2904527 closing signal SIGTERM
+W0907 01:03:54.407000 2902333 torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 2904528 closing signal SIGTERM
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/run.py", line 995, in <module>
+    main()
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/run.py", line 991, in main
+    run(args)
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/run.py", line 982, in run
+    elastic_launch(
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 308, in launch_agent
+    result = agent.run()
+             ^^^^^^^^^^^
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/elastic/metrics/api.py", line 134, in wrapper
+    result = f(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/elastic/agent/server/api.py", line 731, in run
+    result = self._invoke_run(role)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/elastic/agent/server/api.py", line 908, in _invoke_run
+    time.sleep(monitor_interval)
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 86, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 2902333 got signal: 15

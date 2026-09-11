@@ -1,0 +1,8 @@
+{
+  "status": "ok",
+  "episodes": 558,
+  "frames": 1255729,
+  "train_new": 502,
+  "test_reused": 56,
+  "checkpoint": "/data/experiments/value-mixed-takeover-20260907/runs/piperx-vision-mixed1to1-c150-z15337-fixed1500-seed1000/checkpoint-001500.pt"
+}

@@ -1,0 +1,29 @@
+usage: run.py [-h] [--nnodes NNODES] [--nproc-per-node NPROC_PER_NODE]
+              [--rdzv-backend RDZV_BACKEND] [--rdzv-endpoint RDZV_ENDPOINT]
+              [--rdzv-id RDZV_ID] [--rdzv-conf RDZV_CONF] [--standalone]
+              [--max-restarts MAX_RESTARTS]
+              [--monitor-interval MONITOR_INTERVAL]
+              [--start-method {spawn,fork,forkserver}]
+              [--event-log-handler EVENT_LOG_HANDLER] [--role ROLE] [-m]
+              [--no-python] [--run-path] [--log-dir LOG_DIR] [-r REDIRECTS]
+              [-t TEE] [--local-ranks-filter LOCAL_RANKS_FILTER]
+              [--duplicate-stdout-filters DUPLICATE_STDOUT_FILTERS]
+              [--duplicate-stderr-filters DUPLICATE_STDERR_FILTERS]
+              [--node-rank NODE_RANK] [--master-addr MASTER_ADDR]
+              [--master-port MASTER_PORT] [--local-addr LOCAL_ADDR]
+              [--logs-specs LOGS_SPECS]
+              [--numa-binding {node,socket,exclusive,core-complex}]
+              [--signals-to-handle SIGNALS_TO_HANDLE] [--virtual-local-rank]
+              training_script ...
+run.py: error: ambiguous option: --run could match --run-path, --run_path
+/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+[rank0]:[W907 00:39:53.313503110 ProcessGroupNCCL.cpp:5138] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+NCCL version 2.27.5+cuda12.9
+{"event": "ARCHITECTURE", "variant": "vision_only", "total_parameters": 429182729, "trainable_parameters": 429182729, "state_input": false}
+{"event": "READY", "task": "piperx_insert_copper_screw", "step": 0, "train_frames": 1132703, "test_frames": 112, "global_batch": 32, "parameters": 429182729}
+{"event": "TRAIN", "step": 1, "effective_epoch": 2.8251006662823353e-05, "loss": 5.364429473876953, "grdn": 5.4408488273620605, "lr": 5e-05, "seconds": 9.803933934075758, "memory_gb": 10.341686784}
+{"event": "TRAIN", "step": 2, "effective_epoch": 5.650201332564671e-05, "loss": 5.214175224304199, "grdn": 3.9919121265411377, "lr": 5e-05, "seconds": 1.2439410090446472, "memory_gb": 10.425317376}
+{"event": "EVAL", "step": 2, "effective_epoch": 5.650201332564671e-05, "train": {"frames": 112, "episodes": 56, "ce": 5.126302638224193, "mae": 0.398363467838083, "rmse": 0.4077031151411891, "episode_mae": 0.398363467838083, "baseline_mae": 0.07633738592267036, "baseline_rmse": 0.08970050562411014, "mae_remaining_seconds": 197.61483761221172, "bias": -0.398363467838083, "crps": 0.24481507071426936, "entropy": 5.2677503909383505, "interval90_coverage": 0.5, "interval90_width": 0.9171428478189877}, "test": {"frames": 112, "episodes": 56, "ce": 5.10167281968253, "mae": 0.3977661001096879, "rmse": 0.40833967896139645, "episode_mae": 0.3977661001096879, "baseline_mae": 0.07820205350539514, "baseline_rmse": 0.09481204449993866, "mae_remaining_seconds": 197.3185033944125, "bias": -0.3977661001096879, "crps": 0.245353183709085, "entropy": 5.26786972795214, "interval90_coverage": 0.5, "interval90_width": 0.9169642770928996}, "best_step": 2, "best_episode_mae": 0.3977661001096879, "bad_evaluations": 0}
+SMOKE_SAVE_RELOAD_OK
+TRAINING_STAGE_COMPLETE

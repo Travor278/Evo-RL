@@ -1,0 +1,53 @@
+[
+  {
+    "run": "piperx_insert_copper_screw-bf16-gb32-seed1000-pilot8k-v1",
+    "task": "piperx_insert_copper_screw",
+    "last_evaluated_step": 5000,
+    "best_observed_step": 4750,
+    "best_effective_epoch": 0.13419228164841093,
+    "best_train": {
+      "frames": 1792,
+      "episodes": 56,
+      "ce": 1.3535543945701127,
+      "mae": 0.0033942415242823438,
+      "rmse": 0.004993921920945202,
+      "episode_mae": 0.0033942415242823438,
+      "baseline_mae": 0.05248346601729281,
+      "baseline_rmse": 0.06225099910710391,
+      "mae_remaining_seconds": 1.683770078812328
+    },
+    "best_holdout": {
+      "frames": 1792,
+      "episodes": 56,
+      "ce": 3.0535882074036635,
+      "mae": 0.012096945592929842,
+      "rmse": 0.0199383776029399,
+      "episode_mae": 0.012096945592929842,
+      "baseline_mae": 0.05533733551939284,
+      "baseline_rmse": 0.06688020310571469,
+      "mae_remaining_seconds": 6.00089147713273
+    },
+    "last_holdout": {
+      "frames": 1792,
+      "episodes": 56,
+      "ce": 3.1613648078720353,
+      "mae": 0.012205267452827684,
+      "rmse": 0.019785683797675105,
+      "episode_mae": 0.012205267452827684,
+      "baseline_mae": 0.05533733551939284,
+      "baseline_rmse": 0.06688020310571469,
+      "mae_remaining_seconds": 6.054626341099387
+    },
+    "evaluations": 20,
+    "checkpoint_pointer": {
+      "file": "checkpoint-004750.pt",
+      "step": 4750,
+      "episode_mae": 0.012096945592929842
+    },
+    "checkpoint_matches_observed_best": true,
+    "beats_mean_baseline": true,
+    "best_near_boundary": true,
+    "holdout_usage": "checkpoint selection; not untouched final test",
+    "evaluation_sampling": "fixed linspace frames per whole episode, no augmentation; holdout reused for checkpoint selection"
+  }
+]

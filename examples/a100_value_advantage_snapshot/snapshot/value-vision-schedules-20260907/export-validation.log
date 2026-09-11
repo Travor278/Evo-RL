@@ -1,0 +1,25 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:  40%|████      | 356/888 [00:00<00:00, 3537.43it/s]Loading weights:  84%|████████▎ | 743/888 [00:00<00:00, 3732.00it/s]Loading weights: 100%|██████████| 888/888 [00:00<00:00, 4341.72it/s]
+Traceback (most recent call last):
+  File "/data/experiments/value-vision-schedules-20260907/export_and_validate.py", line 68, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/experiments/value-vision-schedules-20260907/export_and_validate.py", line 42, in main
+    model=model.cuda().eval();lean=lean.cuda().eval()
+                                   ^^^^^^^^^^^
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1093, in cuda
+    return self._apply(lambda t: t.cuda(device))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/nn/modules/module.py", line 933, in _apply
+    module._apply(fn)
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/nn/modules/module.py", line 933, in _apply
+    module._apply(fn)
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/nn/modules/module.py", line 933, in _apply
+    module._apply(fn)
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1031, in _apply
+    self._buffers[key] = fn(buf)
+                         ^^^^^^^
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1093, in <lambda>
+    return self._apply(lambda t: t.cuda(device))
+                                 ^^^^^^^^^^^^^^
+NotImplementedError: Cannot copy out of meta tensor; no data!

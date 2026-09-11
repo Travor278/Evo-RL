@@ -1,0 +1,8 @@
+{
+  "repo_id": "Elvinky/piperx-demo558-value1500-a50-top10-union20-v1",
+  "revision": "18890d5d09f8045fb2bb33fdeb6bcbde682348d3",
+  "endpoint": "https://hf-mirror.com",
+  "private": false,
+  "created_at": 1788857694.3712423,
+  "route": "A100 directly to hf-mirror.com and returned object storage; no proxies"
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "task": "piperx_insert_copper_screw",
+    "root": "/data/datasets/RW-RL-Dataset-piperx",
+    "sampling_archive_sha256": "01e189372c23a7900dea6d433d62ad569a539c324440e8b28379645c5964452f",
+    "info_sha256": "63a6cf88dbf5ec3f1ff485b020141f34da9ef40d98f214c41ade618c34db5029",
+    "seed": 1000,
+    "split_algorithm": "sha256 identity rank, namespace evorl-value-demo-split-v1; rounded 10% test, remainder train",
+    "episodes": 558,
+    "frames": 1255729,
+    "camera_features": [
+      "observation.images.camera_top",
+      "observation.images.camera_wrist_left",
+      "observation.images.camera_wrist_right"
+    ],
+    "state_dim": 14,
+    "referenced_files": 2232,
+    "missing_files": 0,
+    "success_label_status": "all selected episodes terminal success, explicitly confirmed by user 2026-09-06",
+    "test_usage": "periodic holdout evaluation and checkpoint selection per user request; not an untouched final test",
+    "normalization": "must fit on train episodes only; existing full-data stats not approved for holdout experiments",
+    "split_scope": "episode disjoint; cross-episode/session duplicates require further audit",
+    "splits": {
+      "test": {
+        "episodes": 56,
+        "frames": 123026
+      },
+      "train": {
+        "episodes": 502,
+        "frames": 1132703
+      }
+    }
+  },
+  {
+    "task": "so101_fold_clothes_left_stack_right",
+    "root": "/data/datasets/RW-RL-Dataset-SO101/so101_fold_clothes_left_stack_right",
+    "sampling_archive_sha256": "01e189372c23a7900dea6d433d62ad569a539c324440e8b28379645c5964452f",
+    "info_sha256": "94703d1189bb29527db9f23d9409dbd1d3f321e1483dc1f61e13556b6474a0b0",
+    "seed": 1000,
+    "split_algorithm": "sha256 identity rank, namespace evorl-value-demo-split-v1; rounded 10% test, remainder train",
+    "episodes": 108,
+    "frames": 1258509,
+    "camera_features": [
+      "observation.images.left_wrist",
+      "observation.images.right_wrist",
+      "observation.images.right_front"
+    ],
+    "state_dim": 12,
+    "referenced_files": 432,
+    "missing_files": 0,
+    "success_label_status": "all selected episodes terminal success, explicitly confirmed by user 2026-09-06",
+    "test_usage": "periodic holdout evaluation and checkpoint selection per user request; not an untouched final test",
+    "normalization": "must fit on train episodes only; existing full-data stats not approved for holdout experiments",
+    "split_scope": "episode disjoint; cross-episode/session duplicates require further audit",
+    "splits": {
+      "test": {
+        "episodes": 11,
+        "frames": 133150
+      },
+      "train": {
+        "episodes": 97,
+        "frames": 1125359
+      }
+    }
+  },
+  {
+    "task": "so101_put_stationery_table_into_bag",
+    "root": "/data/datasets/RW-RL-Dataset-SO101/so101_put_stationery_table_into_bag",
+    "sampling_archive_sha256": "01e189372c23a7900dea6d433d62ad569a539c324440e8b28379645c5964452f",
+    "info_sha256": "b9a162c2a31f69979c8b7c45db461ea50ebb1cf31e3e1b050ccab55a06fa8c2f",
+    "seed": 1000,
+    "split_algorithm": "sha256 identity rank, namespace evorl-value-demo-split-v1; rounded 10% test, remainder train",
+    "episodes": 397,
+    "frames": 1256576,
+    "camera_features": [
+      "observation.images.left_wrist",
+      "observation.images.right_front",
+      "observation.images.right_wrist"
+    ],
+    "state_dim": 12,
+    "referenced_files": 1588,
+    "missing_files": 0,
+    "success_label_status": "all selected episodes terminal success, explicitly confirmed by user 2026-09-06",
+    "test_usage": "periodic holdout evaluation and checkpoint selection per user request; not an untouched final test",
+    "normalization": "must fit on train episodes only; existing full-data stats not approved for holdout experiments",
+    "split_scope": "episode disjoint; cross-episode/session duplicates require further audit",
+    "splits": {
+      "test": {
+        "episodes": 40,
+        "frames": 127350
+      },
+      "train": {
+        "episodes": 357,
+        "frames": 1129226
+      }
+    }
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "status": "ok",
+  "repo_id": "Elvinky/piperx-demo558-value1500-a50-top10-union20-v1",
+  "private": false,
+  "revision": "d22a0299d1ae58997754e113785cf6c5e97402ff",
+  "files_expected": 2728,
+  "files_seen": 2728,
+  "total_bytes": 5037243045,
+  "missing": [],
+  "size_bad": [],
+  "hash_bad": [],
+  "unexpected": [],
+  "endpoint": "https://hf-mirror.com",
+  "verification": "Remote file tree at fixed revision; LFS SHA256 or git blob SHA1 matched per file",
+  "finished_at": 1788859189.8795447
+}

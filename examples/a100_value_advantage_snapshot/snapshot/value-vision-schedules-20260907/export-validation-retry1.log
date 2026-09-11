@@ -1,0 +1,15 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:  47%|████▋     | 415/888 [00:00<00:00, 4147.12it/s]Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5731.78it/s]
+Traceback (most recent call last):
+  File "/data/experiments/value-vision-schedules-20260907/export_and_validate.py", line 68, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/experiments/value-vision-schedules-20260907/export_and_validate.py", line 63, in main
+    torch.testing.assert_close(p.grad,oldp[k].grad,rtol=1e-5,atol=1e-6)
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/testing/_comparison.py", line 1600, in assert_close
+    raise error_metas[0].to_error(msg)
+AssertionError: Tensor-likes are not close!
+
+Mismatched elements: 479589 / 677376 (70.8%)
+Greatest absolute difference: 0.0009765625 at index (980, 0, 8, 1) (up to 1e-06 allowed)
+Greatest relative difference: 51201.0 at index (792, 0, 9, 5) (up to 1e-05 allowed)

@@ -1,0 +1,698 @@
+{
+  "sampling": {
+    "algorithm": "sha256_identity_ranked_nearest_prefix_v1",
+    "boundary_rule": "Take the SHA-256-ranked prefix that first reaches target_frames, then compare it with the prefix excluding the final episode; keep the closer total. Ties keep the prefix that reaches or exceeds the target.",
+    "namespace": "rwrl-piperx-duration-match-v1",
+    "rank_key": "sha256(UTF-8 compact JSON array [namespace, repo_id, revision, seed, subset, episode_index])",
+    "replacement": false,
+    "sampling_unit": "whole episode",
+    "seed": 1000
+  },
+  "schema_version": 1,
+  "selection": {
+    "delta_frames_from_target": 2780,
+    "delta_seconds_from_target": 92.66666666666667,
+    "episode_count": 108,
+    "episode_indices": [
+      274,
+      195,
+      64,
+      123,
+      385,
+      412,
+      441,
+      371,
+      107,
+      25,
+      215,
+      180,
+      105,
+      190,
+      55,
+      376,
+      223,
+      380,
+      2,
+      370,
+      322,
+      433,
+      164,
+      104,
+      264,
+      220,
+      394,
+      97,
+      296,
+      209,
+      252,
+      4,
+      181,
+      299,
+      54,
+      167,
+      437,
+      152,
+      270,
+      420,
+      81,
+      69,
+      219,
+      45,
+      411,
+      388,
+      304,
+      17,
+      196,
+      118,
+      203,
+      373,
+      348,
+      400,
+      119,
+      297,
+      341,
+      395,
+      206,
+      403,
+      144,
+      369,
+      259,
+      197,
+      236,
+      27,
+      308,
+      361,
+      261,
+      31,
+      442,
+      193,
+      245,
+      201,
+      315,
+      271,
+      321,
+      275,
+      183,
+      186,
+      156,
+      440,
+      102,
+      374,
+      111,
+      127,
+      251,
+      178,
+      120,
+      59,
+      207,
+      325,
+      247,
+      200,
+      314,
+      392,
+      316,
+      262,
+      263,
+      355,
+      319,
+      250,
+      354,
+      100,
+      116,
+      258,
+      216,
+      286
+    ],
+    "episode_indices_sorted": [
+      2,
+      4,
+      17,
+      25,
+      27,
+      31,
+      45,
+      54,
+      55,
+      59,
+      64,
+      69,
+      81,
+      97,
+      100,
+      102,
+      104,
+      105,
+      107,
+      111,
+      116,
+      118,
+      119,
+      120,
+      123,
+      127,
+      144,
+      152,
+      156,
+      164,
+      167,
+      178,
+      180,
+      181,
+      183,
+      186,
+      190,
+      193,
+      195,
+      196,
+      197,
+      200,
+      201,
+      203,
+      206,
+      207,
+      209,
+      215,
+      216,
+      219,
+      220,
+      223,
+      236,
+      245,
+      247,
+      250,
+      251,
+      252,
+      258,
+      259,
+      261,
+      262,
+      263,
+      264,
+      270,
+      271,
+      274,
+      275,
+      286,
+      296,
+      297,
+      299,
+      304,
+      308,
+      314,
+      315,
+      316,
+      319,
+      321,
+      322,
+      325,
+      341,
+      348,
+      354,
+      355,
+      361,
+      369,
+      370,
+      371,
+      373,
+      374,
+      376,
+      380,
+      385,
+      388,
+      392,
+      394,
+      395,
+      400,
+      403,
+      411,
+      412,
+      420,
+      433,
+      437,
+      440,
+      441,
+      442
+    ],
+    "episode_lengths_in_rank_order": [
+      {
+        "episode_index": 274,
+        "length": 16112
+      },
+      {
+        "episode_index": 195,
+        "length": 17942
+      },
+      {
+        "episode_index": 64,
+        "length": 12932
+      },
+      {
+        "episode_index": 123,
+        "length": 13682
+      },
+      {
+        "episode_index": 385,
+        "length": 11169
+      },
+      {
+        "episode_index": 412,
+        "length": 8901
+      },
+      {
+        "episode_index": 441,
+        "length": 5049
+      },
+      {
+        "episode_index": 371,
+        "length": 10527
+      },
+      {
+        "episode_index": 107,
+        "length": 11379
+      },
+      {
+        "episode_index": 25,
+        "length": 11692
+      },
+      {
+        "episode_index": 215,
+        "length": 9618
+      },
+      {
+        "episode_index": 180,
+        "length": 9975
+      },
+      {
+        "episode_index": 105,
+        "length": 17934
+      },
+      {
+        "episode_index": 190,
+        "length": 17941
+      },
+      {
+        "episode_index": 55,
+        "length": 17841
+      },
+      {
+        "episode_index": 376,
+        "length": 9649
+      },
+      {
+        "episode_index": 223,
+        "length": 10018
+      },
+      {
+        "episode_index": 380,
+        "length": 8892
+      },
+      {
+        "episode_index": 2,
+        "length": 14835
+      },
+      {
+        "episode_index": 370,
+        "length": 10602
+      },
+      {
+        "episode_index": 322,
+        "length": 10919
+      },
+      {
+        "episode_index": 433,
+        "length": 11444
+      },
+      {
+        "episode_index": 164,
+        "length": 4491
+      },
+      {
+        "episode_index": 104,
+        "length": 16591
+      },
+      {
+        "episode_index": 264,
+        "length": 13087
+      },
+      {
+        "episode_index": 220,
+        "length": 9666
+      },
+      {
+        "episode_index": 394,
+        "length": 17558
+      },
+      {
+        "episode_index": 97,
+        "length": 11986
+      },
+      {
+        "episode_index": 296,
+        "length": 15586
+      },
+      {
+        "episode_index": 209,
+        "length": 9065
+      },
+      {
+        "episode_index": 252,
+        "length": 6015
+      },
+      {
+        "episode_index": 4,
+        "length": 11964
+      },
+      {
+        "episode_index": 181,
+        "length": 9625
+      },
+      {
+        "episode_index": 299,
+        "length": 14561
+      },
+      {
+        "episode_index": 54,
+        "length": 8967
+      },
+      {
+        "episode_index": 167,
+        "length": 12210
+      },
+      {
+        "episode_index": 437,
+        "length": 5189
+      },
+      {
+        "episode_index": 152,
+        "length": 14724
+      },
+      {
+        "episode_index": 270,
+        "length": 11385
+      },
+      {
+        "episode_index": 420,
+        "length": 9686
+      },
+      {
+        "episode_index": 81,
+        "length": 13282
+      },
+      {
+        "episode_index": 69,
+        "length": 11785
+      },
+      {
+        "episode_index": 219,
+        "length": 10889
+      },
+      {
+        "episode_index": 45,
+        "length": 11484
+      },
+      {
+        "episode_index": 411,
+        "length": 10513
+      },
+      {
+        "episode_index": 388,
+        "length": 9135
+      },
+      {
+        "episode_index": 304,
+        "length": 13901
+      },
+      {
+        "episode_index": 17,
+        "length": 11049
+      },
+      {
+        "episode_index": 196,
+        "length": 4024
+      },
+      {
+        "episode_index": 118,
+        "length": 11290
+      },
+      {
+        "episode_index": 203,
+        "length": 17752
+      },
+      {
+        "episode_index": 373,
+        "length": 9760
+      },
+      {
+        "episode_index": 348,
+        "length": 10642
+      },
+      {
+        "episode_index": 400,
+        "length": 8341
+      },
+      {
+        "episode_index": 119,
+        "length": 11712
+      },
+      {
+        "episode_index": 297,
+        "length": 13730
+      },
+      {
+        "episode_index": 341,
+        "length": 11924
+      },
+      {
+        "episode_index": 395,
+        "length": 17934
+      },
+      {
+        "episode_index": 206,
+        "length": 8804
+      },
+      {
+        "episode_index": 403,
+        "length": 14585
+      },
+      {
+        "episode_index": 144,
+        "length": 13664
+      },
+      {
+        "episode_index": 369,
+        "length": 10172
+      },
+      {
+        "episode_index": 259,
+        "length": 7760
+      },
+      {
+        "episode_index": 197,
+        "length": 17940
+      },
+      {
+        "episode_index": 236,
+        "length": 9473
+      },
+      {
+        "episode_index": 27,
+        "length": 6474
+      },
+      {
+        "episode_index": 308,
+        "length": 11125
+      },
+      {
+        "episode_index": 361,
+        "length": 10294
+      },
+      {
+        "episode_index": 261,
+        "length": 11752
+      },
+      {
+        "episode_index": 31,
+        "length": 10521
+      },
+      {
+        "episode_index": 442,
+        "length": 14688
+      },
+      {
+        "episode_index": 193,
+        "length": 12030
+      },
+      {
+        "episode_index": 245,
+        "length": 8434
+      },
+      {
+        "episode_index": 201,
+        "length": 17943
+      },
+      {
+        "episode_index": 315,
+        "length": 12141
+      },
+      {
+        "episode_index": 271,
+        "length": 15643
+      },
+      {
+        "episode_index": 321,
+        "length": 13747
+      },
+      {
+        "episode_index": 275,
+        "length": 15549
+      },
+      {
+        "episode_index": 183,
+        "length": 14599
+      },
+      {
+        "episode_index": 186,
+        "length": 11253
+      },
+      {
+        "episode_index": 156,
+        "length": 14051
+      },
+      {
+        "episode_index": 440,
+        "length": 8964
+      },
+      {
+        "episode_index": 102,
+        "length": 8919
+      },
+      {
+        "episode_index": 374,
+        "length": 8023
+      },
+      {
+        "episode_index": 111,
+        "length": 3994
+      },
+      {
+        "episode_index": 127,
+        "length": 12088
+      },
+      {
+        "episode_index": 251,
+        "length": 8328
+      },
+      {
+        "episode_index": 178,
+        "length": 12164
+      },
+      {
+        "episode_index": 120,
+        "length": 12896
+      },
+      {
+        "episode_index": 59,
+        "length": 9209
+      },
+      {
+        "episode_index": 207,
+        "length": 10255
+      },
+      {
+        "episode_index": 325,
+        "length": 9916
+      },
+      {
+        "episode_index": 247,
+        "length": 8398
+      },
+      {
+        "episode_index": 200,
+        "length": 17047
+      },
+      {
+        "episode_index": 314,
+        "length": 10322
+      },
+      {
+        "episode_index": 392,
+        "length": 14157
+      },
+      {
+        "episode_index": 316,
+        "length": 10823
+      },
+      {
+        "episode_index": 262,
+        "length": 10223
+      },
+      {
+        "episode_index": 263,
+        "length": 10043
+      },
+      {
+        "episode_index": 355,
+        "length": 10697
+      },
+      {
+        "episode_index": 319,
+        "length": 10449
+      },
+      {
+        "episode_index": 250,
+        "length": 9385
+      },
+      {
+        "episode_index": 354,
+        "length": 12771
+      },
+      {
+        "episode_index": 100,
+        "length": 16351
+      },
+      {
+        "episode_index": 116,
+        "length": 13688
+      },
+      {
+        "episode_index": 258,
+        "length": 10274
+      },
+      {
+        "episode_index": 216,
+        "length": 10031
+      },
+      {
+        "episode_index": 286,
+        "length": 15896
+      }
+    ],
+    "frames": 1258509,
+    "hours_at_fps": 11.652861111111111,
+    "ranked_episode_indices_sha256": "b7ad24c6a775596e5e3a0a06a77f3476d376fec610788da198ca2232e8d2dc6b"
+  },
+  "source": {
+    "episode_metadata": [
+      {
+        "path": "meta/episodes/chunk-000/file-000.parquet",
+        "sha256": "faa364286f17ccbe404861bb2ba241dc08dd480711bfe2dfae06c2d4c0faaf24"
+      }
+    ],
+    "fps": 30,
+    "info": {
+      "codebase_version": "v3.0",
+      "path": "meta/info.json",
+      "sha256": "94703d1189bb29527db9f23d9409dbd1d3f321e1483dc1f61e13556b6474a0b0"
+    },
+    "repo_id": "MINT-SJTU/RW-RL-Dataset",
+    "revision": "ddfd1144bf073b68b180bc5263ddac49c46f68d7",
+    "subset": "so101_fold_clothes_left_stack_right",
+    "total_episodes": 449,
+    "total_frames": 5085540
+  },
+  "target": {
+    "frames": 1255729,
+    "hours_at_fps": 11.62712037037037,
+    "reference_subset": "piperx_insert_copper_screw"
+  }
+}

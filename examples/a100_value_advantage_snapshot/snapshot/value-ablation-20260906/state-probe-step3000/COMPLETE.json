@@ -1,0 +1,54 @@
+{
+  "step": 3000,
+  "results": {
+    "none": {
+      "frames": 1792,
+      "episodes": 56,
+      "ce": 2.6362878484318832,
+      "mae": 0.012177830948530755,
+      "rmse": 0.019835901281622204,
+      "episode_mae": 0.012177830948530755,
+      "baseline_mae": 0.05533733551939284,
+      "baseline_rmse": 0.06688020310571469,
+      "mae_remaining_seconds": 6.041016005867823,
+      "bias": 0.0011494733965134532,
+      "crps": 0.009739255651295155,
+      "entropy": 1.767272530489468,
+      "interval90_coverage": 0.6713169642857143,
+      "interval90_width": 0.026012834045104682
+    },
+    "zero": {
+      "frames": 1792,
+      "episodes": 56,
+      "ce": 2.6362057667658,
+      "mae": 0.012178596550516627,
+      "rmse": 0.01983531194161811,
+      "episode_mae": 0.012178596550516627,
+      "baseline_mae": 0.05533733551939284,
+      "baseline_rmse": 0.06688020310571469,
+      "mae_remaining_seconds": 6.041395795492948,
+      "bias": 0.0011487355476284783,
+      "crps": 0.009740726518519491,
+      "entropy": 1.7672787313016929,
+      "interval90_coverage": 0.6707589285714286,
+      "interval90_width": 0.025998883140606006
+    },
+    "permute": {
+      "frames": 1792,
+      "episodes": 56,
+      "ce": 2.6360339936633994,
+      "mae": 0.012177957463141606,
+      "rmse": 0.019835165736069672,
+      "episode_mae": 0.012177957463141606,
+      "baseline_mae": 0.05533733551939284,
+      "baseline_rmse": 0.06688020310571469,
+      "mae_remaining_seconds": 6.041078765549113,
+      "bias": 0.0011478016462465998,
+      "crps": 0.00973954098938228,
+      "entropy": 1.7675381359045528,
+      "interval90_coverage": 0.6696428571428571,
+      "interval90_width": 0.025996092969372903
+    }
+  },
+  "caution": "Inference interventions may be out of distribution: measure reliance, not retrained necessity. All-success countdown labels are not measured physical progress."
+}

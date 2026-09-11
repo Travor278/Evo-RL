@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="540" viewBox="0 0 1000 540">
+<rect width="100%" height="100%" fill="white"/>
+<text x="30" y="28" font-size="16">piperx_insert_copper_screw-bf16-gb32-seed1000-pilot8k-v1</text>
+<text x="65" y="53" font-size="15">CE loss</text>
+<path d="M65,445.0h405" stroke="#ddd"/><text x="57" y="449.0" text-anchor="end" font-size="11">0.000</text>
+<text x="65.0" y="465" text-anchor="middle" font-size="11">0</text>
+<path d="M65,369.0h405" stroke="#ddd"/><text x="57" y="373.0" text-anchor="end" font-size="11">0.696</text>
+<text x="146.0" y="465" text-anchor="middle" font-size="11">1000</text>
+<path d="M65,293.0h405" stroke="#ddd"/><text x="57" y="297.0" text-anchor="end" font-size="11">1.391</text>
+<text x="227.0" y="465" text-anchor="middle" font-size="11">2000</text>
+<path d="M65,217.0h405" stroke="#ddd"/><text x="57" y="221.0" text-anchor="end" font-size="11">2.087</text>
+<text x="308.0" y="465" text-anchor="middle" font-size="11">3000</text>
+<path d="M65,141.0h405" stroke="#ddd"/><text x="57" y="145.0" text-anchor="end" font-size="11">2.783</text>
+<text x="389.0" y="465" text-anchor="middle" font-size="11">4000</text>
+<path d="M65,65.0h405" stroke="#ddd"/><text x="57" y="69.0" text-anchor="end" font-size="11">3.479</text>
+<text x="470.0" y="465" text-anchor="middle" font-size="11">5000</text>
+<polyline points="85.25,111.05 105.50,178.05 125.75,188.49 146.00,206.08 166.25,218.63 186.50,227.65 206.75,220.80 227.00,224.83 247.25,232.57 267.50,251.45 287.75,257.55 308.00,260.52 328.25,264.34 348.50,272.36 368.75,272.40 389.00,284.20 409.25,284.96 429.50,281.31 449.75,297.14 470.00,294.50" fill="none" stroke="#1677b8" stroke-width="2"/>
+<polyline points="85.25,99.55 105.50,161.26 125.75,160.08 146.00,162.15 166.25,171.45 186.50,173.85 206.75,165.34 227.00,162.68 247.25,151.76 267.50,162.31 287.75,163.87 308.00,156.98 328.25,150.28 348.50,137.92 368.75,137.72 389.00,133.29 409.25,121.97 429.50,103.69 449.75,111.42 470.00,99.65" fill="none" stroke="#c54032" stroke-width="2"/>
+<text x="267.5" y="488" text-anchor="middle" font-size="12">optimizer step</text>
+<text x="555" y="53" font-size="15">Return MAE</text>
+<path d="M555,445.0h405" stroke="#ddd"/><text x="547" y="449.0" text-anchor="end" font-size="11">0.000</text>
+<text x="555.0" y="465" text-anchor="middle" font-size="11">0</text>
+<path d="M555,369.0h405" stroke="#ddd"/><text x="547" y="373.0" text-anchor="end" font-size="11">0.011</text>
+<text x="636.0" y="465" text-anchor="middle" font-size="11">1000</text>
+<path d="M555,293.0h405" stroke="#ddd"/><text x="547" y="297.0" text-anchor="end" font-size="11">0.022</text>
+<text x="717.0" y="465" text-anchor="middle" font-size="11">2000</text>
+<path d="M555,217.0h405" stroke="#ddd"/><text x="547" y="221.0" text-anchor="end" font-size="11">0.033</text>
+<text x="798.0" y="465" text-anchor="middle" font-size="11">3000</text>
+<path d="M555,141.0h405" stroke="#ddd"/><text x="547" y="145.0" text-anchor="end" font-size="11">0.043</text>
+<text x="879.0" y="465" text-anchor="middle" font-size="11">4000</text>
+<path d="M555,65.0h405" stroke="#ddd"/><text x="547" y="69.0" text-anchor="end" font-size="11">0.054</text>
+<text x="960.0" y="465" text-anchor="middle" font-size="11">5000</text>
+<polyline points="575.25,108.22 595.50,352.75 615.75,361.20 636.00,364.85 656.25,382.36 676.50,390.06 696.75,387.72 717.00,392.77 737.25,391.76 757.50,405.87 777.75,405.21 798.00,403.14 818.25,408.71 838.50,410.21 858.75,413.24 879.00,416.07 899.25,417.00 919.50,413.43 939.75,421.27 960.00,419.00" fill="none" stroke="#1677b8" stroke-width="2"/>
+<polyline points="575.25,99.55 595.50,326.95 615.75,326.51 636.00,333.95 656.25,348.14 676.50,351.61 696.75,350.61 717.00,354.24 737.25,350.24 757.50,356.57 777.75,358.28 798.00,359.85 818.25,358.66 838.50,358.96 858.75,357.10 879.00,358.89 899.25,356.85 919.50,357.33 939.75,360.42 960.00,359.66" fill="none" stroke="#c54032" stroke-width="2"/>
+<text x="757.5" y="488" text-anchor="middle" font-size="12">optimizer step</text>
+<text x="65" y="515" fill="#1677b8" font-size="13">Train holdout-free eval subset</text>
+<text x="340" y="515" fill="#c54032" font-size="13">10% episode holdout (used for selection)</text>
+</svg>

@@ -1,0 +1,11 @@
+run_a,run_b,mae_a_minus_b,ci95_low,ci95_high,episodes_better,episodes_worse
+piperx_insert_copper_screw-frozen_both-fixed1500-seed1000-v1,piperx_insert_copper_screw-frozen_language-fixed1500-seed1000-v1,0.019649765496199376,0.01714571847063553,0.022292488532868252,2,54
+piperx_insert_copper_screw-frozen_both-fixed1500-seed1000-v1,piperx_insert_copper_screw-full-fixed1500-seed1000-v1,0.019871271200242648,0.017348320537905693,0.022487347727521215,1,55
+piperx_insert_copper_screw-frozen_both-fixed1500-seed1000-v1,piperx_insert_copper_screw-task_only-fixed1500-seed1000-v1,0.01989701597806613,0.017192389167844015,0.02272678861313417,2,54
+piperx_insert_copper_screw-frozen_both-fixed1500-seed1000-v1,piperx_insert_copper_screw-vision_only-fixed1500-seed1000-v1,0.020252046523117833,0.017767483225057796,0.022865411862764112,1,55
+piperx_insert_copper_screw-frozen_language-fixed1500-seed1000-v1,piperx_insert_copper_screw-full-fixed1500-seed1000-v1,0.0002215057040432709,-0.00030967602152876287,0.0008319090165741726,23,33
+piperx_insert_copper_screw-frozen_language-fixed1500-seed1000-v1,piperx_insert_copper_screw-task_only-fixed1500-seed1000-v1,0.0002472504818667533,-0.0004461022398248003,0.0009876856918611208,26,30
+piperx_insert_copper_screw-frozen_language-fixed1500-seed1000-v1,piperx_insert_copper_screw-vision_only-fixed1500-seed1000-v1,0.0006022810269184577,2.5258500784275387e-05,0.001242376913231574,20,36
+piperx_insert_copper_screw-full-fixed1500-seed1000-v1,piperx_insert_copper_screw-task_only-fixed1500-seed1000-v1,2.5744777823482374e-05,-0.0006675926476353717,0.0007090073497530672,27,29
+piperx_insert_copper_screw-full-fixed1500-seed1000-v1,piperx_insert_copper_screw-vision_only-fixed1500-seed1000-v1,0.0003807753228751868,-0.00013969257897770147,0.0009156209939062267,24,32
+piperx_insert_copper_screw-task_only-fixed1500-seed1000-v1,piperx_insert_copper_screw-vision_only-fixed1500-seed1000-v1,0.0003550305450517044,-0.0003167890711893051,0.0010514488729102464,27,29

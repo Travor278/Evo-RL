@@ -1,0 +1,11 @@
+{
+  "comparison": "new vision-only1500 minus old full3000; different architecture AND LR horizon/training budget",
+  "same_episode_ids_and_frames_and_targets": true,
+  "episodes": 56,
+  "frames_per_episode": 32,
+  "mae_difference": 0.0012497747302404605,
+  "ci95_low": 0.0004204059241049306,
+  "ci95_high": 0.0021009771349132017,
+  "seconds_difference": 0.6199715845146178,
+  "caveat": "Paired descriptive interval conditional on this reused holdout; not selection-adjusted or independent-seed evidence."
+}
