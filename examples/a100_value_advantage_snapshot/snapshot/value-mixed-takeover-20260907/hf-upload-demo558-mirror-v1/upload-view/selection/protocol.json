@@ -1,0 +1,32 @@
+{
+  "status": "planned",
+  "smoke": false,
+  "source": "/data/datasets/RW-RL-Dataset-piperx",
+  "destination": "/data/datasets/piperx-demo558-value1500-a50-top10-union20-v1",
+  "audit": "/data/experiments/value-mixed-takeover-20260907/demo558-top10-a50-w20-build/release",
+  "value_checkpoint": "/data/experiments/value-mixed-takeover-20260907/runs/piperx-vision-mixed1to1-c150-z15337-fixed1500-seed1000/checkpoint-001500.pt",
+  "manifest_sha256": "d38574b6fdbad834c767d9218b723f5dd58a65c8d1b558222b40af1af5938423",
+  "source_episodes_evaluated": 558,
+  "source_total_frames": 1255729,
+  "eligible_frames": 1255171,
+  "top_fraction": 0.1,
+  "requested_anchor_count": 125518,
+  "selected_anchor_count": 125518,
+  "threshold": 0.01298177246013573,
+  "advantage_horizon": 50,
+  "window_length": 20,
+  "scale": 15337,
+  "positive_required": true,
+  "exported_source_episodes": 544,
+  "output_episodes": 7146,
+  "output_frames": 322261,
+  "output_hours": 2.9838981481481484,
+  "encoder": {
+    "codec": "libx264",
+    "crf": 18,
+    "preset": "fast",
+    "pix_fmt": "yuv420p",
+    "fps": 30
+  },
+  "note": "Frame-weighted global top10 across all558 (smoke uses3); selected starts expanded20, overlaps/adjacency merged; discontinuities are separate episodes. Interior frames need not be top10. Segments are not labeled successful/terminal demonstrations."
+}
