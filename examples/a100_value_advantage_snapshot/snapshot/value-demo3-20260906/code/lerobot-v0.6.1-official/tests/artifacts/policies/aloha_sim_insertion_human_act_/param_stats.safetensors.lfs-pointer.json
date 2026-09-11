@@ -1,0 +1,4 @@
+{
+  "git_lfs_pointer": "version https://git-lfs.github.com/spec/v1\noid sha256:ea76e6711959fd3f905ec2bdc306f488920f00ec99421e4870d05f6205eb323e\nsize 31672\n",
+  "note": "Original upstream pointer, not the referenced asset; restore reproduces the pointer bytes."
+}
