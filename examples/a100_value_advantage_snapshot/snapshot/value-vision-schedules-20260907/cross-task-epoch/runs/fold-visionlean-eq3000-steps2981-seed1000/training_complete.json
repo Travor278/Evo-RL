@@ -1,0 +1,8 @@
+{
+  "step": 2981,
+  "best_step": 2241,
+  "best_episode_mae": 0.034751764503942635,
+  "fixed_budget": true,
+  "early_stopping": false,
+  "dense_final_review_required": true
+}
