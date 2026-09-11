@@ -1,0 +1,41 @@
+{
+  "date": "2026-09-12",
+  "scope": "CPU synthetic tests, not formal experiments",
+  "tests": 19,
+  "result": "passed",
+  "ruff": "passed",
+  "network_during_tests": "HF_HUB_OFFLINE=1",
+  "runtime": {
+    "python": "3.12.13",
+    "torch": "2.7.1+cpu",
+    "torchvision": "0.22.1+cpu",
+    "transformers": "4.57.1",
+    "numpy": "2.2.6",
+    "datasets": "4.1.1",
+    "av": "15.1.0",
+    "accelerate": "1.15.0",
+    "pyarrow": "25.0.1",
+    "matplotlib": "3.11.1"
+  },
+  "coverage": [
+    "pure-demo and final-policy-test contract guards",
+    "train-only maximum cumulative cost; no factor two",
+    "n=50 terminal truncation and telescoping identity",
+    "global Top10% before positivity; merged20-action intervals",
+    "short-segment action clipping without horizon change",
+    "actual Pi0.5 forward consumes the time padding mask",
+    "actual processor preserves boolean padding mask",
+    "explicit mixture probability and exact sampler resume suffix",
+    "Accelerate per-rank sharding preserves optimizer-update count",
+    "published control configuration decodes; altered budget rejected",
+    "real LeRobot video export/action/state/timestamp/batch checks",
+    "tiny SigLIP Value optimizer/save/resume/full-episode inference",
+    "resumed Value model tensors exactly match continuous CPU run",
+    "no offline metrics or wrong checkpoint accepted as robot results"
+  ],
+  "not_run": [
+    "formal pretrained Value training",
+    "full Pi0.5 policy GPU continuation",
+    "real-robot evaluation"
+  ]
+}

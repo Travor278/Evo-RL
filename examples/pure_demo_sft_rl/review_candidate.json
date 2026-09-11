@@ -1,0 +1,29 @@
+{
+  "status": "proposal_for_review_not_launched",
+  "control_identity_confirmed_for_paper": false,
+  "candidate_control": "control_evidence/bc20k_train_config.json",
+  "shared_sft_sha256": "d85c7cd84060a924b6ef10d055491c500c5714a21ddbb49e1dbdc828b7a74147",
+  "policy_updates_if_this_control_is_selected": 20000,
+  "global_batch_if_this_control_is_selected": 64,
+  "policy_output_horizon": 50,
+  "proposed_source_fraction_if_mirroring_control": {
+    "D": 0.5,
+    "D_high": 0.5,
+    "basis": "old BC control used 0.5 Base + 0.5 extra source; this proposal changes the extra source to pure-demo high segments",
+    "reviewed": false
+  },
+  "value_budget": null,
+  "value_backbone_revision": null,
+  "allowed_demo_scope": null,
+  "final_policy_test_manifest": null,
+  "value_Z": "computed from frozen Value training episodes only",
+  "advantage_horizon": 50,
+  "global_top_fraction": 0.1,
+  "positive_required": true,
+  "retained_window": 20,
+  "policy_normalization_source": null,
+  "compute_and_runtime": null,
+  "output_dir": null,
+  "real_robot_protocol": null,
+  "candidate_control_run": "control_evidence/bc20k_run.json"
+}

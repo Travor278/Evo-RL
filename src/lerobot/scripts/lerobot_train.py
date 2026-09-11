@@ -264,6 +264,13 @@ def train(
     if not is_main_process:
         dataset = make_dataset(cfg)
 
+    if cfg.sft_rl.enable:
+        from lerobot.rl.sft_rl.replay import load_replay, save_replay_protocol, validate_control_alignment
+        validate_control_alignment(cfg, accelerator)
+        dataset = load_replay(dataset, cfg.sft_rl, cfg)
+        if is_main_process:
+            save_replay_protocol(cfg.sft_rl, cfg)
+
     # Create environment used for evaluating checkpoints during training on simulation data.
     # On real-world data, no need to create an environment as evaluations are done outside train.py,
     # using the eval.py instead, with gym_dora environment and dora-rs.
@@ -319,6 +326,13 @@ def train(
                 "norm_map": policy.config.normalization_mapping,
             },
         }
+
+    if cfg.sft_rl.enable and cfg.sft_rl.normalization_source == "checkpoint":
+        # Loading saved SFT normalization is explicit; do not silently refit it
+        # from a smaller selected dataset or override it with source statistics.
+        processor_kwargs.pop("dataset_stats", None)
+        processor_kwargs.get("preprocessor_overrides", {}).pop("normalizer_processor", None)
+        postprocessor_kwargs.get("postprocessor_overrides", {}).pop("unnormalizer_processor", None)
 
     preprocessor, postprocessor = make_pre_post_processors(
         policy_cfg=cfg.policy,
@@ -380,11 +394,24 @@ def train(
         logging.info(f"{num_total_params=} ({format_big_number(num_total_params)})")
 
     # create dataloader for offline training
-    replay_sampler, replay_stats = build_replay_sampler(dataset, cfg.replay_sampling, cfg.seed)
+    if cfg.sft_rl.enable:
+        from lerobot.rl.sft_rl.replay import UpdateMixtureSampler
+        replay_sampler = UpdateMixtureSampler(
+            dataset.base_count, dataset.high_count,
+            high_fraction=cfg.sft_rl.high_fraction, global_batch=cfg.sft_rl.expected_global_batch,
+            seed=cfg.seed, start_step=step, stop_step=cfg.steps,
+        )
+        replay_stats = None
+    else:
+        replay_sampler, replay_stats = build_replay_sampler(dataset, cfg.replay_sampling, cfg.seed)
     if replay_sampler is not None:
         shuffle = False
         sampler = replay_sampler
-        if is_main_process:
+        if is_main_process and cfg.sft_rl.enable:
+            logging.info("Pure-demo replay: D=%d D_high=%d high_probability=%.6f updates=%d:%d global_batch=%d",
+                         dataset.base_count, dataset.high_count, cfg.sft_rl.high_fraction,
+                         step, cfg.steps, cfg.sft_rl.expected_global_batch)
+        if is_main_process and replay_stats is not None:
             logging.info(
                 "Replay sampling: field='%s' base=%d hil=%d natural_hil_fraction=%.6f "
                 "target_hil_fraction=%.6f num_samples=%d",
@@ -539,6 +566,9 @@ def train(
                     preprocessor=preprocessor,
                     postprocessor=postprocessor,
                 )
+                if cfg.sft_rl.enable:
+                    from lerobot.rl.sft_rl.replay import save_replay_protocol
+                    save_replay_protocol(cfg.sft_rl, cfg, destination=checkpoint_dir / "pretrained_model")
                 update_last_checkpoint(checkpoint_dir)
                 if wandb_logger:
                     wandb_logger.log_policy(checkpoint_dir)

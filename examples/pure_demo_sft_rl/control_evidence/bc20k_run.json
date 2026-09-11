@@ -1,0 +1,20 @@
+{
+  "acp_dropout": null,
+  "batch_size_per_rank": 8,
+  "checkpoint_storage": "ssd_staging",
+  "created_utc": "2026-09-08T03:19:36.427647+00:00",
+  "dataset_manifest_sha256": "8377742d7817c7c1f7764c286950f4361e89baf95370c713f649f23822e4c58a",
+  "evorl_commit": "37de4c0b59ec152a2626f9c3d1652bc444018438",
+  "global_batch_size": 64,
+  "initial_model_sha256": "d85c7cd84060a924b6ef10d055491c500c5714a21ddbb49e1dbdc828b7a74147",
+  "mixed_ram_stage_seconds": 110,
+  "mode": "bc",
+  "run_kind": "formal20k",
+  "sampler": "attempt_balanced",
+  "schema": "attempt-aware-policy-run/v3",
+  "seed": 20260906,
+  "steps": 20000,
+  "target_attempt_fraction": 0.5,
+  "validation_selection_sha256": "a1f9365da8ae13194d265deecd23ac75f83e74559c7a174c27899fe6e625391b",
+  "world_size": 8
+}

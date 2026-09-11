@@ -1,0 +1,16 @@
+{
+  "schema": "sft-rl-scope/v1",
+  "repo_id": null,
+  "revision": null,
+  "root": null,
+  "task": null,
+  "pure_human_source_verified": false,
+  "complete_source_trajectories_verified": false,
+  "provenance_evidence": null,
+  "allowed_episode_indices": null,
+  "include_all_episodes": false,
+  "source_identity_field": null,
+  "source_identity_namespace": null,
+  "success_field": "episode_success",
+  "success_confirmations": {}
+}

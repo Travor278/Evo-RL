@@ -28,6 +28,7 @@ from lerobot.configs.default import DatasetConfig, EvalConfig, PeftConfig, WandB
 from lerobot.configs.policies import PreTrainedConfig
 from lerobot.optim import OptimizerConfig
 from lerobot.optim.schedulers import LRSchedulerConfig
+from lerobot.rl.sft_rl.config import SFTReplayConfig
 from lerobot.utils.hub import HubMixin
 
 TRAIN_CONFIG_NAME = "train_config.json"
@@ -86,6 +87,7 @@ class TrainPipelineConfig(HubMixin):
     peft: PeftConfig | None = None
     acp: ACPConfig = field(default_factory=ACPConfig)
     replay_sampling: ReplaySamplingConfig = field(default_factory=ReplaySamplingConfig)
+    sft_rl: SFTReplayConfig = field(default_factory=SFTReplayConfig)
 
     # RA-BC (Reward-Aligned Behavior Cloning) parameters
     use_rabc: bool = False  # Enable reward-weighted training
@@ -164,6 +166,17 @@ class TrainPipelineConfig(HubMixin):
             raise ValueError("'acp.indicator_dropout_prob' must be within [0, 1].")
         if self.acp.enable and not self.acp.indicator_field:
             raise ValueError("'acp.indicator_field' must be set when 'acp.enable=true'.")
+
+        self.sft_rl.validate()
+        if self.sft_rl.enable:
+            if self.acp.enable or self.replay_sampling.enable or self.use_rabc:
+                raise ValueError("Pure-demo SFT+RL cannot use ACP labels, HIL replay, or RA-BC loss weights")
+            if self.policy.type != "pi05" or self.dataset.streaming:
+                raise ValueError("SFT+RL currently requires the indexed Pi0.5 training path")
+            if self.policy.pretrained_path is None or self.seed is None:
+                raise ValueError("SFT+RL requires the shared SFT checkpoint and an explicit seed")
+            if self.policy.chunk_size != self.sft_rl.expected_output_horizon:
+                raise ValueError("The policy output horizon must match the paired control, not the 20-action export window")
 
         if self.replay_sampling.enable:
             if not self.replay_sampling.source_field:

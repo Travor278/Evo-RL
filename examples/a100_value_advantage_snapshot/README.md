@@ -1,5 +1,7 @@
 # A100 Value / Advantage 完整实验代码归档
 
+后续开发：2026-09-12 新增的纯示范 SFT+RL 实现在 [pure_demo_sft_rl](../pure_demo_sft_rl/README.md)。本目录的审计描述新增实现之前的历史状态；正式训练与真机实验仍需按新实现的配置核对流程验收。
+
 2026-09-11 从 `ecs-36477934-002` 只读采集。这里保存训练实际使用的代码、历史版本、依赖源码、配置、划分、日志、逐帧预测、评估和筛选记录；未在服务器执行训练、推理、队列或修改操作。
 
 **本归档不等于已完成论文中的纯示范 SFT + RL。** 按最新协议逐项检查发现混合Value来源、旧纯示范Z乘2、D_high采样接线和policy padding loss等缺项。见 [SFT + RL完整性审计](SFT_RL_AUDIT.md) 与 [待核对配置](sft_rl_required_config.json)。

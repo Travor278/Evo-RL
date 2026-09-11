@@ -1,0 +1,14 @@
+{
+  "task_setup": null,
+  "initialization": null,
+  "time_limit_seconds": null,
+  "camera_mapping": null,
+  "RTC": null,
+  "scoring_rule": null,
+  "stage_names": [],
+  "throughput": {
+    "numerator": null,
+    "denominator": null,
+    "unit_seconds": null
+  }
+}

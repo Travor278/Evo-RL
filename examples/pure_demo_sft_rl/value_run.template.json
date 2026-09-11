@@ -1,0 +1,34 @@
+{
+  "schema": "sft-rl-value-run/v1",
+  "seed": null,
+  "paired_control_config_path": null,
+  "paired_control_config_sha256": null,
+  "model": {
+    "vision_repo_id": "google/siglip-so400m-patch14-384",
+    "vision_revision": null,
+    "camera_features": [],
+    "image_size": 384,
+    "projection_dim": 512,
+    "dropout": 0.1,
+    "freeze_vision_encoder": false,
+    "gradient_checkpointing": true
+  },
+  "training": {
+    "steps": null,
+    "global_batch": null,
+    "warmup_steps": null,
+    "lr": null,
+    "final_lr": null,
+    "weight_decay": null,
+    "grad_clip_norm": null,
+    "eval_every": null,
+    "save_every": null,
+    "eval_frames_per_episode": null,
+    "checkpoint_selection": null
+  },
+  "runtime": {
+    "device": "cuda",
+    "mixed_precision": null,
+    "num_workers": null
+  }
+}

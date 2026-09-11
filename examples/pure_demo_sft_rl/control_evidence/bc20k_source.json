@@ -1,0 +1,16 @@
+{
+  "repo_id": "Travor278/pi05-piperx-attempt-v2-bc-20k-r2",
+  "revision": "e7f9e3185c2c0e5741f6d4201df8773f8b910c3d",
+  "file": {
+    "hub_blob_id": "136300c1b35d705560a8e39f9f3d3075a15c8382",
+    "hub_lfs_sha256": null,
+    "path": "pretrained_model/train_config.json",
+    "sha256": "2aac7091dee6a6bafc1b456e9df7f7524a9585536c2aa1d7700379113735f130",
+    "size": 7619
+  },
+  "run_provenance_file": {
+    "path": "provenance/manifests/v2sam-ego2exo-attempt-v2-bc-20k-r2-run.json",
+    "size": 771,
+    "sha256": "368852b0946226098d53838cba8cf940057906e1042f28315f4042872fef0e27"
+  }
+}
