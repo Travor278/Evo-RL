@@ -1,0 +1,34 @@
+{
+  "status": "ok",
+  "videos": [
+    "/data/experiments/value-mixed-takeover-20260907/video-top30_positive-episode11-three-models/mixed1000_episode11_top30_positive_selected_only.mp4",
+    "/data/experiments/value-mixed-takeover-20260907/video-top30_positive-episode11-three-models/mixed1500_episode11_top30_positive_selected_only.mp4",
+    "/data/experiments/value-mixed-takeover-20260907/video-top30_positive-episode11-three-models/demo1500_episode11_top30_positive_selected_only.mp4"
+  ],
+  "summaries": [
+    {
+      "model": "mixed1000",
+      "eligible_frames": 4557,
+      "selected_count": 1368,
+      "seconds": 45.6,
+      "minimum_advantage": 0.013463244810792696,
+      "segment_count": 189
+    },
+    {
+      "model": "mixed1500",
+      "eligible_frames": 4557,
+      "selected_count": 1368,
+      "seconds": 45.6,
+      "minimum_advantage": 0.015898351594898018,
+      "segment_count": 207
+    },
+    {
+      "model": "demo1500",
+      "eligible_frames": 4557,
+      "selected_count": 1368,
+      "seconds": 45.6,
+      "minimum_advantage": 0.0038571518329642285,
+      "segment_count": 227
+    }
+  ]
+}

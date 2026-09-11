@@ -1,0 +1,20 @@
+{
+  "status": "ok",
+  "frames": 4558,
+  "fps": 30,
+  "seconds": 151.93333333333334,
+  "bytes": 36796042,
+  "full_decode_passed": true,
+  "selected_count": 456,
+  "eligible_frames": 4557,
+  "selection_min_advantage": 0.046481953039857665,
+  "color_rule": "highest10% intersect A>0 by descending raw full advantage, stable ties by frame; nonterminal frames including human-control segments",
+  "value_limits": [
+    -0.6,
+    0.0
+  ],
+  "advantage_limits": [
+    -0.225,
+    0.225
+  ]
+}
