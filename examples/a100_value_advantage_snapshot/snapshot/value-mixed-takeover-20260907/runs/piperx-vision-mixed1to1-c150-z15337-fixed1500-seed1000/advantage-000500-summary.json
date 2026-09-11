@@ -1,0 +1,177 @@
+{
+  "status": "ok",
+  "step": 500,
+  "episodes": 14,
+  "predicted_frames": 22676,
+  "windows": {
+    "15": {
+      "autonomous_grid_frames": 16286,
+      "event_prevalence": 0.013078717917229522,
+      "horizon_seconds": 0.5,
+      "scores": {
+        "full": {
+          "auroc": 0.6946142730832829,
+          "average_precision": 0.024821316888161804,
+          "negative_fraction_pre_event": 0.784037558685446,
+          "negative_fraction_no_event": 0.5229266471722764,
+          "episode_bootstrap95": {
+            "auroc": [
+              0.657715926236197,
+              0.7353311296527713
+            ],
+            "average_precision": [
+              0.01887175341061013,
+              0.03364594729006762
+            ]
+          }
+        },
+        "time_value_delta": {
+          "auroc": 0.5356041347735931,
+          "average_precision": 0.014685243747692561,
+          "negative_fraction_pre_event": 0.5774647887323944,
+          "negative_fraction_no_event": 0.5229266471722764,
+          "episode_bootstrap95": {
+            "auroc": [
+              0.4944607014770796,
+              0.5787028891105463
+            ],
+            "average_precision": [
+              0.010852924194804938,
+              0.020141310697638904
+            ]
+          }
+        },
+        "explicit_penalty": {
+          "auroc": 1.0,
+          "average_precision": 1.0,
+          "negative_fraction_pre_event": 1.0,
+          "negative_fraction_no_event": 0.0,
+          "episode_bootstrap95": {
+            "auroc": [
+              1.0,
+              1.0
+            ],
+            "average_precision": [
+              1.0,
+              1.0
+            ]
+          }
+        }
+      }
+    },
+    "30": {
+      "autonomous_grid_frames": 16286,
+      "event_prevalence": 0.026157435834459043,
+      "horizon_seconds": 1.0,
+      "scores": {
+        "full": {
+          "auroc": 0.6705912651190877,
+          "average_precision": 0.04120591083629154,
+          "negative_fraction_pre_event": 0.7793427230046949,
+          "negative_fraction_no_event": 0.5307061790668348,
+          "episode_bootstrap95": {
+            "auroc": [
+              0.6340298749556398,
+              0.7103862464311167
+            ],
+            "average_precision": [
+              0.032524355816087605,
+              0.0534209411835213
+            ]
+          }
+        },
+        "time_value_delta": {
+          "auroc": 0.5331135404270939,
+          "average_precision": 0.027140728200117592,
+          "negative_fraction_pre_event": 0.5727699530516432,
+          "negative_fraction_no_event": 0.5307061790668348,
+          "episode_bootstrap95": {
+            "auroc": [
+              0.4904084933481018,
+              0.5738325533628529
+            ],
+            "average_precision": [
+              0.020880139963204716,
+              0.03467010821628024
+            ]
+          }
+        },
+        "explicit_penalty": {
+          "auroc": 1.0,
+          "average_precision": 1.0,
+          "negative_fraction_pre_event": 1.0,
+          "negative_fraction_no_event": 0.0,
+          "episode_bootstrap95": {
+            "auroc": [
+              1.0,
+              1.0
+            ],
+            "average_precision": [
+              1.0,
+              1.0
+            ]
+          }
+        }
+      }
+    },
+    "50": {
+      "autonomous_grid_frames": 16286,
+      "event_prevalence": 0.043595726390765074,
+      "horizon_seconds": 1.6666666666666667,
+      "scores": {
+        "full": {
+          "auroc": 0.6540320247111845,
+          "average_precision": 0.06351685780421552,
+          "negative_fraction_pre_event": 0.7647887323943662,
+          "negative_fraction_no_event": 0.5366589625064201,
+          "episode_bootstrap95": {
+            "auroc": [
+              0.6198402046453904,
+              0.6904247228338422
+            ],
+            "average_precision": [
+              0.047446342303888875,
+              0.08139964716673984
+            ]
+          }
+        },
+        "time_value_delta": {
+          "auroc": 0.5379179868631409,
+          "average_precision": 0.045124629874288266,
+          "negative_fraction_pre_event": 0.5816901408450704,
+          "negative_fraction_no_event": 0.5366589625064201,
+          "episode_bootstrap95": {
+            "auroc": [
+              0.49622056754605703,
+              0.5809937687362757
+            ],
+            "average_precision": [
+              0.033540580589615496,
+              0.0576978130604926
+            ]
+          }
+        },
+        "explicit_penalty": {
+          "auroc": 1.0,
+          "average_precision": 1.0,
+          "negative_fraction_pre_event": 1.0,
+          "negative_fraction_no_event": 0.0,
+          "episode_bootstrap95": {
+            "auroc": [
+              1.0,
+              1.0
+            ],
+            "average_precision": [
+              1.0,
+              1.0
+            ]
+          }
+        }
+      }
+    }
+  },
+  "interpretation": "Offline event-proximity proxy. Full advantage includes actual recorded penalty; even time+value delta uses future images and is not an online takeover detector. No causal action-quality or policy-improvement claim. Perfect realized returns telescope to zero residual.",
+  "threshold": "fixed A<0; no threshold tuned for negativity",
+  "bootstrap": "300 resamples of whole held-out episodes",
+  "inference": "strict checkpoint reload; terminal V=0"
+}
