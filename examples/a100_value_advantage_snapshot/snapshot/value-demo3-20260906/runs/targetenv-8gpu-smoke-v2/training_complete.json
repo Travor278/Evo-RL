@@ -1,0 +1,8 @@
+{
+  "step": 3,
+  "best_step": 3,
+  "best_episode_mae": 0.3975539094812813,
+  "plateau": false,
+  "budget_boundary": true,
+  "dense_best_review_required": true
+}
