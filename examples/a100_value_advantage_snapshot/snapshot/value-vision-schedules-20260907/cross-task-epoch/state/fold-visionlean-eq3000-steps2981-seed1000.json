@@ -1,0 +1,19 @@
+{
+  "status": "complete",
+  "lane": "cosine",
+  "job": {
+    "task": "so101_fold_clothes_left_stack_right",
+    "short": "fold",
+    "run": "fold-visionlean-eq3000-steps2981-seed1000",
+    "reference_steps": 3000,
+    "steps": 2981,
+    "warmup": 199,
+    "eval_every": 249,
+    "train_frames": 1125359,
+    "target_epoch": 0.08475301998847005,
+    "actual_epoch": 0.0847658391677678,
+    "manifest_sha256": "3417b9a079ee522b08ac31e7a01d54f710299ccb01d86277e659e0ca2d04e4d8",
+    "return_scale": 35886
+  },
+  "at": 1788750554.4118853
+}

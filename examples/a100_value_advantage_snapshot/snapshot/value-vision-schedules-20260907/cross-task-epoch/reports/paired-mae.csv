@@ -1,0 +1,2 @@
+task,episodes,short_mae,long_mae,long_minus_short,relative_improvement_percent,ci95_low,ci95_high,interpretation,scope
+piperx,56,0.013319100259577357,0.012487672347910055,-0.0008314279116673008,6.242372949099525,-0.0015915453157130546,-2.472807559976412e-05,long_lower,conditional on this seed and heldout episodes; not RL performance
