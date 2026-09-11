@@ -1,0 +1,21 @@
+{
+  "status": "ok",
+  "frames": 1368,
+  "fps": 30,
+  "seconds": 45.6,
+  "bytes": 11630584,
+  "full_decode_passed": true,
+  "source_frames": 4558,
+  "eligible_frames": 4557,
+  "selected_count": 1368,
+  "selected_min_advantage": 0.015898351594898018,
+  "color_rule": "episode-local highest30% intersect A>0; nonterminal frames including human control; stable ties by frame",
+  "value_limits": [
+    -0.6,
+    0.0
+  ],
+  "advantage_limits": [
+    -0.225,
+    0.225
+  ]
+}

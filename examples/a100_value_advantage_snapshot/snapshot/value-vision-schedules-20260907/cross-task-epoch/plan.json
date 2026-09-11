@@ -1,0 +1,242 @@
+{
+  "status": "ok",
+  "global_batch": 32,
+  "reference_train_frames": 1132703,
+  "seed": 1000,
+  "tasks": [
+    {
+      "task": "piperx_insert_copper_screw",
+      "train_frames": 1132703,
+      "train_episodes": 502,
+      "heldout_episodes": 56,
+      "return_scale": 14882,
+      "manifest_sha256": "172a0c3b0393b32b4d5085e2e8ef84d74312fa96263c26afb3fc0850c6043769",
+      "camera_features": [
+        "observation.images.camera_top",
+        "observation.images.camera_wrist_left",
+        "observation.images.camera_wrist_right"
+      ],
+      "decoded": []
+    },
+    {
+      "task": "so101_fold_clothes_left_stack_right",
+      "train_frames": 1125359,
+      "train_episodes": 97,
+      "heldout_episodes": 11,
+      "return_scale": 35886,
+      "manifest_sha256": "3417b9a079ee522b08ac31e7a01d54f710299ccb01d86277e659e0ca2d04e4d8",
+      "camera_features": [
+        "observation.images.left_wrist",
+        "observation.images.right_wrist",
+        "observation.images.right_front"
+      ],
+      "decoded": [
+        {
+          "split": "train",
+          "index": 0,
+          "shape": [
+            3,
+            3,
+            480,
+            640
+          ],
+          "target": -0.4133645432759293
+        },
+        {
+          "split": "train",
+          "index": 562679,
+          "shape": [
+            3,
+            3,
+            480,
+            640
+          ],
+          "target": -0.160034553865017
+        },
+        {
+          "split": "train",
+          "index": 1125358,
+          "shape": [
+            3,
+            3,
+            480,
+            640
+          ],
+          "target": 0.0
+        },
+        {
+          "split": "heldout",
+          "index": 0,
+          "shape": [
+            3,
+            3,
+            480,
+            640
+          ],
+          "target": -0.31457950175555927
+        },
+        {
+          "split": "heldout",
+          "index": 66575,
+          "shape": [
+            3,
+            3,
+            480,
+            640
+          ],
+          "target": -0.3140221813520593
+        },
+        {
+          "split": "heldout",
+          "index": 133149,
+          "shape": [
+            3,
+            3,
+            480,
+            640
+          ],
+          "target": 0.0
+        }
+      ]
+    },
+    {
+      "task": "so101_put_stationery_table_into_bag",
+      "train_frames": 1129226,
+      "train_episodes": 357,
+      "heldout_episodes": 40,
+      "return_scale": 17936,
+      "manifest_sha256": "17b9b3a5e85b4848d860031c3fec38d7af3cddee072fc51fb693c8796e34a6ad",
+      "camera_features": [
+        "observation.images.left_wrist",
+        "observation.images.right_front",
+        "observation.images.right_wrist"
+      ],
+      "decoded": [
+        {
+          "split": "train",
+          "index": 0,
+          "shape": [
+            3,
+            3,
+            480,
+            640
+          ],
+          "target": -0.2546833184656557
+        },
+        {
+          "split": "train",
+          "index": 564613,
+          "shape": [
+            3,
+            3,
+            480,
+            640
+          ],
+          "target": -0.0897078501338091
+        },
+        {
+          "split": "train",
+          "index": 1129225,
+          "shape": [
+            3,
+            3,
+            480,
+            640
+          ],
+          "target": 0.0
+        },
+        {
+          "split": "heldout",
+          "index": 0,
+          "shape": [
+            3,
+            3,
+            480,
+            640
+          ],
+          "target": -0.14752453166815344
+        },
+        {
+          "split": "heldout",
+          "index": 63675,
+          "shape": [
+            3,
+            3,
+            480,
+            640
+          ],
+          "target": -0.03512488849241748
+        },
+        {
+          "split": "heldout",
+          "index": 127349,
+          "shape": [
+            3,
+            3,
+            480,
+            640
+          ],
+          "target": 0.0
+        }
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "task": "so101_fold_clothes_left_stack_right",
+      "short": "fold",
+      "run": "fold-visionlean-eq1500-steps1491-seed1000",
+      "reference_steps": 1500,
+      "steps": 1491,
+      "warmup": 199,
+      "eval_every": 249,
+      "train_frames": 1125359,
+      "target_epoch": 0.04237650999423503,
+      "actual_epoch": 0.0423971372690848,
+      "manifest_sha256": "3417b9a079ee522b08ac31e7a01d54f710299ccb01d86277e659e0ca2d04e4d8",
+      "return_scale": 35886
+    },
+    {
+      "task": "so101_fold_clothes_left_stack_right",
+      "short": "fold",
+      "run": "fold-visionlean-eq3000-steps2981-seed1000",
+      "reference_steps": 3000,
+      "steps": 2981,
+      "warmup": 199,
+      "eval_every": 249,
+      "train_frames": 1125359,
+      "target_epoch": 0.08475301998847005,
+      "actual_epoch": 0.0847658391677678,
+      "manifest_sha256": "3417b9a079ee522b08ac31e7a01d54f710299ccb01d86277e659e0ca2d04e4d8",
+      "return_scale": 35886
+    },
+    {
+      "task": "so101_put_stationery_table_into_bag",
+      "short": "stationery",
+      "run": "stationery-visionlean-eq1500-steps1496-seed1000",
+      "reference_steps": 1500,
+      "steps": 1496,
+      "warmup": 200,
+      "eval_every": 250,
+      "train_frames": 1129226,
+      "target_epoch": 0.04237650999423503,
+      "actual_epoch": 0.04239363953716971,
+      "manifest_sha256": "17b9b3a5e85b4848d860031c3fec38d7af3cddee072fc51fb693c8796e34a6ad",
+      "return_scale": 17936
+    },
+    {
+      "task": "so101_put_stationery_table_into_bag",
+      "short": "stationery",
+      "run": "stationery-visionlean-eq3000-steps2991-seed1000",
+      "reference_steps": 3000,
+      "steps": 2991,
+      "warmup": 200,
+      "eval_every": 250,
+      "train_frames": 1129226,
+      "target_epoch": 0.08475301998847005,
+      "actual_epoch": 0.08475894107999639,
+      "manifest_sha256": "17b9b3a5e85b4848d860031c3fec38d7af3cddee072fc51fb693c8796e34a6ad",
+      "return_scale": 17936
+    }
+  ]
+}
