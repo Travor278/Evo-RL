@@ -1,0 +1,5 @@
+{
+  "file": "checkpoint-003000.pt",
+  "step": 3000,
+  "episode_mae": 0.012619838502359926
+}

@@ -1,0 +1,24 @@
+{
+  "event": "DENSE_REVIEW",
+  "step": 3000,
+  "checkpoint": "checkpoint-003000.pt",
+  "frames_per_episode": 128,
+  "test": {
+    "frames": 7168,
+    "episodes": 56,
+    "ce": 2.687980568797294,
+    "mae": 0.012487672347106127,
+    "rmse": 0.020651697651316876,
+    "episode_mae": 0.012487672347106127,
+    "baseline_mae": 0.05476174029484225,
+    "baseline_rmse": 0.06602341216183462,
+    "mae_remaining_seconds": 6.194717995654446,
+    "bias": 0.0027555714558989814,
+    "crps": 0.009963247312553238,
+    "entropy": 1.7222733734524809,
+    "interval90_coverage": 0.6428571428571429,
+    "interval90_width": 0.024571009340823884
+  },
+  "checkpoint_reload": "strict_ok",
+  "state_intervention": "none"
+}
