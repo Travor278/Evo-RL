@@ -1,0 +1,359 @@
+{
+  "status": "ok",
+  "source": "/data/experiments/value-mixed-takeover-20260907/video-demo-global30-step1500",
+  "checkpoint_step": 1500,
+  "episode_count": 56,
+  "eligible_frames": 122970,
+  "requested_count": 12297,
+  "selected_top": 12297,
+  "selected_bottom": 12297,
+  "thresholds": {
+    "top10": 0.012195111289712707,
+    "bottom10": -0.011598660573270997
+  },
+  "per_episode": [
+    {
+      "episode": 11,
+      "eligible_frames": 2692,
+      "top10": 225,
+      "bottom10": 259
+    },
+    {
+      "episode": 23,
+      "eligible_frames": 2683,
+      "top10": 193,
+      "bottom10": 268
+    },
+    {
+      "episode": 40,
+      "eligible_frames": 2274,
+      "top10": 170,
+      "bottom10": 136
+    },
+    {
+      "episode": 43,
+      "eligible_frames": 2047,
+      "top10": 326,
+      "bottom10": 276
+    },
+    {
+      "episode": 58,
+      "eligible_frames": 2047,
+      "top10": 82,
+      "bottom10": 101
+    },
+    {
+      "episode": 62,
+      "eligible_frames": 1687,
+      "top10": 17,
+      "bottom10": 28
+    },
+    {
+      "episode": 63,
+      "eligible_frames": 1851,
+      "top10": 65,
+      "bottom10": 120
+    },
+    {
+      "episode": 84,
+      "eligible_frames": 1423,
+      "top10": 96,
+      "bottom10": 56
+    },
+    {
+      "episode": 86,
+      "eligible_frames": 1395,
+      "top10": 100,
+      "bottom10": 41
+    },
+    {
+      "episode": 90,
+      "eligible_frames": 1284,
+      "top10": 43,
+      "bottom10": 23
+    },
+    {
+      "episode": 99,
+      "eligible_frames": 1328,
+      "top10": 60,
+      "bottom10": 34
+    },
+    {
+      "episode": 171,
+      "eligible_frames": 1197,
+      "top10": 66,
+      "bottom10": 8
+    },
+    {
+      "episode": 180,
+      "eligible_frames": 1501,
+      "top10": 80,
+      "bottom10": 69
+    },
+    {
+      "episode": 182,
+      "eligible_frames": 1084,
+      "top10": 39,
+      "bottom10": 1
+    },
+    {
+      "episode": 195,
+      "eligible_frames": 1130,
+      "top10": 63,
+      "bottom10": 10
+    },
+    {
+      "episode": 196,
+      "eligible_frames": 1466,
+      "top10": 29,
+      "bottom10": 18
+    },
+    {
+      "episode": 205,
+      "eligible_frames": 1306,
+      "top10": 156,
+      "bottom10": 164
+    },
+    {
+      "episode": 209,
+      "eligible_frames": 1215,
+      "top10": 75,
+      "bottom10": 62
+    },
+    {
+      "episode": 216,
+      "eligible_frames": 1453,
+      "top10": 36,
+      "bottom10": 43
+    },
+    {
+      "episode": 222,
+      "eligible_frames": 1780,
+      "top10": 255,
+      "bottom10": 227
+    },
+    {
+      "episode": 230,
+      "eligible_frames": 1733,
+      "top10": 274,
+      "bottom10": 292
+    },
+    {
+      "episode": 242,
+      "eligible_frames": 1449,
+      "top10": 97,
+      "bottom10": 108
+    },
+    {
+      "episode": 255,
+      "eligible_frames": 2034,
+      "top10": 118,
+      "bottom10": 176
+    },
+    {
+      "episode": 257,
+      "eligible_frames": 1445,
+      "top10": 37,
+      "bottom10": 21
+    },
+    {
+      "episode": 266,
+      "eligible_frames": 1495,
+      "top10": 176,
+      "bottom10": 174
+    },
+    {
+      "episode": 277,
+      "eligible_frames": 4256,
+      "top10": 986,
+      "bottom10": 884
+    },
+    {
+      "episode": 281,
+      "eligible_frames": 3186,
+      "top10": 552,
+      "bottom10": 451
+    },
+    {
+      "episode": 305,
+      "eligible_frames": 2645,
+      "top10": 436,
+      "bottom10": 405
+    },
+    {
+      "episode": 313,
+      "eligible_frames": 3877,
+      "top10": 294,
+      "bottom10": 351
+    },
+    {
+      "episode": 314,
+      "eligible_frames": 3413,
+      "top10": 537,
+      "bottom10": 473
+    },
+    {
+      "episode": 323,
+      "eligible_frames": 3231,
+      "top10": 382,
+      "bottom10": 309
+    },
+    {
+      "episode": 329,
+      "eligible_frames": 3474,
+      "top10": 301,
+      "bottom10": 320
+    },
+    {
+      "episode": 341,
+      "eligible_frames": 2976,
+      "top10": 483,
+      "bottom10": 513
+    },
+    {
+      "episode": 357,
+      "eligible_frames": 5752,
+      "top10": 787,
+      "bottom10": 1030
+    },
+    {
+      "episode": 362,
+      "eligible_frames": 3914,
+      "top10": 520,
+      "bottom10": 560
+    },
+    {
+      "episode": 391,
+      "eligible_frames": 4616,
+      "top10": 771,
+      "bottom10": 846
+    },
+    {
+      "episode": 418,
+      "eligible_frames": 1339,
+      "top10": 10,
+      "bottom10": 17
+    },
+    {
+      "episode": 420,
+      "eligible_frames": 1194,
+      "top10": 10,
+      "bottom10": 13
+    },
+    {
+      "episode": 422,
+      "eligible_frames": 1088,
+      "top10": 7,
+      "bottom10": 1
+    },
+    {
+      "episode": 435,
+      "eligible_frames": 1308,
+      "top10": 12,
+      "bottom10": 1
+    },
+    {
+      "episode": 441,
+      "eligible_frames": 1246,
+      "top10": 118,
+      "bottom10": 134
+    },
+    {
+      "episode": 450,
+      "eligible_frames": 1146,
+      "top10": 28,
+      "bottom10": 20
+    },
+    {
+      "episode": 451,
+      "eligible_frames": 1160,
+      "top10": 5,
+      "bottom10": 0
+    },
+    {
+      "episode": 466,
+      "eligible_frames": 1447,
+      "top10": 88,
+      "bottom10": 48
+    },
+    {
+      "episode": 470,
+      "eligible_frames": 1614,
+      "top10": 5,
+      "bottom10": 8
+    },
+    {
+      "episode": 474,
+      "eligible_frames": 1140,
+      "top10": 7,
+      "bottom10": 18
+    },
+    {
+      "episode": 484,
+      "eligible_frames": 4745,
+      "top10": 614,
+      "bottom10": 635
+    },
+    {
+      "episode": 489,
+      "eligible_frames": 3785,
+      "top10": 482,
+      "bottom10": 436
+    },
+    {
+      "episode": 497,
+      "eligible_frames": 3150,
+      "top10": 545,
+      "bottom10": 416
+    },
+    {
+      "episode": 500,
+      "eligible_frames": 4326,
+      "top10": 665,
+      "bottom10": 742
+    },
+    {
+      "episode": 502,
+      "eligible_frames": 3397,
+      "top10": 377,
+      "bottom10": 382
+    },
+    {
+      "episode": 529,
+      "eligible_frames": 3532,
+      "top10": 271,
+      "bottom10": 416
+    },
+    {
+      "episode": 544,
+      "eligible_frames": 1042,
+      "top10": 35,
+      "bottom10": 44
+    },
+    {
+      "episode": 545,
+      "eligible_frames": 1209,
+      "top10": 2,
+      "bottom10": 20
+    },
+    {
+      "episode": 548,
+      "eligible_frames": 1264,
+      "top10": 37,
+      "bottom10": 22
+    },
+    {
+      "episode": 556,
+      "eligible_frames": 1499,
+      "top10": 52,
+      "bottom10": 67
+    }
+  ],
+  "preview_episodes": [
+    11,
+    23,
+    40
+  ],
+  "playback_horizon": 9,
+  "advantage_horizon": 50
+}
