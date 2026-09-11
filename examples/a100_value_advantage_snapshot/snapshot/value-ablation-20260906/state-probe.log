@@ -1,0 +1,27 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:  49%|████▉     | 439/888 [00:00<00:00, 4385.83it/s]Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5702.62it/s]
+Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 1/236 [00:00<00:59,  3.95it/s]Loading weights: 100%|██████████| 236/236 [00:00<00:00, 908.51it/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:  49%|████▉     | 437/888 [00:00<00:00, 4360.63it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5981.58it/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:  50%|█████     | 446/888 [00:00<00:00, 4443.99it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5840.93it/s]
+Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:  52%|█████▏    | 459/888 [00:00<00:00, 4586.06it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5538.37it/s]
+Loading weights:   0%|          | 1/236 [00:00<00:55,  4.25it/s]Loading weights: 100%|██████████| 236/236 [00:00<00:00, 975.81it/s]
+Loading weights:  49%|████▉     | 436/888 [00:00<00:00, 4348.37it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5564.13it/s]
+Loading weights:   0%|          | 1/236 [00:00<00:55,  4.22it/s]Loading weights: 100%|██████████| 236/236 [00:00<00:00, 969.17it/s]
+Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:  45%|████▌     | 400/888 [00:00<00:00, 3984.08it/s]Loading weights:  47%|████▋     | 419/888 [00:00<00:00, 4180.98it/s]Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5561.33it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5659.67it/s]
+Loading weights:  32%|███▏      | 285/888 [00:00<00:00, 2846.66it/s]Loading weights:   0%|          | 1/236 [00:00<01:02,  3.75it/s]Loading weights: 100%|██████████| 236/236 [00:00<00:00, 864.25it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5138.75it/s]
+Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 1/236 [00:00<00:55,  4.24it/s]Loading weights: 100%|██████████| 236/236 [00:00<00:00, 972.00it/s]
+Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 1/236 [00:00<00:56,  4.18it/s]Loading weights:   0%|          | 1/236 [00:00<00:56,  4.18it/s]Loading weights: 100%|██████████| 236/236 [00:00<00:00, 958.63it/s]
+Loading weights: 100%|██████████| 236/236 [00:00<00:00, 959.18it/s]
+Loading weights:   0%|          | 1/236 [00:00<01:02,  3.77it/s]Loading weights: 100%|██████████| 236/236 [00:00<00:00, 866.19it/s]
+{"event": "STATE_PROBE", "intervention": "none", "metrics": {"frames": 1792, "episodes": 56, "ce": 2.6362878484318832, "mae": 0.012177830948530755, "rmse": 0.019835901281622204, "episode_mae": 0.012177830948530755, "baseline_mae": 0.05533733551939284, "baseline_rmse": 0.06688020310571469, "mae_remaining_seconds": 6.041016005867823, "bias": 0.0011494733965134532, "crps": 0.009739255651295155, "entropy": 1.767272530489468, "interval90_coverage": 0.6713169642857143, "interval90_width": 0.026012834045104682}}
+{"event": "STATE_PROBE", "intervention": "zero", "metrics": {"frames": 1792, "episodes": 56, "ce": 2.6362057667658, "mae": 0.012178596550516627, "rmse": 0.01983531194161811, "episode_mae": 0.012178596550516627, "baseline_mae": 0.05533733551939284, "baseline_rmse": 0.06688020310571469, "mae_remaining_seconds": 6.041395795492948, "bias": 0.0011487355476284783, "crps": 0.009740726518519491, "entropy": 1.7672787313016929, "interval90_coverage": 0.6707589285714286, "interval90_width": 0.025998883140606006}}
+{"event": "STATE_PROBE", "intervention": "permute", "metrics": {"frames": 1792, "episodes": 56, "ce": 2.6360339936633994, "mae": 0.012177957463141606, "rmse": 0.019835165736069672, "episode_mae": 0.012177957463141606, "baseline_mae": 0.05533733551939284, "baseline_rmse": 0.06688020310571469, "mae_remaining_seconds": 6.041078765549113, "bias": 0.0011478016462465998, "crps": 0.00973954098938228, "entropy": 1.7675381359045528, "interval90_coverage": 0.6696428571428571, "interval90_width": 0.025996092969372903}}

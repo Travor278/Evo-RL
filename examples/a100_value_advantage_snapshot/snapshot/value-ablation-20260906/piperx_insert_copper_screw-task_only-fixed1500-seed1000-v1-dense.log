@@ -1,0 +1,29 @@
+/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+[rank0]:[W906 19:36:57.662122807 ProcessGroupNCCL.cpp:5138] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:  51%|█████▏    | 456/888 [00:00<00:00, 4558.50it/s]Loading weights:  37%|███▋      | 329/888 [00:00<00:00, 3283.98it/s]Loading weights:  61%|██████    | 539/888 [00:00<00:00, 5380.18it/s]Loading weights:  39%|███▉      | 346/888 [00:00<00:00, 3458.74it/s]Loading weights:  56%|█████▌    | 496/888 [00:00<00:00, 4954.43it/s]Loading weights:  41%|████      | 366/888 [00:00<00:00, 3649.65it/s]Loading weights:  39%|███▊      | 344/888 [00:00<00:00, 3412.45it/s]Loading weights:  55%|█████▌    | 491/888 [00:00<00:00, 4906.11it/s]Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5316.98it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5119.98it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5022.35it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 4654.08it/s]
+Loading weights: 100%|█████████▉| 886/888 [00:00<00:00, 4599.48it/s]Loading weights: 100%|██████████| 888/888 [00:00<00:00, 4429.70it/s]
+Loading weights:  86%|████████▋ | 768/888 [00:00<00:00, 3866.30it/s]Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5023.46it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 4213.46it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 4606.59it/s]
+Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 1/236 [00:00<01:20,  2.92it/s]Loading weights:   0%|          | 1/236 [00:00<01:25,  2.76it/s]Loading weights:   0%|          | 1/236 [00:00<01:36,  2.44it/s]Loading weights: 100%|██████████| 236/236 [00:00<00:00, 566.03it/s]
+Loading weights: 100%|██████████| 236/236 [00:00<00:00, 639.98it/s]
+Loading weights: 100%|██████████| 236/236 [00:00<00:00, 669.72it/s]
+Loading weights:   0%|          | 1/236 [00:00<02:06,  1.85it/s]Loading weights:   0%|          | 1/236 [00:00<02:02,  1.92it/s]Loading weights: 100%|██████████| 236/236 [00:00<00:00, 430.35it/s]
+Loading weights:   0%|          | 1/236 [00:00<02:09,  1.81it/s]Loading weights:   0%|          | 1/236 [00:00<02:12,  1.78it/s]Loading weights: 100%|██████████| 236/236 [00:00<00:00, 442.40it/s]
+Loading weights: 100%|██████████| 236/236 [00:00<00:00, 421.61it/s]
+Loading weights: 100%|██████████| 236/236 [00:00<00:00, 414.39it/s]
+Loading weights:   0%|          | 1/236 [00:00<02:10,  1.80it/s]Loading weights: 100%|██████████| 236/236 [00:00<00:00, 419.85it/s]
+{"event": "ARCHITECTURE", "variant": "task_only", "total_parameters": 1147607163, "trainable_parameters": 1147607163, "state_input": false}
+{"event": "DENSE_REVIEW", "step": 1500, "checkpoint": "checkpoint-001500.pt", "frames_per_episode": 128, "test": {"frames": 7168, "episodes": 56, "ce": 2.5112654684843227, "mae": 0.01367413080363024, "rmse": 0.02078566501859288, "episode_mae": 0.01367413080363024, "baseline_mae": 0.05476174029484225, "baseline_rmse": 0.06602341216183462, "mae_remaining_seconds": 6.783280487320841, "bias": 0.0012359686477988621, "crps": 0.010098455349082412, "entropy": 2.159569611199134, "interval90_coverage": 0.7981305803571429, "interval90_width": 0.043747208792930384}, "checkpoint_reload": "strict_ok", "state_intervention": "none"}

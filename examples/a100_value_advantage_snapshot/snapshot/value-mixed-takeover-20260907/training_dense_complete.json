@@ -1,0 +1,6 @@
+{
+  "status": "ok",
+  "run": "piperx-vision-mixed1to1-c150-z15337-fixed1500-seed1000",
+  "step": 1500,
+  "advantage_evaluation_required": true
+}

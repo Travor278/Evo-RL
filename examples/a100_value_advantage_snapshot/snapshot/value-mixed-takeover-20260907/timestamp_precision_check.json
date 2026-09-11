@@ -1,0 +1,13 @@
+{
+  "status": "ok",
+  "episode": 26,
+  "frame": 5386,
+  "query": 1888.2333404541016,
+  "nearest_pts": 1888.2333333333333,
+  "error_float64": 7.120768259483157e-06,
+  "error_float32": 0.0001220703125,
+  "tolerance": 0.0001,
+  "pixel_match": true,
+  "out_of_tolerance_rejected": true,
+  "upstream_source_unchanged": true
+}

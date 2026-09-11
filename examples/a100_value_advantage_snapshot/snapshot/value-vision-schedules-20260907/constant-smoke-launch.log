@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/data/experiments/value-vision-schedules-20260907/run_lane.py", line 46, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/experiments/value-vision-schedules-20260907/run_lane.py", line 36, in main
+    run(2,True)
+  File "/data/experiments/value-vision-schedules-20260907/run_lane.py", line 23, in run
+    with (ROOT/(name+'.log')).open('a') as f:subprocess.run(cmd,cwd=ROOT,env=env,stdout=f,stderr=subprocess.STDOUT,check=True)
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/bin/python', '-m', 'torch.distributed.run', '--nproc_per_node=4', '--master_port=29731', '/data/experiments/value-vision-schedules-20260907/train_lean_value.py', '--task', 'piperx_insert_copper_screw', '--variant', 'vision_only', '--run', 'piperx-visionlean-constant-fixed2-seed1000-smoke', '--steps', '2', '--lr-schedule', 'constant', '--seed', '1000', '--batch-size', '8', '--workers', '2', '--peak-lr', '5e-5', '--min-lr', '1e-6', '--warmup', '1', '--eval-every', '2', '--eval-frames', '2', '--smoke']' returned non-zero exit status 2.

@@ -1,0 +1,11 @@
+{"event": "REVIEW_START", "step": 1000, "at": 1788820812.5692606}
+{"event": "REVIEW_COMPLETE", "step": 1000, "at": 1788821495.8786886}
+{"event": "REVIEW_START", "step": 750, "at": 1788821495.9516175}
+{"event": "REVIEW_COMPLETE", "step": 750, "at": 1788822172.6903522}
+{"event": "REVIEW_START", "step": 500, "at": 1788822172.745529}
+{"event": "REVIEW_COMPLETE", "step": 500, "at": 1788822844.6647463}
+{"event": "REVIEW_START", "step": 1250, "at": 1788822844.7127247}
+{"event": "REVIEW_COMPLETE", "step": 1250, "at": 1788823526.2265413}
+{"event": "REVIEW_START", "step": 250, "at": 1788823526.2736745}
+{"event": "REVIEW_COMPLETE", "step": 250, "at": 1788824193.2812586}
+ALL_CHECKPOINT_REVIEWS_COMPLETE

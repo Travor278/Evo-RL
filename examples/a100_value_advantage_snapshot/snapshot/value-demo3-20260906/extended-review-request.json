@@ -1,0 +1,8 @@
+{
+  "protocol": "posthoc-diagnostics-v1",
+  "authorized_by": "User requested comprehensive actual code analysis of existing value checkpoints; no retraining",
+  "execution": "Only within existing serial dense-review stage after a task's training ends; never launch concurrent GPU job",
+  "fixed_candidates": {"piperx_insert_copper_screw": [1500, 3000, 4750, 5500]},
+  "additional_candidates": "Observed CE, macro MAE and RMSE minima at each task completion",
+  "training_unchanged": true
+}

@@ -1,0 +1,556 @@
+INFERENCE_VERIFIED_BEGIN_EXPORT
+PLAN 558 7146 322261 0.01298177246013573
+SOURCE_EXPORTED 2 20 928
+SOURCE_EXPORTED 1 21 974
+SOURCE_EXPORTED 5 21 963
+SOURCE_EXPORTED 4 21 1215
+SOURCE_EXPORTED 3 27 1403
+SOURCE_EXPORTED 8 17 655
+SOURCE_EXPORTED 6 12 663
+SOURCE_EXPORTED 0 37 1856
+SOURCE_EXPORTED 7 16 768
+SOURCE_EXPORTED 9 16 732
+SOURCE_EXPORTED 10 11 529
+SOURCE_EXPORTED 13 14 722
+SOURCE_EXPORTED 11 21 806
+SOURCE_EXPORTED 14 16 712
+SOURCE_EXPORTED 16 12 611
+SOURCE_EXPORTED 15 19 827
+SOURCE_EXPORTED 12 22 1032
+SOURCE_EXPORTED 17 12 452
+SOURCE_EXPORTED 19 11 507
+SOURCE_EXPORTED 21 11 502
+SOURCE_EXPORTED 22 12 516
+SOURCE_EXPORTED 18 17 776
+SOURCE_EXPORTED 20 16 753
+SOURCE_EXPORTED 23 8 381
+SOURCE_EXPORTED 24 11 359
+SOURCE_EXPORTED 26 11 347
+SOURCE_EXPORTED 25 9 508
+SOURCE_EXPORTED 29 8 315
+SOURCE_EXPORTED 27 14 483
+SOURCE_EXPORTED 28 13 494
+SOURCE_EXPORTED 31 9 338
+SOURCE_EXPORTED 30 12 476
+SOURCE_EXPORTED 33 11 280
+SOURCE_EXPORTED 34 13 460
+SOURCE_EXPORTED 37 8 231
+SOURCE_EXPORTED 32 17 720
+SOURCE_EXPORTED 35 12 512
+SOURCE_EXPORTED 36 14 587
+SOURCE_EXPORTED 38 13 452
+SOURCE_EXPORTED 39 9 410
+SOURCE_EXPORTED 40 7 363
+SOURCE_EXPORTED 41 11 417
+SOURCE_EXPORTED 42 8 387
+SOURCE_EXPORTED 44 9 403
+SOURCE_EXPORTED 45 9 375
+SOURCE_EXPORTED 47 8 347
+SOURCE_EXPORTED 43 12 628
+SOURCE_EXPORTED 48 9 340
+SOURCE_EXPORTED 46 16 692
+SOURCE_EXPORTED 50 10 345
+SOURCE_EXPORTED 51 10 515
+SOURCE_EXPORTED 49 16 624
+SOURCE_EXPORTED 52 13 509
+SOURCE_EXPORTED 53 16 530
+SOURCE_EXPORTED 55 10 428
+SOURCE_EXPORTED 58 7 213
+SOURCE_EXPORTED 54 17 545
+SOURCE_EXPORTED 57 7 308
+SOURCE_EXPORTED 56 12 422
+SOURCE_EXPORTED 62 3 80
+SOURCE_EXPORTED 60 6 197
+SOURCE_EXPORTED 61 6 198
+SOURCE_EXPORTED 64 6 182
+SOURCE_EXPORTED 59 17 544
+SOURCE_EXPORTED 63 8 248
+SOURCE_EXPORTED 65 5 185
+SOURCE_EXPORTED 66 8 291
+SOURCE_EXPORTED 67 8 289
+SOURCE_EXPORTED 71 7 242
+SOURCE_EXPORTED 68 9 341
+SOURCE_EXPORTED 69 9 401
+SOURCE_EXPORTED 72 11 389
+SOURCE_EXPORTED 70 15 589
+SOURCE_EXPORTED 75 6 262
+SOURCE_EXPORTED 74 7 361
+SOURCE_EXPORTED 73 15 566
+SOURCE_EXPORTED 77 6 227
+SOURCE_EXPORTED 76 11 357
+SOURCE_EXPORTED 79 4 164
+SOURCE_EXPORTED 78 7 225
+SOURCE_EXPORTED 81 5 158
+SOURCE_EXPORTED 83 4 65
+SOURCE_EXPORTED 82 3 89
+SOURCE_EXPORTED 80 6 228
+SOURCE_EXPORTED 85 4 184
+SOURCE_EXPORTED 84 8 280
+SOURCE_EXPORTED 88 4 200
+SOURCE_EXPORTED 90 3 99
+SOURCE_EXPORTED 89 6 170
+SOURCE_EXPORTED 86 8 288
+SOURCE_EXPORTED 87 7 316
+SOURCE_EXPORTED 91 4 124
+SOURCE_EXPORTED 95 3 116
+SOURCE_EXPORTED 92 5 201
+SOURCE_EXPORTED 96 3 111
+SOURCE_EXPORTED 93 8 189
+SOURCE_EXPORTED 94 6 210
+SOURCE_EXPORTED 97 6 154
+SOURCE_EXPORTED 98 5 148
+SOURCE_EXPORTED 102 3 104
+SOURCE_EXPORTED 100 5 155
+SOURCE_EXPORTED 99 6 184
+SOURCE_EXPORTED 101 4 139
+SOURCE_EXPORTED 107 3 103
+SOURCE_EXPORTED 106 5 139
+SOURCE_EXPORTED 103 6 298
+SOURCE_EXPORTED 105 5 181
+SOURCE_EXPORTED 108 5 173
+SOURCE_EXPORTED 104 7 287
+SOURCE_EXPORTED 110 4 112
+SOURCE_EXPORTED 109 7 209
+SOURCE_EXPORTED 112 5 190
+SOURCE_EXPORTED 113 6 195
+SOURCE_EXPORTED 115 5 148
+SOURCE_EXPORTED 111 9 403
+SOURCE_EXPORTED 117 5 136
+SOURCE_EXPORTED 116 5 171
+SOURCE_EXPORTED 114 8 324
+SOURCE_EXPORTED 118 5 157
+SOURCE_EXPORTED 119 4 147
+SOURCE_EXPORTED 120 5 163
+SOURCE_EXPORTED 124 3 76
+SOURCE_EXPORTED 122 5 222
+SOURCE_EXPORTED 121 6 206
+SOURCE_EXPORTED 123 7 229
+SOURCE_EXPORTED 125 4 120
+SOURCE_EXPORTED 130 2 53
+SOURCE_EXPORTED 131 3 110
+SOURCE_EXPORTED 128 5 202
+SOURCE_EXPORTED 129 7 262
+SOURCE_EXPORTED 132 3 201
+SOURCE_EXPORTED 135 1 45
+SOURCE_EXPORTED 136 1 31
+SOURCE_EXPORTED 133 6 199
+SOURCE_EXPORTED 134 4 144
+SOURCE_EXPORTED 126 14 567
+SOURCE_EXPORTED 127 14 543
+SOURCE_EXPORTED 138 3 105
+SOURCE_EXPORTED 137 4 164
+SOURCE_EXPORTED 140 3 116
+SOURCE_EXPORTED 142 3 65
+SOURCE_EXPORTED 141 4 207
+SOURCE_EXPORTED 144 2 84
+SOURCE_EXPORTED 143 5 191
+SOURCE_EXPORTED 147 3 88
+SOURCE_EXPORTED 146 4 127
+SOURCE_EXPORTED 145 6 186
+SOURCE_EXPORTED 148 4 142
+SOURCE_EXPORTED 151 2 89
+SOURCE_EXPORTED 149 3 95
+SOURCE_EXPORTED 150 4 196
+SOURCE_EXPORTED 139 15 567
+SOURCE_EXPORTED 152 6 211
+SOURCE_EXPORTED 153 3 132
+SOURCE_EXPORTED 154 4 140
+SOURCE_EXPORTED 155 5 185
+SOURCE_EXPORTED 156 4 113
+SOURCE_EXPORTED 158 3 146
+SOURCE_EXPORTED 159 4 88
+SOURCE_EXPORTED 157 5 161
+SOURCE_EXPORTED 164 3 63
+SOURCE_EXPORTED 160 5 224
+SOURCE_EXPORTED 165 4 97
+SOURCE_EXPORTED 163 4 134
+SOURCE_EXPORTED 167 2 78
+SOURCE_EXPORTED 161 6 283
+SOURCE_EXPORTED 170 2 43
+SOURCE_EXPORTED 168 5 149
+SOURCE_EXPORTED 169 5 158
+SOURCE_EXPORTED 173 1 49
+SOURCE_EXPORTED 172 5 165
+SOURCE_EXPORTED 171 5 205
+SOURCE_EXPORTED 176 1 12
+SOURCE_EXPORTED 166 11 372
+SOURCE_EXPORTED 177 3 63
+SOURCE_EXPORTED 174 5 165
+SOURCE_EXPORTED 179 2 64
+SOURCE_EXPORTED 178 3 98
+SOURCE_EXPORTED 175 4 181
+SOURCE_EXPORTED 183 3 93
+SOURCE_EXPORTED 162 18 886
+SOURCE_EXPORTED 181 4 151
+SOURCE_EXPORTED 182 4 106
+SOURCE_EXPORTED 184 4 102
+SOURCE_EXPORTED 180 7 205
+SOURCE_EXPORTED 188 2 35
+SOURCE_EXPORTED 187 3 96
+SOURCE_EXPORTED 185 4 128
+SOURCE_EXPORTED 189 6 155
+SOURCE_EXPORTED 192 2 66
+SOURCE_EXPORTED 194 1 59
+SOURCE_EXPORTED 190 7 249
+SOURCE_EXPORTED 186 6 338
+SOURCE_EXPORTED 198 1 20
+SOURCE_EXPORTED 193 5 196
+SOURCE_EXPORTED 197 3 66
+SOURCE_EXPORTED 195 6 225
+SOURCE_EXPORTED 199 2 62
+SOURCE_EXPORTED 196 5 127
+SOURCE_EXPORTED 203 1 24
+SOURCE_EXPORTED 191 8 343
+SOURCE_EXPORTED 202 2 70
+SOURCE_EXPORTED 204 3 98
+SOURCE_EXPORTED 201 4 201
+SOURCE_EXPORTED 206 2 121
+SOURCE_EXPORTED 208 2 61
+SOURCE_EXPORTED 200 9 366
+SOURCE_EXPORTED 210 2 103
+SOURCE_EXPORTED 205 9 338
+SOURCE_EXPORTED 212 2 58
+SOURCE_EXPORTED 213 3 67
+SOURCE_EXPORTED 211 3 126
+SOURCE_EXPORTED 209 6 236
+SOURCE_EXPORTED 218 1 29
+SOURCE_EXPORTED 207 10 328
+SOURCE_EXPORTED 216 4 108
+SOURCE_EXPORTED 219 4 75
+SOURCE_EXPORTED 217 6 144
+SOURCE_EXPORTED 224 3 60
+SOURCE_EXPORTED 220 8 340
+SOURCE_EXPORTED 223 8 309
+SOURCE_EXPORTED 214 17 733
+SOURCE_EXPORTED 222 12 607
+SOURCE_EXPORTED 225 14 542
+SOURCE_EXPORTED 226 17 732
+SOURCE_EXPORTED 227 18 908
+SOURCE_EXPORTED 229 15 796
+SOURCE_EXPORTED 230 13 651
+SOURCE_EXPORTED 228 14 936
+SOURCE_EXPORTED 232 9 400
+SOURCE_EXPORTED 231 20 934
+SOURCE_EXPORTED 234 15 510
+SOURCE_EXPORTED 233 10 557
+SOURCE_EXPORTED 237 9 401
+SOURCE_EXPORTED 235 16 572
+SOURCE_EXPORTED 236 12 611
+SOURCE_EXPORTED 239 10 356
+SOURCE_EXPORTED 242 9 300
+SOURCE_EXPORTED 238 15 599
+SOURCE_EXPORTED 241 11 446
+SOURCE_EXPORTED 240 13 608
+SOURCE_EXPORTED 243 8 467
+SOURCE_EXPORTED 248 2 59
+SOURCE_EXPORTED 244 7 393
+SOURCE_EXPORTED 247 11 388
+SOURCE_EXPORTED 249 8 233
+SOURCE_EXPORTED 246 12 485
+SOURCE_EXPORTED 245 13 562
+SOURCE_EXPORTED 251 8 319
+SOURCE_EXPORTED 252 9 404
+SOURCE_EXPORTED 253 11 366
+SOURCE_EXPORTED 250 13 578
+SOURCE_EXPORTED 254 8 419
+SOURCE_EXPORTED 255 13 402
+SOURCE_EXPORTED 257 4 112
+SOURCE_EXPORTED 258 6 190
+SOURCE_EXPORTED 256 10 457
+SOURCE_EXPORTED 263 6 218
+SOURCE_EXPORTED 259 14 594
+SOURCE_EXPORTED 261 15 455
+SOURCE_EXPORTED 262 9 449
+SOURCE_EXPORTED 264 12 345
+SOURCE_EXPORTED 260 17 687
+SOURCE_EXPORTED 265 11 405
+SOURCE_EXPORTED 266 13 468
+SOURCE_EXPORTED 269 29 1509
+SOURCE_EXPORTED 270 28 1322
+SOURCE_EXPORTED 268 36 1610
+SOURCE_EXPORTED 271 26 1212
+SOURCE_EXPORTED 272 26 1376
+SOURCE_EXPORTED 267 42 2048
+SOURCE_EXPORTED 274 29 1177
+SOURCE_EXPORTED 273 25 1295
+SOURCE_EXPORTED 275 26 1382
+SOURCE_EXPORTED 280 12 573
+SOURCE_EXPORTED 277 38 2007
+SOURCE_EXPORTED 279 22 1116
+SOURCE_EXPORTED 276 45 2750
+SOURCE_EXPORTED 283 14 611
+SOURCE_EXPORTED 281 28 1400
+SOURCE_EXPORTED 282 22 1295
+SOURCE_EXPORTED 278 47 2972
+SOURCE_EXPORTED 284 28 1320
+SOURCE_EXPORTED 285 27 1313
+SOURCE_EXPORTED 287 32 1301
+SOURCE_EXPORTED 286 26 1490
+SOURCE_EXPORTED 289 28 1317
+SOURCE_EXPORTED 288 30 1795
+SOURCE_EXPORTED 291 26 1499
+SOURCE_EXPORTED 293 29 1462
+SOURCE_EXPORTED 290 36 1963
+SOURCE_EXPORTED 292 31 1581
+SOURCE_EXPORTED 294 39 1772
+SOURCE_EXPORTED 295 29 1857
+SOURCE_EXPORTED 296 30 1417
+SOURCE_EXPORTED 297 29 1276
+SOURCE_EXPORTED 299 23 1385
+SOURCE_EXPORTED 298 31 1596
+SOURCE_EXPORTED 301 20 992
+SOURCE_EXPORTED 303 17 806
+SOURCE_EXPORTED 302 22 929
+SOURCE_EXPORTED 304 25 1018
+SOURCE_EXPORTED 305 23 1045
+SOURCE_EXPORTED 300 36 2280
+SOURCE_EXPORTED 308 19 875
+SOURCE_EXPORTED 307 21 1013
+SOURCE_EXPORTED 306 27 1246
+SOURCE_EXPORTED 309 18 794
+SOURCE_EXPORTED 310 28 1137
+SOURCE_EXPORTED 311 22 853
+SOURCE_EXPORTED 313 24 890
+SOURCE_EXPORTED 315 18 689
+SOURCE_EXPORTED 312 23 981
+SOURCE_EXPORTED 314 23 1150
+SOURCE_EXPORTED 316 19 774
+SOURCE_EXPORTED 317 18 746
+SOURCE_EXPORTED 318 12 623
+SOURCE_EXPORTED 319 20 894
+SOURCE_EXPORTED 320 20 869
+SOURCE_EXPORTED 322 13 631
+SOURCE_EXPORTED 321 24 1160
+SOURCE_EXPORTED 323 20 1017
+SOURCE_EXPORTED 324 18 916
+SOURCE_EXPORTED 325 17 841
+SOURCE_EXPORTED 326 17 948
+SOURCE_EXPORTED 327 20 915
+SOURCE_EXPORTED 328 22 914
+SOURCE_EXPORTED 329 21 807
+SOURCE_EXPORTED 332 18 676
+SOURCE_EXPORTED 330 27 1017
+SOURCE_EXPORTED 334 9 367
+SOURCE_EXPORTED 333 15 812
+SOURCE_EXPORTED 331 25 1165
+SOURCE_EXPORTED 337 22 732
+SOURCE_EXPORTED 336 19 817
+SOURCE_EXPORTED 335 22 1031
+SOURCE_EXPORTED 338 23 897
+SOURCE_EXPORTED 340 16 652
+SOURCE_EXPORTED 339 21 1073
+SOURCE_EXPORTED 343 20 827
+SOURCE_EXPORTED 342 24 946
+SOURCE_EXPORTED 341 27 1167
+SOURCE_EXPORTED 345 23 865
+SOURCE_EXPORTED 344 21 1158
+SOURCE_EXPORTED 346 17 954
+SOURCE_EXPORTED 347 20 966
+SOURCE_EXPORTED 351 17 718
+SOURCE_EXPORTED 348 21 1097
+SOURCE_EXPORTED 349 23 1132
+SOURCE_EXPORTED 350 23 1196
+SOURCE_EXPORTED 352 27 1227
+SOURCE_EXPORTED 353 24 1025
+SOURCE_EXPORTED 355 47 2298
+SOURCE_EXPORTED 359 25 1379
+SOURCE_EXPORTED 357 43 2015
+SOURCE_EXPORTED 356 40 2119
+SOURCE_EXPORTED 358 35 1785
+SOURCE_EXPORTED 354 68 3751
+SOURCE_EXPORTED 362 28 1163
+SOURCE_EXPORTED 360 30 1647
+SOURCE_EXPORTED 363 28 1522
+SOURCE_EXPORTED 361 33 1665
+SOURCE_EXPORTED 364 29 1527
+SOURCE_EXPORTED 365 29 1351
+SOURCE_EXPORTED 368 23 978
+SOURCE_EXPORTED 366 39 1693
+SOURCE_EXPORTED 370 22 1223
+SOURCE_EXPORTED 367 28 1454
+SOURCE_EXPORTED 369 42 2146
+SOURCE_EXPORTED 371 30 1569
+SOURCE_EXPORTED 373 28 1350
+SOURCE_EXPORTED 372 31 1683
+SOURCE_EXPORTED 374 32 1528
+SOURCE_EXPORTED 375 31 1632
+SOURCE_EXPORTED 376 37 1892
+SOURCE_EXPORTED 378 32 1449
+SOURCE_EXPORTED 380 29 1317
+SOURCE_EXPORTED 377 36 1925
+SOURCE_EXPORTED 381 28 1220
+SOURCE_EXPORTED 379 28 1659
+SOURCE_EXPORTED 382 36 1844
+SOURCE_EXPORTED 384 32 1632
+SOURCE_EXPORTED 385 28 1642
+SOURCE_EXPORTED 386 41 2087
+SOURCE_EXPORTED 387 40 2056
+SOURCE_EXPORTED 383 55 3035
+SOURCE_EXPORTED 393 5 138
+SOURCE_EXPORTED 394 1 25
+SOURCE_EXPORTED 395 2 40
+SOURCE_EXPORTED 397 3 97
+SOURCE_EXPORTED 398 2 46
+SOURCE_EXPORTED 399 1 24
+SOURCE_EXPORTED 400 4 113
+SOURCE_EXPORTED 390 39 2165
+SOURCE_EXPORTED 389 31 2180
+SOURCE_EXPORTED 404 1 20
+SOURCE_EXPORTED 388 41 2295
+SOURCE_EXPORTED 402 6 188
+SOURCE_EXPORTED 407 4 87
+SOURCE_EXPORTED 408 2 83
+SOURCE_EXPORTED 409 1 22
+SOURCE_EXPORTED 406 5 175
+SOURCE_EXPORTED 405 4 164
+SOURCE_EXPORTED 411 1 24
+SOURCE_EXPORTED 391 35 1856
+SOURCE_EXPORTED 410 4 83
+SOURCE_EXPORTED 416 2 44
+SOURCE_EXPORTED 418 1 31
+SOURCE_EXPORTED 412 4 148
+SOURCE_EXPORTED 414 4 139
+SOURCE_EXPORTED 417 3 91
+SOURCE_EXPORTED 415 5 159
+SOURCE_EXPORTED 420 2 42
+SOURCE_EXPORTED 422 1 20
+SOURCE_EXPORTED 424 1 22
+SOURCE_EXPORTED 419 2 90
+SOURCE_EXPORTED 427 1 27
+SOURCE_EXPORTED 421 4 104
+SOURCE_EXPORTED 430 1 29
+SOURCE_EXPORTED 425 4 106
+SOURCE_EXPORTED 392 51 2192
+SOURCE_EXPORTED 429 4 162
+SOURCE_EXPORTED 435 2 53
+SOURCE_EXPORTED 434 3 88
+SOURCE_EXPORTED 431 6 164
+SOURCE_EXPORTED 432 5 160
+SOURCE_EXPORTED 433 4 172
+SOURCE_EXPORTED 439 1 36
+SOURCE_EXPORTED 436 2 80
+SOURCE_EXPORTED 445 1 20
+SOURCE_EXPORTED 437 3 100
+SOURCE_EXPORTED 443 3 98
+SOURCE_EXPORTED 440 5 127
+SOURCE_EXPORTED 442 6 182
+SOURCE_EXPORTED 447 4 118
+SOURCE_EXPORTED 448 6 149
+SOURCE_EXPORTED 450 4 108
+SOURCE_EXPORTED 451 2 41
+SOURCE_EXPORTED 441 6 291
+SOURCE_EXPORTED 449 3 137
+SOURCE_EXPORTED 454 2 55
+SOURCE_EXPORTED 457 1 21
+SOURCE_EXPORTED 453 3 44
+SOURCE_EXPORTED 452 4 107
+SOURCE_EXPORTED 455 4 95
+SOURCE_EXPORTED 456 3 76
+SOURCE_EXPORTED 459 3 86
+SOURCE_EXPORTED 461 2 96
+SOURCE_EXPORTED 458 5 123
+SOURCE_EXPORTED 460 4 106
+SOURCE_EXPORTED 462 2 134
+SOURCE_EXPORTED 463 4 121
+SOURCE_EXPORTED 467 2 59
+SOURCE_EXPORTED 470 1 24
+SOURCE_EXPORTED 465 3 125
+SOURCE_EXPORTED 464 5 152
+SOURCE_EXPORTED 468 2 65
+SOURCE_EXPORTED 474 1 23
+SOURCE_EXPORTED 472 2 45
+SOURCE_EXPORTED 466 4 165
+SOURCE_EXPORTED 469 3 115
+SOURCE_EXPORTED 473 2 59
+SOURCE_EXPORTED 476 1 59
+SOURCE_EXPORTED 475 3 92
+SOURCE_EXPORTED 482 1 20
+SOURCE_EXPORTED 479 2 81
+SOURCE_EXPORTED 478 5 141
+SOURCE_EXPORTED 480 5 130
+SOURCE_EXPORTED 477 5 203
+SOURCE_EXPORTED 481 5 173
+SOURCE_EXPORTED 485 15 797
+SOURCE_EXPORTED 484 34 1592
+SOURCE_EXPORTED 488 31 1572
+SOURCE_EXPORTED 483 32 1745
+SOURCE_EXPORTED 487 43 1856
+SOURCE_EXPORTED 489 22 1115
+SOURCE_EXPORTED 486 46 2537
+SOURCE_EXPORTED 491 25 1012
+SOURCE_EXPORTED 492 24 1003
+SOURCE_EXPORTED 493 29 1348
+SOURCE_EXPORTED 494 27 1313
+SOURCE_EXPORTED 490 42 1771
+SOURCE_EXPORTED 496 31 1330
+SOURCE_EXPORTED 497 27 1417
+SOURCE_EXPORTED 495 32 1620
+SOURCE_EXPORTED 498 23 1057
+SOURCE_EXPORTED 499 25 1068
+SOURCE_EXPORTED 501 19 725
+SOURCE_EXPORTED 500 32 1545
+SOURCE_EXPORTED 504 16 698
+SOURCE_EXPORTED 502 20 894
+SOURCE_EXPORTED 503 19 1032
+SOURCE_EXPORTED 507 13 502
+SOURCE_EXPORTED 505 19 1037
+SOURCE_EXPORTED 506 21 883
+SOURCE_EXPORTED 508 18 814
+SOURCE_EXPORTED 509 17 810
+SOURCE_EXPORTED 510 23 1070
+SOURCE_EXPORTED 511 20 783
+SOURCE_EXPORTED 513 19 737
+SOURCE_EXPORTED 515 20 804
+SOURCE_EXPORTED 514 22 920
+SOURCE_EXPORTED 517 17 622
+SOURCE_EXPORTED 512 34 1501
+SOURCE_EXPORTED 516 16 794
+SOURCE_EXPORTED 518 19 797
+SOURCE_EXPORTED 521 12 535
+SOURCE_EXPORTED 523 18 784
+SOURCE_EXPORTED 522 25 974
+SOURCE_EXPORTED 519 32 1440
+SOURCE_EXPORTED 520 31 1406
+SOURCE_EXPORTED 524 19 754
+SOURCE_EXPORTED 529 21 807
+SOURCE_EXPORTED 526 24 976
+SOURCE_EXPORTED 525 36 1368
+SOURCE_EXPORTED 530 23 864
+SOURCE_EXPORTED 533 2 56
+SOURCE_EXPORTED 535 3 70
+SOURCE_EXPORTED 528 24 1176
+SOURCE_EXPORTED 527 26 1218
+SOURCE_EXPORTED 536 4 134
+SOURCE_EXPORTED 534 9 337
+SOURCE_EXPORTED 539 1 24
+SOURCE_EXPORTED 538 2 44
+SOURCE_EXPORTED 537 6 138
+SOURCE_EXPORTED 540 3 80
+SOURCE_EXPORTED 541 2 87
+SOURCE_EXPORTED 542 1 32
+SOURCE_EXPORTED 543 2 49
+SOURCE_EXPORTED 546 3 66
+SOURCE_EXPORTED 547 2 59
+SOURCE_EXPORTED 549 1 21
+SOURCE_EXPORTED 551 1 20
+SOURCE_EXPORTED 548 3 95
+SOURCE_EXPORTED 550 2 47
+SOURCE_EXPORTED 544 7 167
+SOURCE_EXPORTED 552 2 44
+SOURCE_EXPORTED 554 2 41
+SOURCE_EXPORTED 555 3 78
+SOURCE_EXPORTED 553 3 92
+SOURCE_EXPORTED 532 21 872
+SOURCE_EXPORTED 531 20 894
+SOURCE_EXPORTED 557 2 49
+SOURCE_EXPORTED 556 4 120
+WARNING:lerobot.datasets.utils:Unknown fields in DatasetInfo: ['device_type', 'duration', 'location', 'selection_method', 'source', 'task_id', 'task_prompt', 'timestamp', 'topic_list', 'vendor']. These will be ignored.
+Computing stats from data files:   0%|          | 0/544 [00:00<?, ?it/s]Computing stats from data files:   0%|          | 1/544 [00:00<02:14,  4.04it/s]Computing stats from data files:   0%|          | 2/544 [00:00<01:38,  5.52it/s]Computing stats from data files:   1%|          | 3/544 [00:00<01:24,  6.38it/s]Computing stats from data files:   1%|          | 4/544 [00:00<01:28,  6.10it/s]Computing stats from data files:   1%|          | 5/544 [00:00<01:23,  6.47it/s]Computing stats from data files:   1%|          | 6/544 [00:00<01:19,  6.80it/s]Computing stats from data files:   1%|▏         | 8/544 [00:01<01:03,  8.38it/s]Computing stats from data files:   2%|▏         | 9/544 [00:01<01:01,  8.64it/s]Computing stats from data files:   2%|▏         | 10/544 [00:01<00:59,  8.95it/s]Computing stats from data files:   2%|▏         | 12/544 [00:01<00:56,  9.36it/s]Computing stats from data files:   2%|▏         | 13/544 [00:01<01:00,  8.75it/s]Computing stats from data files:   3%|▎         | 15/544 [00:01<00:56,  9.37it/s]Computing stats from data files:   3%|▎         | 16/544 [00:01<00:57,  9.18it/s]Computing stats from data files:   3%|▎         | 18/544 [00:02<00:50, 10.41it/s]Computing stats from data files:   4%|▎         | 20/544 [00:02<00:49, 10.65it/s]Computing stats from data files:   4%|▍         | 22/544 [00:02<00:47, 10.92it/s]Computing stats from data files:   4%|▍         | 24/544 [00:02<00:42, 12.14it/s]Computing stats from data files:   5%|▍         | 26/544 [00:02<00:39, 13.14it/s]Computing stats from data files:   5%|▌         | 28/544 [00:02<00:39, 13.11it/s]Computing stats from data files:   6%|▌         | 30/544 [00:03<00:37, 13.70it/s]Computing stats from data files:   6%|▌         | 32/544 [00:03<00:36, 14.13it/s]Computing stats from data files:   6%|▋         | 34/544 [00:03<00:38, 13.26it/s]Computing stats from data files:   7%|▋         | 36/544 [00:03<00:38, 13.15it/s]Computing stats from data files:   7%|▋         | 38/544 [00:03<00:37, 13.55it/s]Computing stats from data files:   7%|▋         | 40/544 [00:03<00:36, 13.84it/s]Computing stats from data files:   8%|▊         | 42/544 [00:03<00:33, 14.77it/s]Computing stats from data files:   8%|▊         | 44/544 [00:04<00:33, 14.96it/s]Computing stats from data files:   8%|▊         | 46/544 [00:04<00:31, 15.59it/s]Computing stats from data files:   9%|▉         | 48/544 [00:04<00:33, 14.74it/s]Computing stats from data files:   9%|▉         | 50/544 [00:04<00:34, 14.15it/s]Computing stats from data files:  10%|▉         | 52/544 [00:04<00:33, 14.63it/s]Computing stats from data files:  10%|▉         | 54/544 [00:04<00:36, 13.40it/s]Computing stats from data files:  10%|█         | 56/544 [00:04<00:37, 12.98it/s]Computing stats from data files:  11%|█         | 58/544 [00:05<00:34, 13.95it/s]Computing stats from data files:  11%|█         | 60/544 [00:05<00:34, 13.92it/s]Computing stats from data files:  12%|█▏        | 64/544 [00:05<00:26, 18.00it/s]Computing stats from data files:  12%|█▏        | 67/544 [00:05<00:23, 19.91it/s]Computing stats from data files:  13%|█▎        | 70/544 [00:05<00:24, 19.44it/s]Computing stats from data files:  13%|█▎        | 72/544 [00:05<00:26, 18.07it/s]Computing stats from data files:  14%|█▎        | 74/544 [00:05<00:28, 16.28it/s]Computing stats from data files:  14%|█▍        | 77/544 [00:06<00:26, 17.37it/s]Computing stats from data files:  15%|█▍        | 80/544 [00:06<00:23, 19.83it/s]Computing stats from data files:  15%|█▌        | 84/544 [00:06<00:19, 23.79it/s]Computing stats from data files:  16%|█▌        | 87/544 [00:06<00:19, 23.73it/s]Computing stats from data files:  17%|█▋        | 90/544 [00:06<00:18, 24.69it/s]Computing stats from data files:  17%|█▋        | 94/544 [00:06<00:16, 26.84it/s]Computing stats from data files:  18%|█▊        | 98/544 [00:06<00:15, 29.12it/s]Computing stats from data files:  19%|█▊        | 101/544 [00:06<00:15, 29.27it/s]Computing stats from data files:  19%|█▉        | 105/544 [00:06<00:14, 29.82it/s]Computing stats from data files:  20%|██        | 109/544 [00:07<00:13, 31.38it/s]Computing stats from data files:  21%|██        | 113/544 [00:07<00:14, 29.08it/s]Computing stats from data files:  21%|██▏       | 116/544 [00:07<00:15, 27.93it/s]Computing stats from data files:  22%|██▏       | 120/544 [00:07<00:14, 29.45it/s]Computing stats from data files:  23%|██▎       | 123/544 [00:07<00:14, 29.44it/s]Computing stats from data files:  23%|██▎       | 127/544 [00:07<00:15, 26.88it/s]Computing stats from data files:  24%|██▍       | 130/544 [00:07<00:17, 24.02it/s]Computing stats from data files:  25%|██▍       | 135/544 [00:08<00:14, 28.80it/s]Computing stats from data files:  26%|██▌       | 140/544 [00:08<00:13, 30.08it/s]Computing stats from data files:  27%|██▋       | 145/544 [00:08<00:11, 33.78it/s]Computing stats from data files:  27%|██▋       | 149/544 [00:08<00:11, 34.56it/s]Computing stats from data files:  28%|██▊       | 154/544 [00:08<00:10, 36.64it/s]Computing stats from data files:  29%|██▉       | 158/544 [00:08<00:10, 36.11it/s]Computing stats from data files:  30%|██▉       | 162/544 [00:08<00:10, 35.54it/s]Computing stats from data files:  31%|███       | 166/544 [00:08<00:12, 30.14it/s]Computing stats from data files:  31%|███▏      | 170/544 [00:09<00:12, 29.44it/s]Computing stats from data files:  32%|███▏      | 175/544 [00:09<00:11, 33.02it/s]Computing stats from data files:  33%|███▎      | 181/544 [00:09<00:09, 37.04it/s]Computing stats from data files:  34%|███▍      | 186/544 [00:09<00:09, 38.18it/s]Computing stats from data files:  35%|███▍      | 190/544 [00:09<00:09, 37.76it/s]Computing stats from data files:  36%|███▌      | 194/544 [00:09<00:10, 34.71it/s]Computing stats from data files:  37%|███▋      | 199/544 [00:09<00:09, 38.15it/s]Computing stats from data files:  37%|███▋      | 203/544 [00:09<00:09, 37.60it/s]Computing stats from data files:  38%|███▊      | 208/544 [00:10<00:09, 35.23it/s]Computing stats from data files:  39%|███▉      | 213/544 [00:10<00:08, 38.86it/s]Computing stats from data files:  40%|████      | 218/544 [00:10<00:09, 33.49it/s]Computing stats from data files:  41%|████      | 222/544 [00:10<00:11, 28.12it/s]Computing stats from data files:  42%|████▏     | 226/544 [00:10<00:15, 20.66it/s]Computing stats from data files:  42%|████▏     | 229/544 [00:11<00:18, 17.18it/s]Computing stats from data files:  43%|████▎     | 232/544 [00:11<00:20, 15.56it/s]Computing stats from data files:  43%|████▎     | 234/544 [00:11<00:21, 14.26it/s]Computing stats from data files:  43%|████▎     | 236/544 [00:11<00:21, 14.38it/s]Computing stats from data files:  44%|████▍     | 238/544 [00:11<00:21, 13.98it/s]Computing stats from data files:  44%|████▍     | 240/544 [00:12<00:22, 13.74it/s]Computing stats from data files:  44%|████▍     | 242/544 [00:12<00:20, 14.69it/s]Computing stats from data files:  45%|████▍     | 244/544 [00:12<00:20, 14.83it/s]Computing stats from data files:  45%|████▌     | 246/544 [00:12<00:20, 14.53it/s]Computing stats from data files:  46%|████▌     | 249/544 [00:12<00:18, 16.29it/s]Computing stats from data files:  46%|████▌     | 251/544 [00:12<00:17, 16.78it/s]Computing stats from data files:  47%|████▋     | 253/544 [00:12<00:17, 16.77it/s]Computing stats from data files:  47%|████▋     | 255/544 [00:12<00:18, 15.85it/s]Computing stats from data files:  47%|████▋     | 258/544 [00:13<00:16, 17.12it/s]Computing stats from data files:  48%|████▊     | 260/544 [00:13<00:19, 14.47it/s]Computing stats from data files:  48%|████▊     | 263/544 [00:13<00:18, 15.48it/s]Computing stats from data files:  49%|████▊     | 265/544 [00:13<00:18, 14.83it/s]Computing stats from data files:  49%|████▉     | 267/544 [00:14<00:31,  8.75it/s]Computing stats from data files:  49%|████▉     | 269/544 [00:14<00:36,  7.56it/s]Computing stats from data files:  50%|████▉     | 270/544 [00:14<00:37,  7.27it/s]Computing stats from data files:  50%|████▉     | 271/544 [00:14<00:38,  7.01it/s]Computing stats from data files:  50%|█████     | 272/544 [00:14<00:39,  6.85it/s]Computing stats from data files:  50%|█████     | 273/544 [00:15<00:41,  6.52it/s]Computing stats from data files:  50%|█████     | 274/544 [00:15<00:42,  6.40it/s]Computing stats from data files:  51%|█████     | 275/544 [00:15<00:51,  5.23it/s]Computing stats from data files:  51%|█████     | 276/544 [00:15<00:54,  4.90it/s]Computing stats from data files:  51%|█████     | 277/544 [00:16<01:01,  4.31it/s]Computing stats from data files:  51%|█████     | 278/544 [00:16<00:54,  4.86it/s]Computing stats from data files:  51%|█████▏    | 280/544 [00:16<00:44,  5.87it/s]Computing stats from data files:  52%|█████▏    | 281/544 [00:16<00:43,  6.10it/s]Computing stats from data files:  52%|█████▏    | 283/544 [00:16<00:39,  6.65it/s]Computing stats from data files:  52%|█████▏    | 284/544 [00:17<00:40,  6.47it/s]Computing stats from data files:  52%|█████▏    | 285/544 [00:17<00:40,  6.36it/s]Computing stats from data files:  53%|█████▎    | 286/544 [00:17<00:43,  5.99it/s]Computing stats from data files:  53%|█████▎    | 287/544 [00:17<00:44,  5.76it/s]Computing stats from data files:  53%|█████▎    | 288/544 [00:17<00:44,  5.75it/s]Computing stats from data files:  53%|█████▎    | 289/544 [00:18<00:48,  5.27it/s]Computing stats from data files:  53%|█████▎    | 290/544 [00:18<00:46,  5.48it/s]Computing stats from data files:  53%|█████▎    | 291/544 [00:18<00:47,  5.37it/s]Computing stats from data files:  54%|█████▎    | 292/544 [00:18<00:46,  5.39it/s]Computing stats from data files:  54%|█████▍    | 293/544 [00:18<00:50,  4.93it/s]Computing stats from data files:  54%|█████▍    | 294/544 [00:19<00:49,  5.06it/s]Computing stats from data files:  54%|█████▍    | 295/544 [00:19<00:48,  5.13it/s]Computing stats from data files:  54%|█████▍    | 296/544 [00:19<00:47,  5.25it/s]Computing stats from data files:  55%|█████▍    | 297/544 [00:19<00:47,  5.22it/s]Computing stats from data files:  55%|█████▍    | 298/544 [00:19<00:43,  5.60it/s]Computing stats from data files:  55%|█████▍    | 299/544 [00:19<00:47,  5.14it/s]Computing stats from data files:  55%|█████▌    | 300/544 [00:20<00:42,  5.76it/s]Computing stats from data files:  55%|█████▌    | 301/544 [00:20<00:39,  6.17it/s]Computing stats from data files:  56%|█████▌    | 302/544 [00:20<00:35,  6.87it/s]Computing stats from data files:  56%|█████▌    | 303/544 [00:20<00:35,  6.75it/s]Computing stats from data files:  56%|█████▌    | 304/544 [00:20<00:35,  6.84it/s]Computing stats from data files:  56%|█████▌    | 305/544 [00:20<00:36,  6.54it/s]Computing stats from data files:  56%|█████▋    | 306/544 [00:20<00:34,  6.81it/s]Computing stats from data files:  56%|█████▋    | 307/544 [00:21<00:32,  7.21it/s]Computing stats from data files:  57%|█████▋    | 308/544 [00:21<00:31,  7.61it/s]Computing stats from data files:  57%|█████▋    | 309/544 [00:21<00:33,  6.96it/s]Computing stats from data files:  57%|█████▋    | 310/544 [00:21<00:32,  7.09it/s]Computing stats from data files:  57%|█████▋    | 311/544 [00:21<00:32,  7.07it/s]Computing stats from data files:  57%|█████▋    | 312/544 [00:21<00:33,  7.02it/s]Computing stats from data files:  58%|█████▊    | 313/544 [00:21<00:33,  6.97it/s]Computing stats from data files:  58%|█████▊    | 314/544 [00:22<00:30,  7.51it/s]Computing stats from data files:  58%|█████▊    | 315/544 [00:22<00:29,  7.80it/s]Computing stats from data files:  58%|█████▊    | 316/544 [00:22<00:28,  8.13it/s]Computing stats from data files:  58%|█████▊    | 318/544 [00:22<00:25,  8.87it/s]Computing stats from data files:  59%|█████▊    | 319/544 [00:22<00:26,  8.64it/s]Computing stats from data files:  59%|█████▉    | 320/544 [00:22<00:27,  8.02it/s]Computing stats from data files:  59%|█████▉    | 322/544 [00:22<00:25,  8.65it/s]Computing stats from data files:  59%|█████▉    | 323/544 [00:23<00:25,  8.67it/s]Computing stats from data files:  60%|█████▉    | 324/544 [00:23<00:24,  8.83it/s]Computing stats from data files:  60%|█████▉    | 325/544 [00:23<00:24,  8.92it/s]Computing stats from data files:  60%|█████▉    | 326/544 [00:23<00:25,  8.68it/s]Computing stats from data files:  60%|██████    | 327/544 [00:23<00:26,  8.26it/s]Computing stats from data files:  60%|██████    | 328/544 [00:23<00:26,  8.13it/s]Computing stats from data files:  60%|██████    | 329/544 [00:23<00:28,  7.42it/s]Computing stats from data files:  61%|██████    | 330/544 [00:23<00:30,  7.12it/s]Computing stats from data files:  61%|██████    | 331/544 [00:24<00:28,  7.60it/s]Computing stats from data files:  61%|██████    | 333/544 [00:24<00:22,  9.44it/s]Computing stats from data files:  61%|██████▏   | 334/544 [00:24<00:23,  8.84it/s]Computing stats from data files:  62%|██████▏   | 335/544 [00:24<00:23,  8.75it/s]Computing stats from data files:  62%|██████▏   | 336/544 [00:24<00:24,  8.42it/s]Computing stats from data files:  62%|██████▏   | 337/544 [00:24<00:25,  8.00it/s]Computing stats from data files:  62%|██████▏   | 338/544 [00:24<00:26,  7.87it/s]Computing stats from data files:  62%|██████▎   | 340/544 [00:25<00:26,  7.75it/s]Computing stats from data files:  63%|██████▎   | 341/544 [00:25<00:27,  7.51it/s]Computing stats from data files:  63%|██████▎   | 342/544 [00:25<00:26,  7.66it/s]Computing stats from data files:  63%|██████▎   | 343/544 [00:25<00:26,  7.63it/s]Computing stats from data files:  63%|██████▎   | 344/544 [00:25<00:26,  7.49it/s]Computing stats from data files:  63%|██████▎   | 345/544 [00:25<00:25,  7.90it/s]Computing stats from data files:  64%|██████▎   | 346/544 [00:25<00:25,  7.92it/s]Computing stats from data files:  64%|██████▍   | 347/544 [00:26<00:25,  7.79it/s]Computing stats from data files:  64%|██████▍   | 348/544 [00:26<00:26,  7.52it/s]Computing stats from data files:  64%|██████▍   | 349/544 [00:26<00:26,  7.32it/s]Computing stats from data files:  64%|██████▍   | 350/544 [00:26<00:24,  7.85it/s]Computing stats from data files:  65%|██████▍   | 351/544 [00:26<00:26,  7.17it/s]Computing stats from data files:  65%|██████▍   | 352/544 [00:26<00:27,  7.04it/s]Computing stats from data files:  65%|██████▍   | 353/544 [00:27<00:43,  4.41it/s]Computing stats from data files:  65%|██████▌   | 354/544 [00:27<00:46,  4.06it/s]Computing stats from data files:  65%|██████▌   | 355/544 [00:27<00:46,  4.03it/s]Computing stats from data files:  65%|██████▌   | 356/544 [00:28<00:47,  3.94it/s]Computing stats from data files:  66%|██████▌   | 357/544 [00:28<00:45,  4.11it/s]Computing stats from data files:  66%|██████▌   | 358/544 [00:28<00:40,  4.57it/s]Computing stats from data files:  66%|██████▌   | 359/544 [00:28<00:38,  4.75it/s]Computing stats from data files:  66%|██████▌   | 360/544 [00:28<00:38,  4.78it/s]Computing stats from data files:  66%|██████▋   | 361/544 [00:28<00:36,  5.03it/s]Computing stats from data files:  67%|██████▋   | 362/544 [00:29<00:35,  5.20it/s]Computing stats from data files:  67%|██████▋   | 363/544 [00:29<00:34,  5.27it/s]Computing stats from data files:  67%|██████▋   | 364/544 [00:29<00:33,  5.35it/s]Computing stats from data files:  67%|██████▋   | 365/544 [00:29<00:36,  4.94it/s]Computing stats from data files:  67%|██████▋   | 366/544 [00:29<00:34,  5.13it/s]Computing stats from data files:  67%|██████▋   | 367/544 [00:30<00:31,  5.58it/s]Computing stats from data files:  68%|██████▊   | 368/544 [00:30<00:35,  4.89it/s]Computing stats from data files:  68%|██████▊   | 369/544 [00:30<00:32,  5.39it/s]Computing stats from data files:  68%|██████▊   | 370/544 [00:30<00:32,  5.36it/s]Computing stats from data files:  68%|██████▊   | 371/544 [00:30<00:32,  5.27it/s]Computing stats from data files:  68%|██████▊   | 372/544 [00:31<00:31,  5.40it/s]Computing stats from data files:  69%|██████▊   | 373/544 [00:31<00:32,  5.25it/s]Computing stats from data files:  69%|██████▉   | 374/544 [00:31<00:32,  5.20it/s]Computing stats from data files:  69%|██████▉   | 375/544 [00:31<00:34,  4.90it/s]Computing stats from data files:  69%|██████▉   | 376/544 [00:31<00:35,  4.74it/s]Computing stats from data files:  69%|██████▉   | 377/544 [00:32<00:34,  4.82it/s]Computing stats from data files:  69%|██████▉   | 378/544 [00:32<00:33,  5.02it/s]Computing stats from data files:  70%|██████▉   | 379/544 [00:32<00:31,  5.17it/s]Computing stats from data files:  70%|██████▉   | 380/544 [00:32<00:30,  5.34it/s]Computing stats from data files:  70%|███████   | 381/544 [00:32<00:32,  5.00it/s]Computing stats from data files:  70%|███████   | 382/544 [00:33<00:39,  4.11it/s]Computing stats from data files:  70%|███████   | 383/544 [00:33<00:37,  4.33it/s]Computing stats from data files:  71%|███████   | 384/544 [00:33<00:34,  4.66it/s]Computing stats from data files:  71%|███████   | 385/544 [00:33<00:36,  4.41it/s]Computing stats from data files:  71%|███████   | 386/544 [00:34<00:36,  4.28it/s]Computing stats from data files:  71%|███████   | 387/544 [00:34<00:37,  4.15it/s]Computing stats from data files:  71%|███████▏  | 388/544 [00:34<00:35,  4.35it/s]Computing stats from data files:  72%|███████▏  | 389/544 [00:34<00:36,  4.27it/s]Computing stats from data files:  72%|███████▏  | 390/544 [00:35<00:35,  4.35it/s]Computing stats from data files:  72%|███████▏  | 391/544 [00:35<00:38,  3.93it/s]Computing stats from data files:  73%|███████▎  | 398/544 [00:35<00:11, 13.12it/s]Computing stats from data files:  74%|███████▍  | 402/544 [00:35<00:08, 17.51it/s]Computing stats from data files:  75%|███████▌  | 408/544 [00:35<00:05, 25.44it/s]Computing stats from data files:  76%|███████▌  | 414/544 [00:35<00:04, 32.03it/s]Computing stats from data files:  77%|███████▋  | 421/544 [00:35<00:03, 39.66it/s]Computing stats from data files:  78%|███████▊  | 426/544 [00:36<00:02, 40.03it/s]Computing stats from data files:  79%|███████▉  | 432/544 [00:36<00:02, 42.41it/s]Computing stats from data files:  80%|████████  | 437/544 [00:36<00:02, 41.60it/s]Computing stats from data files:  81%|████████▏ | 442/544 [00:36<00:02, 43.41it/s]Computing stats from data files:  82%|████████▏ | 448/544 [00:36<00:02, 45.85it/s]Computing stats from data files:  83%|████████▎ | 453/544 [00:36<00:01, 45.76it/s]Computing stats from data files:  84%|████████▍ | 459/544 [00:36<00:01, 49.55it/s]Computing stats from data files:  86%|████████▌ | 466/544 [00:36<00:01, 51.50it/s]Computing stats from data files:  87%|████████▋ | 472/544 [00:37<00:02, 26.04it/s]Computing stats from data files:  88%|████████▊ | 477/544 [00:38<00:05, 12.43it/s]Computing stats from data files:  88%|████████▊ | 480/544 [00:38<00:06, 10.00it/s]Computing stats from data files:  89%|████████▉ | 483/544 [00:39<00:07,  8.53it/s]Computing stats from data files:  89%|████████▉ | 485/544 [00:39<00:07,  7.84it/s]Computing stats from data files:  90%|████████▉ | 487/544 [00:40<00:07,  7.60it/s]Computing stats from data files:  90%|████████▉ | 489/544 [00:40<00:07,  7.29it/s]Computing stats from data files:  90%|█████████ | 491/544 [00:40<00:07,  7.49it/s]Computing stats from data files:  91%|█████████ | 493/544 [00:40<00:06,  7.82it/s]Computing stats from data files:  91%|█████████ | 494/544 [00:40<00:06,  7.81it/s]Computing stats from data files:  91%|█████████ | 496/544 [00:41<00:05,  8.44it/s]Computing stats from data files:  91%|█████████▏| 497/544 [00:41<00:05,  8.60it/s]Computing stats from data files:  92%|█████████▏| 498/544 [00:41<00:05,  8.20it/s]Computing stats from data files:  92%|█████████▏| 499/544 [00:41<00:05,  8.20it/s]Computing stats from data files:  92%|█████████▏| 500/544 [00:41<00:06,  6.99it/s]Computing stats from data files:  92%|█████████▏| 501/544 [00:41<00:05,  7.35it/s]Computing stats from data files:  92%|█████████▏| 502/544 [00:41<00:05,  7.38it/s]Computing stats from data files:  92%|█████████▏| 503/544 [00:42<00:05,  7.58it/s]Computing stats from data files:  93%|█████████▎| 504/544 [00:42<00:04,  8.11it/s]Computing stats from data files:  93%|█████████▎| 505/544 [00:42<00:04,  8.50it/s]Computing stats from data files:  93%|█████████▎| 506/544 [00:42<00:04,  8.51it/s]Computing stats from data files:  93%|█████████▎| 507/544 [00:42<00:05,  7.11it/s]Computing stats from data files:  93%|█████████▎| 508/544 [00:42<00:05,  6.42it/s]Computing stats from data files:  94%|█████████▍| 510/544 [00:43<00:04,  7.31it/s]Computing stats from data files:  94%|█████████▍| 511/544 [00:43<00:04,  7.64it/s]Computing stats from data files:  94%|█████████▍| 512/544 [00:43<00:04,  7.85it/s]Computing stats from data files:  94%|█████████▍| 513/544 [00:43<00:04,  6.59it/s]Computing stats from data files:  94%|█████████▍| 514/544 [00:43<00:04,  6.64it/s]Computing stats from data files:  95%|█████████▍| 515/544 [00:43<00:04,  6.52it/s]Computing stats from data files:  95%|█████████▍| 516/544 [00:43<00:04,  6.57it/s]Computing stats from data files:  95%|█████████▌| 517/544 [00:44<00:03,  6.90it/s]Computing stats from data files:  95%|█████████▌| 518/544 [00:44<00:03,  6.99it/s]Computing stats from data files:  95%|█████████▌| 519/544 [00:44<00:03,  7.27it/s]Computing stats from data files:  96%|█████████▌| 520/544 [00:44<00:03,  7.40it/s]Computing stats from data files:  96%|█████████▋| 524/544 [00:44<00:01, 14.68it/s]Computing stats from data files:  98%|█████████▊| 531/544 [00:44<00:00, 27.60it/s]Computing stats from data files:  99%|█████████▊| 536/544 [00:44<00:00, 33.14it/s]Computing stats from data files: 100%|█████████▉| 543/544 [00:44<00:00, 41.80it/s]Computing stats from data files: 100%|██████████| 544/544 [00:44<00:00, 12.11it/s]
+WARNING:lerobot.datasets.utils:Unknown fields in DatasetInfo: ['device_type', 'duration', 'location', 'selection_method', 'source', 'task_id', 'task_prompt', 'timestamp', 'topic_list', 'vendor']. These will be ignored.
+WARNING:lerobot.datasets.utils:Unknown fields in DatasetInfo: ['device_type', 'duration', 'location', 'selection_method', 'source', 'task_id', 'task_prompt', 'timestamp', 'topic_list', 'vendor']. These will be ignored.
+WARNING:lerobot.datasets.utils:Unknown fields in DatasetInfo: ['device_type', 'duration', 'location', 'selection_method', 'source', 'task_id', 'task_prompt', 'timestamp', 'topic_list', 'vendor']. These will be ignored.
+WARNING:lerobot.datasets.utils:Unknown fields in DatasetInfo: ['device_type', 'duration', 'location', 'selection_method', 'source', 'task_id', 'task_prompt', 'timestamp', 'topic_list', 'vendor']. These will be ignored.
+WARNING:lerobot.datasets.utils:Unknown fields in DatasetInfo: ['device_type', 'duration', 'location', 'selection_method', 'source', 'task_id', 'task_prompt', 'timestamp', 'topic_list', 'vendor']. These will be ignored.
+WARNING:lerobot.datasets.utils:Unknown fields in DatasetInfo: ['device_type', 'duration', 'location', 'selection_method', 'source', 'task_id', 'task_prompt', 'timestamp', 'topic_list', 'vendor']. These will be ignored.
+DATASET_COMPLETE {"status": "ok", "dataset": "/data/datasets/piperx-demo558-value1500-a50-top10-union20-v1", "repo_id": "local/piperx-demo558-value1500-a50-top10-union20-v1", "episodes": 7146, "frames": 322261, "hours": 2.9838981481481484, "source_episodes": 544, "source_evaluated": 558, "anchors": 125518, "threshold": 0.01298177246013573, "actual_lerobot_read_checks": 21435, "all_video_full_decode": true, "action_state_exact": true, "quantiles_verified": true, "total_bytes": 5037242537}
+EXPORT_QUEUE_COMPLETE

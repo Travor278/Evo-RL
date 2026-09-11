@@ -1,0 +1,68 @@
+usage: torchrun [-h] [--nnodes NNODES] [--nproc-per-node NPROC_PER_NODE]
+                [--rdzv-backend RDZV_BACKEND] [--rdzv-endpoint RDZV_ENDPOINT]
+                [--rdzv-id RDZV_ID] [--rdzv-conf RDZV_CONF] [--standalone]
+                [--max-restarts MAX_RESTARTS]
+                [--monitor-interval MONITOR_INTERVAL]
+                [--start-method {spawn,fork,forkserver}]
+                [--event-log-handler EVENT_LOG_HANDLER] [--role ROLE] [-m]
+                [--no-python] [--run-path] [--log-dir LOG_DIR] [-r REDIRECTS]
+                [-t TEE] [--local-ranks-filter LOCAL_RANKS_FILTER]
+                [--duplicate-stdout-filters DUPLICATE_STDOUT_FILTERS]
+                [--duplicate-stderr-filters DUPLICATE_STDERR_FILTERS]
+                [--node-rank NODE_RANK] [--master-addr MASTER_ADDR]
+                [--master-port MASTER_PORT] [--local-addr LOCAL_ADDR]
+                [--logs-specs LOGS_SPECS]
+                [--numa-binding {node,socket,exclusive,core-complex}]
+                [--signals-to-handle SIGNALS_TO_HANDLE] [--virtual-local-rank]
+                training_script ...
+torchrun: error: ambiguous option: --run could match --run-path, --run_path
+/data/envs/lerobot-0.6.1/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+[rank0]:[W906 02:18:28.428484681 ProcessGroupNCCL.cpp:5188] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:  63%|██████▎   | 556/888 [00:00<00:00, 5555.90it/s]Loading weights:  47%|████▋     | 417/888 [00:00<00:00, 4156.27it/s]Loading weights:  48%|████▊     | 424/888 [00:00<00:00, 4208.83it/s]Loading weights:  48%|████▊     | 424/888 [00:00<00:00, 4232.67it/s]Loading weights:  51%|█████     | 453/888 [00:00<00:00, 4518.06it/s]Loading weights:  43%|████▎     | 385/888 [00:00<00:00, 3834.18it/s]Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5653.02it/s]
+Loading weights:  40%|███▉      | 353/888 [00:00<00:00, 3526.89it/s]Loading weights:  59%|█████▉    | 523/888 [00:00<00:00, 5220.62it/s]Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5787.26it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5485.84it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5528.64it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 4703.62it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 4854.54it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5418.67it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 4941.91it/s]
+Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 1/236 [00:00<00:58,  4.01it/s]Loading weights:   0%|          | 1/236 [00:00<00:59,  3.96it/s]Loading weights:   0%|          | 1/236 [00:00<00:57,  4.08it/s]Loading weights: 100%|██████████| 236/236 [00:00<00:00, 910.64it/s]Loading weights: 100%|██████████| 236/236 [00:00<00:00, 921.32it/s]
+
+Loading weights:   0%|          | 1/236 [00:00<00:59,  3.95it/s]Loading weights: 100%|██████████| 236/236 [00:00<00:00, 936.33it/s]
+Loading weights: 100%|██████████| 236/236 [00:00<00:00, 890.81it/s]
+The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+Loading weights:   0%|          | 1/236 [00:00<00:55,  4.22it/s]The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+Loading weights: 100%|██████████| 236/236 [00:00<00:00, 956.65it/s]
+Loading weights:   0%|          | 1/236 [00:00<01:00,  3.88it/s]Loading weights: 100%|██████████| 236/236 [00:00<00:00, 892.55it/s]
+The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+Loading weights:   0%|          | 1/236 [00:00<00:58,  3.99it/s]Loading weights: 100%|██████████| 236/236 [00:00<00:00, 917.42it/s]
+The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+Loading weights:   0%|          | 1/236 [00:00<01:08,  3.41it/s]Loading weights: 100%|██████████| 236/236 [00:00<00:00, 787.61it/s]
+The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+{"event": "READY", "task": "piperx_insert_copper_screw", "step": 0, "train_frames": 1132703, "test_frames": 168, "global_batch": 32, "parameters": 1147607163}
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+{"event": "TRAIN", "step": 1, "effective_epoch": 2.8251006662823353e-05, "loss": 5.348638534545898, "grdn": 7.839507579803467, "lr": 1.6666666666666667e-05, "seconds": 9.452254605013877, "memory_gb": 20.495981568}
+{"event": "TRAIN", "step": 2, "effective_epoch": 5.650201332564671e-05, "loss": 5.325078964233398, "grdn": 8.212845802307129, "lr": 3.3333333333333335e-05, "seconds": 3.3943859740393236, "memory_gb": 20.495981568}
+{"event": "TRAIN", "step": 3, "effective_epoch": 8.475301998847006e-05, "loss": 5.243053436279297, "grdn": 6.188239097595215, "lr": 5e-05, "seconds": 3.3882684049895033, "memory_gb": 20.495981568}
+{"event": "EVAL", "step": 3, "effective_epoch": 8.475301998847006e-05, "train": {"frames": 168, "episodes": 56, "ce": 5.118904800642104, "mae": 0.3966769939731984, "rmse": 0.40347127675615607, "episode_mae": 0.39667699397319833, "baseline_mae": 0.06308101190786276, "baseline_rmse": 0.07675688094564644, "mae_remaining_seconds": 196.77823414363795}, "test": {"frames": 168, "episodes": 56, "ce": 5.09731575137093, "mae": 0.3959967675840571, "rmse": 0.40378723965922375, "episode_mae": 0.3959967675840571, "baseline_mae": 0.06571128740463228, "baseline_rmse": 0.08158617877706258, "mae_remaining_seconds": 196.44079650619793}, "best_step": 3, "best_episode_mae": 0.3959967675840571, "bad_evaluations": 0}
+SMOKE_SAVE_RELOAD_OK
+TRAINING_STAGE_COMPLETE

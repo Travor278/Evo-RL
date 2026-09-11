@@ -1,0 +1,11 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:  47%|████▋     | 418/888 [00:00<00:00, 4170.24it/s]Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5757.27it/s]
+Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 1/236 [00:00<01:53,  2.07it/s]Loading weights: 100%|██████████| 236/236 [00:00<00:00, 481.68it/s]
+The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+{"event": "READY", "task": "piperx_insert_copper_screw", "step": 0, "train_frames": 1132703, "test_frames": 56, "global_batch": 1, "parameters": 1147607163}
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+{"event": "TRAIN", "step": 1, "effective_epoch": 8.828439582132298e-07, "loss": 5.368528366088867, "grdn": 33.56053161621094, "lr": 2.5e-05, "seconds": 2.7024659040616825, "memory_gb": 15.812466688}
+{"event": "TRAIN", "step": 2, "effective_epoch": 1.7656879164264596e-06, "loss": 5.407940864562988, "grdn": 43.07878112792969, "lr": 5e-05, "seconds": 1.1702396149048582, "memory_gb": 15.813456384}
+{"event": "EVAL", "step": 2, "effective_epoch": 1.7656879164264596e-06, "train": {"frames": 56, "episodes": 56, "ce": 5.346962119851794, "mae": 0.3465993638549532, "rmse": 0.35298552686611695, "episode_mae": 0.3465993638549532, "baseline_mae": 0.058025047183036804, "baseline_rmse": 0.08446177099304401, "mae_remaining_seconds": 171.9363910963138}, "test": {"frames": 56, "episodes": 56, "ce": 5.323701109204974, "mae": 0.3452631080789225, "rmse": 0.3541455030540746, "episode_mae": 0.3452631080789225, "baseline_mae": 0.061754382348486354, "baseline_rmse": 0.094974085441009, "mae_remaining_seconds": 171.27351914768417}, "best_step": 2, "best_episode_mae": 0.3452631080789225, "bad_evaluations": 0}
+SMOKE_SAVE_RELOAD_OK
+TRAINING_STAGE_COMPLETE

@@ -1,0 +1,32 @@
+[
+  {
+    "task": "piperx_insert_copper_screw",
+    "episodes_checked": 558,
+    "train_frames": 998810,
+    "nonfinite": 0,
+    "duplicate_episode_groups": [],
+    "cross_split_duplicates": 0,
+    "stats_file": "/data/experiments/value-demo3-20260906/train-only-stats/piperx_insert_copper_screw.json",
+    "status": "ok"
+  },
+  {
+    "task": "so101_fold_clothes_left_stack_right",
+    "episodes_checked": 108,
+    "train_frames": 1008484,
+    "nonfinite": 0,
+    "duplicate_episode_groups": [],
+    "cross_split_duplicates": 0,
+    "stats_file": "/data/experiments/value-demo3-20260906/train-only-stats/so101_fold_clothes_left_stack_right.json",
+    "status": "ok"
+  },
+  {
+    "task": "so101_put_stationery_table_into_bag",
+    "episodes_checked": 397,
+    "train_frames": 994331,
+    "nonfinite": 0,
+    "duplicate_episode_groups": [],
+    "cross_split_duplicates": 0,
+    "stats_file": "/data/experiments/value-demo3-20260906/train-only-stats/so101_put_stationery_table_into_bag.json",
+    "status": "ok"
+  }
+]

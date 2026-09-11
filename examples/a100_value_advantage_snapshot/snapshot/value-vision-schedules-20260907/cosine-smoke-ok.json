@@ -1,0 +1,6 @@
+{
+  "status": "ok",
+  "steps": 2,
+  "global_batch": 32,
+  "gpus": "4,5,6,7"
+}

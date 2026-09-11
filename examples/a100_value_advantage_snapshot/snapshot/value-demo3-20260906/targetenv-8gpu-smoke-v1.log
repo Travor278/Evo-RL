@@ -1,0 +1,120 @@
+/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+[rank0]:[W906 03:05:43.259695883 ProcessGroupNCCL.cpp:5138] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+[rank7]: Traceback (most recent call last):
+[rank7]:   File "/data/experiments/value-demo3-20260906/value_experiment.py", line 378, in <module>
+[rank7]:     main()
+[rank7]:   File "/data/experiments/value-demo3-20260906/value_experiment.py", line 266, in main
+[rank7]:     assert args.resume or args.evaluate_checkpoint, 'Refusing to reuse existing experiment without --resume'
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]: AssertionError: Refusing to reuse existing experiment without --resume
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:  47%|████▋     | 415/888 [00:00<00:00, 4148.03it/s]Loading weights:  57%|█████▋    | 502/888 [00:00<00:00, 5019.17it/s]Loading weights:  38%|███▊      | 337/888 [00:00<00:00, 3368.91it/s]Loading weights:  38%|███▊      | 335/888 [00:00<00:00, 3334.61it/s]Loading weights:  45%|████▌     | 402/888 [00:00<00:00, 4015.18it/s]Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5789.85it/s]
+Loading weights:  56%|█████▌    | 495/888 [00:00<00:00, 4948.00it/s]Loading weights:  59%|█████▉    | 527/888 [00:00<00:00, 5269.13it/s]Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5740.77it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5385.80it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5011.44it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 4834.88it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5309.59it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 4941.33it/s]
+Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 1/236 [00:00<02:21,  1.66it/s]Loading weights:   0%|          | 1/236 [00:00<02:15,  1.73it/s]Loading weights:   0%|          | 1/236 [00:00<02:18,  1.70it/s]Loading weights: 100%|██████████| 236/236 [00:00<00:00, 386.75it/s]
+Loading weights: 100%|██████████| 236/236 [00:00<00:00, 404.72it/s]
+Loading weights: 100%|██████████| 236/236 [00:00<00:00, 396.38it/s]
+Loading weights:   0%|          | 1/236 [00:01<04:12,  1.08s/it]Loading weights:   0%|          | 1/236 [00:01<04:06,  1.05s/it]Loading weights: 100%|██████████| 236/236 [00:01<00:00, 217.88it/s]
+Loading weights:   0%|          | 1/236 [00:01<03:56,  1.01s/it]Loading weights: 100%|██████████| 236/236 [00:01<00:00, 223.49it/s]
+Loading weights: 100%|██████████| 236/236 [00:01<00:00, 232.58it/s]
+Loading weights:   0%|          | 1/236 [00:01<04:00,  1.02s/it]Loading weights: 100%|██████████| 236/236 [00:01<00:00, 228.74it/s]
+W0906 03:05:46.956000 4079617 venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 4079668 closing signal SIGTERM
+W0906 03:05:46.958000 4079617 venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 4079669 closing signal SIGTERM
+W0906 03:05:46.958000 4079617 venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 4079670 closing signal SIGTERM
+W0906 03:05:46.959000 4079617 venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 4079671 closing signal SIGTERM
+W0906 03:05:46.959000 4079617 venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 4079672 closing signal SIGTERM
+W0906 03:05:46.960000 4079617 venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 4079673 closing signal SIGTERM
+W0906 03:05:46.960000 4079617 venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/api.py:1010] Sending process 4079674 closing signal SIGTERM
+E0906 03:05:48.518000 4079617 venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/api.py:984] failed (exitcode: 1) local_rank: 7 (pid: 4079675) of binary: /data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/bin/python
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/run.py", line 995, in <module>
+    main()
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/run.py", line 991, in main
+    run(args)
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/run.py", line 982, in run
+    elastic_launch(
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+value_experiment.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-09-06_03:05:48
+  host      : ecs-36477934-002
+  rank      : 0 (local_rank: 0)
+  exitcode  : -15 (pid: 4079668)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 4079668
+[2]:
+  time      : 2026-09-06_03:05:48
+  host      : ecs-36477934-002
+  rank      : 1 (local_rank: 1)
+  exitcode  : -15 (pid: 4079669)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 4079669
+[3]:
+  time      : 2026-09-06_03:05:48
+  host      : ecs-36477934-002
+  rank      : 2 (local_rank: 2)
+  exitcode  : -15 (pid: 4079670)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 4079670
+[4]:
+  time      : 2026-09-06_03:05:48
+  host      : ecs-36477934-002
+  rank      : 3 (local_rank: 3)
+  exitcode  : -15 (pid: 4079671)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 4079671
+[5]:
+  time      : 2026-09-06_03:05:48
+  host      : ecs-36477934-002
+  rank      : 4 (local_rank: 4)
+  exitcode  : -15 (pid: 4079672)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 4079672
+[6]:
+  time      : 2026-09-06_03:05:48
+  host      : ecs-36477934-002
+  rank      : 5 (local_rank: 5)
+  exitcode  : -15 (pid: 4079673)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 4079673
+[7]:
+  time      : 2026-09-06_03:05:48
+  host      : ecs-36477934-002
+  rank      : 6 (local_rank: 6)
+  exitcode  : -15 (pid: 4079674)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 4079674
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-09-06_03:05:46
+  host      : ecs-36477934-002
+  rank      : 7 (local_rank: 7)
+  exitcode  : 1 (pid: 4079675)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

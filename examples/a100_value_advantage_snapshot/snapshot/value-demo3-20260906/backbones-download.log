@@ -1,0 +1,7 @@
+DOWNLOAD_START repo=google/siglip-so400m-patch14-384 revision=9fdffc58afc957d1a03a25b10dba0329ab15c2a3
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files:  14%|█▍        | 1/7 [00:00<00:04,  1.48it/s]Fetching 7 files:  43%|████▎     | 3/7 [00:01<00:01,  2.18it/s]Fetching 7 files:  57%|█████▋    | 4/7 [00:02<00:01,  1.54it/s]Fetching 7 files:  71%|███████▏  | 5/7 [00:02<00:00,  2.00it/s]Fetching 7 files:  86%|████████▌ | 6/7 [00:03<00:00,  1.67it/s]Fetching 7 files: 100%|██████████| 7/7 [03:12<00:00, 59.71s/it]Fetching 7 files: 100%|██████████| 7/7 [03:12<00:00, 27.44s/it]
+DOWNLOAD_COMPLETE repo=google/siglip-so400m-patch14-384
+DOWNLOAD_START repo=google/gemma-3-270m revision=9b0cfec892e2bc2afd938c98eabe4e4a7b1e0ca1
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files:  12%|█▎        | 1/8 [00:00<00:03,  2.02it/s]Fetching 8 files:  38%|███▊      | 3/8 [00:00<00:01,  4.22it/s]Fetching 8 files:  50%|█████     | 4/8 [00:01<00:01,  3.97it/s]Fetching 8 files:  62%|██████▎   | 5/8 [00:06<00:06,  2.10s/it]Fetching 8 files:  88%|████████▊ | 7/8 [00:07<00:01,  1.24s/it]Fetching 8 files: 100%|██████████| 8/8 [00:31<00:00,  7.21s/it]Fetching 8 files: 100%|██████████| 8/8 [00:31<00:00,  4.00s/it]
+DOWNLOAD_COMPLETE repo=google/gemma-3-270m
+ALL_BACKBONES_COMPLETE

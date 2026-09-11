@@ -1,0 +1,321 @@
+UPLOAD_CANDIDATES 2728 5037243045
+
+
+
+---------- 2026-09-08 16:55:18 (0:00:00) ----------
+Files:   hashed 1/2728 (1.4K/5.0G) | pre-uploaded: 0/0 (0.0/5.0G) (+2728 unsure) | committed: 0/2728 (0.0/5.0G) | ignored: 0
+Workers: hashing: 4 | get upload mode: 0 | pre-uploading: 0 | committing: 0 | waiting: 0
+---------------------------------------------------
+[K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 16:55:48 (0:00:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 55/2722 (201.2M/5.0G) | committed: 0/2728 (0.0/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 16:56:18 (0:01:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 138/2722 (544.0M/5.0G) | committed: 0/2728 (0.0/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             /data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/huggingface_hub/hf_api.py:10973: UserWarning: Warnings while validating metadata in README.md:
+- empty or missing yaml metadata in repo card
+  warnings.warn(f"Warnings while validating metadata in README.md:\n{message}")
+[K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 16:56:48 (0:01:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 208/2722 (813.9M/5.0G) | committed: 125/2728 (467.1M/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 16:57:18 (0:02:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 293/2722 (1.1G/5.0G) | committed: 225/2728 (863.1M/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 16:57:48 (0:02:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 382/2722 (1.4G/5.0G) | committed: 350/2728 (1.3G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 16:58:18 (0:03:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 474/2722 (1.7G/5.0G) | committed: 350/2728 (1.3G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             HTTP Error 502 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/batch
+WARNING:huggingface_hub.utils._http:HTTP Error 502 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/batch
+Retrying in 1s [Retry 1/5].
+WARNING:huggingface_hub.utils._http:Retrying in 1s [Retry 1/5].
+[K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 16:58:48 (0:03:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 528/2722 (1.9G/5.0G) | committed: 500/2728 (1.8G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 16:59:18 (0:04:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 553/2722 (2.0G/5.0G) | committed: 500/2728 (1.8G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 16:59:48 (0:04:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 569/2722 (2.0G/5.0G) | committed: 500/2728 (1.8G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:00:18 (0:05:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 582/2722 (2.1G/5.0G) | committed: 500/2728 (1.8G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:00:48 (0:05:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 616/2722 (2.1G/5.0G) | committed: 500/2728 (1.8G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:01:18 (0:06:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 691/2722 (2.4G/5.0G) | committed: 650/2728 (2.2G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:01:48 (0:06:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 774/2722 (2.6G/5.0G) | committed: 650/2728 (2.2G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:02:18 (0:07:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 863/2722 (2.8G/5.0G) | committed: 800/2728 (2.6G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+WARNING:huggingface_hub.utils._http:HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+Rate limited. Waiting 25.0s before retry [Retry 1/5].
+WARNING:huggingface_hub.utils._http:Rate limited. Waiting 25.0s before retry [Retry 1/5].
+HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/batch
+WARNING:huggingface_hub.utils._http:HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/batch
+Rate limited. Waiting 25.0s before retry [Retry 1/5].
+WARNING:huggingface_hub.utils._http:Rate limited. Waiting 25.0s before retry [Retry 1/5].
+HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+WARNING:huggingface_hub.utils._http:HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+Rate limited. Waiting 24.0s before retry [Retry 1/5].
+WARNING:huggingface_hub.utils._http:Rate limited. Waiting 24.0s before retry [Retry 1/5].
+HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+WARNING:huggingface_hub.utils._http:HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+Rate limited. Waiting 24.0s before retry [Retry 1/5].
+WARNING:huggingface_hub.utils._http:Rate limited. Waiting 24.0s before retry [Retry 1/5].
+[K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:02:48 (0:07:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 909/2722 (2.9G/5.0G) | committed: 800/2728 (2.6G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:03:18 (0:08:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 957/2722 (3.0G/5.0G) | committed: 950/2728 (2.9G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:03:48 (0:08:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 1028/2722 (3.1G/5.0G) | committed: 950/2728 (2.9G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:04:18 (0:09:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 1107/2722 (3.3G/5.0G) | committed: 1100/2728 (3.3G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:04:48 (0:09:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 1188/2722 (3.6G/5.0G) | committed: 1100/2728 (3.3G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:05:18 (0:10:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 1250/2722 (3.8G/5.0G) | committed: 1250/2728 (3.8G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:05:48 (0:10:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 1332/2722 (4.1G/5.0G) | committed: 1250/2728 (3.8G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+WARNING:huggingface_hub.utils._http:HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+Rate limited. Waiting 102.0s before retry [Retry 1/5].
+WARNING:huggingface_hub.utils._http:Rate limited. Waiting 102.0s before retry [Retry 1/5].
+HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+WARNING:huggingface_hub.utils._http:HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+Rate limited. Waiting 102.0s before retry [Retry 1/5].
+WARNING:huggingface_hub.utils._http:Rate limited. Waiting 102.0s before retry [Retry 1/5].
+HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/batch
+WARNING:huggingface_hub.utils._http:HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/batch
+Rate limited. Waiting 102.0s before retry [Retry 1/5].
+WARNING:huggingface_hub.utils._http:Rate limited. Waiting 102.0s before retry [Retry 1/5].
+HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+WARNING:huggingface_hub.utils._http:HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+Rate limited. Waiting 102.0s before retry [Retry 1/5].
+WARNING:huggingface_hub.utils._http:Rate limited. Waiting 102.0s before retry [Retry 1/5].
+[K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:06:18 (0:11:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 1406/2722 (4.3G/5.0G) | committed: 1400/2728 (4.3G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:06:48 (0:11:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 1406/2722 (4.3G/5.0G) | committed: 1400/2728 (4.3G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:07:18 (0:12:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 1406/2722 (4.3G/5.0G) | committed: 1400/2728 (4.3G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:07:48 (0:12:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 1406/2722 (4.3G/5.0G) | committed: 1400/2728 (4.3G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:08:18 (0:13:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 1458/2722 (4.5G/5.0G) | committed: 1400/2728 (4.3G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:08:48 (0:13:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 1546/2722 (4.7G/5.0G) | committed: 1400/2728 (4.3G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 3 | committing: 1 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:09:18 (0:14:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 1629/2722 (5.0G/5.0G) | committed: 1550/2728 (4.7G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:09:48 (0:14:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 1743/2722 (5.0G/5.0G) | committed: 1700/2728 (5.0G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:10:18 (0:15:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 1855/2722 (5.0G/5.0G) | committed: 1850/2728 (5.0G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/batch
+WARNING:huggingface_hub.utils._http:HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/batch
+Rate limited. Waiting 147.0s before retry [Retry 1/5].
+WARNING:huggingface_hub.utils._http:Rate limited. Waiting 147.0s before retry [Retry 1/5].
+HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+WARNING:huggingface_hub.utils._http:HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+Rate limited. Waiting 147.0s before retry [Retry 1/5].
+WARNING:huggingface_hub.utils._http:Rate limited. Waiting 147.0s before retry [Retry 1/5].
+HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/batch
+WARNING:huggingface_hub.utils._http:HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/batch
+Rate limited. Waiting 147.0s before retry [Retry 1/5].
+WARNING:huggingface_hub.utils._http:Rate limited. Waiting 147.0s before retry [Retry 1/5].
+HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+WARNING:huggingface_hub.utils._http:HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+Rate limited. Waiting 147.0s before retry [Retry 1/5].
+WARNING:huggingface_hub.utils._http:Rate limited. Waiting 147.0s before retry [Retry 1/5].
+[K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:10:48 (0:15:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 1903/2722 (5.0G/5.0G) | committed: 1850/2728 (5.0G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:11:18 (0:16:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 1903/2722 (5.0G/5.0G) | committed: 1850/2728 (5.0G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:11:48 (0:16:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 1903/2722 (5.0G/5.0G) | committed: 1850/2728 (5.0G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:12:18 (0:17:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 1903/2722 (5.0G/5.0G) | committed: 1850/2728 (5.0G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:12:48 (0:17:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 1903/2722 (5.0G/5.0G) | committed: 1850/2728 (5.0G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:13:18 (0:18:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 1966/2722 (5.0G/5.0G) | committed: 1850/2728 (5.0G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:13:48 (0:18:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 2070/2722 (5.0G/5.0G) | committed: 2000/2728 (5.0G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:14:18 (0:19:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 2172/2722 (5.0G/5.0G) | committed: 2150/2728 (5.0G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:14:48 (0:19:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 2266/2722 (5.0G/5.0G) | committed: 2150/2728 (5.0G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:15:18 (0:20:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 2359/2722 (5.0G/5.0G) | committed: 2300/2728 (5.0G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+WARNING:huggingface_hub.utils._http:HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+Rate limited. Waiting 147.0s before retry [Retry 1/5].
+WARNING:huggingface_hub.utils._http:Rate limited. Waiting 147.0s before retry [Retry 1/5].
+HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+WARNING:huggingface_hub.utils._http:HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+Rate limited. Waiting 146.0s before retry [Retry 1/5].
+WARNING:huggingface_hub.utils._http:Rate limited. Waiting 146.0s before retry [Retry 1/5].
+HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+WARNING:huggingface_hub.utils._http:HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+Rate limited. Waiting 146.0s before retry [Retry 1/5].
+WARNING:huggingface_hub.utils._http:Rate limited. Waiting 146.0s before retry [Retry 1/5].
+HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+WARNING:huggingface_hub.utils._http:HTTP Error 429 thrown while requesting POST https://hf-mirror.com/datasets/Elvinky/piperx-demo558-value1500-a50-top10-union20-v1.git/info/lfs/objects/verify
+Rate limited. Waiting 146.0s before retry [Retry 1/5].
+WARNING:huggingface_hub.utils._http:Rate limited. Waiting 146.0s before retry [Retry 1/5].
+[K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:15:48 (0:20:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 2400/2722 (5.0G/5.0G) | committed: 2300/2728 (5.0G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:16:18 (0:21:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 2400/2722 (5.0G/5.0G) | committed: 2300/2728 (5.0G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:16:48 (0:21:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 2400/2722 (5.0G/5.0G) | committed: 2300/2728 (5.0G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:17:18 (0:22:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 2400/2722 (5.0G/5.0G) | committed: 2300/2728 (5.0G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:17:48 (0:22:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 2400/2722 (5.0G/5.0G) | committed: 2300/2728 (5.0G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:18:18 (0:23:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 2465/2722 (5.0G/5.0G) | committed: 2450/2728 (5.0G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:18:48 (0:23:30) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 2563/2722 (5.0G/5.0G) | committed: 2450/2728 (5.0G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             [K[F[K[F[K[F[K[F[K[F[K[F[K[F
+---------- 2026-09-08 17:19:18 (0:24:00) ----------
+Files:   hashed 2728/2728 (5.0G/5.0G) | pre-uploaded: 2658/2722 (5.0G/5.0G) | committed: 2600/2728 (5.0G/5.0G) | ignored: 0
+Workers: hashing: 0 | get upload mode: 0 | pre-uploading: 4 | committing: 0 | waiting: 0
+---------------------------------------------------
+                             UPLOAD_RETURNED_BEGIN_VERIFY
+UPLOAD_VERIFIED {"status": "ok", "repo_id": "Elvinky/piperx-demo558-value1500-a50-top10-union20-v1", "private": false, "revision": "d22a0299d1ae58997754e113785cf6c5e97402ff", "files_expected": 2728, "files_seen": 2728, "total_bytes": 5037243045, "missing": [], "size_bad": [], "hash_bad": [], "unexpected": [], "endpoint": "https://hf-mirror.com", "verification": "Remote file tree at fixed revision; LFS SHA256 or git blob SHA1 matched per file", "finished_at": 1788859189.8795447}

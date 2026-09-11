@@ -1,0 +1,34 @@
+{
+  "status": "metadata_ok",
+  "summaries": {
+    "demo_train": {
+      "episodes": 502,
+      "frames": 1132703,
+      "max_cost": 7440.0,
+      "takeovers": 0
+    },
+    "demo_test": {
+      "episodes": 56,
+      "frames": 123026,
+      "max_cost": 5752.0,
+      "takeovers": 0
+    },
+    "hil_train": {
+      "episodes": 127,
+      "frames": 809459,
+      "max_cost": 15337.0,
+      "takeovers": 545
+    },
+    "hil_test": {
+      "episodes": 14,
+      "frames": 95789,
+      "max_cost": 12316.0,
+      "takeovers": 71
+    }
+  },
+  "scale": 15337.0,
+  "exact_action_state_duplicate_pairs": [],
+  "split_leakage_note": "Exact whole-trajectory fingerprint check only; similar scenes/session correlation still possible",
+  "unit_tests": "reward boundaries and deterministic 1:1 sampler passed",
+  "manifest_sha256": "d38574b6fdbad834c767d9218b723f5dd58a65c8d1b558222b40af1af5938423"
+}

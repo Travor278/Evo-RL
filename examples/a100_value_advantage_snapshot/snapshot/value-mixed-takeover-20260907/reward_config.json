@@ -1,0 +1,19 @@
+{
+  "status": "approved_design_pending_training_preflight",
+  "nonterminal_reward": -1,
+  "successful_terminal_reward": 0,
+  "takeover_penalty": 150,
+  "takeover_event": "autonomous-to-human transition; cost assigned to preceding autonomous frame; no initial-human penalty; terminal boundary excluded",
+  "gamma": 1.0,
+  "normalization": "max_train_cumulative_cost",
+  "normalization_multiplier": 1,
+  "expected_return_scale": 15337,
+  "expected_max_heldout_cost": 12316,
+  "shared_scale_across_sources": true,
+  "fit_scale_on": "training_episodes_only",
+  "out_of_support": "raise_error_no_clipping_no_heldout_rescaling",
+  "value_min": -1.0,
+  "value_max": 0.0,
+  "num_bins": 201,
+  "targets": "two_hot"
+}

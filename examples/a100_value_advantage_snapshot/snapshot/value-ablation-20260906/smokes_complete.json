@@ -1,0 +1,11 @@
+{
+  "variants": [
+    "frozen_both",
+    "frozen_language",
+    "task_only",
+    "vision_only",
+    "full"
+  ],
+  "steps": 2,
+  "forward_backward_frozen_gradients_save_reload": "passed"
+}

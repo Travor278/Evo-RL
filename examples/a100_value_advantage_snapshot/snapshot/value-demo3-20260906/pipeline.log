@@ -1,0 +1,8 @@
+PIPELINE_WAITING_FOR_ENVIRONMENT
+TARGET_ENVIRONMENT_VERIFIED {'lerobot': '0.6.1', 'torch': '2.10.0+cu128', 'torchvision': '0.25.0+cu128', 'transformers': '5.3.0', 'accelerate': '1.13.0', 'datasets': '4.8.5', 'av': '15.1.0'}
+No broken requirements found.
+PIPELINE_WAITING_FOR_ENVIRONMENT
+TARGET_ENVIRONMENT_VERIFIED {'lerobot': '0.6.1', 'torch': '2.10.0+cu128', 'torchvision': '0.25.0+cu128', 'transformers': '5.3.0', 'accelerate': '1.13.0', 'datasets': '4.8.5', 'av': '15.1.0'}
+No broken requirements found.
+TARGET_8GPU_SMOKE_PASSED
+FORMAL_TRAIN_START task=piperx_insert_copper_screw run=piperx_insert_copper_screw-bf16-gb32-seed1000-pilot8k-v1

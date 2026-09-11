@@ -1,0 +1,25 @@
+waiting_for_verified_transfer
+data_preflight
+failed
+Traceback (most recent call last):
+  File "/data/experiments/value-mixed-takeover-20260907/run_experiment.py", line 65, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data/experiments/value-mixed-takeover-20260907/run_experiment.py", line 35, in main
+    state('data_preflight');execute([PY,str(ROOT/'preflight.py')],'preflight.log')
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/experiments/value-mixed-takeover-20260907/run_experiment.py", line 29, in execute
+    with (ROOT/'logs'/log).open('a') as f:subprocess.run(cmd,env=env,cwd=ROOT,stdout=f,stderr=subprocess.STDOUT,check=True)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/bin/python', '/data/experiments/value-mixed-takeover-20260907/preflight.py']' returned non-zero exit status 1.
+waiting_for_verified_transfer
+data_preflight
+waiting_for_free_gpu_group
+smoke
+training
+dense_review
+value_training_and_dense_complete
+advantage_evaluation
+complete_pending_human_review

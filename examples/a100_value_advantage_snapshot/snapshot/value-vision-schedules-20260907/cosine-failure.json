@@ -1,0 +1,4 @@
+{
+  "error": "CalledProcessError: Command '['/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/bin/python', '-m', 'torch.distributed.run', '--nproc_per_node=4', '--master_port=29732', '/data/experiments/value-vision-schedules-20260907/train_lean_value.py', '--task', 'piperx_insert_copper_screw', '--variant', 'vision_only', '--run', 'piperx-visionlean-cosine-fixed2-seed1000-smoke', '--steps', '2', '--lr-schedule', 'cosine', '--seed', '1000', '--batch-size', '8', '--workers', '2', '--peak-lr', '5e-5', '--min-lr', '1e-6', '--warmup', '1', '--eval-every', '2', '--eval-frames', '2', '--smoke']' returned non-zero exit status 2.",
+  "at": 1788712703.3020132
+}

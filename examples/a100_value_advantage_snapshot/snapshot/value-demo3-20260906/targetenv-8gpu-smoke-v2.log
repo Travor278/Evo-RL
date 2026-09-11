@@ -1,0 +1,42 @@
+/data/experiments/value-demo3-20260906/venv-py312-torch210-cu128/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+[rank0]:[W906 07:09:21.903318158 ProcessGroupNCCL.cpp:5138] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:   0%|          | 0/888 [00:00<?, ?it/s]Loading weights:  47%|████▋     | 419/888 [00:00<00:00, 4181.72it/s]Loading weights:  39%|███▊      | 344/888 [00:00<00:00, 3439.05it/s]Loading weights:  61%|██████    | 542/888 [00:00<00:00, 5413.96it/s]Loading weights:  52%|█████▏    | 462/888 [00:00<00:00, 4614.10it/s]Loading weights:  49%|████▉     | 434/888 [00:00<00:00, 4328.91it/s]Loading weights:  57%|█████▋    | 503/888 [00:00<00:00, 5028.11it/s]Loading weights:  60%|█████▉    | 529/888 [00:00<00:00, 5288.24it/s]Loading weights:  52%|█████▏    | 461/888 [00:00<00:00, 4606.31it/s]Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5766.96it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5756.63it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5381.73it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5316.45it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5432.68it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 5302.25it/s]
+Loading weights: 100%|██████████| 888/888 [00:00<00:00, 4985.66it/s]
+Loading weights:  94%|█████████▍| 838/888 [00:00<00:00, 4002.13it/s]Loading weights: 100%|██████████| 888/888 [00:00<00:00, 4176.04it/s]
+Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 0/236 [00:00<?, ?it/s]Loading weights:   0%|          | 1/236 [00:00<02:14,  1.75it/s]Loading weights:   0%|          | 1/236 [00:00<02:07,  1.84it/s]Loading weights:   0%|          | 1/236 [00:00<02:05,  1.87it/s]Loading weights:   0%|          | 1/236 [00:00<02:02,  1.92it/s]Loading weights: 100%|██████████| 236/236 [00:00<00:00, 407.85it/s]
+Loading weights: 100%|██████████| 236/236 [00:00<00:00, 429.97it/s]
+Loading weights: 100%|██████████| 236/236 [00:00<00:00, 436.41it/s]
+Loading weights: 100%|██████████| 236/236 [00:00<00:00, 447.86it/s]
+Loading weights:   0%|          | 1/236 [00:01<04:55,  1.26s/it]Loading weights: 100%|██████████| 236/236 [00:01<00:00, 186.86it/s]
+Loading weights:   0%|          | 1/236 [00:01<05:00,  1.28s/it]Loading weights:   0%|          | 1/236 [00:01<04:59,  1.28s/it]Loading weights: 100%|██████████| 236/236 [00:01<00:00, 183.71it/s]
+Loading weights:   0%|          | 1/236 [00:01<04:57,  1.27s/it]Loading weights: 100%|██████████| 236/236 [00:01<00:00, 184.00it/s]
+Loading weights: 100%|██████████| 236/236 [00:01<00:00, 185.41it/s]
+{"event": "READY", "task": "piperx_insert_copper_screw", "step": 0, "train_frames": 1132703, "test_frames": 168, "global_batch": 32, "parameters": 1147607163}
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+{"event": "TRAIN", "step": 1, "effective_epoch": 2.8251006662823353e-05, "loss": 5.351813316345215, "grdn": 7.848761558532715, "lr": 1.6666666666666667e-05, "seconds": 9.814107859972864, "memory_gb": 20.495981568}
+{"event": "TRAIN", "step": 2, "effective_epoch": 5.650201332564671e-05, "loss": 5.33645486831665, "grdn": 7.934524059295654, "lr": 3.3333333333333335e-05, "seconds": 3.3843466789694503, "memory_gb": 20.495981568}
+{"event": "TRAIN", "step": 3, "effective_epoch": 8.475301998847006e-05, "loss": 5.2444024085998535, "grdn": 5.844527721405029, "lr": 5e-05, "seconds": 3.374955945997499, "memory_gb": 20.495981568}
+{"event": "EVAL", "step": 3, "effective_epoch": 8.475301998847006e-05, "train": {"frames": 168, "episodes": 56, "ce": 5.132357205663409, "mae": 0.39819602774722235, "rmse": 0.404975361973457, "episode_mae": 0.39819602774722235, "baseline_mae": 0.06308101190786276, "baseline_rmse": 0.07675688094564644, "mae_remaining_seconds": 197.5317761644721}, "test": {"frames": 168, "episodes": 56, "ce": 5.108231967403775, "mae": 0.39755390948128133, "rmse": 0.40532409946813325, "episode_mae": 0.3975539094812813, "baseline_mae": 0.06571128740463228, "baseline_rmse": 0.08158617877706258, "mae_remaining_seconds": 197.21324269668096}, "best_step": 3, "best_episode_mae": 0.3975539094812813, "bad_evaluations": 0}
+SMOKE_SAVE_RELOAD_OK
+TRAINING_STAGE_COMPLETE
